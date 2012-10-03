@@ -76,12 +76,6 @@ namespace buh_02
             }
         }
 
-
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-            edit_element();
-        }
-
         private void edit_element()
         {
             if (dataGridView1.CurrentRow != null)
@@ -109,19 +103,6 @@ namespace buh_02
 
             saveData("data.xml");
         }
-
-
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.CurrentRow != null)
-            {
-                cashInOutBindingSource.RemoveCurrent();
-                saveData("data.xml");
-            }
-        }
-
-
-
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -155,8 +136,6 @@ namespace buh_02
                 label2.Text = "Доход (" + i.ToString() + ") - Расход (" + y.ToString() + ") = " + (i - y).ToString();
             }
         }
-
-
 
         private void filter()
         {
@@ -198,51 +177,34 @@ namespace buh_02
             cashInOutBindingSource.RemoveFilter();
         }
 
-        private void toolStripButton4_Click(object sender, EventArgs e)
-        {
-            filter();
-        }
-
-        private void toolStripButton5_Click_2(object sender, EventArgs e)
-        {
-            removeFilter();
-        }
-
-        private void toolStripButton8_Click(object sender, EventArgs e)
-        {
-            saveData("data.xml");
-            Application.Exit();
-        }
-
         private void toolStripSplitButton1_ButtonClick(object sender, EventArgs e)
         {
-            toolStripSplitButton1.ShowDropDown();
+            SettingsTSB.ShowDropDown();
         }
 
         private void toolStripSplitButton2_ButtonClick(object sender, EventArgs e)
         {
-            element.InOut = "Доход";
-            element.Date = DateTime.Today;
-            element.Category = "";
-            element.Sum = 0;
-            element.Comment = "";
-
-            add_element();
+            add_element("Доход");
         }
 
         private void доходToolStripMenuItem_Click(object sender, EventArgs e)
+        {    
+            add_element("Доход");
+        }
+
+        private void расходToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            element.InOut = "Доход";
+            add_element("Расход");
+        }
+
+        private void add_element(string inOut)
+        {
+            element.InOut = inOut;
             element.Date = DateTime.Today;
             element.Category = "";
             element.Sum = 0;
             element.Comment = "";
 
-            add_element();
-        }
-
-        private void add_element()
-        {
             AddEdit addEdit = new AddEdit();
             addEdit.ShowDialog();
 
@@ -254,22 +216,6 @@ namespace buh_02
             saveData("data.xml");
         }
 
-        private void расходToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            element.InOut = "Расход";
-            element.Date = DateTime.Today;
-            element.Category = "";
-            element.Sum = 0;
-            element.Comment = "";
-
-            add_element();
-        }
-
-        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AboutBox1 about = new AboutBox1();
-            about.ShowDialog();
-        }
 
         private void dataGridView1_Paint(object sender, PaintEventArgs e)
         {
@@ -286,6 +232,41 @@ namespace buh_02
         private void toolStripComboBox1_TextChanged(object sender, EventArgs e)
         {
             filter();
+        }
+
+        private void EditTSB_Click(object sender, EventArgs e)
+        {
+            edit_element();
+        }
+
+        private void FilterTSB_Click(object sender, EventArgs e)
+        {
+            filter();
+        }
+
+        private void FilterClearTSB_Click(object sender, EventArgs e)
+        {
+            removeFilter();
+        }
+
+        private void DeleteTSB_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow != null)
+            {
+                cashInOutBindingSource.RemoveCurrent();
+                saveData("data.xml");
+            }
+        }
+
+        private void AboutProgramTSB_Click(object sender, EventArgs e)
+        {
+            AboutBox1 about = new AboutBox1();
+            about.ShowDialog();
+        }
+
+        private void ExitTSB_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
     }

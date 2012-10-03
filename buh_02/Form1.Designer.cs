@@ -30,20 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
             this.доходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.расходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.EditTSB = new System.Windows.Forms.ToolStripButton();
             this.DeleteTSB = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
-            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FilterTSB = new System.Windows.Forms.ToolStripButton();
+            this.FilterClearTSB = new System.Windows.Forms.ToolStripButton();
+            this.ExitTSB = new System.Windows.Forms.ToolStripButton();
+            this.SettingsTSB = new System.Windows.Forms.ToolStripSplitButton();
+            this.AboutProgramTSB = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -72,19 +75,19 @@
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSplitButton2,
-            this.toolStripButton2,
+            this.EditTSB,
             this.DeleteTSB,
             this.toolStripSeparator2,
             this.toolStripComboBox1,
-            this.toolStripButton4,
-            this.toolStripButton5,
-            this.toolStripButton8,
-            this.toolStripSplitButton1});
+            this.FilterTSB,
+            this.FilterClearTSB,
+            this.ExitTSB,
+            this.SettingsTSB});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(884, 25);
             this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.Text = "Добавить";
             // 
             // toolStripSplitButton2
             // 
@@ -112,14 +115,14 @@
             this.расходToolStripMenuItem.Text = "Расход";
             this.расходToolStripMenuItem.Click += new System.EventHandler(this.расходToolStripMenuItem_Click);
             // 
-            // toolStripButton2
+            // EditTSB
             // 
-            this.toolStripButton2.Image = global::buh_02.Properties.Resources.edit_32x32;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(107, 22);
-            this.toolStripButton2.Text = "Редактировать";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            this.EditTSB.Image = global::buh_02.Properties.Resources.edit_32x32;
+            this.EditTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.EditTSB.Name = "EditTSB";
+            this.EditTSB.Size = new System.Drawing.Size(107, 22);
+            this.EditTSB.Text = "Редактировать";
+            this.EditTSB.Click += new System.EventHandler(this.EditTSB_Click);
             // 
             // DeleteTSB
             // 
@@ -128,7 +131,7 @@
             this.DeleteTSB.Name = "DeleteTSB";
             this.DeleteTSB.Size = new System.Drawing.Size(71, 22);
             this.DeleteTSB.Text = "Удалить";
-            this.DeleteTSB.Click += new System.EventHandler(this.toolStripButton3_Click);
+            this.DeleteTSB.Click += new System.EventHandler(this.DeleteTSB_Click);
             // 
             // toolStripSeparator2
             // 
@@ -144,55 +147,55 @@
             this.toolStripComboBox1.Size = new System.Drawing.Size(250, 25);
             this.toolStripComboBox1.TextChanged += new System.EventHandler(this.toolStripComboBox1_TextChanged);
             // 
-            // toolStripButton4
+            // FilterTSB
             // 
-            this.toolStripButton4.Image = global::buh_02.Properties.Resources.filter_32x32;
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(68, 22);
-            this.toolStripButton4.Text = "Фильтр";
-            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
+            this.FilterTSB.Image = global::buh_02.Properties.Resources.filter_32x32;
+            this.FilterTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.FilterTSB.Name = "FilterTSB";
+            this.FilterTSB.Size = new System.Drawing.Size(68, 22);
+            this.FilterTSB.Text = "Фильтр";
+            this.FilterTSB.Click += new System.EventHandler(this.FilterTSB_Click);
             // 
-            // toolStripButton5
+            // FilterClearTSB
             // 
-            this.toolStripButton5.Image = global::buh_02.Properties.Resources.expand_32x32;
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(128, 22);
-            this.toolStripButton5.Text = "Отчистить фильтр";
-            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click_2);
+            this.FilterClearTSB.Image = global::buh_02.Properties.Resources.expand_32x32;
+            this.FilterClearTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.FilterClearTSB.Name = "FilterClearTSB";
+            this.FilterClearTSB.Size = new System.Drawing.Size(128, 22);
+            this.FilterClearTSB.Text = "Отчистить фильтр";
+            this.FilterClearTSB.Click += new System.EventHandler(this.FilterClearTSB_Click);
             // 
-            // toolStripButton8
+            // ExitTSB
             // 
-            this.toolStripButton8.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton8.Image = global::buh_02.Properties.Resources.door_32x32;
-            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton8.Text = "Выход";
-            this.toolStripButton8.Click += new System.EventHandler(this.toolStripButton8_Click);
+            this.ExitTSB.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.ExitTSB.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ExitTSB.Image = global::buh_02.Properties.Resources.door_32x32;
+            this.ExitTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ExitTSB.Name = "ExitTSB";
+            this.ExitTSB.Size = new System.Drawing.Size(23, 22);
+            this.ExitTSB.Text = "Выход";
+            this.ExitTSB.Click += new System.EventHandler(this.ExitTSB_Click);
             // 
-            // toolStripSplitButton1
+            // SettingsTSB
             // 
-            this.toolStripSplitButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.оПрограммеToolStripMenuItem});
-            this.toolStripSplitButton1.Image = global::buh_02.Properties.Resources.gear_wheel_32x32;
-            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 22);
-            this.toolStripSplitButton1.Text = "toolStripSplitButton1";
-            this.toolStripSplitButton1.ButtonClick += new System.EventHandler(this.toolStripSplitButton1_ButtonClick);
+            this.SettingsTSB.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.SettingsTSB.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.SettingsTSB.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AboutProgramTSB});
+            this.SettingsTSB.Image = global::buh_02.Properties.Resources.gear_wheel_32x32;
+            this.SettingsTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.SettingsTSB.Name = "SettingsTSB";
+            this.SettingsTSB.Size = new System.Drawing.Size(32, 22);
+            this.SettingsTSB.Text = "Дополнительно";
+            this.SettingsTSB.ButtonClick += new System.EventHandler(this.toolStripSplitButton1_ButtonClick);
             // 
-            // оПрограммеToolStripMenuItem
+            // AboutProgramTSB
             // 
-            this.оПрограммеToolStripMenuItem.Image = global::buh_02.Properties.Resources.help_32x32;
-            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
-            this.оПрограммеToolStripMenuItem.Text = "О Программе";
-            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
+            this.AboutProgramTSB.Image = global::buh_02.Properties.Resources.help_32x32;
+            this.AboutProgramTSB.Name = "AboutProgramTSB";
+            this.AboutProgramTSB.Size = new System.Drawing.Size(152, 22);
+            this.AboutProgramTSB.Text = "О Программе";
+            this.AboutProgramTSB.Click += new System.EventHandler(this.AboutProgramTSB_Click);
             // 
             // label2
             // 
@@ -226,6 +229,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.inOutDataGridViewTextBoxColumn,
@@ -252,6 +263,7 @@
             this.inOutDataGridViewTextBoxColumn.HeaderText = "*";
             this.inOutDataGridViewTextBoxColumn.Name = "inOutDataGridViewTextBoxColumn";
             this.inOutDataGridViewTextBoxColumn.ReadOnly = true;
+            this.inOutDataGridViewTextBoxColumn.Width = 80;
             // 
             // categoryDataGridViewTextBoxColumn
             // 
@@ -267,14 +279,18 @@
             this.dateTimeDataGridViewTextBoxColumn.HeaderText = "Дата";
             this.dateTimeDataGridViewTextBoxColumn.Name = "dateTimeDataGridViewTextBoxColumn";
             this.dateTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dateTimeDataGridViewTextBoxColumn.Width = 85;
             // 
             // sumDataGridViewTextBoxColumn
             // 
             this.sumDataGridViewTextBoxColumn.DataPropertyName = "Sum";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.sumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.sumDataGridViewTextBoxColumn.FillWeight = 80F;
             this.sumDataGridViewTextBoxColumn.HeaderText = "Сумма";
             this.sumDataGridViewTextBoxColumn.Name = "sumDataGridViewTextBoxColumn";
             this.sumDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sumDataGridViewTextBoxColumn.Width = 85;
             // 
             // commentDataGridViewTextBoxColumn
             // 
@@ -297,8 +313,8 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Sum";
-            dataGridViewCellStyle1.NullValue = "0";
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.NullValue = "0";
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn1.FillWeight = 80F;
             this.dataGridViewTextBoxColumn1.HeaderText = "Сумма";
             this.dataGridViewTextBoxColumn1.MaxInputLength = 15;
@@ -321,14 +337,18 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "DateTime";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 80;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Comment";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn4.FillWeight = 80F;
             this.dataGridViewTextBoxColumn4.HeaderText = "Comment";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 80;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -357,6 +377,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(890, 460);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "ArxBuh";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.toolStrip1.ResumeLayout(false);
@@ -377,20 +398,20 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton EditTSB;
         private System.Windows.Forms.ToolStripButton DeleteTSB;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.ToolStripButton FilterTSB;
+        private System.Windows.Forms.ToolStripButton FilterClearTSB;
         private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.ToolStripButton toolStripButton8;
-        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
+        private System.Windows.Forms.ToolStripButton ExitTSB;
+        private System.Windows.Forms.ToolStripSplitButton SettingsTSB;
         private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton2;
         private System.Windows.Forms.ToolStripMenuItem доходToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem расходToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AboutProgramTSB;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridView dataGridView1;

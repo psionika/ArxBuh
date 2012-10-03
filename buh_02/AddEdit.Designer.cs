@@ -35,8 +35,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.CancelBTN = new System.Windows.Forms.Button();
+            this.OkBTN = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -57,8 +57,8 @@
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.button2, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.CancelBTN, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.OkBTN, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.comboBox1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
@@ -76,7 +76,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 104F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(396, 291);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(394, 291);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // textBox1
@@ -85,8 +85,8 @@
             this.textBox1.Location = new System.Drawing.Point(126, 143);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(267, 98);
-            this.textBox1.TabIndex = 0;
+            this.textBox1.Size = new System.Drawing.Size(265, 98);
+            this.textBox1.TabIndex = 5;
             // 
             // label1
             // 
@@ -95,7 +95,7 @@
             this.label1.Location = new System.Drawing.Point(3, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 13);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Доход или Расход";
             // 
             // label2
@@ -105,7 +105,7 @@
             this.label2.Location = new System.Drawing.Point(3, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(33, 13);
-            this.label2.TabIndex = 2;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Дата";
             // 
             // label3
@@ -115,30 +115,30 @@
             this.label3.Location = new System.Drawing.Point(3, 185);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 13);
-            this.label3.TabIndex = 3;
+            this.label3.TabIndex = 0;
             this.label3.Text = "Комментарий";
             // 
-            // button1
+            // CancelBTN
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(18, 256);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Отмена";
-            this.button1.UseVisualStyleBackColor = true;
+            this.CancelBTN.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CancelBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.CancelBTN.Location = new System.Drawing.Point(18, 256);
+            this.CancelBTN.Name = "CancelBTN";
+            this.CancelBTN.Size = new System.Drawing.Size(87, 23);
+            this.CancelBTN.TabIndex = 7;
+            this.CancelBTN.Text = "Отмена";
+            this.CancelBTN.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // OkBTN
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button2.Location = new System.Drawing.Point(140, 256);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(238, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Сохранить";
-            this.button2.UseVisualStyleBackColor = true;
+            this.OkBTN.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.OkBTN.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.OkBTN.Location = new System.Drawing.Point(126, 256);
+            this.OkBTN.Name = "OkBTN";
+            this.OkBTN.Size = new System.Drawing.Size(265, 23);
+            this.OkBTN.TabIndex = 6;
+            this.OkBTN.Text = "Сохранить";
+            this.OkBTN.UseVisualStyleBackColor = true;
             // 
             // comboBox1
             // 
@@ -150,7 +150,7 @@
             this.comboBox1.Location = new System.Drawing.Point(126, 3);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(176, 21);
-            this.comboBox1.TabIndex = 6;
+            this.comboBox1.TabIndex = 1;
             this.comboBox1.TextChanged += new System.EventHandler(this.comboBox1_TextChanged);
             // 
             // dateTimePicker1
@@ -158,7 +158,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(126, 73);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(176, 20);
-            this.dateTimePicker1.TabIndex = 7;
+            this.dateTimePicker1.TabIndex = 3;
             // 
             // label4
             // 
@@ -167,7 +167,7 @@
             this.label4.Location = new System.Drawing.Point(3, 116);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 13);
-            this.label4.TabIndex = 8;
+            this.label4.TabIndex = 0;
             this.label4.Text = "Сумма";
             // 
             // textBox2
@@ -176,7 +176,7 @@
             this.textBox2.MaxLength = 15;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(176, 20);
-            this.textBox2.TabIndex = 9;
+            this.textBox2.TabIndex = 4;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
@@ -187,7 +187,7 @@
             this.label5.Location = new System.Drawing.Point(3, 46);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 13);
-            this.label5.TabIndex = 10;
+            this.label5.TabIndex = 0;
             this.label5.Text = "Категория";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -199,7 +199,7 @@
             this.comboBox2.Location = new System.Drawing.Point(126, 42);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(176, 21);
-            this.comboBox2.TabIndex = 11;
+            this.comboBox2.TabIndex = 2;
             // 
             // errorProvider1
             // 
@@ -209,7 +209,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(396, 291);
+            this.CancelButton = this.CancelBTN;
+            this.ClientSize = new System.Drawing.Size(394, 291);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -232,8 +233,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button CancelBTN;
+        private System.Windows.Forms.Button OkBTN;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
