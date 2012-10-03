@@ -36,7 +36,7 @@
             this.доходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.расходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.DeleteTSB = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
@@ -47,6 +47,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.inOutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cashInOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new buh_02.DataSet1();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,11 +59,6 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inOutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.calendarColumn1 = new buh_02.CalendarColumn();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -73,7 +73,7 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSplitButton2,
             this.toolStripButton2,
-            this.toolStripButton3,
+            this.DeleteTSB,
             this.toolStripSeparator2,
             this.toolStripComboBox1,
             this.toolStripButton4,
@@ -101,14 +101,14 @@
             // доходToolStripMenuItem
             // 
             this.доходToolStripMenuItem.Name = "доходToolStripMenuItem";
-            this.доходToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.доходToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.доходToolStripMenuItem.Text = "Доход";
             this.доходToolStripMenuItem.Click += new System.EventHandler(this.доходToolStripMenuItem_Click);
             // 
             // расходToolStripMenuItem
             // 
             this.расходToolStripMenuItem.Name = "расходToolStripMenuItem";
-            this.расходToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.расходToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.расходToolStripMenuItem.Text = "Расход";
             this.расходToolStripMenuItem.Click += new System.EventHandler(this.расходToolStripMenuItem_Click);
             // 
@@ -121,14 +121,14 @@
             this.toolStripButton2.Text = "Редактировать";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
-            // toolStripButton3
+            // DeleteTSB
             // 
-            this.toolStripButton3.Image = global::buh_02.Properties.Resources.delete_32x32;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(71, 22);
-            this.toolStripButton3.Text = "Удалить";
-            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            this.DeleteTSB.Image = global::buh_02.Properties.Resources.delete_32x32;
+            this.DeleteTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.DeleteTSB.Name = "DeleteTSB";
+            this.DeleteTSB.Size = new System.Drawing.Size(71, 22);
+            this.DeleteTSB.Text = "Удалить";
+            this.DeleteTSB.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // toolStripSeparator2
             // 
@@ -245,6 +245,45 @@
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridView1_Paint);
             // 
+            // inOutDataGridViewTextBoxColumn
+            // 
+            this.inOutDataGridViewTextBoxColumn.DataPropertyName = "InOut";
+            this.inOutDataGridViewTextBoxColumn.FillWeight = 80F;
+            this.inOutDataGridViewTextBoxColumn.HeaderText = "*";
+            this.inOutDataGridViewTextBoxColumn.Name = "inOutDataGridViewTextBoxColumn";
+            this.inOutDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // categoryDataGridViewTextBoxColumn
+            // 
+            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
+            this.categoryDataGridViewTextBoxColumn.HeaderText = "Категория";
+            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
+            this.categoryDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dateTimeDataGridViewTextBoxColumn
+            // 
+            this.dateTimeDataGridViewTextBoxColumn.DataPropertyName = "DateTime";
+            this.dateTimeDataGridViewTextBoxColumn.FillWeight = 80F;
+            this.dateTimeDataGridViewTextBoxColumn.HeaderText = "Дата";
+            this.dateTimeDataGridViewTextBoxColumn.Name = "dateTimeDataGridViewTextBoxColumn";
+            this.dateTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sumDataGridViewTextBoxColumn
+            // 
+            this.sumDataGridViewTextBoxColumn.DataPropertyName = "Sum";
+            this.sumDataGridViewTextBoxColumn.FillWeight = 80F;
+            this.sumDataGridViewTextBoxColumn.HeaderText = "Сумма";
+            this.sumDataGridViewTextBoxColumn.Name = "sumDataGridViewTextBoxColumn";
+            this.sumDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // commentDataGridViewTextBoxColumn
+            // 
+            this.commentDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.commentDataGridViewTextBoxColumn.DataPropertyName = "Comment";
+            this.commentDataGridViewTextBoxColumn.HeaderText = "Комментарий";
+            this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
+            this.commentDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // cashInOutBindingSource
             // 
             this.cashInOutBindingSource.DataMember = "CashInOut";
@@ -299,45 +338,6 @@
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
-            // inOutDataGridViewTextBoxColumn
-            // 
-            this.inOutDataGridViewTextBoxColumn.DataPropertyName = "InOut";
-            this.inOutDataGridViewTextBoxColumn.FillWeight = 80F;
-            this.inOutDataGridViewTextBoxColumn.HeaderText = "*";
-            this.inOutDataGridViewTextBoxColumn.Name = "inOutDataGridViewTextBoxColumn";
-            this.inOutDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // categoryDataGridViewTextBoxColumn
-            // 
-            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
-            this.categoryDataGridViewTextBoxColumn.HeaderText = "Категория";
-            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
-            this.categoryDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dateTimeDataGridViewTextBoxColumn
-            // 
-            this.dateTimeDataGridViewTextBoxColumn.DataPropertyName = "DateTime";
-            this.dateTimeDataGridViewTextBoxColumn.FillWeight = 80F;
-            this.dateTimeDataGridViewTextBoxColumn.HeaderText = "Дата";
-            this.dateTimeDataGridViewTextBoxColumn.Name = "dateTimeDataGridViewTextBoxColumn";
-            this.dateTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sumDataGridViewTextBoxColumn
-            // 
-            this.sumDataGridViewTextBoxColumn.DataPropertyName = "Sum";
-            this.sumDataGridViewTextBoxColumn.FillWeight = 80F;
-            this.sumDataGridViewTextBoxColumn.HeaderText = "Сумма";
-            this.sumDataGridViewTextBoxColumn.Name = "sumDataGridViewTextBoxColumn";
-            this.sumDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // commentDataGridViewTextBoxColumn
-            // 
-            this.commentDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.commentDataGridViewTextBoxColumn.DataPropertyName = "Comment";
-            this.commentDataGridViewTextBoxColumn.HeaderText = "Комментарий";
-            this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
-            this.commentDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // calendarColumn1
             // 
             this.calendarColumn1.DataPropertyName = "Date";
@@ -378,7 +378,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton DeleteTSB;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripButton toolStripButton4;

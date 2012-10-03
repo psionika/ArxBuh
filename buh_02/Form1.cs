@@ -113,9 +113,11 @@ namespace buh_02
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            cashInOutBindingSource.RemoveCurrent();
-
-            saveData("data.xml");
+            if (dataGridView1.CurrentRow != null)
+            {
+                cashInOutBindingSource.RemoveCurrent();
+                saveData("data.xml");
+            }
         }
 
 
