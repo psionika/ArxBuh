@@ -42,7 +42,6 @@
             this.DeleteTSB = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
-            this.FilterTSB = new System.Windows.Forms.ToolStripButton();
             this.FilterClearTSB = new System.Windows.Forms.ToolStripButton();
             this.ExitTSB = new System.Windows.Forms.ToolStripButton();
             this.SettingsTSB = new System.Windows.Forms.ToolStripSplitButton();
@@ -79,7 +78,6 @@
             this.DeleteTSB,
             this.toolStripSeparator2,
             this.toolStripComboBox1,
-            this.FilterTSB,
             this.FilterClearTSB,
             this.ExitTSB,
             this.SettingsTSB});
@@ -147,15 +145,6 @@
             this.toolStripComboBox1.Size = new System.Drawing.Size(250, 25);
             this.toolStripComboBox1.TextChanged += new System.EventHandler(this.toolStripComboBox1_TextChanged);
             // 
-            // FilterTSB
-            // 
-            this.FilterTSB.Image = global::buh_02.Properties.Resources.filter_32x32;
-            this.FilterTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.FilterTSB.Name = "FilterTSB";
-            this.FilterTSB.Size = new System.Drawing.Size(68, 22);
-            this.FilterTSB.Text = "Фильтр";
-            this.FilterTSB.Click += new System.EventHandler(this.FilterTSB_Click);
-            // 
             // FilterClearTSB
             // 
             this.FilterClearTSB.Image = global::buh_02.Properties.Resources.expand_32x32;
@@ -193,7 +182,7 @@
             // 
             this.AboutProgramTSB.Image = global::buh_02.Properties.Resources.help_32x32;
             this.AboutProgramTSB.Name = "AboutProgramTSB";
-            this.AboutProgramTSB.Size = new System.Drawing.Size(152, 22);
+            this.AboutProgramTSB.Size = new System.Drawing.Size(151, 22);
             this.AboutProgramTSB.Text = "О Программе";
             this.AboutProgramTSB.Click += new System.EventHandler(this.AboutProgramTSB_Click);
             // 
@@ -402,7 +391,6 @@
         private System.Windows.Forms.ToolStripButton DeleteTSB;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ToolStripButton FilterTSB;
         private System.Windows.Forms.ToolStripButton FilterClearTSB;
         private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
