@@ -10,4 +10,10 @@ namespace buh_02
         public static double Sum { get; set; }
         public static string Comment { get; set; }
     }
+
+    static class DateBeginEnd
+    {
+        public static DateTime DateBegin { get; set; }
+        public static DateTime DateEnd { get; set; }
+    }
 }

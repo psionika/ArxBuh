@@ -37,6 +37,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.inOutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inOutCategoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new buh_02.DataSet1();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -45,8 +47,6 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inOutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -156,6 +156,21 @@
             this.dataGridView1.Size = new System.Drawing.Size(381, 313);
             this.dataGridView1.TabIndex = 0;
             // 
+            // inOutDataGridViewTextBoxColumn
+            // 
+            this.inOutDataGridViewTextBoxColumn.DataPropertyName = "InOut";
+            this.inOutDataGridViewTextBoxColumn.HeaderText = "InOut";
+            this.inOutDataGridViewTextBoxColumn.Name = "inOutDataGridViewTextBoxColumn";
+            this.inOutDataGridViewTextBoxColumn.ReadOnly = true;
+            this.inOutDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // categoryDataGridViewTextBoxColumn
+            // 
+            this.categoryDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
+            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
+            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
+            // 
             // inOutCategoriesBindingSource
             // 
             this.inOutCategoriesBindingSource.DataMember = "InOutCategories";
@@ -227,21 +242,6 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "Category";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // inOutDataGridViewTextBoxColumn
-            // 
-            this.inOutDataGridViewTextBoxColumn.DataPropertyName = "InOut";
-            this.inOutDataGridViewTextBoxColumn.HeaderText = "InOut";
-            this.inOutDataGridViewTextBoxColumn.Name = "inOutDataGridViewTextBoxColumn";
-            this.inOutDataGridViewTextBoxColumn.ReadOnly = true;
-            this.inOutDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // categoryDataGridViewTextBoxColumn
-            // 
-            this.categoryDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
-            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
-            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
             // 
             // Category
             // 

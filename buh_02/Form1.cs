@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 
 using System.IO;
+using System.Globalization;
 
 namespace buh_02
 {
@@ -18,6 +19,9 @@ namespace buh_02
             loadData("data.xml", "CashInOut");
 
             cashInOutBindingSource.Sort = "DateTime DESC";
+
+            clearfilter();
+
         }
 
         private void saveData(string filename)
@@ -141,41 +145,30 @@ namespace buh_02
         private void filter()
         {
             StringBuilder sb = new StringBuilder();
+            sb.Append("(");
 
             foreach (DataColumn col in dataSet1.Tables["CashInOut"].Columns)
             {
-                {
-                    if (sb.Length > 0)
-                    {
+                    if (col.DataType == typeof(System.String))
+                    {                        
+                        sb.Append(col.ColumnName);
+                        sb.Append(" LIKE '*");
+                        sb.Append(toolStripComboBox1.Text);
+                        sb.Append("*'");
                         sb.Append(" OR ");
                     }
-
-                    if (col.DataType != typeof(System.DateTime))
-                    {
-                        sb.Append("convert(");
-                        sb.Append(col.ColumnName);
-                        sb.Append(",'System.String')");
-                    }
-                    else
-                    {
-                        sb.Append("convert(");
-                        sb.Append("SUBSTRING((CONVERT(DateTime, System.String)), 1, 11), System.String)");
-                    }
-
-                    sb.Append(" LIKE '*");
-                    sb.Append(toolStripComboBox1.Text);
-                    sb.Append("*'");
-                }
             }
 
+            sb.Remove(sb.Length - 3, 2);
+            sb.Append(")");
+
+                sb.Append(string.Format(CultureInfo.InvariantCulture,
+                  " AND DateTime >= #{0:MM/dd/yyyy}# AND DateTime < #{1:MM/dd/yyyy}# ",
+                  DateBeginEnd.DateBegin,
+                  DateBeginEnd.DateEnd));
+
+
             cashInOutBindingSource.Filter = sb.ToString();
-        }
-
-        private void removeFilter()
-        {
-            toolStripComboBox1.Text = "";
-
-            cashInOutBindingSource.RemoveFilter();
         }
 
         private void toolStripSplitButton1_ButtonClick(object sender, EventArgs e)
@@ -239,14 +232,19 @@ namespace buh_02
             edit_element();
         }
 
-        private void FilterTSB_Click(object sender, EventArgs e)
-        {
-            filter();
-        }
-
         private void FilterClearTSB_Click(object sender, EventArgs e)
         {
-            removeFilter();
+            clearfilter();
+        }
+
+        private void clearfilter()
+        {
+            toolStripComboBox1.Text = "";
+            TSBTime.Text = "Фильтр по дате";
+            DateBeginEnd.DateBegin = new DateTime(1970, 1, 1);
+            DateBeginEnd.DateEnd = new DateTime(2032, 1, 1);
+
+            cashInOutBindingSource.RemoveFilter();
         }
 
         private void DeleteTSB_Click(object sender, EventArgs e)
@@ -274,6 +272,19 @@ namespace buh_02
             Category category = new Category();
             category.ShowDialog();
         }
+
+        private void TSBTime_Click(object sender, EventArgs e)
+        {
+            DateFilter df = new DateFilter();
+            df.ShowDialog();
+
+            if (df.DialogResult == DialogResult.OK)
+            {
+                TSBTime.Text = "Фильтр по дате: " + DateBeginEnd.DateBegin.ToShortDateString() + " - " + DateBeginEnd.DateEnd.ToShortDateString();
+                filter();
+            }
+        }
+
 
         
     }

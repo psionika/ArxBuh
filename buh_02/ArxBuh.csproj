@@ -94,6 +94,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DateFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DateFilter.Designer.cs">
+      <DependentUpon>DateFilter.cs</DependentUpon>
+    </Compile>
     <Compile Include="element.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Category.resx">
       <DependentUpon>Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DateFilter.resx">
+      <DependentUpon>DateFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
