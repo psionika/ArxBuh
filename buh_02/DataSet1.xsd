@@ -23,6 +23,14 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="InOutCategories" msprop:Generator_TableClassName="InOutCategoriesDataTable" msprop:Generator_TableVarName="tableInOutCategories" msprop:Generator_TablePropName="InOutCategories" msprop:Generator_RowDeletingName="InOutCategoriesRowDeleting" msprop:Generator_UserTableName="InOutCategories" msprop:Generator_RowChangingName="InOutCategoriesRowChanging" msprop:Generator_RowEvHandlerName="InOutCategoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="InOutCategoriesRowDeleted" msprop:Generator_RowEvArgName="InOutCategoriesRowChangeEvent" msprop:Generator_RowChangedName="InOutCategoriesRowChanged" msprop:Generator_RowClassName="InOutCategoriesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="InOut" msprop:Generator_ColumnVarNameInTable="columnInOut" msprop:Generator_ColumnPropNameInRow="InOut" msprop:Generator_ColumnPropNameInTable="InOutColumn" msprop:Generator_UserColumnName="InOut" type="xs:string" minOccurs="0" />
+              <xs:element name="Category" msprop:Generator_ColumnVarNameInTable="columnCategory" msprop:Generator_ColumnPropNameInRow="Category" msprop:Generator_ColumnPropNameInTable="CategoryColumn" msprop:Generator_UserColumnName="Category" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

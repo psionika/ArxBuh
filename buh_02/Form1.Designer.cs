@@ -46,6 +46,8 @@
             this.ExitTSB = new System.Windows.Forms.ToolStripButton();
             this.SettingsTSB = new System.Windows.Forms.ToolStripSplitButton();
             this.AboutProgramTSB = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.категорииДоходовИРасходовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -102,14 +104,14 @@
             // доходToolStripMenuItem
             // 
             this.доходToolStripMenuItem.Name = "доходToolStripMenuItem";
-            this.доходToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.доходToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.доходToolStripMenuItem.Text = "Доход";
             this.доходToolStripMenuItem.Click += new System.EventHandler(this.доходToolStripMenuItem_Click);
             // 
             // расходToolStripMenuItem
             // 
             this.расходToolStripMenuItem.Name = "расходToolStripMenuItem";
-            this.расходToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.расходToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.расходToolStripMenuItem.Text = "Расход";
             this.расходToolStripMenuItem.Click += new System.EventHandler(this.расходToolStripMenuItem_Click);
             // 
@@ -170,7 +172,9 @@
             this.SettingsTSB.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.SettingsTSB.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.SettingsTSB.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AboutProgramTSB});
+            this.AboutProgramTSB,
+            this.toolStripMenuItem1,
+            this.категорииДоходовИРасходовToolStripMenuItem});
             this.SettingsTSB.Image = global::buh_02.Properties.Resources.gear_wheel_32x32;
             this.SettingsTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.SettingsTSB.Name = "SettingsTSB";
@@ -182,9 +186,21 @@
             // 
             this.AboutProgramTSB.Image = global::buh_02.Properties.Resources.help_32x32;
             this.AboutProgramTSB.Name = "AboutProgramTSB";
-            this.AboutProgramTSB.Size = new System.Drawing.Size(151, 22);
+            this.AboutProgramTSB.Size = new System.Drawing.Size(241, 22);
             this.AboutProgramTSB.Text = "О Программе";
             this.AboutProgramTSB.Click += new System.EventHandler(this.AboutProgramTSB_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(238, 6);
+            // 
+            // категорииДоходовИРасходовToolStripMenuItem
+            // 
+            this.категорииДоходовИРасходовToolStripMenuItem.Name = "категорииДоходовИРасходовToolStripMenuItem";
+            this.категорииДоходовИРасходовToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.категорииДоходовИРасходовToolStripMenuItem.Text = "Категории доходов и расходов";
+            this.категорииДоходовИРасходовToolStripMenuItem.Click += new System.EventHandler(this.категорииДоходовИРасходовToolStripMenuItem_Click);
             // 
             // label2
             // 
@@ -411,6 +427,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dateTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem категорииДоходовИРасходовToolStripMenuItem;
     }
 }
 

@@ -3,6 +3,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 using System.IO;
 
@@ -216,7 +217,6 @@ namespace buh_02
             saveData("data.xml");
         }
 
-
         private void dataGridView1_Paint(object sender, PaintEventArgs e)
         {
             DGPaint();
@@ -269,5 +269,12 @@ namespace buh_02
             Application.Exit();
         }
 
+        private void категорииДоходовИРасходовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Category category = new Category();
+            category.ShowDialog();
+        }
+
+        
     }
 }

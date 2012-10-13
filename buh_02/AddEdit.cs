@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 
+using System.IO;
+
 namespace buh_02
 {
     public partial class AddEdit : Form
@@ -16,7 +18,27 @@ namespace buh_02
             textBox1.Text = element.Comment;
 
             validate();
+
+            loadData("category.xml", "InOutCategories");
         }
+
+        #region Dataset Load
+        private void loadData(string filename, string tablename)
+        {
+            dataSet1.Clear();
+
+            if (File.Exists(filename) == true)
+            {
+                dataSet1.ReadXml(filename);
+            }
+
+            //comboBox2.DataSource = dataSet1.Tables["InOutCategories"];
+            
+
+            comboBox2.DataSource = inOutCategoriesBindingSource;
+            comboBox2.DisplayMember = "Category";
+        }
+        #endregion
 
         private void AddEdit_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -45,28 +67,23 @@ namespace buh_02
         {
             if (comboBox1.Text == "Доход")
             {
-                comboBox2.Items.Clear();
-
-                comboBox2.Items.Add("Зарплата");
-                comboBox2.Items.Add("Колым");
-                comboBox2.Items.Add("Подарок");
-                comboBox2.Items.Add("Корректировка");
+                filter("Доход");
             }
 
             if (comboBox1.Text == "Расход")
             {
-                comboBox2.Items.Clear();
-
-                comboBox2.Items.Add("Развлечения");
-                comboBox2.Items.Add("Кредиты");
-                comboBox2.Items.Add("Ремонт");
-                comboBox2.Items.Add("Дом");
-                comboBox2.Items.Add("Другое");
-                comboBox2.Items.Add("Корректировка");
+                filter("Расход");
             }
 
             validate();
         }
+
+
+        private void filter(string str)
+        {
+            inOutCategoriesBindingSource.Filter = "convert(InOut,'System.String') LIKE '*" + str + "*'";
+        }
+
 
         private bool validate()
         {
@@ -139,6 +156,13 @@ namespace buh_02
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Category category = new Category();
+            category.ShowDialog();
+
+            loadData("category.xml", "InOutCategories");
+        }
 
     }
 }
