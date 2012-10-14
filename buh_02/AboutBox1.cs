@@ -102,5 +102,12 @@ namespace buh_02
             this.linkLabel1.LinkVisited = true;
             System.Diagnostics.Process.Start("http://iconza.ru/");
         }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.linkLabel1.LinkVisited = true;
+            System.Diagnostics.Process.Start("http://dotnetzip.codeplex.com/");
+        }
+
     }
 }
