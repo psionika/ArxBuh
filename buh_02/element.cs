@@ -16,4 +16,11 @@ namespace buh_02
         public static DateTime DateBegin { get; set; }
         public static DateTime DateEnd { get; set; }
     }
+
+    static class Backup
+    {
+        public static Boolean Enable { get; set; }
+        public static string Dir { get; set; }
+        public static Decimal Counter { get; set; }
+    }
 }

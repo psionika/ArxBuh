@@ -7,6 +7,8 @@ using System.Windows.Forms;
 using System.IO;
 using System.Globalization;
 
+using Ionic.Zip;
+
 namespace buh_02
 {
     public partial class Form1 : Form
@@ -15,26 +17,23 @@ namespace buh_02
         public Form1()
         {
             InitializeComponent();
-
-            loadData("data.xml", "CashInOut");
-
-            cashInOutBindingSource.Sort = "DateTime DESC";
-
-            clearfilter();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             saveData("data.xml");
             writeSetting();
+
+            backup();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             readSetting();
 
-            this.Location = props.Fields.Location;
-            this.Size = props.Fields.FormSize;
+            loadData("data.xml", "CashInOut");
+
+            cashInOutBindingSource.Sort = "DateTime DESC";
          }
         #endregion
 
@@ -46,6 +45,10 @@ namespace buh_02
             props.Fields.Location = this.Location;
             props.Fields.FormSize = this.Size;
 
+            props.Fields.BackupCounter = Backup.Counter;
+            props.Fields.BackupDir = Backup.Dir;
+            props.Fields.BackupEnable = Backup.Enable;
+
             props.WriteXml();
         }
 
@@ -54,6 +57,11 @@ namespace buh_02
         {
             props.ReadXml();
 
+            this.Location = props.Fields.Location;
+            this.Size = props.Fields.FormSize;
+            Backup.Dir = props.Fields.BackupDir;
+            Backup.Counter = props.Fields.BackupCounter;
+            Backup.Enable = props.Fields.BackupEnable;
         }
         #endregion
 
@@ -322,11 +330,96 @@ namespace buh_02
         #region Backup action
         private void резервноеКопированиеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Backup backup = new Backup();
-            backup.ShowDialog();
+            BackupForm backupForm = new BackupForm();
+            backupForm.ShowDialog();
+
+            writeSetting();
         }
+
+        private void backup()
+        {
+            if (Backup.Enable)
+            {
+                if (!Directory.Exists(Backup.Dir))
+                {
+                    Directory.CreateDirectory(Backup.Dir);
+                }
+
+                #region Copy to dir
+                string sourceDir = Environment.CurrentDirectory;
+                string backupDir = Environment.CurrentDirectory + "\\" + Backup.Dir;
+
+                try
+                {
+                    string[] xmlList = Directory.GetFiles(sourceDir, "*.xml");
+
+                    // Copy picture files.
+                    foreach (string f in xmlList)
+                    {
+                        // Remove path from the file name.
+                        string fName = f.Substring(sourceDir.Length + 1);
+
+                        // Use the Path.Combine method to safely append the file name to the path.
+                        // Will overwrite if the destination file already exists.
+                        File.Copy(Path.Combine(sourceDir, fName), Path.Combine(backupDir, fName), true);
+                    }
+                }
+                catch (DirectoryNotFoundException dirNotFound)
+                {
+                    MessageBox.Show(dirNotFound.Message);
+                }
+                #endregion
+
+                #region Archive
+                string TargetDir = Environment.CurrentDirectory + "\\" + Backup.Dir + "\\";
+
+                using (ZipFile zip = new ZipFile())
+                {
+                    zip.CompressionLevel = Ionic.Zlib.CompressionLevel.BestCompression;
+
+                    zip.AddFile(TargetDir + "category.xml", "");
+                    zip.AddFile(TargetDir + "data.xml", "");
+                    zip.AddFile(TargetDir + "settings.xml", "");
+
+                    zip.Save(TargetDir + "backup " + DateTime.Now.ToString().Replace(":", "-") + ".zip");
+                }
+
+                File.Delete(Environment.CurrentDirectory + "\\" + Backup.Dir + "\\" + "category.xml");
+                File.Delete(Environment.CurrentDirectory + "\\" + Backup.Dir + "\\" + "data.xml");
+                File.Delete(Environment.CurrentDirectory + "\\" + Backup.Dir + "\\" + "settings.xml");
+
+                #endregion
+
+                #region Удаляем лишнее
+                int i = System.IO.Directory.GetFiles(Backup.Dir, "*.*", SearchOption.AllDirectories).Length;
+
+                while (i > Backup.Counter)
+                {
+                    DateTime dt = DateTime.Now;
+                    string[] fs = Directory.GetFiles(Backup.Dir);
+                    string fileToDelete = "";
+
+                    foreach (string file in fs)
+                    {
+                        FileInfo fi = new FileInfo(file);
+                        if (fi.CreationTime < dt)
+                        {
+                            fileToDelete = file;
+                            dt = fi.CreationTime;
+                        }
+                    }
+
+                    if (File.Exists(fileToDelete))
+                    {
+                        File.Delete(fileToDelete);
+                    }
+                    i = System.IO.Directory.GetFiles(Backup.Dir, "*.*", SearchOption.AllDirectories).Length;
+                }
+                #endregion
+            }
+        }
+
+
         #endregion
-
-
     }
 }

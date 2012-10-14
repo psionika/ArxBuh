@@ -52,6 +52,10 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Ionic.Zip.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -76,11 +80,11 @@
     <Compile Include="AddEdit.Designer.cs">
       <DependentUpon>AddEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Backup.cs">
+    <Compile Include="BackupForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Backup.Designer.cs">
-      <DependentUpon>Backup.cs</DependentUpon>
+    <Compile Include="BackupForm.Designer.cs">
+      <DependentUpon>BackupForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Category.cs">
       <SubType>Form</SubType>
@@ -122,8 +126,8 @@
     <EmbeddedResource Include="AddEdit.resx">
       <DependentUpon>AddEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Backup.resx">
-      <DependentUpon>Backup.cs</DependentUpon>
+    <EmbeddedResource Include="BackupForm.resx">
+      <DependentUpon>BackupForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Category.resx">
       <DependentUpon>Category.cs</DependentUpon>
