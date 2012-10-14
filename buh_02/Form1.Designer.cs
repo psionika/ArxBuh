@@ -49,6 +49,8 @@
             this.AboutProgramTSB = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.категорииДоходовИРасходовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.резервноеКопированиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -185,7 +187,9 @@
             this.SettingsTSB.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AboutProgramTSB,
             this.toolStripMenuItem1,
-            this.категорииДоходовИРасходовToolStripMenuItem});
+            this.категорииДоходовИРасходовToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.резервноеКопированиеToolStripMenuItem});
             this.SettingsTSB.Image = global::buh_02.Properties.Resources.gear_wheel_32x32;
             this.SettingsTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.SettingsTSB.Name = "SettingsTSB";
@@ -212,6 +216,18 @@
             this.категорииДоходовИРасходовToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
             this.категорииДоходовИРасходовToolStripMenuItem.Text = "Категории доходов и расходов";
             this.категорииДоходовИРасходовToolStripMenuItem.Click += new System.EventHandler(this.категорииДоходовИРасходовToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(238, 6);
+            // 
+            // резервноеКопированиеToolStripMenuItem
+            // 
+            this.резервноеКопированиеToolStripMenuItem.Name = "резервноеКопированиеToolStripMenuItem";
+            this.резервноеКопированиеToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.резервноеКопированиеToolStripMenuItem.Text = "Резервное копирование";
+            this.резервноеКопированиеToolStripMenuItem.Click += new System.EventHandler(this.резервноеКопированиеToolStripMenuItem_Click);
             // 
             // label2
             // 
@@ -396,6 +412,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "ArxBuh";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -441,6 +458,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem категорииДоходовИРасходовToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton TSBTime;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem резервноеКопированиеToolStripMenuItem;
     }
 }
 

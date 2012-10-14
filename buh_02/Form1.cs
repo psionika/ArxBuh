@@ -26,6 +26,34 @@ namespace buh_02
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             saveData("data.xml");
+            writeSetting();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            readSetting();
+
+            this.Location = props.Fields.Location;
+            this.Size = props.Fields.FormSize;
+         }
+        #endregion
+
+        #region Settings action
+        Props props = new Props();
+        //Запись настроек
+        private void writeSetting()
+        {
+            props.Fields.Location = this.Location;
+            props.Fields.FormSize = this.Size;
+
+            props.WriteXml();
+        }
+
+        //Чтение настроек
+        private void readSetting()
+        {
+            props.ReadXml();
+
         }
         #endregion
 
@@ -290,5 +318,15 @@ namespace buh_02
             SettingsTSB.ShowDropDown();
         }
         #endregion
+
+        #region Backup action
+        private void резервноеКопированиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Backup backup = new Backup();
+            backup.ShowDialog();
+        }
+        #endregion
+
+
     }
 }
