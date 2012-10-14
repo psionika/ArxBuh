@@ -3,7 +3,6 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using System.Collections.Generic;
 
 using System.IO;
 using System.Globalization;
@@ -12,6 +11,7 @@ namespace buh_02
 {
     public partial class Form1 : Form
     {
+        #region Form action
         public Form1()
         {
             InitializeComponent();
@@ -21,9 +21,15 @@ namespace buh_02
             cashInOutBindingSource.Sort = "DateTime DESC";
 
             clearfilter();
-
         }
 
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            saveData("data.xml");
+        }
+        #endregion
+
+        #region DataSet action
         private void saveData(string filename)
         {
             dataSet1.WriteXml(filename, XmlWriteMode.IgnoreSchema);
@@ -39,7 +45,9 @@ namespace buh_02
                 dataGridView1.DataSource = this.cashInOutBindingSource;
             }
         }
+        #endregion
 
+        #region DataGridView action
         private void DGPaint()
         {
             foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -81,6 +89,62 @@ namespace buh_02
             }
         }
 
+        private void InOutCalc()
+        {
+            double i = 0;
+            double y = 0;
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells[0].Value != null)
+                {
+                    if (row.Cells[0].Value.ToString() == "Доход")
+                    {
+                        i = i + (double)row.Cells[3].Value;
+                    }
+                    else if (row.Cells[0].Value.ToString() == "Расход")
+                    {
+                        y = y + (double)row.Cells[3].Value;
+                    }
+                }
+
+                label2.Text = "Доход (" + i.ToString() + ") - Расход (" + y.ToString() + ") = " + (i - y).ToString();
+            }
+        }
+
+        private void dataGridView1_Paint(object sender, PaintEventArgs e)
+        {
+            DGPaint();
+            InOutCalc();
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //проверяем что не заголовок
+            if (e.RowIndex != -1) edit_element();
+        }
+        #endregion
+
+        #region Element Action (Add, Edit, Delete)
+        private void add_element(string inOut)
+        {
+            element.InOut = inOut;
+            element.Date = DateTime.Today;
+            element.Category = "";
+            element.Sum = 0;
+            element.Comment = "";
+
+            AddEdit addEdit = new AddEdit();
+            addEdit.ShowDialog();
+
+            if (addEdit.DialogResult == DialogResult.OK)
+            {
+                dataSet1.Tables["CashInOut"].Rows.Add(element.InOut, element.Category, element.Date, element.Sum, element.Comment);
+            }
+
+            saveData("data.xml");
+        }
+
         private void edit_element()
         {
             if (dataGridView1.CurrentRow != null)
@@ -109,39 +173,17 @@ namespace buh_02
             saveData("data.xml");
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void DeleteTSB_Click(object sender, EventArgs e)
         {
-            saveData("data.xml");
-        }
-
-        private void toolStripButton5_Click_1(object sender, EventArgs e)
-        {
-            InOutCalc();
-        }
-
-        private void InOutCalc()
-        {
-            double i = 0;
-            double y = 0;
-
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            if (dataGridView1.CurrentRow != null)
             {
-                if (row.Cells[0].Value != null)
-                {
-                    if (row.Cells[0].Value.ToString() == "Доход")
-                    {
-                        i = i + (double)row.Cells[3].Value;
-                    }
-                    else if (row.Cells[0].Value.ToString() == "Расход")
-                    {
-                        y = y + (double)row.Cells[3].Value;
-                    }
-                }
-
-                label2.Text = "Доход (" + i.ToString() + ") - Расход (" + y.ToString() + ") = " + (i - y).ToString();
+                cashInOutBindingSource.RemoveCurrent();
+                saveData("data.xml");
             }
         }
+        #endregion
 
+        #region Filter Action
         private void filter()
         {
             StringBuilder sb = new StringBuilder();
@@ -149,33 +191,41 @@ namespace buh_02
 
             foreach (DataColumn col in dataSet1.Tables["CashInOut"].Columns)
             {
-                    if (col.DataType == typeof(System.String))
-                    {                        
-                        sb.Append(col.ColumnName);
-                        sb.Append(" LIKE '*");
-                        sb.Append(toolStripComboBox1.Text);
-                        sb.Append("*'");
-                        sb.Append(" OR ");
-                    }
+                if (col.DataType == typeof(System.String))
+                {
+                    sb.Append(col.ColumnName);
+                    sb.Append(" LIKE '*");
+                    sb.Append(toolStripComboBox1.Text);
+                    sb.Append("*'");
+                    sb.Append(" OR ");
+                }
             }
 
             sb.Remove(sb.Length - 3, 2);
             sb.Append(")");
 
-                sb.Append(string.Format(CultureInfo.InvariantCulture,
-                  " AND DateTime >= #{0:MM/dd/yyyy}# AND DateTime < #{1:MM/dd/yyyy}# ",
-                  DateBeginEnd.DateBegin,
-                  DateBeginEnd.DateEnd));
+            sb.Append(string.Format(CultureInfo.InvariantCulture,
+              " AND DateTime >= #{0:MM/dd/yyyy}# AND DateTime < #{1:MM/dd/yyyy}# ",
+              DateBeginEnd.DateBegin,
+              DateBeginEnd.DateEnd));
 
 
             cashInOutBindingSource.Filter = sb.ToString();
         }
 
-        private void toolStripSplitButton1_ButtonClick(object sender, EventArgs e)
+        private void clearfilter()
         {
-            SettingsTSB.ShowDropDown();
+            toolStripComboBox1.Text = "";
+            TSBTime.Text = "Фильтр по дате";
+            DateBeginEnd.DateBegin = new DateTime(1970, 1, 1);
+            DateBeginEnd.DateEnd = new DateTime(2032, 1, 1);
+
+            cashInOutBindingSource.RemoveFilter();
         }
 
+        #endregion
+
+        #region ToolStripButtonAction
         private void toolStripSplitButton2_ButtonClick(object sender, EventArgs e)
         {
             add_element("Доход");
@@ -191,37 +241,6 @@ namespace buh_02
             add_element("Расход");
         }
 
-        private void add_element(string inOut)
-        {
-            element.InOut = inOut;
-            element.Date = DateTime.Today;
-            element.Category = "";
-            element.Sum = 0;
-            element.Comment = "";
-
-            AddEdit addEdit = new AddEdit();
-            addEdit.ShowDialog();
-
-            if (addEdit.DialogResult == DialogResult.OK)
-            {
-                dataSet1.Tables["CashInOut"].Rows.Add(element.InOut, element.Category, element.Date, element.Sum, element.Comment);
-            }
-
-            saveData("data.xml");
-        }
-
-        private void dataGridView1_Paint(object sender, PaintEventArgs e)
-        {
-            DGPaint();
-            InOutCalc();
-        }
-
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //проверяем что не заголовок
-            if (e.RowIndex != -1) edit_element();   
-        }
-
         private void toolStripComboBox1_TextChanged(object sender, EventArgs e)
         {
             filter();
@@ -235,25 +254,6 @@ namespace buh_02
         private void FilterClearTSB_Click(object sender, EventArgs e)
         {
             clearfilter();
-        }
-
-        private void clearfilter()
-        {
-            toolStripComboBox1.Text = "";
-            TSBTime.Text = "Фильтр по дате";
-            DateBeginEnd.DateBegin = new DateTime(1970, 1, 1);
-            DateBeginEnd.DateEnd = new DateTime(2032, 1, 1);
-
-            cashInOutBindingSource.RemoveFilter();
-        }
-
-        private void DeleteTSB_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.CurrentRow != null)
-            {
-                cashInOutBindingSource.RemoveCurrent();
-                saveData("data.xml");
-            }
         }
 
         private void AboutProgramTSB_Click(object sender, EventArgs e)
@@ -285,7 +285,10 @@ namespace buh_02
             }
         }
 
-
-        
+        private void SettingsTSB_ButtonClick(object sender, EventArgs e)
+        {
+            SettingsTSB.ShowDropDown();
+        }
+        #endregion
     }
 }

@@ -30,10 +30,7 @@ namespace buh_02
             if (File.Exists(filename) == true)
             {
                 dataSet1.ReadXml(filename);
-            }
-
-            //comboBox2.DataSource = dataSet1.Tables["InOutCategories"];
-            
+            }  
 
             comboBox2.DataSource = inOutCategoriesBindingSource;
             comboBox2.DisplayMember = "Category";
@@ -78,16 +75,13 @@ namespace buh_02
             validate();
         }
 
-
         private void filter(string str)
         {
             inOutCategoriesBindingSource.Filter = "convert(InOut,'System.String') LIKE '*" + str + "*'";
         }
 
-
         private bool validate()
         {
-
             if (validate_InOut() && validate_Sum())
             {
                 return true;
@@ -101,7 +95,6 @@ namespace buh_02
 
         private bool validate_InOut()
         {
-
             if (comboBox1.Text == string.Empty)
             {
                 errorProvider1.SetError(comboBox1, "Выберите хотя бы один вариант");
