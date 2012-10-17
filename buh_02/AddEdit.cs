@@ -11,6 +11,8 @@ namespace buh_02
         {
             InitializeComponent();
 
+            loadData("category.xml", "InOutCategories");
+
             comboBox1.Text = element.InOut;
             comboBox2.Text = element.Category;
             dateTimePicker1.Value = element.Date;
@@ -19,7 +21,6 @@ namespace buh_02
 
             validate();
 
-            loadData("category.xml", "InOutCategories");
         }
 
         #region Dataset Load

@@ -240,10 +240,13 @@ namespace buh_02
             sb.Remove(sb.Length - 3, 2);
             sb.Append(")");
 
-            sb.Append(string.Format(CultureInfo.InvariantCulture,
-              " AND DateTime >= #{0:MM/dd/yyyy}# AND DateTime < #{1:MM/dd/yyyy}# ",
-              DateBeginEnd.DateBegin,
-              DateBeginEnd.DateEnd));
+            if (TSBTime.Text != "Фильтр по дате")
+            {
+                sb.Append(string.Format(CultureInfo.InvariantCulture,
+                  " AND DateTime >= #{0:MM/dd/yyyy}# AND DateTime < #{1:MM/dd/yyyy}# ",
+                  DateBeginEnd.DateBegin,
+                  DateBeginEnd.DateEnd));
+            }
 
 
             cashInOutBindingSource.Filter = sb.ToString();
