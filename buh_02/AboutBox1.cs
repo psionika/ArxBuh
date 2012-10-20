@@ -105,7 +105,7 @@ namespace buh_02
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.linkLabel1.LinkVisited = true;
+            this.linkLabel2.LinkVisited = true;
             System.Diagnostics.Process.Start("http://dotnetzip.codeplex.com/");
         }
 
