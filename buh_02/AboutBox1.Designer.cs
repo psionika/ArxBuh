@@ -35,6 +35,7 @@
             this.labelCompanyName = new System.Windows.Forms.Label();
             this.okButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -141,6 +142,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.linkLabel3);
             this.panel1.Controls.Add(this.linkLabel2);
             this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.textBox1);
@@ -151,10 +153,21 @@
             this.panel1.Size = new System.Drawing.Size(285, 137);
             this.panel1.TabIndex = 25;
             // 
+            // linkLabel3
+            // 
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Location = new System.Drawing.Point(61, 111);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(105, 13);
+            this.linkLabel3.TabIndex = 28;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "C# Popup Calculator";
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
+            // 
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(159, 111);
+            this.linkLabel2.Location = new System.Drawing.Point(159, 98);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(56, 13);
             this.linkLabel2.TabIndex = 27;
@@ -165,7 +178,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(60, 98);
+            this.linkLabel1.Location = new System.Drawing.Point(61, 86);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(45, 13);
             this.linkLabel1.TabIndex = 26;
@@ -183,7 +196,7 @@
             this.textBox1.Size = new System.Drawing.Size(268, 65);
             this.textBox1.TabIndex = 25;
             this.textBox1.TabStop = false;
-            this.textBox1.Text = "Используются \r\n\r\nиконки от \r\nбиблиотека для работы с ZIP";
+            this.textBox1.Text = "Используются \r\nиконки от \r\nбиблиотека для работы с ZIP\r\nКомпонент ";
             // 
             // textBoxDescription
             // 
@@ -238,5 +251,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel linkLabel3;
     }
 }

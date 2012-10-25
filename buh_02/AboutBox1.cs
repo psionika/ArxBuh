@@ -109,5 +109,11 @@ namespace buh_02
             System.Diagnostics.Process.Start("http://dotnetzip.codeplex.com/");
         }
 
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.linkLabel3.LinkVisited = true;
+            System.Diagnostics.Process.Start("http://www.codeproject.com/Articles/18343/C-Popup-Calculator-Button-and-Text-Control");
+        }
+
     }
 }

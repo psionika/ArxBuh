@@ -41,12 +41,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.categoryEdit = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.calculatorTextBox1 = new PopCalc.Library.CalculatorTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.dataSet1 = new buh_02.DataSet1();
@@ -89,7 +89,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 104F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(399, 291);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(399, 284);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // textBox1
@@ -125,7 +125,7 @@
             // 
             this.CancelBTN.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CancelBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelBTN.Location = new System.Drawing.Point(18, 256);
+            this.CancelBTN.Location = new System.Drawing.Point(18, 252);
             this.CancelBTN.Name = "CancelBTN";
             this.CancelBTN.Size = new System.Drawing.Size(87, 23);
             this.CancelBTN.TabIndex = 7;
@@ -136,7 +136,7 @@
             // 
             this.OkBTN.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OkBTN.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.OkBTN.Location = new System.Drawing.Point(128, 256);
+            this.OkBTN.Location = new System.Drawing.Point(128, 252);
             this.OkBTN.Name = "OkBTN";
             this.OkBTN.Size = new System.Drawing.Size(265, 23);
             this.OkBTN.TabIndex = 6;
@@ -188,7 +188,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.categoryEdit);
             this.panel2.Controls.Add(this.comboBox2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(126, 38);
@@ -196,16 +196,16 @@
             this.panel2.Size = new System.Drawing.Size(270, 29);
             this.panel2.TabIndex = 9;
             // 
-            // button1
+            // categoryEdit
             // 
-            this.button1.Location = new System.Drawing.Point(182, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(25, 23);
-            this.button1.TabIndex = 0;
-            this.button1.TabStop = false;
-            this.button1.Text = "...";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.categoryEdit.Location = new System.Drawing.Point(182, 5);
+            this.categoryEdit.Name = "categoryEdit";
+            this.categoryEdit.Size = new System.Drawing.Size(25, 23);
+            this.categoryEdit.TabIndex = 0;
+            this.categoryEdit.TabStop = false;
+            this.categoryEdit.Text = "...";
+            this.categoryEdit.UseVisualStyleBackColor = true;
+            this.categoryEdit.Click += new System.EventHandler(this.categoryEdit_Click);
             // 
             // comboBox2
             // 
@@ -235,22 +235,30 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.textBox2);
+            this.panel4.Controls.Add(this.calculatorTextBox1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(126, 108);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(270, 29);
             this.panel4.TabIndex = 5;
             // 
-            // textBox2
+            // calculatorTextBox1
             // 
-            this.textBox2.Location = new System.Drawing.Point(3, 3);
-            this.textBox2.MaxLength = 15;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(173, 20);
-            this.textBox2.TabIndex = 0;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
+            this.calculatorTextBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.calculatorTextBox1.ButtonFlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.calculatorTextBox1.CalculatorBackColor = System.Drawing.SystemColors.Control;
+            this.calculatorTextBox1.CalculatorHeading = "Введите сумму";
+            this.calculatorTextBox1.CalculatorNumberColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.calculatorTextBox1.CalculatorOperatorColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.calculatorTextBox1.CalculatorTitleColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.calculatorTextBox1.Location = new System.Drawing.Point(3, 3);
+            this.calculatorTextBox1.Name = "calculatorTextBox1";
+            this.calculatorTextBox1.Size = new System.Drawing.Size(193, 20);
+            this.calculatorTextBox1.TabIndex = 0;
+            this.calculatorTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.calculatorTextBox1.TextBoxText = "0";
+            this.calculatorTextBox1.CalculatorParse += new System.EventHandler<PopCalc.Library.CalculatorParseEventArgs>(this.calculatorTextBox1_CalculatorParse);
+            this.calculatorTextBox1.CalculatorFormat += new System.EventHandler<PopCalc.Library.CalculatorFormatEventArgs>(this.calculatorTextBox1_CalculatorFormat);
             // 
             // label1
             // 
@@ -281,7 +289,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.CancelBTN;
-            this.ClientSize = new System.Drawing.Size(399, 291);
+            this.ClientSize = new System.Drawing.Size(399, 284);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -296,7 +304,6 @@
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inOutCategoriesBindingSource)).EndInit();
@@ -320,12 +327,12 @@
         private System.Windows.Forms.BindingSource inOutCategoriesBindingSource;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button categoryEdit;
+        private PopCalc.Library.CalculatorTextBox calculatorTextBox1;
     }
 }

@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
 
+using System.Globalization;
+
+using System.Text.RegularExpressions;
+
 using System.IO;
 
 namespace buh_02
@@ -16,49 +20,10 @@ namespace buh_02
             comboBox1.Text = element.InOut;
             comboBox2.Text = element.Category;
             dateTimePicker1.Value = element.Date;
-            textBox2.Text = element.Sum.ToString();
+            calculatorTextBox1.TextBoxText = element.Sum.ToString();
             textBox1.Text = element.Comment;
 
             validate();
-
-        }
-
-        #region Dataset Load
-        private void loadData(string filename, string tablename)
-        {
-            dataSet1.Clear();
-
-            if (File.Exists(filename) == true)
-            {
-                dataSet1.ReadXml(filename);
-            }  
-
-            comboBox2.DataSource = inOutCategoriesBindingSource;
-            comboBox2.DisplayMember = "Category";
-        }
-        #endregion
-
-        private void AddEdit_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (this.DialogResult == DialogResult.OK && validate())
-            {
-                element.InOut = comboBox1.Text;
-                element.Category = comboBox2.Text;
-                element.Date = dateTimePicker1.Value;
-
-                element.Sum = Convert.ToDouble(textBox2.Text);
-                element.Comment = textBox1.Text;
-
-                e.Cancel = false;
-            }
-            else if (this.DialogResult == DialogResult.Cancel)
-            {
-                e.Cancel = false;
-            }
-            else
-            {
-                e.Cancel = true;
-            }
         }
 
         private void comboBox1_TextChanged(object sender, EventArgs e)
@@ -76,11 +41,35 @@ namespace buh_02
             validate();
         }
 
+        private void categoryEdit_Click(object sender, EventArgs e)
+        {
+            Category category = new Category();
+            category.ShowDialog();
+
+            loadData("category.xml", "InOutCategories");
+        }
+
         private void filter(string str)
         {
             inOutCategoriesBindingSource.Filter = "convert(InOut,'System.String') LIKE '*" + str + "*'";
         }
 
+        #region Dataset Load
+        private void loadData(string filename, string tablename)
+        {
+            dataSet1.Clear();
+
+            if (File.Exists(filename) == true)
+            {
+                dataSet1.ReadXml(filename);
+            }  
+
+            comboBox2.DataSource = inOutCategoriesBindingSource;
+            comboBox2.DisplayMember = "Category";
+        }
+        #endregion
+
+        #region Validate
         private bool validate()
         {
             if (validate_InOut() && validate_Sum())
@@ -91,7 +80,6 @@ namespace buh_02
             {
                 return false;
             }
-
         }
 
         private bool validate_InOut()
@@ -110,53 +98,73 @@ namespace buh_02
 
         private bool validate_Sum()
         {
-            if (textBox2.Text == string.Empty || textBox2.Text == "0")
+            try 
             {
-                errorProvider1.SetError(textBox2, "Укажите сумму");
+                double i = Convert.ToDouble(parsSum(calculatorTextBox1.TextBoxText));
+                errorProvider1.SetError(calculatorTextBox1, "");
+                return true;
+            }
+            catch 
+            {
+                errorProvider1.SetError(calculatorTextBox1, "Неверные данные!");
                 return false;
+            }
+
+        }
+        #endregion
+
+        private void AddEdit_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.DialogResult == DialogResult.OK && validate())
+            {
+                element.InOut = comboBox1.Text;
+                element.Category = comboBox2.Text;
+                element.Date = dateTimePicker1.Value;
+
+                element.Sum = Convert.ToDouble(parsSum(calculatorTextBox1.TextBoxText));
+                element.Comment = textBox1.Text;
+
+                e.Cancel = false;
+            }
+            else if (this.DialogResult == DialogResult.Cancel)
+            {
+                e.Cancel = false;
             }
             else
             {
-                errorProvider1.SetError(textBox2, "");
-                return true;
+                e.Cancel = true;
             }
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            validate();
 
-            textBox2.Text = textBox2.Text.Replace(".", ",");
-            textBox2.SelectionStart = textBox2.TextLength;
-            
+        private void calculatorTextBox1_CalculatorFormat(object sender, PopCalc.Library.CalculatorFormatEventArgs e)
+        {
+            //e.FormattedResult = e.Result.ToString("c");
         }
 
-        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        private void calculatorTextBox1_CalculatorParse(object sender, PopCalc.Library.CalculatorParseEventArgs e)
         {
-            if (
-                !(Char.IsDigit(e.KeyChar)) &&
-                !(
-                  (e.KeyChar == ',' || e.KeyChar == '.') &&
-                  (textBox2.Text.IndexOf(",") == -1 && textBox2.Text.IndexOf(".") == -1) &&
-                  (textBox2.Text.Length != 0)
-                 )
-               )
-            {
-                if (e.KeyChar != (char)Keys.Back)
-                {
-
-                    e.Handled = true;
-                }
-            }
+            e.Parsed = parsSum(e.Original);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private string parsSum(string e)
         {
-            Category category = new Category();
-            category.ShowDialog();
+                CultureInfo c = CultureInfo.CurrentCulture;
+                string cs = c.NumberFormat.CurrencySymbol;
+                string ns = c.NumberFormat.NegativeSign;
+                string parsed = e;
+                if (parsed.Contains(cs))
+                    parsed = parsed.Replace(cs, "");
+                if (parsed.StartsWith("(") && parsed.EndsWith(")"))
+                    parsed = ns + parsed.Replace("(", "").Replace(")", "");
 
-            loadData("category.xml", "InOutCategories");
+                parsed = parsed.Replace(".", ",");
+
+                return parsed;
+           
         }
+
+
 
     }
 }
