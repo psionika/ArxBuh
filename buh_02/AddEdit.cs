@@ -14,7 +14,7 @@ namespace buh_02
         public AddEdit()
         {
             InitializeComponent();
-
+            
             loadData("category.xml", "InOutCategories");
 
             comboBox1.Text = element.InOut;
@@ -162,6 +162,11 @@ namespace buh_02
 
                 return parsed;
            
+        }
+
+        private void OkBTN_Click(object sender, EventArgs e)
+        {
+
         }
 
 

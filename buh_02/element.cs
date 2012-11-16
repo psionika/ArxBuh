@@ -4,11 +4,12 @@ namespace buh_02
 {
     static class element
     {
-        public static string InOut { get; set; }
-        public static string Category { get; set; }
+        public static Boolean BudgetCheck { get; set; }
+        public static String InOut { get; set; }
+        public static String Category { get; set; }
         public static DateTime Date { get; set; }
-        public static double Sum { get; set; }
-        public static string Comment { get; set; }
+        public static Double Sum { get; set; }
+        public static String Comment { get; set; }
     }
 
     static class DateBeginEnd
@@ -20,7 +21,7 @@ namespace buh_02
     static class Backup
     {
         public static Boolean Enable { get; set; }
-        public static string Dir { get; set; }
+        public static String Dir { get; set; }
         public static Decimal Counter { get; set; }
     }
 }

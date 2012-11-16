@@ -83,6 +83,12 @@
     <Compile Include="AddEdit.Designer.cs">
       <DependentUpon>AddEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddEditBudget.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditBudget.Designer.cs">
+      <DependentUpon>AddEditBudget.cs</DependentUpon>
+    </Compile>
     <Compile Include="BackupForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddEdit.resx">
       <DependentUpon>AddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEditBudget.resx">
+      <DependentUpon>AddEditBudget.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BackupForm.resx">
       <DependentUpon>BackupForm.cs</DependentUpon>

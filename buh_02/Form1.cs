@@ -31,7 +31,7 @@ namespace buh_02
         {
             readSetting();
 
-            loadData("data.xml", "CashInOut");
+            loadData("data.xml");
 
             cashInOutBindingSource.Sort = "DateTime DESC";
          }
@@ -71,7 +71,7 @@ namespace buh_02
             dataSet1.WriteXml(filename, XmlWriteMode.IgnoreSchema);
         }
 
-        private void loadData(string filename, string tablename)
+        private void loadData(string filename)
         {
             dataSet1.Clear();
 
@@ -79,6 +79,8 @@ namespace buh_02
             {
                 dataSet1.ReadXml(filename);
                 dataGridView1.DataSource = this.cashInOutBindingSource;
+                dataGridView2.DataSource = this.budgetBindingSourceIn;
+                dataGridView3.DataSource = this.budgetBindingSourceOut;
             }
         }
         #endregion
@@ -120,8 +122,36 @@ namespace buh_02
                             //Меняем шрифт ячейки
                             cell.Style.Font = new Font(this.Font, FontStyle.Regular);
                         }
-
                 }
+            }
+        }
+
+        private void DGPaintBudgetIn()
+        {
+            foreach (DataGridViewRow row in dataGridView2.Rows)
+            {
+                        foreach (DataGridViewCell cell in row.Cells)
+                        {
+                            //Меняем цвет ячейки
+                            cell.Style.BackColor = Color.LightGreen;
+                            cell.Style.ForeColor = Color.Black;
+
+                            //Меняем шрифт ячейки
+                            cell.Style.Font = new Font(this.Font, FontStyle.Regular);
+                        }
+            }
+        }
+
+        private void DGPaintBudgetOut()
+        {
+            foreach (DataGridViewRow row in dataGridView3.Rows)
+            {
+                        foreach (DataGridViewCell cell in row.Cells)
+                        {
+                            //Меняем цвет ячейки
+                            cell.Style.BackColor = Color.Red;
+                            cell.Style.ForeColor = Color.Black;
+                        }
             }
         }
 
@@ -285,11 +315,6 @@ namespace buh_02
             filter();
         }
 
-        private void EditTSB_Click(object sender, EventArgs e)
-        {
-            edit_element();
-        }
-
         private void FilterClearTSB_Click(object sender, EventArgs e)
         {
             clearfilter();
@@ -424,5 +449,122 @@ namespace buh_02
 
 
         #endregion
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            add_elementBudget("Доход");
+        }
+        private void add_elementBudget(string inOut)
+        {
+            element.BudgetCheck = false;
+            element.InOut = inOut;
+            element.Date = DateTime.Today;
+            element.Category = "";
+            element.Sum = 0;
+            element.Comment = "";
+
+            AddEditBudget aeb = new AddEditBudget();
+            aeb.ShowDialog();
+
+            if (aeb.DialogResult == DialogResult.OK)
+            {
+                dataSet1.Tables["Budget"].Rows.Add(element.BudgetCheck, element.InOut, element.Category, element.Date, element.Sum, element.Comment);
+            }
+
+            saveData("data.xml");
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            if (dataGridView2.CurrentRow != null)
+            {
+                budgetBindingSourceIn.RemoveCurrent();
+                saveData("data.xml");
+            }
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            if (dataGridView3.CurrentRow != null)
+            {
+                budgetBindingSourceOut.RemoveCurrent();
+                saveData("data.xml");
+            }
+        }
+
+        private void dataGridView2_Paint(object sender, PaintEventArgs e)
+        {
+            budgetBindingSourceIn.Filter = "convert(InOut,'System.String') LIKE 'Доход'";
+            DGPaintBudgetIn();
+            InOutCalcBudget();
+
+        }
+
+        private void dataGridView3_Paint(object sender, PaintEventArgs e)
+        {
+            budgetBindingSourceOut.Filter = "convert(InOut,'System.String') LIKE 'Расход'";
+            DGPaintBudgetOut();
+            InOutCalcBudget();
+        }
+
+        private void InOutCalcBudget()
+        {
+            double xIn = 0;
+            double xOut = 0;
+
+            foreach (DataGridViewRow row in dataGridView2.Rows)
+            {
+                if (row.Cells[0].Value != null)
+                {
+                        xIn = xIn + (double)row.Cells[3].Value;
+                }
+
+                labelIn.Text = xIn.ToString();
+            }
+
+            foreach (DataGridViewRow row in dataGridView3.Rows)
+            {
+                if (row.Cells[0].Value != null)
+                {
+                    xOut = xOut + (double)row.Cells[3].Value;
+                }
+
+                labelOut.Text = xOut.ToString();
+            }
+
+            labelResult.Text = (xIn - xOut).ToString();
+        }
+
+
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            AboutBox1 about = new AboutBox1();
+            about.ShowDialog();
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            Category category = new Category();
+            category.ShowDialog();
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            BackupForm backupForm = new BackupForm();
+            backupForm.ShowDialog();
+
+            writeSetting();
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            add_elementBudget("Расход");
+        }
     }
 }
