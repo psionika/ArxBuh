@@ -120,6 +120,12 @@
       <DependentUpon>DateFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="element.cs" />
+    <Compile Include="Encryption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Encryption.Designer.cs">
+      <DependentUpon>Encryption.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DateFilter.resx">
       <DependentUpon>DateFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Encryption.resx">
+      <DependentUpon>Encryption.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -221,6 +230,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\remove_32x32.png" />
     <None Include="Resources\star_32x32.png" />
     <None Include="Resources\line_graph_32x32.png" />
     <None Include="Resources\coins.jpg" />

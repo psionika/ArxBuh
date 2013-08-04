@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Arxont Curved Hands Inc.")]
 [assembly: AssemblyProduct("Arxont HomeBuh")]
-[assembly: AssemblyCopyright("Arxont Copyleft  2012")]
+[assembly: AssemblyCopyright("Arxont Copyleft  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // Можно задать все значения или принять номер построения и номер редакции по умолчанию, 
 // используя "*", как показано ниже:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.0.0.11")]
-[assembly: AssemblyFileVersion("0.0.0.11")]
+[assembly: AssemblyVersion("0.0.0.13")]
+[assembly: AssemblyFileVersion("0.0.0.13")]

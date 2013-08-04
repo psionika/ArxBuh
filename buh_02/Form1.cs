@@ -59,6 +59,7 @@ namespace buh_02
 
             this.Location = props.Fields.Location;
             this.Size = props.Fields.FormSize;
+
             Backup.Dir = props.Fields.BackupDir;
             Backup.Counter = props.Fields.BackupCounter;
             Backup.Enable = props.Fields.BackupEnable;
@@ -185,9 +186,8 @@ namespace buh_02
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //проверяем что не заголовок
-            if (e.RowIndex != -1) edit_element();
+        {            
+            if(e.RowIndex != -1) edit_element();
         }
         #endregion
 
@@ -239,14 +239,23 @@ namespace buh_02
             saveData("data.xml");
         }
 
-        private void DeleteTSB_Click(object sender, EventArgs e)
+        private void delete_element()
         {
             if (dataGridView1.CurrentRow != null)
             {
-                cashInOutBindingSource.RemoveCurrent();
-                saveData("data.xml");
+                var result = MessageBox.Show("Вы действительно хотите удалить текущий элемент?",
+                    "Удаление элемента",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    cashInOutBindingSource.RemoveCurrent();
+                    saveData("data.xml");
+                }
             }
         }
+
         #endregion
 
         #region Filter Action
@@ -295,19 +304,20 @@ namespace buh_02
         #endregion
 
         #region ToolStripButtonAction
-        private void toolStripSplitButton2_ButtonClick(object sender, EventArgs e)
+
+        private void toolStripButton6_Click(object sender, EventArgs e)
         {
             add_element("Доход");
         }
 
-        private void доходToolStripMenuItem_Click(object sender, EventArgs e)
-        {    
-            add_element("Доход");
-        }
-
-        private void расходToolStripMenuItem_Click(object sender, EventArgs e)
+        private void toolStripButton7_Click(object sender, EventArgs e)
         {
             add_element("Расход");
+        }
+
+        private void DeleteTSB_Click(object sender, EventArgs e)
+        {
+            delete_element();
         }
 
         private void toolStripComboBox1_TextChanged(object sender, EventArgs e)
@@ -566,5 +576,35 @@ namespace buh_02
         {
             add_elementBudget("Расход");
         }
+
+
+        #region Контекстное меню
+        private void редактироватьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            edit_element();            
+        }
+
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            delete_element();
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+                dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected = true;
+            
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                Point pt = dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location;
+                pt.X += e.Location.X;
+                pt.Y += e.Location.Y;
+                contextMenuStrip1.Show(dataGridView1, pt);
+            }
+        }
+        #endregion
+
+
+
     }
 }
