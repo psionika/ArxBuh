@@ -1,6 +1,6 @@
 ﻿namespace buh_02
 {
-    partial class Encryption
+    partial class FormEncryption
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.btnOK = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -36,7 +37,6 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,16 +65,25 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(311, 219);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
+            // maskedTextBox2
+            // 
+            this.maskedTextBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.maskedTextBox2.Location = new System.Drawing.Point(162, 77);
+            this.maskedTextBox2.Name = "maskedTextBox2";
+            this.maskedTextBox2.PasswordChar = '*';
+            this.maskedTextBox2.Size = new System.Drawing.Size(142, 20);
+            this.maskedTextBox2.TabIndex = 9;
+            // 
             // btnOK
             // 
             this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOK.Location = new System.Drawing.Point(40, 111);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // label1
             // 
@@ -139,25 +148,18 @@
             this.maskedTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.maskedTextBox1.Location = new System.Drawing.Point(162, 42);
             this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.PasswordChar = '*';
             this.maskedTextBox1.Size = new System.Drawing.Size(142, 20);
             this.maskedTextBox1.TabIndex = 8;
             // 
-            // maskedTextBox2
-            // 
-            this.maskedTextBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.maskedTextBox2.Location = new System.Drawing.Point(162, 77);
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(142, 20);
-            this.maskedTextBox2.TabIndex = 9;
-            // 
-            // Encryption
+            // FormEncryption
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(311, 219);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Encryption";
+            this.Name = "FormEncryption";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Шифрование";
             this.tableLayoutPanel1.ResumeLayout(false);

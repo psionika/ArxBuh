@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 using System.IO;
 using System.Globalization;
+using System.Security.Cryptography;
 
 using Ionic.Zip;
 
@@ -31,7 +32,7 @@ namespace buh_02
         {
             readSetting();
 
-            loadData("data.xml");
+            loadData("data.xml");            
 
             cashInOutBindingSource.Sort = "DateTime DESC";
          }
@@ -49,6 +50,8 @@ namespace buh_02
             props.Fields.BackupDir = Backup.Dir;
             props.Fields.BackupEnable = Backup.Enable;
 
+            props.Fields.EncryptEnable = EncryptDecrypt.Enable;
+
             props.WriteXml();
         }
 
@@ -63,26 +66,50 @@ namespace buh_02
             Backup.Dir = props.Fields.BackupDir;
             Backup.Counter = props.Fields.BackupCounter;
             Backup.Enable = props.Fields.BackupEnable;
+
+            EncryptDecrypt.Enable = props.Fields.EncryptEnable; 
         }
         #endregion
 
         #region DataSet action
         private void saveData(string filename)
         {
-            dataSet1.WriteXml(filename, XmlWriteMode.IgnoreSchema);
+            if (EncryptDecrypt.Enable == false)
+            {
+                dataSet1.WriteXml(filename, XmlWriteMode.IgnoreSchema);
+            }
+            else
+            {
+                SetDataSet("data.xml", dataSet1, EncryptDecrypt.Password);
+            }
         }
 
         private void loadData(string filename)
         {
             dataSet1.Clear();
 
-            if (File.Exists(filename) == true)
+            if (EncryptDecrypt.Enable == false)
             {
-                dataSet1.ReadXml(filename);
-                dataGridView1.DataSource = this.cashInOutBindingSource;
-                dataGridView2.DataSource = this.budgetBindingSourceIn;
-                dataGridView3.DataSource = this.budgetBindingSourceOut;
+                if (File.Exists(filename) == true)
+                {
+                    dataSet1.ReadXml(filename);
+                    dataGridView1.DataSource = this.cashInOutBindingSource;
+                    dataGridView2.DataSource = this.budgetBindingSourceIn;
+                    dataGridView3.DataSource = this.budgetBindingSourceOut;
+                }
             }
+            else
+            {
+                if (File.Exists(filename) == true)
+                {
+                    do
+                    {
+                        PasswordRequest();
+                    } while (GetDataSet(filename, EncryptDecrypt.Password, dataSet1));
+                }
+            }
+
+
         }
         #endregion
 
@@ -374,6 +401,7 @@ namespace buh_02
             writeSetting();
         }
 
+
         private void backup()
         {
             if (Backup.Enable)
@@ -603,6 +631,74 @@ namespace buh_02
             }
         }
         #endregion
+
+        #region Шифрование
+        private void шифрованиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormEncryption formEncryption = new FormEncryption();
+            formEncryption.ShowDialog();
+
+            writeSetting();
+        }
+
+        private void PasswordRequest()
+        {
+            FormRequestPassword formRP = new FormRequestPassword();
+            formRP.ShowDialog();
+        }
+
+        public bool GetDataSet(string file, string key, DataSet ds)
+        {
+            Rijndael crypto = Rijndael.Create();
+
+            crypto.IV = ASCIIEncoding.ASCII.GetBytes("qwert".PadRight(16, 'x'));
+            crypto.Key = ASCIIEncoding.ASCII.GetBytes(key.PadRight(16, 'x'));
+            crypto.Padding = PaddingMode.Zeros;
+
+            using (FileStream stream = new FileStream(file, FileMode.Open))
+            {
+                using (CryptoStream cryptoStream = new CryptoStream(stream, crypto.CreateDecryptor(), CryptoStreamMode.Read))
+                {
+                    try
+                    {
+                        ds.ReadXml(cryptoStream);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Пароль не верен!!!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return true;
+                    }
+                    cryptoStream.Close();
+                    stream.Close();                    
+                }
+            }
+            return false;
+        }
+
+        public void SetDataSet(string file, DataSet ds, string key)
+        {
+            Rijndael crypto = Rijndael.Create();
+
+            crypto.IV = ASCIIEncoding.ASCII.GetBytes("qwert".PadRight(16, 'x'));
+            crypto.Key = ASCIIEncoding.ASCII.GetBytes(key.PadRight(16, 'x'));
+            crypto.Padding = PaddingMode.Zeros;
+
+            File.Delete(file);
+
+            using (FileStream stream = new FileStream(file, FileMode.OpenOrCreate))
+            {
+                using (CryptoStream cryptoStream = new CryptoStream(stream, crypto.CreateEncryptor(), CryptoStreamMode.Write))
+                {
+                    ds.WriteXml(cryptoStream);
+                    cryptoStream.Flush();
+                    stream.Flush();
+                    cryptoStream.Close();
+                    stream.Close();
+                }
+            }
+        }
+        #endregion
+
 
 
 

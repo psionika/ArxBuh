@@ -24,4 +24,10 @@ namespace buh_02
         public static String Dir { get; set; }
         public static Decimal Counter { get; set; }
     }
+
+    static class EncryptDecrypt
+    {
+        public static Boolean Enable { get; set; }
+        public static String Password { get; set; }
+    }
 }

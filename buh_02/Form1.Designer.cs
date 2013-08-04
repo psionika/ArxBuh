@@ -53,6 +53,7 @@
             this.категорииДоходовИРасходовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.резервноеКопированиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.шифрованиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -239,7 +240,8 @@
             this.toolStripMenuItem1,
             this.категорииДоходовИРасходовToolStripMenuItem,
             this.toolStripMenuItem2,
-            this.резервноеКопированиеToolStripMenuItem});
+            this.резервноеКопированиеToolStripMenuItem,
+            this.шифрованиеToolStripMenuItem});
             this.SettingsTSB.Image = global::buh_02.Properties.Resources.gear_wheel_32x32;
             this.SettingsTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.SettingsTSB.Name = "SettingsTSB";
@@ -278,6 +280,13 @@
             this.резервноеКопированиеToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
             this.резервноеКопированиеToolStripMenuItem.Text = "Резервное копирование";
             this.резервноеКопированиеToolStripMenuItem.Click += new System.EventHandler(this.резервноеКопированиеToolStripMenuItem_Click);
+            // 
+            // шифрованиеToolStripMenuItem
+            // 
+            this.шифрованиеToolStripMenuItem.Name = "шифрованиеToolStripMenuItem";
+            this.шифрованиеToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.шифрованиеToolStripMenuItem.Text = "Шифрование";
+            this.шифрованиеToolStripMenuItem.Click += new System.EventHandler(this.шифрованиеToolStripMenuItem_Click);
             // 
             // label2
             // 
@@ -1074,6 +1083,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem редактироватьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem шифрованиеToolStripMenuItem;
     }
 }
 

@@ -20,6 +20,8 @@ namespace buh_02
         public Boolean BackupEnable = true;
         public String BackupDir = @"Backup";
         public Decimal BackupCounter = 10;
+
+        public Boolean EncryptEnable = false;
     }
 
     //Класс работы с настройками
