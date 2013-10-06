@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Управление общими сведениями о сборке осуществляется с помощью 
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("Arxont HomeBuh")]
+[assembly: AssemblyTitle("ArxBuh")]
 [assembly: AssemblyDescription("Программа для ведения домашней бухгалтерии. Написано для себя и под свои нужды.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Arxont Curved Hands Inc.")]
-[assembly: AssemblyProduct("Arxont HomeBuh")]
-[assembly: AssemblyCopyright("Arxont Copyleft  2013")]
+[assembly: AssemblyCompany("http://twitter.com/arxont")]
+[assembly: AssemblyProduct("ArxBuh")]
+[assembly: AssemblyCopyright("Licence - CC Atribution (CC-BY)")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // Можно задать все значения или принять номер построения и номер редакции по умолчанию, 
 // используя "*", как показано ниже:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.0.0.14")]
-[assembly: AssemblyFileVersion("0.0.0.14")]
+[assembly: AssemblyVersion("0.0.0.15")]
+[assembly: AssemblyFileVersion("0.0.0.15")]

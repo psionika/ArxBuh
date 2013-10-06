@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEncryption));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.btnOK = new System.Windows.Forms.Button();
@@ -135,12 +136,12 @@
             this.tableLayoutPanel1.SetColumnSpan(this.label3, 2);
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(13, 153);
+            this.label3.Location = new System.Drawing.Point(28, 153);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(285, 52);
+            this.label3.Size = new System.Drawing.Size(255, 52);
             this.label3.TabIndex = 7;
-            this.label3.Text = "ВНИМАНИЕ!!! ШИФРОВАНИЕ НЕОБРАТИМО!!!\r\nЕсли вы забудете пароль, то не сможете полу" +
-    "чить\r\nдоступ к своим данным!";
+            this.label3.Text = "ВНИМАНИЕ!!!\r\nЕсли вы забудете пароль, то не сможете получить\r\nдоступ к своим данн" +
+    "ым!";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // maskedTextBox1
@@ -159,6 +160,7 @@
             this.ClientSize = new System.Drawing.Size(311, 219);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormEncryption";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Шифрование";

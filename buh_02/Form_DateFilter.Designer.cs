@@ -1,6 +1,6 @@
 ﻿namespace buh_02
 {
-    partial class DateFilter
+    partial class Form_DateFilter
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_DateFilter));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -174,7 +175,7 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "Предустановки";
             // 
-            // DateFilter
+            // Form_DateFilter
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -183,8 +184,8 @@
             this.ClientSize = new System.Drawing.Size(219, 152);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "DateFilter";
-            this.ShowInTaskbar = false;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "Form_DateFilter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Установить фильтр по дате";
             this.tableLayoutPanel1.ResumeLayout(false);

@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace buh_02
 {
-    partial class AboutBox1 : Form
+    partial class Form_AboutBox1 : Form
     {
-        public AboutBox1()
+        public Form_AboutBox1()
         {
             InitializeComponent();
             this.Text = String.Format("О {0}", AssemblyTitle);

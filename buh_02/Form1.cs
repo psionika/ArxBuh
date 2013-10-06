@@ -32,9 +32,13 @@ namespace buh_02
         {
             readSetting();
 
+
+
             loadData("data.xml");            
 
             cashInOutBindingSource.Sort = "DateTime DESC";
+
+            loadGoal();
          }
         #endregion
 
@@ -96,6 +100,7 @@ namespace buh_02
                     dataGridView1.DataSource = this.cashInOutBindingSource;
                     dataGridView2.DataSource = this.budgetBindingSourceIn;
                     dataGridView3.DataSource = this.budgetBindingSourceOut;
+                    dataGridView4.DataSource = this.goalBindingSource;
                 }
             }
             else
@@ -221,18 +226,18 @@ namespace buh_02
         #region Element Action (Add, Edit, Delete)
         private void add_element(string inOut)
         {
-            element.InOut = inOut;
-            element.Date = DateTime.Today;
-            element.Category = "";
-            element.Sum = 0;
-            element.Comment = "";
+            Class_element.InOut = inOut;
+            Class_element.Date = DateTime.Today;
+            Class_element.Category = "";
+            Class_element.Sum = 0;
+            Class_element.Comment = "";
 
             AddEdit addEdit = new AddEdit();
             addEdit.ShowDialog();
 
             if (addEdit.DialogResult == DialogResult.OK)
             {
-                dataSet1.Tables["CashInOut"].Rows.Add(element.InOut, element.Category, element.Date, element.Sum, element.Comment);
+                dataSet1.Tables["CashInOut"].Rows.Add(Class_element.InOut, Class_element.Category, Class_element.Date, Class_element.Sum, Class_element.Comment);
             }
 
             saveData("data.xml");
@@ -242,11 +247,11 @@ namespace buh_02
         {
             if (dataGridView1.CurrentRow != null)
             {
-                element.InOut = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                element.Category = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                element.Date = (DateTime)dataGridView1.CurrentRow.Cells[2].Value;
-                element.Sum = (double)dataGridView1.CurrentRow.Cells[3].Value;
-                element.Comment = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                Class_element.InOut = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                Class_element.Category = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                Class_element.Date = (DateTime)dataGridView1.CurrentRow.Cells[2].Value;
+                Class_element.Sum = (double)dataGridView1.CurrentRow.Cells[3].Value;
+                Class_element.Comment = dataGridView1.CurrentRow.Cells[4].Value.ToString();
 
                 AddEdit addEdit = new AddEdit();
                 addEdit.ShowDialog();
@@ -255,11 +260,11 @@ namespace buh_02
                 {
                     DataRow customerRow = ((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row;
 
-                    customerRow["InOut"] = element.InOut;
-                    customerRow["Category"] = element.Category;
-                    customerRow["DateTime"] = element.Date;
-                    customerRow["Sum"] = element.Sum;
-                    customerRow["Comment"] = element.Comment;
+                    customerRow["InOut"] = Class_element.InOut;
+                    customerRow["Category"] = Class_element.Category;
+                    customerRow["DateTime"] = Class_element.Date;
+                    customerRow["Sum"] = Class_element.Sum;
+                    customerRow["Comment"] = Class_element.Comment;
                 }
             }
 
@@ -359,7 +364,7 @@ namespace buh_02
 
         private void AboutProgramTSB_Click(object sender, EventArgs e)
         {
-            AboutBox1 about = new AboutBox1();
+            Form_AboutBox1 about = new Form_AboutBox1();
             about.ShowDialog();
         }
 
@@ -376,7 +381,7 @@ namespace buh_02
 
         private void TSBTime_Click(object sender, EventArgs e)
         {
-            DateFilter df = new DateFilter();
+            Form_DateFilter df = new Form_DateFilter();
             df.ShowDialog();
 
             if (df.DialogResult == DialogResult.OK)
@@ -494,19 +499,19 @@ namespace buh_02
         }
         private void add_elementBudget(string inOut)
         {
-            element.BudgetCheck = false;
-            element.InOut = inOut;
-            element.Date = DateTime.Today;
-            element.Category = "";
-            element.Sum = 0;
-            element.Comment = "";
+            Class_element.BudgetCheck = false;
+            Class_element.InOut = inOut;
+            Class_element.Date = DateTime.Today;
+            Class_element.Category = "";
+            Class_element.Sum = 0;
+            Class_element.Comment = "";
 
             AddEditBudget aeb = new AddEditBudget();
             aeb.ShowDialog();
 
             if (aeb.DialogResult == DialogResult.OK)
             {
-                dataSet1.Tables["Budget"].Rows.Add(element.BudgetCheck, element.InOut, element.Category, element.Date, element.Sum, element.Comment);
+                dataSet1.Tables["Budget"].Rows.Add(Class_element.BudgetCheck, Class_element.InOut, Class_element.Category, Class_element.Date, Class_element.Sum, Class_element.Comment);
             }
 
             saveData("data.xml");
@@ -582,7 +587,7 @@ namespace buh_02
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            AboutBox1 about = new AboutBox1();
+            Form_AboutBox1 about = new Form_AboutBox1();
             about.ShowDialog();
         }
 
@@ -606,6 +611,7 @@ namespace buh_02
         }
 
 
+
         #region Контекстное меню
         private void редактироватьToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -617,19 +623,7 @@ namespace buh_02
             delete_element();
         }
 
-        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-                dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected = true;
-            
-            if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            {
-                Point pt = dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location;
-                pt.X += e.Location.X;
-                pt.Y += e.Location.Y;
-                contextMenuStrip1.Show(dataGridView1, pt);
-            }
-        }
+
         #endregion
 
         #region Шифрование
@@ -698,6 +692,114 @@ namespace buh_02
             }
         }
         #endregion
+
+        #region Цели
+        private void loadGoal()
+        {
+            DataGridViewProgressColumn column = new DataGridViewProgressColumn();
+            column.Width = 250;
+            dataGridView4.Columns.Add(column);
+        }
+
+        private void tsb_AddGoal_Click(object sender, EventArgs e)
+        {
+            Form_AddEditGoal faeg = new Form_AddEditGoal("", "", "", "-1", dataSet1);
+            faeg.ShowDialog();
+
+            if (faeg.DialogResult == DialogResult.OK)
+            {
+                DataRow newGoalRow = dataSet1.Tables["Goal"].NewRow();
+
+                newGoalRow["name"] = faeg.txb_GoalName.Text;
+                newGoalRow["AllSum"] = faeg.txb_GoalSum.Text;
+                newGoalRow["Comment"] = faeg.txb_GoalComment.Text;
+
+                dataSet1.Tables["Goal"].Rows.Add(newGoalRow);                                
+            }
+
+            saveData("data.xml");            
+        }
+
+        private void ProgressGoal()
+        {
+            foreach (DataGridViewRow row in dataGridView4.Rows)
+            {
+                int x = (int)(Convert.ToDouble(row.Cells[2].Value) / (Convert.ToDouble(row.Cells[1].Value) / 100));
+                row.Cells[5].Value = x;
+            }
+        }
+
+        private void dataGridView4_Paint(object sender, PaintEventArgs e)
+        {
+            ProgressGoal();
+        }        
+        #endregion
+
+        private void dataGridView4_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+ 
+        }
+
+        private void tsb_GoalDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridView4.CurrentRow != null)
+            {
+                var result = MessageBox.Show("Вы действительно хотите удалить текущий элемент?",
+                    "Удаление элемента",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    goalBindingSource.RemoveCurrent();
+                    saveData("data.xml");
+                }
+            }
+        }
+
+        private void dataGridView4_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                DataRow newGoalRow = ((DataRowView)dataGridView4.CurrentRow.DataBoundItem).Row;
+
+                if (dataGridView4.CurrentRow != null)
+                {
+                    string name = newGoalRow["Name"].ToString();
+                    string allSum = newGoalRow["AllSum"].ToString();
+                    string comment = newGoalRow["Comment"].ToString();
+                    string HistoryID = newGoalRow["HistoryID"].ToString();
+
+                    Form_AddEditGoal faeg = new Form_AddEditGoal(name, allSum, comment, HistoryID, dataSet1);
+                    faeg.ShowDialog();
+
+                    if (faeg.DialogResult == DialogResult.OK)
+                    {
+                        newGoalRow["name"] = faeg.txb_GoalName.Text;
+                        newGoalRow["AllSum"] = faeg.txb_GoalSum.Text;
+                        newGoalRow["Comment"] = faeg.txb_GoalComment.Text;
+                        newGoalRow["History"] = Goal.History.ToString();
+                    }
+
+                    saveData("data.xml");
+                }
+
+            }
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+                dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected = true;
+
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                Point pt = dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location;
+                pt.X += e.Location.X;
+                pt.Y += e.Location.Y;
+                contextMenuStrip1.Show(dataGridView1, pt);
+            }
+        }
 
 
 

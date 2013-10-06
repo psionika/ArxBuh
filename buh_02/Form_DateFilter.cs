@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace buh_02
 {
-    public partial class DateFilter : Form
+    public partial class Form_DateFilter : Form
     {
-        public DateFilter()
+        public Form_DateFilter()
         {
             InitializeComponent();
         }

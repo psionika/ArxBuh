@@ -20,11 +20,11 @@ namespace buh_02
 
             loadData("category.xml", "InOutCategories");
 
-            comboBox1.Text = element.InOut;
-            comboBox2.Text = element.Category;
-            dateTimePicker1.Value = element.Date;
-            calculatorTextBox1.TextBoxText = element.Sum.ToString();
-            textBox1.Text = element.Comment;
+            comboBox1.Text = Class_element.InOut;
+            comboBox2.Text = Class_element.Category;
+            dateTimePicker1.Value = Class_element.Date;
+            calculatorTextBox1.TextBoxText = Class_element.Sum.ToString();
+            textBox1.Text = Class_element.Comment;
 
             validate();
         }
@@ -38,13 +38,13 @@ namespace buh_02
         {
             if (this.DialogResult == DialogResult.OK && validate())
             {
-                element.BudgetCheck = checkBox1.Checked;
-                element.InOut = comboBox1.Text;
-                element.Category = comboBox2.Text;
-                element.Date = dateTimePicker1.Value;
+                Class_element.BudgetCheck = checkBox1.Checked;
+                Class_element.InOut = comboBox1.Text;
+                Class_element.Category = comboBox2.Text;
+                Class_element.Date = dateTimePicker1.Value;
 
-                element.Sum = Convert.ToDouble(parsSum(calculatorTextBox1.TextBoxText));
-                element.Comment = textBox1.Text;
+                Class_element.Sum = Convert.ToDouble(parsSum(calculatorTextBox1.TextBoxText));
+                Class_element.Comment = textBox1.Text;
 
                 e.Cancel = false;
             }

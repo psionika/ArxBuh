@@ -2,7 +2,7 @@
 
 namespace buh_02
 {
-    static class element
+    static class Class_element
     {
         public static Boolean BudgetCheck { get; set; }
         public static String InOut { get; set; }
@@ -29,5 +29,10 @@ namespace buh_02
     {
         public static Boolean Enable { get; set; }
         public static String Password { get; set; }
+    }
+
+    static class Goal
+    {
+        public static Int32 History { get; set; }
     }
 }

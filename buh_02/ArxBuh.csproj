@@ -71,11 +71,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutBox1.cs">
+    <Compile Include="Form_AboutBox1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AboutBox1.Designer.cs">
-      <DependentUpon>AboutBox1.cs</DependentUpon>
+    <Compile Include="Form_AboutBox1.Designer.cs">
+      <DependentUpon>Form_AboutBox1.cs</DependentUpon>
     </Compile>
     <Compile Include="AddEdit.cs">
       <SubType>Form</SubType>
@@ -113,13 +113,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DateFilter.cs">
+    <Compile Include="Form_DateFilter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DateFilter.Designer.cs">
-      <DependentUpon>DateFilter.cs</DependentUpon>
+    <Compile Include="Form_DateFilter.Designer.cs">
+      <DependentUpon>Form_DateFilter.cs</DependentUpon>
     </Compile>
-    <Compile Include="element.cs" />
+    <Compile Include="Class_element.cs" />
     <Compile Include="FormEncryption.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,11 +138,23 @@
     <Compile Include="FormRequestPassword.Designer.cs">
       <DependentUpon>FormRequestPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_AddEditGoal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_AddEditGoal.Designer.cs">
+      <DependentUpon>Form_AddEditGoal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_AddGoalElement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_AddGoalElement.Designer.cs">
+      <DependentUpon>Form_AddGoalElement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Props.cs" />
-    <EmbeddedResource Include="AboutBox1.resx">
-      <DependentUpon>AboutBox1.cs</DependentUpon>
+    <EmbeddedResource Include="Form_AboutBox1.resx">
+      <DependentUpon>Form_AboutBox1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddEdit.resx">
       <DependentUpon>AddEdit.cs</DependentUpon>
@@ -156,8 +168,8 @@
     <EmbeddedResource Include="Category.resx">
       <DependentUpon>Category.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DateFilter.resx">
-      <DependentUpon>DateFilter.cs</DependentUpon>
+    <EmbeddedResource Include="Form_DateFilter.resx">
+      <DependentUpon>Form_DateFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEncryption.resx">
       <DependentUpon>FormEncryption.cs</DependentUpon>
@@ -167,6 +179,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRequestPassword.resx">
       <DependentUpon>FormRequestPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_AddEditGoal.resx">
+      <DependentUpon>Form_AddEditGoal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_AddGoalElement.resx">
+      <DependentUpon>Form_AddGoalElement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
