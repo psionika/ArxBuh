@@ -9,9 +9,9 @@ using System.IO;
 
 namespace buh_02
 {
-    public partial class AddEdit : Form
+    public partial class Form_AddEdit : Form
     {
-        public AddEdit()
+        public Form_AddEdit()
         {
             InitializeComponent();
             
@@ -43,7 +43,7 @@ namespace buh_02
 
         private void categoryEdit_Click(object sender, EventArgs e)
         {
-            Category category = new Category();
+            Form_Category category = new Form_Category();
             category.ShowDialog();
 
             loadData("category.xml", "InOutCategories");

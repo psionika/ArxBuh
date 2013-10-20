@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace buh_02
 {
-    public partial class FormEncryption : Form
+    public partial class Form_Encryption : Form
     {
-        public FormEncryption()
+        public Form_Encryption()
         {
             InitializeComponent();
             checkBox1.Checked = EncryptDecrypt.Enable;

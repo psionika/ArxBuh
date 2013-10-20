@@ -1,6 +1,6 @@
 ﻿namespace buh_02
 {
-    partial class AddEditBudget
+    partial class Form_AddEditBudget
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddEditBudget));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_AddEditBudget));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -307,15 +307,16 @@
             this.inOutCategoriesBindingSource.DataMember = "InOutCategories";
             this.inOutCategoriesBindingSource.DataSource = this.dataSet1;
             // 
-            // AddEditBudget
+            // Form_AddEditBudget
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.CancelBTN;
             this.ClientSize = new System.Drawing.Size(399, 319);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "AddEditBudget";
+            this.Name = "Form_AddEditBudget";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AddEditBudget";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddEditBudget_FormClosing);

@@ -5,10 +5,10 @@ using System.IO;
 
 namespace buh_02
 {
-    public partial class Category : Form
+    public partial class Form_Category : Form
     {
         #region Form Action
-        public Category()
+        public Form_Category()
         {
             InitializeComponent();
 
@@ -110,7 +110,11 @@ namespace buh_02
                 dataSet1.Tables["InOutCategories"].Rows.Add(tabControl1.SelectedTab.Text, toolStripTextBox1.Text);
                 toolStripTextBox1.Text = "";
             }
+        }
 
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
 
 

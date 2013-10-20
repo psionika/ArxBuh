@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace buh_02
 {
-    public partial class BackupForm : Form
+    public partial class Form_Backup : Form
     {
-        public BackupForm()
+        public Form_Backup()
         {
             InitializeComponent();
 

@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace buh_02
 {
-    public partial class FormRequestPassword : Form
+    public partial class Form_RequestPassword : Form
     {
-        public FormRequestPassword()
+        public Form_RequestPassword()
         {
             InitializeComponent();
         }

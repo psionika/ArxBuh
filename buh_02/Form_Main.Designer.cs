@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace buh_02
 {
-    partial class Form1
+    partial class Form_Main
     {
         /// <summary>
         /// Требуется переменная конструктора.
@@ -43,7 +43,7 @@ namespace buh_02
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
@@ -152,7 +152,6 @@ namespace buh_02
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.calendarColumn1 = new buh_02.CalendarColumn();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -282,7 +281,7 @@ namespace buh_02
             this.SettingsTSB.Name = "SettingsTSB";
             this.SettingsTSB.Size = new System.Drawing.Size(32, 22);
             this.SettingsTSB.Text = "Дополнительно";
-            this.SettingsTSB.ButtonClick += new System.EventHandler(this.SettingsTSB_ButtonClick);
+            this.SettingsTSB.Click += new System.EventHandler(this.SettingsTSB_ButtonClick);
             // 
             // AboutProgramTSB
             // 
@@ -597,7 +596,7 @@ namespace buh_02
             this.toolStripSplitButton1.Name = "toolStripSplitButton1";
             this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 22);
             this.toolStripSplitButton1.Text = "Дополнительно";
-            this.toolStripSplitButton1.ButtonClick += new System.EventHandler(this.SettingsTSB_ButtonClick);
+            this.toolStripSplitButton1.Click += new System.EventHandler(this.SettingsTSB_ButtonClick);
             // 
             // toolStripMenuItem3
             // 
@@ -980,7 +979,7 @@ namespace buh_02
             this.toolStripSplitButton3.Name = "toolStripSplitButton3";
             this.toolStripSplitButton3.Size = new System.Drawing.Size(32, 22);
             this.toolStripSplitButton3.Text = "Дополнительно";
-            this.toolStripSplitButton3.ButtonClick += new System.EventHandler(this.SettingsTSB_ButtonClick);
+            this.toolStripSplitButton3.Click += new System.EventHandler(this.SettingsTSB_ButtonClick);
             // 
             // toolStripMenuItem6
             // 
@@ -1201,16 +1200,7 @@ namespace buh_02
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
             // 
-            // calendarColumn1
-            // 
-            this.calendarColumn1.DataPropertyName = "Date";
-            this.calendarColumn1.HeaderText = "Дата";
-            this.calendarColumn1.Name = "calendarColumn1";
-            this.calendarColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.calendarColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.calendarColumn1.Width = 80;
-            // 
-            // Form1
+            // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1218,7 +1208,7 @@ namespace buh_02
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(890, 460);
-            this.Name = "Form1";
+            this.Name = "Form_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "ArxBuh";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -1260,7 +1250,7 @@ namespace buh_02
 
         #endregion
 
-        private CalendarColumn calendarColumn1;
+        
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.ToolStrip toolStrip1;

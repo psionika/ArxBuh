@@ -25,11 +25,11 @@ namespace buh_02
     }
 
     //Класс работы с настройками
-    public class Props
+    public class Class_Props
     {
         public PropsFields Fields;
 
-        public Props()
+        public Class_Props()
         {
             Fields = new PropsFields();
         }

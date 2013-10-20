@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace buh_02
 {
-    public partial class AddEditBudget : Form
+    public partial class Form_AddEditBudget : Form
     {
-        public AddEditBudget()
+        public Form_AddEditBudget()
         {
             InitializeComponent();
 
