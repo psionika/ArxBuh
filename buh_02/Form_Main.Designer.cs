@@ -44,13 +44,18 @@ namespace buh_02
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
+            this.cashInOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new buh_02.DataSet1();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.DeleteTSB = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
-            this.TSBTime = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripDateTimeChooser3 = new buh_02.ToolStripDateTimeChooser();
+            this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripDateTimeChooser4 = new buh_02.ToolStripDateTimeChooser();
             this.FilterClearTSB = new System.Windows.Forms.ToolStripButton();
             this.ExitTSB = new System.Windows.Forms.ToolStripButton();
             this.SettingsTSB = new System.Windows.Forms.ToolStripSplitButton();
@@ -71,8 +76,6 @@ namespace buh_02
             this.dateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cashInOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new buh_02.DataSet1();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
@@ -129,6 +132,18 @@ namespace buh_02
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.toolStrip5 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripComboBox2 = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripDateTimeChooser1 = new buh_02.ToolStripDateTimeChooser();
+            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripDateTimeChooser2 = new buh_02.ToolStripDateTimeChooser();
+            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.редактироватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -152,14 +167,14 @@ namespace buh_02
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.cashInOutBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cashInOutBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -173,8 +188,20 @@ namespace buh_02
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.goalBindingSource)).BeginInit();
             this.toolStrip4.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.toolStrip5.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // cashInOutBindingSource
+            // 
+            this.cashInOutBindingSource.DataMember = "CashInOut";
+            this.cashInOutBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // toolStrip1
             // 
@@ -185,13 +212,16 @@ namespace buh_02
             this.DeleteTSB,
             this.toolStripSeparator2,
             this.toolStripComboBox1,
-            this.TSBTime,
+            this.toolStripLabel5,
+            this.toolStripDateTimeChooser3,
+            this.toolStripLabel4,
+            this.toolStripDateTimeChooser4,
             this.FilterClearTSB,
             this.ExitTSB,
             this.SettingsTSB});
             this.toolStrip1.Location = new System.Drawing.Point(3, 3);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(889, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1126, 32);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "Добавить";
             // 
@@ -200,7 +230,7 @@ namespace buh_02
             this.toolStripButton6.Image = global::buh_02.Properties.Resources.add_32x32;
             this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(60, 22);
+            this.toolStripButton6.Size = new System.Drawing.Size(60, 29);
             this.toolStripButton6.Text = "Доход";
             this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
@@ -209,7 +239,7 @@ namespace buh_02
             this.toolStripButton7.Image = global::buh_02.Properties.Resources.remove_32x32;
             this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(64, 22);
+            this.toolStripButton7.Size = new System.Drawing.Size(64, 29);
             this.toolStripButton7.Text = "Расход";
             this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
             // 
@@ -218,14 +248,14 @@ namespace buh_02
             this.DeleteTSB.Image = global::buh_02.Properties.Resources.delete_32x32;
             this.DeleteTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.DeleteTSB.Name = "DeleteTSB";
-            this.DeleteTSB.Size = new System.Drawing.Size(71, 22);
+            this.DeleteTSB.Size = new System.Drawing.Size(71, 29);
             this.DeleteTSB.Text = "Удалить";
             this.DeleteTSB.Click += new System.EventHandler(this.DeleteTSB_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 32);
             // 
             // toolStripComboBox1
             // 
@@ -233,24 +263,45 @@ namespace buh_02
             "Доход",
             "Расход"});
             this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(250, 25);
+            this.toolStripComboBox1.Size = new System.Drawing.Size(250, 32);
             this.toolStripComboBox1.TextChanged += new System.EventHandler(this.toolStripComboBox1_TextChanged);
             // 
-            // TSBTime
+            // toolStripLabel5
             // 
-            this.TSBTime.Image = global::buh_02.Properties.Resources.cal_32x32;
-            this.TSBTime.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TSBTime.Name = "TSBTime";
-            this.TSBTime.Size = new System.Drawing.Size(111, 22);
-            this.TSBTime.Text = "Фильтр по дате";
-            this.TSBTime.Click += new System.EventHandler(this.TSBTime_Click);
+            this.toolStripLabel5.Name = "toolStripLabel5";
+            this.toolStripLabel5.Size = new System.Drawing.Size(15, 29);
+            this.toolStripLabel5.Text = "C";
+            // 
+            // toolStripDateTimeChooser3
+            // 
+            this.toolStripDateTimeChooser3.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripDateTimeChooser3.Name = "toolStripDateTimeChooser3";
+            this.toolStripDateTimeChooser3.Size = new System.Drawing.Size(126, 29);
+            this.toolStripDateTimeChooser3.Text = "toolStripDateTimeChooser3";
+            this.toolStripDateTimeChooser3.Value = new System.DateTime(2013, 11, 28, 13, 50, 2, 255);
+            this.toolStripDateTimeChooser3.ValueChanged += new System.EventHandler(this.toolStripDateTimeChooser3_ValueChanged);
+            // 
+            // toolStripLabel4
+            // 
+            this.toolStripLabel4.Name = "toolStripLabel4";
+            this.toolStripLabel4.Size = new System.Drawing.Size(21, 29);
+            this.toolStripLabel4.Text = "по";
+            // 
+            // toolStripDateTimeChooser4
+            // 
+            this.toolStripDateTimeChooser4.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripDateTimeChooser4.Name = "toolStripDateTimeChooser4";
+            this.toolStripDateTimeChooser4.Size = new System.Drawing.Size(126, 29);
+            this.toolStripDateTimeChooser4.Text = "toolStripDateTimeChooser4";
+            this.toolStripDateTimeChooser4.Value = new System.DateTime(2013, 11, 28, 13, 50, 34, 831);
+            this.toolStripDateTimeChooser4.ValueChanged += new System.EventHandler(this.toolStripDateTimeChooser4_ValueChanged);
             // 
             // FilterClearTSB
             // 
             this.FilterClearTSB.Image = global::buh_02.Properties.Resources.expand_32x32;
             this.FilterClearTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.FilterClearTSB.Name = "FilterClearTSB";
-            this.FilterClearTSB.Size = new System.Drawing.Size(128, 22);
+            this.FilterClearTSB.Size = new System.Drawing.Size(128, 29);
             this.FilterClearTSB.Text = "Отчистить фильтр";
             this.FilterClearTSB.Click += new System.EventHandler(this.FilterClearTSB_Click);
             // 
@@ -261,7 +312,7 @@ namespace buh_02
             this.ExitTSB.Image = global::buh_02.Properties.Resources.door_32x32;
             this.ExitTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ExitTSB.Name = "ExitTSB";
-            this.ExitTSB.Size = new System.Drawing.Size(23, 22);
+            this.ExitTSB.Size = new System.Drawing.Size(23, 29);
             this.ExitTSB.Text = "Выход";
             this.ExitTSB.Click += new System.EventHandler(this.ExitTSB_Click);
             // 
@@ -279,7 +330,7 @@ namespace buh_02
             this.SettingsTSB.Image = global::buh_02.Properties.Resources.gear_wheel_32x32;
             this.SettingsTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.SettingsTSB.Name = "SettingsTSB";
-            this.SettingsTSB.Size = new System.Drawing.Size(32, 22);
+            this.SettingsTSB.Size = new System.Drawing.Size(32, 29);
             this.SettingsTSB.Text = "Дополнительно";
             this.SettingsTSB.Click += new System.EventHandler(this.SettingsTSB_ButtonClick);
             // 
@@ -327,7 +378,7 @@ namespace buh_02
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(20, 414);
+            this.label2.Location = new System.Drawing.Point(20, 407);
             this.label2.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(18, 20);
@@ -344,7 +395,7 @@ namespace buh_02
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(909, 512);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1146, 512);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // tabControl1
@@ -352,11 +403,12 @@ namespace buh_02
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(903, 506);
+            this.tabControl1.Size = new System.Drawing.Size(1140, 506);
             this.tabControl1.TabIndex = 6;
             // 
             // tabPage1
@@ -366,7 +418,7 @@ namespace buh_02
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(895, 480);
+            this.tabPage1.Size = new System.Drawing.Size(1132, 480);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Доходы-Расходы";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -378,12 +430,12 @@ namespace buh_02
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.dataGridView1, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 28);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 35);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(889, 449);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1126, 442);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // dataGridView1
@@ -415,7 +467,7 @@ namespace buh_02
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(883, 393);
+            this.dataGridView1.Size = new System.Drawing.Size(1120, 386);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
@@ -465,23 +517,13 @@ namespace buh_02
             this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
             this.commentDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // cashInOutBindingSource
-            // 
-            this.cashInOutBindingSource.DataMember = "CashInOut";
-            this.cashInOutBindingSource.DataSource = this.dataSet1;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.tableLayoutPanel3);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(895, 480);
+            this.tabPage2.Size = new System.Drawing.Size(1132, 480);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Бюджет";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -504,7 +546,7 @@ namespace buh_02
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(889, 474);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1126, 474);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // toolStrip2
@@ -515,7 +557,7 @@ namespace buh_02
             this.toolStripButton2});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(444, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(563, 25);
             this.toolStrip2.TabIndex = 0;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -545,9 +587,9 @@ namespace buh_02
             this.toolStripButton4,
             this.toolStripButton5,
             this.toolStripSplitButton1});
-            this.toolStrip3.Location = new System.Drawing.Point(444, 0);
+            this.toolStrip3.Location = new System.Drawing.Point(563, 0);
             this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(445, 25);
+            this.toolStrip3.Size = new System.Drawing.Size(563, 25);
             this.toolStrip3.TabIndex = 1;
             this.toolStrip3.Text = "toolStrip3";
             // 
@@ -653,7 +695,7 @@ namespace buh_02
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(438, 393);
+            this.dataGridView2.Size = new System.Drawing.Size(557, 393);
             this.dataGridView2.TabIndex = 2;
             this.dataGridView2.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridView2_Paint);
             // 
@@ -714,12 +756,12 @@ namespace buh_02
             this.commentDataGridViewTextBoxColumn2});
             this.dataGridView3.DataSource = this.budgetBindingSourceOut;
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView3.Location = new System.Drawing.Point(447, 28);
+            this.dataGridView3.Location = new System.Drawing.Point(566, 28);
             this.dataGridView3.MultiSelect = false;
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersVisible = false;
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(439, 393);
+            this.dataGridView3.Size = new System.Drawing.Size(557, 393);
             this.dataGridView3.TabIndex = 3;
             this.dataGridView3.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridView3_Paint);
             // 
@@ -777,7 +819,7 @@ namespace buh_02
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 427);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(883, 44);
+            this.panel1.Size = new System.Drawing.Size(1120, 44);
             this.panel1.TabIndex = 6;
             // 
             // label4
@@ -848,7 +890,7 @@ namespace buh_02
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(895, 480);
+            this.tabPage3.Size = new System.Drawing.Size(1132, 480);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Цели";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -872,7 +914,7 @@ namespace buh_02
             this.dataGridView4.ReadOnly = true;
             this.dataGridView4.RowHeadersVisible = false;
             this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView4.Size = new System.Drawing.Size(889, 449);
+            this.dataGridView4.Size = new System.Drawing.Size(1126, 449);
             this.dataGridView4.TabIndex = 1;
             this.dataGridView4.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellDoubleClick);
             this.dataGridView4.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridView4_Paint);
@@ -930,7 +972,7 @@ namespace buh_02
             this.toolStripSplitButton3});
             this.toolStrip4.Location = new System.Drawing.Point(3, 3);
             this.toolStrip4.Name = "toolStrip4";
-            this.toolStrip4.Size = new System.Drawing.Size(889, 25);
+            this.toolStrip4.Size = new System.Drawing.Size(1126, 25);
             this.toolStrip4.TabIndex = 0;
             this.toolStrip4.Text = "toolStrip4";
             // 
@@ -961,6 +1003,7 @@ namespace buh_02
             this.toolStripButton11.Name = "toolStripButton11";
             this.toolStripButton11.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton11.Text = "toolStripButton11";
+            this.toolStripButton11.ToolTipText = "Выход";
             this.toolStripButton11.Click += new System.EventHandler(this.ExitTSB_Click);
             // 
             // toolStripSplitButton3
@@ -1015,6 +1058,119 @@ namespace buh_02
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
             this.toolStripMenuItem9.Size = new System.Drawing.Size(241, 22);
             this.toolStripMenuItem9.Text = "Шифрование";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.reportViewer1);
+            this.tabPage4.Controls.Add(this.toolStrip5);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1132, 480);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Отчёты";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer1.Location = new System.Drawing.Point(3, 35);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.Size = new System.Drawing.Size(1126, 442);
+            this.reportViewer1.TabIndex = 1;
+            // 
+            // toolStrip5
+            // 
+            this.toolStrip5.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip5.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1,
+            this.toolStripComboBox2,
+            this.toolStripSeparator6,
+            this.toolStripLabel2,
+            this.toolStripDateTimeChooser1,
+            this.toolStripLabel3,
+            this.toolStripDateTimeChooser2,
+            this.toolStripButton8,
+            this.toolStripSplitButton2});
+            this.toolStrip5.Location = new System.Drawing.Point(3, 3);
+            this.toolStrip5.Name = "toolStrip5";
+            this.toolStrip5.Size = new System.Drawing.Size(1126, 32);
+            this.toolStrip5.TabIndex = 0;
+            this.toolStrip5.Text = "toolStrip5";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(90, 29);
+            this.toolStripLabel1.Text = "Показать отчёт";
+            // 
+            // toolStripComboBox2
+            // 
+            this.toolStripComboBox2.Items.AddRange(new object[] {
+            "Расходы",
+            "Доходы"});
+            this.toolStripComboBox2.Name = "toolStripComboBox2";
+            this.toolStripComboBox2.Size = new System.Drawing.Size(200, 32);
+            this.toolStripComboBox2.TextChanged += new System.EventHandler(this.toolStripComboBox2_TextChanged);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 32);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(15, 29);
+            this.toolStripLabel2.Text = "С";
+            // 
+            // toolStripDateTimeChooser1
+            // 
+            this.toolStripDateTimeChooser1.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripDateTimeChooser1.Name = "toolStripDateTimeChooser1";
+            this.toolStripDateTimeChooser1.Size = new System.Drawing.Size(126, 29);
+            this.toolStripDateTimeChooser1.Text = "toolStripDateTimeChooser1";
+            this.toolStripDateTimeChooser1.Value = new System.DateTime(2013, 11, 28, 13, 47, 36, 986);
+            this.toolStripDateTimeChooser1.ValueChanged += new System.EventHandler(this.toolStripComboBox2_TextChanged);
+            // 
+            // toolStripLabel3
+            // 
+            this.toolStripLabel3.Name = "toolStripLabel3";
+            this.toolStripLabel3.Size = new System.Drawing.Size(21, 29);
+            this.toolStripLabel3.Text = "по";
+            // 
+            // toolStripDateTimeChooser2
+            // 
+            this.toolStripDateTimeChooser2.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripDateTimeChooser2.Name = "toolStripDateTimeChooser2";
+            this.toolStripDateTimeChooser2.Size = new System.Drawing.Size(126, 29);
+            this.toolStripDateTimeChooser2.Text = "toolStripDateTimeChooser2";
+            this.toolStripDateTimeChooser2.Value = new System.DateTime(2013, 11, 28, 13, 47, 46, 213);
+            this.toolStripDateTimeChooser2.ValueChanged += new System.EventHandler(this.toolStripComboBox2_TextChanged);
+            // 
+            // toolStripButton8
+            // 
+            this.toolStripButton8.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton8.Image = global::buh_02.Properties.Resources.door_32x32;
+            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton8.Name = "toolStripButton8";
+            this.toolStripButton8.Size = new System.Drawing.Size(23, 29);
+            this.toolStripButton8.Text = "toolStripButton8";
+            this.toolStripButton8.ToolTipText = "Выход";
+            this.toolStripButton8.Click += new System.EventHandler(this.ExitTSB_Click);
+            // 
+            // toolStripSplitButton2
+            // 
+            this.toolStripSplitButton2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSplitButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton2.Image = global::buh_02.Properties.Resources.gear_wheel_32x32;
+            this.toolStripSplitButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton2.Name = "toolStripSplitButton2";
+            this.toolStripSplitButton2.Size = new System.Drawing.Size(32, 29);
+            this.toolStripSplitButton2.Text = "toolStripSplitButton2";
+            this.toolStripSplitButton2.ToolTipText = "Дополнительно";
+            this.toolStripSplitButton2.Click += new System.EventHandler(this.SettingsTSB_ButtonClick);
             // 
             // contextMenuStrip1
             // 
@@ -1204,7 +1360,7 @@ namespace buh_02
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(909, 512);
+            this.ClientSize = new System.Drawing.Size(1146, 512);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(890, 460);
@@ -1213,6 +1369,8 @@ namespace buh_02
             this.Text = "ArxBuh";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.cashInOutBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -1222,8 +1380,6 @@ namespace buh_02
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cashInOutBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
@@ -1243,6 +1399,10 @@ namespace buh_02
             ((System.ComponentModel.ISupportInitialize)(this.goalBindingSource)).EndInit();
             this.toolStrip4.ResumeLayout(false);
             this.toolStrip4.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            this.toolStrip5.ResumeLayout(false);
+            this.toolStrip5.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1276,7 +1436,6 @@ namespace buh_02
         private System.Windows.Forms.DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem категорииДоходовИРасходовToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton TSBTime;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem резервноеКопированиеToolStripMenuItem;
         private System.Windows.Forms.TabControl tabControl1;
@@ -1359,6 +1518,22 @@ namespace buh_02
         private DataGridViewTextBoxColumn historyDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn historyIDDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn3;
+        private TabPage tabPage4;
+        private ToolStrip toolStrip5;
+        private ToolStripLabel toolStripLabel1;
+        private ToolStripComboBox toolStripComboBox2;
+        private ToolStripSeparator toolStripSeparator6;
+        private ToolStripLabel toolStripLabel2;
+        private ToolStripDateTimeChooser toolStripDateTimeChooser1;
+        private ToolStripLabel toolStripLabel3;
+        private ToolStripDateTimeChooser toolStripDateTimeChooser2;
+        private ToolStripDateTimeChooser toolStripDateTimeChooser3;
+        private ToolStripLabel toolStripLabel4;
+        private ToolStripDateTimeChooser toolStripDateTimeChooser4;
+        private ToolStripLabel toolStripLabel5;
+        private ToolStripButton toolStripButton8;
+        private ToolStripSplitButton toolStripSplitButton2;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }
 

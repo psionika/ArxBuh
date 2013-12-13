@@ -56,11 +56,16 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Ionic.Zip.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="PopCalc.Library">
       <HintPath>..\PopCalc.Library.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -71,6 +76,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class_DateTimePicker_for_ToolStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Form_AboutBox1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,12 +118,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Form_DateFilter.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form_DateFilter.Designer.cs">
-      <DependentUpon>Form_DateFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="Class_element.cs" />
     <Compile Include="Form_Encryption.cs">
@@ -166,9 +168,6 @@
     <EmbeddedResource Include="Form_Category.resx">
       <DependentUpon>Form_Category.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_DateFilter.resx">
-      <DependentUpon>Form_DateFilter.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form_Encryption.resx">
       <DependentUpon>Form_Encryption.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +193,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Report\Report1.rdlc" />
     <None Include="app.config" />
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
@@ -268,9 +268,7 @@
     <None Include="Resources\cal_32x32.png" />
     <None Include="Resources\table_32x32.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Report\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

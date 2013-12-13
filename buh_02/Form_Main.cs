@@ -10,6 +10,8 @@ using System.Security.Cryptography;
 
 using Ionic.Zip;
 
+using Microsoft.Reporting.WinForms; 
+
 namespace buh_02
 {
     public partial class Form_Main : Form
@@ -32,13 +34,15 @@ namespace buh_02
         {
             readSetting();
 
-
+            clearfilter();
 
             loadData("data.xml");            
 
             cashInOutBindingSource.Sort = "DateTime DESC";
 
             loadGoal();
+            
+            
          }
         #endregion
 
@@ -368,13 +372,12 @@ namespace buh_02
             sb.Remove(sb.Length - 3, 2);
             sb.Append(")");
 
-            if (TSBTime.Text != "Фильтр по дате")
-            {
+
                 sb.Append(string.Format(CultureInfo.InvariantCulture,
                   " AND DateTime >= #{0:MM/dd/yyyy}# AND DateTime <= #{1:MM/dd/yyyy}# ",
                   DateBeginEnd.DateBegin,
                   DateBeginEnd.DateEnd));
-            }
+            
 
 
             cashInOutBindingSource.Filter = sb.ToString();
@@ -383,7 +386,13 @@ namespace buh_02
         private void clearfilter()
         {
             toolStripComboBox1.Text = "";
-            TSBTime.Text = "Фильтр по дате";
+
+            toolStripDateTimeChooser1.Value = DateTime.Now;
+            toolStripDateTimeChooser2.Value = DateTime.Now;
+
+            toolStripDateTimeChooser3.Value = DateTime.Now;
+            toolStripDateTimeChooser4.Value = DateTime.Now;
+
             DateBeginEnd.DateBegin = new DateTime(1970, 1, 1);
             DateBeginEnd.DateEnd = new DateTime(2032, 1, 1);
 
@@ -434,18 +443,6 @@ namespace buh_02
         {
             Form_Category category = new Form_Category();
             category.ShowDialog();
-        }
-
-        private void TSBTime_Click(object sender, EventArgs e)
-        {
-            Form_DateFilter df = new Form_DateFilter();
-            df.ShowDialog();
-
-            if (df.DialogResult == DialogResult.OK)
-            {
-                TSBTime.Text = "Фильтр по дате: " + DateBeginEnd.DateBegin.ToShortDateString() + " - " + DateBeginEnd.DateEnd.ToShortDateString();
-                filter();
-            }
         }
 
         private void SettingsTSB_ButtonClick(object sender, EventArgs e)
@@ -791,5 +788,66 @@ namespace buh_02
             ProgressGoal();
         }        
         #endregion
+
+        private void toolStripDateTimeChooser3_ValueChanged(object sender, EventArgs e)
+        {
+            DateBeginEnd.DateBegin = toolStripDateTimeChooser3.Value.Date;            
+            filter();
+        }
+
+        private void toolStripDateTimeChooser4_ValueChanged(object sender, EventArgs e)
+        {
+            DateBeginEnd.DateEnd = toolStripDateTimeChooser4.Value.Date;
+            filter();
+        }
+
+        private void toolStripComboBox2_TextChanged(object sender, EventArgs e)
+        {
+            RefreshReport();
+        }
+
+        private void RefreshReport()
+        {
+            DateTime StartDate = new DateTime(2012, 01, 1);
+            DateTime EndDate = new DateTime(2033, 12, 31);
+
+            ReportDataSource reportDataSource1 = new ReportDataSource();
+
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = cashInOutBindingSource;
+
+            reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            reportViewer1.LocalReport.ReportEmbeddedResource = "buh_02.Report.Report1.rdlc";
+
+            if (toolStripDateTimeChooser1.Value.Date == DateTime.Now.Date && toolStripDateTimeChooser2.Value.Date == DateTime.Now.Date)
+            {
+                StartDate = new DateTime(2012, 01, 1);
+                EndDate = new DateTime(2033, 12, 31);
+            }
+            else
+            {
+                StartDate = toolStripDateTimeChooser1.Value;
+                EndDate = toolStripDateTimeChooser2.Value;
+            }
+
+            ReportParameter psd = new ReportParameter("StartDate", StartDate.ToString());
+            ReportParameter ped = new ReportParameter("EndDate", EndDate.ToString());
+
+            if (toolStripComboBox2.Text == "Расходы")
+            {
+                ReportParameter pio = new ReportParameter("InOut", "Расход");
+                this.reportViewer1.LocalReport.SetParameters(new ReportParameter[] { psd, ped, pio });
+
+                reportViewer1.RefreshReport();
+            }
+            else if (toolStripComboBox2.Text == "Доходы")
+            {
+                ReportParameter pio = new ReportParameter("InOut", "Доход");
+                this.reportViewer1.LocalReport.SetParameters(new ReportParameter[] { psd, ped, pio });
+
+                reportViewer1.RefreshReport();
+            }
+
+        }
     }
 }
