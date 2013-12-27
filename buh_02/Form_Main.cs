@@ -34,14 +34,16 @@ namespace buh_02
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            readSetting();
-
-            clearfilter();
+            readSetting();            
 
             loadData();
 
             cashInOutBindingSource.Sort = "DateTime DESC";
             budgetBindingSource.Sort = "DateTime ASC";
+
+            clearfilter();
+
+
 
             loadGoal();
         }
@@ -309,9 +311,9 @@ namespace buh_02
 
             toolStripDateTimeChooser3.Value = DateTime.Now.Date;
             toolStripDateTimeChooser4.Value = DateTime.Now.Date;
-
-            DateBeginEnd.DateBegin = new DateTime(1970, 1, 1);
-            DateBeginEnd.DateEnd = new DateTime(2032, 1, 1);
+                        
+            DateBeginEnd.DateBegin = new DateTime(2011, 1, 1);
+            DateBeginEnd.DateEnd = DateTime.Now;
 
             dateTimePicker1.Value = DateTime.Now.AddMonths(1);
 
@@ -715,8 +717,8 @@ namespace buh_02
 
         private void RefreshReport()
         {
-            DateTime StartDate;
-            DateTime EndDate;
+            DateTime StartDate = toolStripDateTimeChooser1.Value;
+            DateTime EndDate = toolStripDateTimeChooser2.Value;
 
             ReportDataSource reportDataSource1 = new ReportDataSource
             {
@@ -729,9 +731,9 @@ namespace buh_02
 
             if (toolStripDateTimeChooser1.Value.Date == DateTime.Now.Date &&
                 toolStripDateTimeChooser2.Value.Date == DateTime.Now.Date)
-            {
-                StartDate = new DateTime(2012, 01, 1);
-                EndDate = new DateTime(2033, 12, 31);
+            {   
+                StartDate = new DateTime(2011,12,12);
+                EndDate = DateTime.Now;
             }
             else
             {
@@ -763,6 +765,7 @@ namespace buh_02
             }
         }
 
+        #region Бюджет
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             if (toolStripButton1.Text == "Показывать выполненые")
@@ -903,5 +906,6 @@ namespace buh_02
                 budgetBindingSource.Filter = sb.ToString();
             }
         }
+        #endregion
     }
 }
