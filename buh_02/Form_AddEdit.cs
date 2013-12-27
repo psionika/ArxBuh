@@ -3,8 +3,6 @@ using System.Windows.Forms;
 
 using System.Globalization;
 
-using System.Text.RegularExpressions;
-
 using System.IO;
 
 namespace buh_02
@@ -109,7 +107,6 @@ namespace buh_02
                 errorProvider1.SetError(calculatorTextBox1, "Неверные данные!");
                 return false;
             }
-
         }
         #endregion
 
@@ -137,11 +134,6 @@ namespace buh_02
         }
 
 
-        private void calculatorTextBox1_CalculatorFormat(object sender, PopCalc.Library.CalculatorFormatEventArgs e)
-        {
-            //e.FormattedResult = e.Result.ToString("c");
-        }
-
         private void calculatorTextBox1_CalculatorParse(object sender, PopCalc.Library.CalculatorParseEventArgs e)
         {
             e.Parsed = parsSum(e.Original);
@@ -163,13 +155,5 @@ namespace buh_02
                 return parsed;
            
         }
-
-        private void OkBTN_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
     }
 }

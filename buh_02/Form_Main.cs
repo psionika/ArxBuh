@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -17,6 +18,7 @@ namespace buh_02
     public partial class Form_Main : Form
     {
         #region Form action
+
         public Form_Main()
         {
             InitializeComponent();
@@ -24,7 +26,7 @@ namespace buh_02
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            saveData("data.xml");
+            saveData();
             writeSetting();
 
             backup();
@@ -36,23 +38,24 @@ namespace buh_02
 
             clearfilter();
 
-            loadData("data.xml");            
+            loadData();
 
             cashInOutBindingSource.Sort = "DateTime DESC";
+            budgetBindingSource.Sort = "DateTime ASC";
 
             loadGoal();
-            
-            
-         }
+        }
+
         #endregion
 
         #region Settings action
-        Class_Props props = new Class_Props();
-        //Запись настроек
+
+        private Class_Props props = new Class_Props();
+
         private void writeSetting()
         {
-            props.Fields.Location = this.Location;
-            props.Fields.FormSize = this.Size;
+            props.Fields.Location = Location;
+            props.Fields.FormSize = Size;
 
             props.Fields.BackupCounter = Backup.Counter;
             props.Fields.BackupDir = Backup.Dir;
@@ -63,28 +66,29 @@ namespace buh_02
             props.WriteXml();
         }
 
-        //Чтение настроек
         private void readSetting()
         {
             props.ReadXml();
 
-            this.Location = props.Fields.Location;
-            this.Size = props.Fields.FormSize;
+            Location = props.Fields.Location;
+            Size = props.Fields.FormSize;
 
             Backup.Dir = props.Fields.BackupDir;
             Backup.Counter = props.Fields.BackupCounter;
             Backup.Enable = props.Fields.BackupEnable;
 
-            EncryptDecrypt.Enable = props.Fields.EncryptEnable; 
+            EncryptDecrypt.Enable = props.Fields.EncryptEnable;
         }
+
         #endregion
 
         #region DataSet action
-        private void saveData(string filename)
+
+        private void saveData()
         {
             if (EncryptDecrypt.Enable == false)
             {
-                dataSet1.WriteXml(filename, XmlWriteMode.IgnoreSchema);
+                dataSet1.WriteXml("data.xml", XmlWriteMode.IgnoreSchema);
             }
             else
             {
@@ -92,24 +96,24 @@ namespace buh_02
             }
         }
 
-        private void loadData(string filename)
+        private void loadData()
         {
+            const string filename = "data.xml";
+
             dataSet1.Clear();
 
             if (EncryptDecrypt.Enable == false)
             {
-                if (File.Exists(filename) == true)
+                if (File.Exists(filename))
                 {
                     dataSet1.ReadXml(filename);
-                    dataGridView1.DataSource = this.cashInOutBindingSource;
-                    dataGridView2.DataSource = this.budgetBindingSourceIn;
-                    dataGridView3.DataSource = this.budgetBindingSourceOut;
-                    dataGridView4.DataSource = this.goalBindingSource;
+                    dataGridView1.DataSource = cashInOutBindingSource;
+                    dataGridView4.DataSource = goalBindingSource;
                 }
             }
             else
             {
-                if (File.Exists(filename) == true)
+                if (File.Exists(filename))
                 {
                     do
                     {
@@ -120,62 +124,30 @@ namespace buh_02
 
 
         }
+
         #endregion
 
         #region DataGridView action
+
         private void DGPaint()
         {
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                if (row.Cells[0].Value != null)
-                {
-                    if (row.Cells[0].Value.ToString() == "Доход")
-                        foreach (DataGridViewCell cell in row.Cells)
-                        {
-                            //Меняем цвет ячейки
-                            cell.Style.BackColor = Color.LightGreen;
-                            cell.Style.ForeColor = Color.Black;
-
-                            //Меняем шрифт ячейки
-                            cell.Style.Font = new Font(this.Font, FontStyle.Regular);
-                        }
-                    else if (row.Cells[0].Value.ToString() == "Расход")
-                        foreach (DataGridViewCell cell in row.Cells)
-                        {
-                            //Меняем цвет ячейки
-                            cell.Style.BackColor = Color.Red;
-                            cell.Style.ForeColor = Color.Black;
-
-                            //Меняем шрифт ячейки
-                            cell.Style.Font = new Font(this.Font, FontStyle.Bold);
-                        }
-                    else
-                        foreach (DataGridViewCell cell in row.Cells)
-                        {
-                            //Меняем цвет ячейки
-                            cell.Style.BackColor = Color.Gold;
-                            cell.Style.ForeColor = Color.Black;
-
-                            //Меняем шрифт ячейки
-                            cell.Style.Font = new Font(this.Font, FontStyle.Regular);
-                        }
-                }
-            }
-        }
-
-        private void DGPaintBudgetIn()
-        {
-            foreach (DataGridViewRow row in dataGridView2.Rows)
-            {
-                        foreach (DataGridViewCell cell in row.Cells)
-                        {
-                            //Меняем цвет ячейки
-                            cell.Style.BackColor = Color.LightGreen;
-                            cell.Style.ForeColor = Color.Black;
-
-                            //Меняем шрифт ячейки
-                            cell.Style.Font = new Font(this.Font, FontStyle.Regular);
-                        }
+                var value = row.Cells[0].Value;
+                if (value != null && value.ToString() == "Доход")
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        //Меняем цвет ячейки
+                        cell.Style.BackColor = Color.PaleGreen;
+                        cell.Style.ForeColor = Color.Black;
+                    }
+                else if (value != null)
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        //Меняем цвет ячейки
+                        cell.Style.BackColor = Color.PaleVioletRed;
+                        cell.Style.ForeColor = Color.Black;
+                    }
             }
         }
 
@@ -193,18 +165,6 @@ namespace buh_02
             }
         }
 
-        private void DGPaintBudgetOut()
-        {
-            foreach (DataGridViewRow row in dataGridView3.Rows)
-            {
-                        foreach (DataGridViewCell cell in row.Cells)
-                        {
-                            //Меняем цвет ячейки
-                            cell.Style.BackColor = Color.Red;
-                            cell.Style.ForeColor = Color.Black;
-                        }
-            }
-        }
 
         private void InOutCalc()
         {
@@ -213,20 +173,20 @@ namespace buh_02
 
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                if (row.Cells[0].Value != null)
+                if (row.Cells[0].Value == null) continue;
+                switch (row.Cells[0].Value.ToString())
                 {
-                    if (row.Cells[0].Value.ToString() == "Доход")
-                    {
-                        i = i + (double)row.Cells[3].Value;
-                    }
-                    else if (row.Cells[0].Value.ToString() == "Расход")
-                    {
-                        y = y + (double)row.Cells[3].Value;
-                    }
+                    case "Доход":
+                        i = i + (double) row.Cells[3].Value;
+                        break;
+                    case "Расход":
+                        y = y + (double) row.Cells[3].Value;
+                        break;
                 }
-
-                label2.Text = "Доход (" + i.ToString() + ") - Расход (" + y.ToString() + ") = " + (i - y).ToString();
             }
+
+            label2.Text = "Доход (" + i.ToString("C2") + ") - Расход (" + y.ToString("C2") + ") = " +
+                          (i - y).ToString("C2");
         }
 
         private void dataGridView1_Paint(object sender, PaintEventArgs e)
@@ -236,55 +196,14 @@ namespace buh_02
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {            
-            if(e.RowIndex != -1) edit_element();
-        }
-
-
-        private void dataGridView3_Paint(object sender, PaintEventArgs e)
         {
-            budgetBindingSourceOut.Filter = "convert(InOut,'System.String') LIKE 'Расход'";
-            DGPaintBudgetOut();
-            InOutCalcBudget();
+            if (e.RowIndex != -1) edit_element();
         }
 
-        private void InOutCalcBudget()
-        {
-            double xIn = 0;
-            double xOut = 0;
-
-            foreach (DataGridViewRow row in dataGridView2.Rows)
-            {
-                if (row.Cells[0].Value != null)
-                {
-                    xIn = xIn + (double)row.Cells[3].Value;
-                }
-
-                labelIn.Text = xIn.ToString();
-            }
-
-            foreach (DataGridViewRow row in dataGridView3.Rows)
-            {
-                if (row.Cells[0].Value != null)
-                {
-                    xOut = xOut + (double)row.Cells[3].Value;
-                }
-
-                labelOut.Text = xOut.ToString();
-            }
-
-            labelResult.Text = (xIn - xOut).ToString();
-        }
-
-        private void dataGridView2_Paint(object sender, PaintEventArgs e)
-        {
-            budgetBindingSourceIn.Filter = "convert(InOut,'System.String') LIKE 'Доход'";
-            DGPaintBudgetIn();
-            InOutCalcBudget();
-        }
         #endregion
 
         #region Element Action (Add, Edit, Delete)
+
         private void add_element(string inOut)
         {
             Class_element.InOut = inOut;
@@ -298,10 +217,11 @@ namespace buh_02
 
             if (addEdit.DialogResult == DialogResult.OK)
             {
-                dataSet1.Tables["CashInOut"].Rows.Add(Class_element.InOut, Class_element.Category, Class_element.Date, Class_element.Sum, Class_element.Comment);
+                dataSet1.Tables["CashInOut"].Rows.Add(Class_element.InOut, Class_element.Category, Class_element.Date,
+                    Class_element.Sum, Class_element.Comment);
             }
 
-            saveData("data.xml");
+            saveData();
         }
 
         private void edit_element()
@@ -310,8 +230,8 @@ namespace buh_02
             {
                 Class_element.InOut = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                 Class_element.Category = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                Class_element.Date = (DateTime)dataGridView1.CurrentRow.Cells[2].Value;
-                Class_element.Sum = (double)dataGridView1.CurrentRow.Cells[3].Value;
+                Class_element.Date = (DateTime) dataGridView1.CurrentRow.Cells[2].Value;
+                Class_element.Sum = (double) dataGridView1.CurrentRow.Cells[3].Value;
                 Class_element.Comment = dataGridView1.CurrentRow.Cells[4].Value.ToString();
 
                 Form_AddEdit addEdit = new Form_AddEdit();
@@ -319,7 +239,7 @@ namespace buh_02
 
                 if (addEdit.DialogResult == DialogResult.OK)
                 {
-                    DataRow customerRow = ((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row;
+                    DataRow customerRow = ((DataRowView) dataGridView1.CurrentRow.DataBoundItem).Row;
 
                     customerRow["InOut"] = Class_element.InOut;
                     customerRow["Category"] = Class_element.Category;
@@ -329,7 +249,7 @@ namespace buh_02
                 }
             }
 
-            saveData("data.xml");
+            saveData();
         }
 
         private void delete_element()
@@ -344,7 +264,7 @@ namespace buh_02
                 if (result == DialogResult.Yes)
                 {
                     cashInOutBindingSource.RemoveCurrent();
-                    saveData("data.xml");
+                    saveData();
                 }
             }
         }
@@ -352,6 +272,7 @@ namespace buh_02
         #endregion
 
         #region Filter Action
+
         private void filter()
         {
             StringBuilder sb = new StringBuilder();
@@ -359,26 +280,22 @@ namespace buh_02
 
             foreach (DataColumn col in dataSet1.Tables["CashInOut"].Columns)
             {
-                if (col.DataType == typeof(System.String))
-                {
-                    sb.Append(col.ColumnName);
-                    sb.Append(" LIKE '*");
-                    sb.Append(toolStripComboBox1.Text);
-                    sb.Append("*'");
-                    sb.Append(" OR ");
-                }
+                if (col.DataType != typeof (String)) continue;
+
+                sb.Append(col.ColumnName);
+                sb.Append(" LIKE '*");
+                sb.Append(toolStripComboBox1.Text);
+                sb.Append("*'");
+                sb.Append(" OR ");
             }
 
             sb.Remove(sb.Length - 3, 2);
             sb.Append(")");
 
-
-                sb.Append(string.Format(CultureInfo.InvariantCulture,
-                  " AND DateTime >= #{0:MM/dd/yyyy}# AND DateTime <= #{1:MM/dd/yyyy}# ",
-                  DateBeginEnd.DateBegin,
-                  DateBeginEnd.DateEnd));
-            
-
+            sb.Append(string.Format(CultureInfo.InvariantCulture,
+                " AND DateTime >= #{0:MM/dd/yyyy}# AND DateTime <= #{1:MM/dd/yyyy}# ",
+                DateBeginEnd.DateBegin,
+                DateBeginEnd.DateEnd));
 
             cashInOutBindingSource.Filter = sb.ToString();
         }
@@ -387,18 +304,19 @@ namespace buh_02
         {
             toolStripComboBox1.Text = "";
 
-            toolStripDateTimeChooser1.Value = DateTime.Now;
-            toolStripDateTimeChooser2.Value = DateTime.Now;
+            toolStripDateTimeChooser1.Value = DateTime.Now.Date;
+            toolStripDateTimeChooser2.Value = DateTime.Now.Date;
 
-            toolStripDateTimeChooser3.Value = DateTime.Now;
-            toolStripDateTimeChooser4.Value = DateTime.Now;
+            toolStripDateTimeChooser3.Value = DateTime.Now.Date;
+            toolStripDateTimeChooser4.Value = DateTime.Now.Date;
 
             DateBeginEnd.DateBegin = new DateTime(1970, 1, 1);
             DateBeginEnd.DateEnd = new DateTime(2032, 1, 1);
 
+            dateTimePicker1.Value = DateTime.Now.AddMonths(1);
+
             cashInOutBindingSource.RemoveFilter();
         }
-
         #endregion
 
         #region ToolStripButtonAction
@@ -450,10 +368,25 @@ namespace buh_02
             SettingsTSB.ShowDropDown();
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void toolStripButton3_Click_1(object sender, EventArgs e)
         {
             add_elementBudget("Доход");
         }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            if (dataGridView2.CurrentRow == null) return;
+
+            var result = MessageBox.Show("Вы действительно хотите удалить текущий элемент?",
+                "Удаление элемента",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result != DialogResult.Yes) return;
+            budgetBindingSource.RemoveCurrent();
+            saveData();
+        }
+
         private void add_elementBudget(string inOut)
         {
             Class_element.BudgetCheck = false;
@@ -468,63 +401,16 @@ namespace buh_02
 
             if (aeb.DialogResult == DialogResult.OK)
             {
-                dataSet1.Tables["Budget"].Rows.Add(Class_element.BudgetCheck, Class_element.InOut, Class_element.Category, Class_element.Date, Class_element.Sum, Class_element.Comment);
+                dataSet1.Tables["Budget"].Rows.Add(Class_element.BudgetCheck, Class_element.InOut,
+                    Class_element.Category, Class_element.Date, Class_element.Sum, Class_element.Comment);
             }
 
-            saveData("data.xml");
+            saveData();
         }
-
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-            if (dataGridView2.CurrentRow != null)
-            {
-                budgetBindingSourceIn.RemoveCurrent();
-                saveData("data.xml");
-            }
-        }
-
-        private void toolStripButton4_Click(object sender, EventArgs e)
-        {
-            if (dataGridView3.CurrentRow != null)
-            {
-                budgetBindingSourceOut.RemoveCurrent();
-                saveData("data.xml");
-            }
-        }
-
-        private void toolStripButton5_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void toolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-            Form_AboutBox1 about = new Form_AboutBox1();
-            about.ShowDialog();
-        }
-
-        private void toolStripMenuItem4_Click(object sender, EventArgs e)
-        {
-            Form_Category category = new Form_Category();
-            category.ShowDialog();
-        }
-
-        private void toolStripMenuItem5_Click(object sender, EventArgs e)
-        {
-            Form_Backup backupForm = new Form_Backup();
-            backupForm.ShowDialog();
-
-            writeSetting();
-        }
-
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
-            add_elementBudget("Расход");
-        }
-
         #endregion
 
         #region Backup action
+
         private void резервноеКопированиеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form_Backup backupForm = new Form_Backup();
@@ -533,8 +419,7 @@ namespace buh_02
             writeSetting();
         }
 
-
-        private void backup()
+        private static void backup()
         {
             if (Backup.Enable)
             {
@@ -544,6 +429,7 @@ namespace buh_02
                 }
 
                 #region Copy to dir
+
                 string sourceDir = Environment.CurrentDirectory;
                 string backupDir = Environment.CurrentDirectory + "\\" + Backup.Dir;
 
@@ -566,18 +452,29 @@ namespace buh_02
                 {
                     MessageBox.Show(dirNotFound.Message);
                 }
+
                 #endregion
 
                 #region Archive
+
                 string TargetDir = Environment.CurrentDirectory + "\\" + Backup.Dir + "\\";
 
                 using (ZipFile zip = new ZipFile())
                 {
                     zip.CompressionLevel = Ionic.Zlib.CompressionLevel.BestCompression;
 
-                    if (File.Exists("category.xml") == true) { zip.AddFile(TargetDir + "category.xml", ""); }
-                    if (File.Exists("data.xml") == true) { zip.AddFile(TargetDir + "data.xml", ""); }
-                    if (File.Exists("settings.xml") == true) { zip.AddFile(TargetDir + "settings.xml", ""); }
+                    if (File.Exists("category.xml"))
+                    {
+                        zip.AddFile(TargetDir + "category.xml", "");
+                    }
+                    if (File.Exists("data.xml"))
+                    {
+                        zip.AddFile(TargetDir + "data.xml", "");
+                    }
+                    if (File.Exists("settings.xml"))
+                    {
+                        zip.AddFile(TargetDir + "settings.xml", "");
+                    }
 
                     zip.Save(TargetDir + "backup " + DateTime.Now.ToString().Replace(":", "-") + ".zip");
                 }
@@ -589,13 +486,14 @@ namespace buh_02
                 #endregion
 
                 #region Удаляем лишнее
-                int i = System.IO.Directory.GetFiles(Backup.Dir, "*.*", SearchOption.AllDirectories).Length;
+
+                int i = Directory.GetFiles(Backup.Dir, "*.*", SearchOption.AllDirectories).Length;
 
                 while (i > Backup.Counter)
                 {
                     DateTime dt = DateTime.Now;
-                    string[] fs = Directory.GetFiles(Backup.Dir);
-                    string fileToDelete = "";
+                    var fs = Directory.GetFiles(Backup.Dir);
+                    var fileToDelete = "";
 
                     foreach (string file in fs)
                     {
@@ -611,19 +509,19 @@ namespace buh_02
                     {
                         File.Delete(fileToDelete);
                     }
-                    i = System.IO.Directory.GetFiles(Backup.Dir, "*.*", SearchOption.AllDirectories).Length;
+                    i = Directory.GetFiles(Backup.Dir, "*.*", SearchOption.AllDirectories).Length;
                 }
                 #endregion
             }
         }
 
-
         #endregion
-        
+
         #region Контекстное меню
+
         private void редактироватьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            edit_element();            
+            edit_element();
         }
 
         private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -631,10 +529,10 @@ namespace buh_02
             delete_element();
         }
 
-
         #endregion
 
         #region Шифрование
+
         private void шифрованиеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form_Encryption formEncryption = new Form_Encryption();
@@ -653,13 +551,15 @@ namespace buh_02
         {
             Rijndael crypto = Rijndael.Create();
 
-            crypto.IV = ASCIIEncoding.ASCII.GetBytes("qwert".PadRight(16, 'x'));
-            crypto.Key = ASCIIEncoding.ASCII.GetBytes(key.PadRight(16, 'x'));
+            crypto.IV = Encoding.ASCII.GetBytes("qwert".PadRight(16, 'x'));
+            crypto.Key = Encoding.ASCII.GetBytes(key.PadRight(16, 'x'));
             crypto.Padding = PaddingMode.Zeros;
 
             using (FileStream stream = new FileStream(file, FileMode.Open))
             {
-                using (CryptoStream cryptoStream = new CryptoStream(stream, crypto.CreateDecryptor(), CryptoStreamMode.Read))
+                using (
+                    CryptoStream cryptoStream = new CryptoStream(stream, crypto.CreateDecryptor(), CryptoStreamMode.Read)
+                    )
                 {
                     try
                     {
@@ -671,7 +571,7 @@ namespace buh_02
                         return true;
                     }
                     cryptoStream.Close();
-                    stream.Close();                    
+                    stream.Close();
                 }
             }
             return false;
@@ -681,15 +581,17 @@ namespace buh_02
         {
             Rijndael crypto = Rijndael.Create();
 
-            crypto.IV = ASCIIEncoding.ASCII.GetBytes("qwert".PadRight(16, 'x'));
-            crypto.Key = ASCIIEncoding.ASCII.GetBytes(key.PadRight(16, 'x'));
+            crypto.IV = Encoding.ASCII.GetBytes("qwert".PadRight(16, 'x'));
+            crypto.Key = Encoding.ASCII.GetBytes(key.PadRight(16, 'x'));
             crypto.Padding = PaddingMode.Zeros;
 
             File.Delete(file);
 
             using (FileStream stream = new FileStream(file, FileMode.OpenOrCreate))
             {
-                using (CryptoStream cryptoStream = new CryptoStream(stream, crypto.CreateEncryptor(), CryptoStreamMode.Write))
+                using (
+                    CryptoStream cryptoStream = new CryptoStream(stream, crypto.CreateEncryptor(),
+                        CryptoStreamMode.Write))
                 {
                     ds.WriteXml(cryptoStream);
                     cryptoStream.Flush();
@@ -699,47 +601,49 @@ namespace buh_02
                 }
             }
         }
+
         #endregion
 
         #region Цели
+
         private void loadGoal()
         {
-            DataGridViewProgressColumn column = new DataGridViewProgressColumn();
-            column.Width = 250;
+            DataGridViewProgressColumn column = new DataGridViewProgressColumn {Width = 250};
             dataGridView4.Columns.Add(column);
         }
 
         private void tsb_AddGoal_Click(object sender, EventArgs e)
         {
             Form_AddEditGoal faeg = new Form_AddEditGoal("", "", "", "-1", dataSet1);
-            faeg.ShowDialog();
-
-            if (faeg.DialogResult == DialogResult.OK)
+           
+            if (faeg.ShowDialog() == DialogResult.OK)
             {
-                DataRow newGoalRow = dataSet1.Tables["Goal"].NewRow();
+                var newGoalRow = dataSet1.Tables["Goal"].NewRow();
 
                 newGoalRow["name"] = faeg.txb_GoalName.Text;
                 newGoalRow["AllSum"] = faeg.txb_GoalSum.Text;
                 newGoalRow["Comment"] = faeg.txb_GoalComment.Text;
 
-                dataSet1.Tables["Goal"].Rows.Add(newGoalRow);                                
+                dataSet1.Tables["Goal"].Rows.Add(newGoalRow);
             }
 
-            saveData("data.xml");            
+            saveData();
         }
 
         private void dataGridView4_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1)
+            if (e.RowIndex == -1) return;
+
+            if (dataGridView4.CurrentRow != null)
             {
-                DataRow newGoalRow = ((DataRowView)dataGridView4.CurrentRow.DataBoundItem).Row;
+                var newGoalRow = ((DataRowView) dataGridView4.CurrentRow.DataBoundItem).Row;
 
                 if (dataGridView4.CurrentRow != null)
                 {
-                    string name = newGoalRow["Name"].ToString();
-                    string allSum = newGoalRow["AllSum"].ToString();
-                    string comment = newGoalRow["Comment"].ToString();
-                    string HistoryID = newGoalRow["HistoryID"].ToString();
+                    var name = newGoalRow["Name"].ToString();
+                    var allSum = newGoalRow["AllSum"].ToString();
+                    var comment = newGoalRow["Comment"].ToString();
+                    var HistoryID = newGoalRow["HistoryID"].ToString();
 
                     Form_AddEditGoal faeg = new Form_AddEditGoal(name, allSum, comment, HistoryID, dataSet1);
                     faeg.ShowDialog();
@@ -752,7 +656,7 @@ namespace buh_02
                         newGoalRow["History"] = Goal.History.ToString();
                     }
 
-                    saveData("data.xml");
+                    saveData();
                 }
             }
         }
@@ -769,7 +673,7 @@ namespace buh_02
                 if (result == DialogResult.Yes)
                 {
                     goalBindingSource.RemoveCurrent();
-                    saveData("data.xml");
+                    saveData();
                 }
             }
         }
@@ -778,6 +682,8 @@ namespace buh_02
         {
             foreach (DataGridViewRow row in dataGridView4.Rows)
             {
+                if (row.Cells[2].Value.ToString() == "") continue;
+
                 int x = (int)(Convert.ToDouble(row.Cells[2].Value) / (Convert.ToDouble(row.Cells[1].Value) / 100));
                 row.Cells[5].Value = x;
             }
@@ -786,12 +692,13 @@ namespace buh_02
         private void dataGridView4_Paint(object sender, PaintEventArgs e)
         {
             ProgressGoal();
-        }        
+        }
+
         #endregion
 
         private void toolStripDateTimeChooser3_ValueChanged(object sender, EventArgs e)
         {
-            DateBeginEnd.DateBegin = toolStripDateTimeChooser3.Value.Date;            
+            DateBeginEnd.DateBegin = toolStripDateTimeChooser3.Value.Date;
             filter();
         }
 
@@ -808,18 +715,20 @@ namespace buh_02
 
         private void RefreshReport()
         {
-            DateTime StartDate = new DateTime(2012, 01, 1);
-            DateTime EndDate = new DateTime(2033, 12, 31);
+            DateTime StartDate;
+            DateTime EndDate;
 
-            ReportDataSource reportDataSource1 = new ReportDataSource();
-
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = cashInOutBindingSource;
+            ReportDataSource reportDataSource1 = new ReportDataSource
+            {
+                Name = "DataSet1",
+                Value = cashInOutBindingSource
+            };
 
             reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             reportViewer1.LocalReport.ReportEmbeddedResource = "buh_02.Report.Report1.rdlc";
 
-            if (toolStripDateTimeChooser1.Value.Date == DateTime.Now.Date && toolStripDateTimeChooser2.Value.Date == DateTime.Now.Date)
+            if (toolStripDateTimeChooser1.Value.Date == DateTime.Now.Date &&
+                toolStripDateTimeChooser2.Value.Date == DateTime.Now.Date)
             {
                 StartDate = new DateTime(2012, 01, 1);
                 EndDate = new DateTime(2033, 12, 31);
@@ -833,21 +742,166 @@ namespace buh_02
             ReportParameter psd = new ReportParameter("StartDate", StartDate.ToString());
             ReportParameter ped = new ReportParameter("EndDate", EndDate.ToString());
 
-            if (toolStripComboBox2.Text == "Расходы")
+            switch (toolStripComboBox2.Text)
             {
-                ReportParameter pio = new ReportParameter("InOut", "Расход");
-                this.reportViewer1.LocalReport.SetParameters(new ReportParameter[] { psd, ped, pio });
+                case "Расходы":
+                {
+                    ReportParameter pio = new ReportParameter("InOut", "Расход");
+                    reportViewer1.LocalReport.SetParameters(new[] {psd, ped, pio});
 
-                reportViewer1.RefreshReport();
+                    reportViewer1.RefreshReport();
+                }
+                    break;
+                case "Доходы":
+                {
+                    ReportParameter pio = new ReportParameter("InOut", "Доход");
+                    reportViewer1.LocalReport.SetParameters(new[] {psd, ped, pio});
+
+                    reportViewer1.RefreshReport();
+                }
+                    break;
             }
-            else if (toolStripComboBox2.Text == "Доходы")
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            if (toolStripButton1.Text == "Показывать выполненые")
             {
-                ReportParameter pio = new ReportParameter("InOut", "Доход");
-                this.reportViewer1.LocalReport.SetParameters(new ReportParameter[] { psd, ped, pio });
+                toolStripButton1.Text = "Не показывать выполненные";
+                budgetBindingSource.RemoveFilter();
 
-                reportViewer1.RefreshReport();
+                StringBuilder sb = new StringBuilder();
+
+
+                sb.Append(string.Format(CultureInfo.InvariantCulture,
+                    "DateTime <= #{0:MM/dd/yyyy}# ", dateTimePicker1.Value));
+
+                budgetBindingSource.Filter = sb.ToString();
             }
+            else
+            {
+                toolStripButton1.Text = "Показывать выполненые";
+                StringBuilder sb = new StringBuilder();
 
+                sb.Append("Check = false");
+
+                sb.Append(string.Format(CultureInfo.InvariantCulture,
+                    " AND DateTime <= #{0:MM/dd/yyyy}# ", dateTimePicker1.Value));
+
+                budgetBindingSource.Filter = sb.ToString();
+            }
+        }
+
+        private void DGBudgetPaint()
+        {
+            foreach (var row in dataGridView2.Rows.Cast<DataGridViewRow>().Where(row => row.Cells[1].Value != null))
+            {
+                if (row.Cells[1].Value.ToString() == "Доход" && (bool) row.Cells[0].Value != true)
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        //Меняем цвет ячейки
+                        cell.Style.BackColor = Color.PaleGreen;
+                    }
+                else if (row.Cells[1].Value.ToString() == "Расход" && (bool) row.Cells[0].Value != true)
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        //Меняем цвет ячейки
+                        cell.Style.BackColor = Color.PaleVioletRed;
+                    }
+                else if ((bool)row.Cells[0].Value)
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        //Меняем цвет ячейки
+                        cell.Style.BackColor = Color.SlateGray;
+                    }
+            }
+        }
+
+        private void dataGridView2_Paint_1(object sender, PaintEventArgs e)
+        {
+            filterBudget();
+            DGBudgetPaint();
+            InOutBudgetCalc();
+        }
+
+        private void InOutBudgetCalc()
+        {
+            double t = 0;
+
+            double i = 0;
+            double y = 0;
+
+            if (dataSet1.Tables["CashInOut"].Rows.Count > 0)
+            {
+                var sumIN = dataSet1.Tables["CashInOut"].Compute("SUM(Sum)", "[InOut]='Доход'");
+                var sumOUT = dataSet1.Tables["CashInOut"].Compute("SUM(Sum)", "[InOut]='Расход'");
+
+                if (Convert.IsDBNull(sumIN) && Convert.IsDBNull(sumOUT))
+                {
+                    t = 0;
+                }
+                else if (!Convert.IsDBNull(sumIN) && Convert.IsDBNull(sumOUT))
+                {
+                    t = Convert.ToDouble(sumIN);
+                }
+                else if (Convert.IsDBNull(sumIN) && !Convert.IsDBNull(sumOUT))
+                {
+                    t = Convert.ToDouble(sumOUT)*(-1);
+                }
+                else
+                {
+                    t = Convert.ToDouble(sumIN) - Convert.ToDouble(sumOUT);    
+                }
+            }
+            else
+            {
+                t = 0;
+            }
+            
+
+            foreach (DataGridViewRow row in dataGridView2.Rows)
+            {
+                if (row.Cells[0].Value != null)
+                {
+                    if ((bool) row.Cells[0].Value != true && row.Cells[1].Value.ToString() == "Доход")
+                    {
+                        i = i + (double) row.Cells[4].Value;
+                    }
+                    else if ((bool) row.Cells[0].Value != true && row.Cells[1].Value.ToString() == "Расход")
+                    {
+                        y = y + (double) row.Cells[4].Value;
+                    }
+                }
+
+                labelResult.Text = "Текущее " + t.ToString("C2") + " + Доходы " + i.ToString("C2") + " - Расходы " +
+                                   y.ToString("C2") + " = " + ((t + i) - y).ToString("C2");
+            }
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            filterBudget();
+        }
+
+        private void filterBudget()
+        {
+            StringBuilder sb = new StringBuilder();
+            
+            if (toolStripButton1.Text == "Показывать выполненые")
+            {
+                sb.Append("Check = false");
+                sb.Append(string.Format(CultureInfo.InvariantCulture,
+                    " AND DateTime <= #{0:MM/dd/yyyy}# ", dateTimePicker1.Value));
+
+                budgetBindingSource.Filter = sb.ToString();
+            }
+            else
+            {
+                sb.Append(string.Format(CultureInfo.InvariantCulture,
+                    "DateTime <= #{0:MM/dd/yyyy}# ", dateTimePicker1.Value));
+
+                budgetBindingSource.Filter = sb.ToString();
+            }
         }
     }
 }

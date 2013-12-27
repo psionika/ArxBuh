@@ -12,7 +12,7 @@
   <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="CashInOut" msprop:Generator_TableClassName="CashInOutDataTable" msprop:Generator_TableVarName="tableCashInOut" msprop:Generator_RowChangedName="CashInOutRowChanged" msprop:Generator_TablePropName="CashInOut" msprop:Generator_RowDeletingName="CashInOutRowDeleting" msprop:Generator_RowChangingName="CashInOutRowChanging" msprop:Generator_RowEvHandlerName="CashInOutRowChangeEventHandler" msprop:Generator_RowDeletedName="CashInOutRowDeleted" msprop:Generator_RowClassName="CashInOutRow" msprop:Generator_UserTableName="CashInOut" msprop:Generator_RowEvArgName="CashInOutRowChangeEvent">
+        <xs:element name="CashInOut" msprop:Generator_TableClassName="CashInOutDataTable" msprop:Generator_TableVarName="tableCashInOut" msprop:Generator_TablePropName="CashInOut" msprop:Generator_RowDeletingName="CashInOutRowDeleting" msprop:Generator_RowChangingName="CashInOutRowChanging" msprop:Generator_RowEvHandlerName="CashInOutRowChangeEventHandler" msprop:Generator_RowDeletedName="CashInOutRowDeleted" msprop:Generator_UserTableName="CashInOut" msprop:Generator_RowChangedName="CashInOutRowChanged" msprop:Generator_RowEvArgName="CashInOutRowChangeEvent" msprop:Generator_RowClassName="CashInOutRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="InOut" msprop:Generator_ColumnVarNameInTable="columnInOut" msprop:Generator_ColumnPropNameInRow="InOut" msprop:Generator_ColumnPropNameInTable="InOutColumn" msprop:Generator_UserColumnName="InOut" type="xs:string" minOccurs="0" />
@@ -23,7 +23,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="InOutCategories" msprop:Generator_TableClassName="InOutCategoriesDataTable" msprop:Generator_TableVarName="tableInOutCategories" msprop:Generator_RowChangedName="InOutCategoriesRowChanged" msprop:Generator_TablePropName="InOutCategories" msprop:Generator_RowDeletingName="InOutCategoriesRowDeleting" msprop:Generator_RowChangingName="InOutCategoriesRowChanging" msprop:Generator_RowEvHandlerName="InOutCategoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="InOutCategoriesRowDeleted" msprop:Generator_RowClassName="InOutCategoriesRow" msprop:Generator_UserTableName="InOutCategories" msprop:Generator_RowEvArgName="InOutCategoriesRowChangeEvent">
+        <xs:element name="InOutCategories" msprop:Generator_TableClassName="InOutCategoriesDataTable" msprop:Generator_TableVarName="tableInOutCategories" msprop:Generator_TablePropName="InOutCategories" msprop:Generator_RowDeletingName="InOutCategoriesRowDeleting" msprop:Generator_RowChangingName="InOutCategoriesRowChanging" msprop:Generator_RowEvHandlerName="InOutCategoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="InOutCategoriesRowDeleted" msprop:Generator_UserTableName="InOutCategories" msprop:Generator_RowChangedName="InOutCategoriesRowChanged" msprop:Generator_RowEvArgName="InOutCategoriesRowChangeEvent" msprop:Generator_RowClassName="InOutCategoriesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="InOut" msprop:Generator_ColumnVarNameInTable="columnInOut" msprop:Generator_ColumnPropNameInRow="InOut" msprop:Generator_ColumnPropNameInTable="InOutColumn" msprop:Generator_UserColumnName="InOut" type="xs:string" minOccurs="0" />
@@ -31,7 +31,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Budget" msprop:Generator_TableClassName="BudgetDataTable" msprop:Generator_TableVarName="tableBudget" msprop:Generator_TablePropName="Budget" msprop:Generator_RowDeletingName="BudgetRowDeleting" msprop:Generator_RowChangingName="BudgetRowChanging" msprop:Generator_RowEvHandlerName="BudgetRowChangeEventHandler" msprop:Generator_RowDeletedName="BudgetRowDeleted" msprop:Generator_UserTableName="Budget" msprop:Generator_RowChangedName="BudgetRowChanged" msprop:Generator_RowEvArgName="BudgetRowChangeEvent" msprop:Generator_RowClassName="BudgetRow">
+        <xs:element name="Budget" msprop:Generator_TableClassName="BudgetDataTable" msprop:Generator_TableVarName="tableBudget" msprop:Generator_RowChangedName="BudgetRowChanged" msprop:Generator_TablePropName="Budget" msprop:Generator_RowDeletingName="BudgetRowDeleting" msprop:Generator_RowChangingName="BudgetRowChanging" msprop:Generator_RowEvHandlerName="BudgetRowChangeEventHandler" msprop:Generator_RowDeletedName="BudgetRowDeleted" msprop:Generator_RowClassName="BudgetRow" msprop:Generator_UserTableName="Budget" msprop:Generator_RowEvArgName="BudgetRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Check" msprop:Generator_ColumnVarNameInTable="columnCheck" msprop:Generator_ColumnPropNameInRow="Check" msprop:Generator_ColumnPropNameInTable="CheckColumn" msprop:Generator_UserColumnName="Check" type="xs:boolean" minOccurs="0" />
@@ -43,23 +43,23 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Goal" msprop:Generator_TableClassName="GoalDataTable" msprop:Generator_TableVarName="tableGoal" msprop:Generator_RowChangedName="GoalRowChanged" msprop:Generator_TablePropName="Goal" msprop:Generator_RowDeletingName="GoalRowDeleting" msprop:Generator_RowChangingName="GoalRowChanging" msprop:Generator_RowEvHandlerName="GoalRowChangeEventHandler" msprop:Generator_RowDeletedName="GoalRowDeleted" msprop:Generator_RowClassName="GoalRow" msprop:Generator_UserTableName="Goal" msprop:Generator_RowEvArgName="GoalRowChangeEvent">
+        <xs:element name="Goal" msprop:Generator_TableClassName="GoalDataTable" msprop:Generator_TableVarName="tableGoal" msprop:Generator_TablePropName="Goal" msprop:Generator_RowDeletingName="GoalRowDeleting" msprop:Generator_RowChangingName="GoalRowChanging" msprop:Generator_RowEvHandlerName="GoalRowChangeEventHandler" msprop:Generator_RowDeletedName="GoalRowDeleted" msprop:Generator_UserTableName="Goal" msprop:Generator_RowChangedName="GoalRowChanged" msprop:Generator_RowEvArgName="GoalRowChangeEvent" msprop:Generator_RowClassName="GoalRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
-              <xs:element name="AllSum" msprop:Generator_ColumnVarNameInTable="columnAllSum" msprop:Generator_ColumnPropNameInRow="AllSum" msprop:Generator_ColumnPropNameInTable="AllSumColumn" msprop:Generator_UserColumnName="AllSum" type="xs:string" minOccurs="0" />
-              <xs:element name="History" msprop:Generator_ColumnVarNameInTable="columnHistory" msprop:Generator_ColumnPropNameInRow="History" msprop:Generator_ColumnPropNameInTable="HistoryColumn" msprop:Generator_UserColumnName="History" type="xs:string" minOccurs="0" />
+              <xs:element name="AllSum" msprop:Generator_ColumnVarNameInTable="columnAllSum" msprop:Generator_ColumnPropNameInRow="AllSum" msprop:Generator_ColumnPropNameInTable="AllSumColumn" msprop:Generator_UserColumnName="AllSum" type="xs:double" minOccurs="0" />
+              <xs:element name="History" msprop:Generator_ColumnVarNameInTable="columnHistory" msprop:Generator_ColumnPropNameInRow="History" msprop:Generator_ColumnPropNameInTable="HistoryColumn" msprop:Generator_UserColumnName="History" type="xs:double" minOccurs="0" />
               <xs:element name="HistoryID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnHistoryID" msprop:Generator_ColumnPropNameInRow="HistoryID" msprop:Generator_ColumnPropNameInTable="HistoryIDColumn" msprop:Generator_UserColumnName="HistoryID" type="xs:int" minOccurs="0" />
               <xs:element name="Comment" msprop:Generator_ColumnVarNameInTable="columnComment" msprop:Generator_ColumnPropNameInRow="Comment" msprop:Generator_ColumnPropNameInTable="CommentColumn" msprop:Generator_UserColumnName="Comment" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="GoalHistory" msprop:Generator_TableClassName="GoalHistoryDataTable" msprop:Generator_TableVarName="tableGoalHistory" msprop:Generator_RowChangedName="GoalHistoryRowChanged" msprop:Generator_TablePropName="GoalHistory" msprop:Generator_RowDeletingName="GoalHistoryRowDeleting" msprop:Generator_RowChangingName="GoalHistoryRowChanging" msprop:Generator_RowEvHandlerName="GoalHistoryRowChangeEventHandler" msprop:Generator_RowDeletedName="GoalHistoryRowDeleted" msprop:Generator_RowClassName="GoalHistoryRow" msprop:Generator_UserTableName="GoalHistory" msprop:Generator_RowEvArgName="GoalHistoryRowChangeEvent">
+        <xs:element name="GoalHistory" msprop:Generator_TableClassName="GoalHistoryDataTable" msprop:Generator_TableVarName="tableGoalHistory" msprop:Generator_TablePropName="GoalHistory" msprop:Generator_RowDeletingName="GoalHistoryRowDeleting" msprop:Generator_RowChangingName="GoalHistoryRowChanging" msprop:Generator_RowEvHandlerName="GoalHistoryRowChangeEventHandler" msprop:Generator_RowDeletedName="GoalHistoryRowDeleted" msprop:Generator_UserTableName="GoalHistory" msprop:Generator_RowChangedName="GoalHistoryRowChanged" msprop:Generator_RowEvArgName="GoalHistoryRowChangeEvent" msprop:Generator_RowClassName="GoalHistoryRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="HistoryID" msprop:Generator_ColumnVarNameInTable="columnHistoryID" msprop:Generator_ColumnPropNameInRow="HistoryID" msprop:Generator_ColumnPropNameInTable="HistoryIDColumn" msprop:Generator_UserColumnName="HistoryID" type="xs:int" minOccurs="0" />
               <xs:element name="DateTime" msprop:Generator_ColumnVarNameInTable="columnDateTime" msprop:Generator_ColumnPropNameInRow="DateTime" msprop:Generator_ColumnPropNameInTable="DateTimeColumn" msprop:Generator_UserColumnName="DateTime" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="Sum" msprop:Generator_ColumnVarNameInTable="columnSum" msprop:Generator_ColumnPropNameInRow="Sum" msprop:Generator_ColumnPropNameInTable="SumColumn" msprop:Generator_UserColumnName="Sum" type="xs:string" minOccurs="0" />
+              <xs:element name="Sum" msprop:Generator_ColumnVarNameInTable="columnSum" msprop:Generator_ColumnPropNameInRow="Sum" msprop:Generator_ColumnPropNameInTable="SumColumn" msprop:Generator_UserColumnName="Sum" type="xs:double" minOccurs="0" />
               <xs:element name="Comment" msprop:Generator_ColumnVarNameInTable="columnComment" msprop:Generator_ColumnPropNameInRow="Comment" msprop:Generator_ColumnPropNameInTable="CommentColumn" msprop:Generator_UserColumnName="Comment" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
@@ -73,7 +73,7 @@
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="Goal_GoalHistory" msdata:parent="Goal" msdata:child="GoalHistory" msdata:parentkey="HistoryID" msdata:childkey="HistoryID" msprop:Generator_UserChildTable="GoalHistory" msprop:Generator_ChildPropName="GetGoalHistoryRows" msprop:Generator_UserRelationName="Goal_GoalHistory" msprop:Generator_RelationVarName="relationGoal_GoalHistory" msprop:Generator_UserParentTable="Goal" msprop:Generator_ParentPropName="GoalRow" />
+      <msdata:Relationship name="Goal_GoalHistory" msdata:parent="Goal" msdata:child="GoalHistory" msdata:parentkey="HistoryID" msdata:childkey="HistoryID" msprop:Generator_UserChildTable="GoalHistory" msprop:Generator_ChildPropName="GetGoalHistoryRows" msprop:Generator_UserRelationName="Goal_GoalHistory" msprop:Generator_ParentPropName="GoalRow" msprop:Generator_RelationVarName="relationGoal_GoalHistory" msprop:Generator_UserParentTable="Goal" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

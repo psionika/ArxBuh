@@ -211,6 +211,7 @@
             this.categoryEdit.TabStop = false;
             this.categoryEdit.Text = "...";
             this.categoryEdit.UseVisualStyleBackColor = true;
+            this.categoryEdit.Click += new System.EventHandler(this.categoryEdit_Click);
             // 
             // comboBox2
             // 
@@ -317,6 +318,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_AddEditBudget";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AddEditBudget";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddEditBudget_FormClosing);

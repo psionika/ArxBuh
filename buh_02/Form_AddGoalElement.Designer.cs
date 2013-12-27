@@ -60,14 +60,14 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(354, 186);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(354, 191);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // btnOK
             // 
             this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(51, 152);
+            this.btnOK.Location = new System.Drawing.Point(51, 157);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
@@ -78,7 +78,7 @@
             // 
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(228, 152);
+            this.btnCancel.Location = new System.Drawing.Point(228, 157);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
@@ -128,7 +128,7 @@
             this.txb_GoalElementComment.Location = new System.Drawing.Point(3, 73);
             this.txb_GoalElementComment.Multiline = true;
             this.txb_GoalElementComment.Name = "txb_GoalElementComment";
-            this.txb_GoalElementComment.Size = new System.Drawing.Size(348, 65);
+            this.txb_GoalElementComment.Size = new System.Drawing.Size(348, 70);
             this.txb_GoalElementComment.TabIndex = 4;
             // 
             // Form_AddGoalElement
@@ -136,12 +136,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(354, 186);
+            this.ClientSize = new System.Drawing.Size(354, 191);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(370, 225);
             this.Name = "Form_AddGoalElement";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Выплата по цели";
             this.tableLayoutPanel1.ResumeLayout(false);

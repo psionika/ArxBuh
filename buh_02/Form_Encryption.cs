@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace buh_02
@@ -24,7 +18,7 @@ namespace buh_02
 
         private void btnOK_Click(object sender, EventArgs e)
         {   
-            if(checkBox1.Checked == true 
+            if(checkBox1.Checked 
                 && maskedTextBox1.Text == maskedTextBox2.Text 
                 && maskedTextBox1.Text != "")
             {
@@ -33,11 +27,11 @@ namespace buh_02
                 
                 Close();
             }
-            else if (checkBox1.Checked == true && maskedTextBox1.Text != maskedTextBox2.Text)
+            else if (checkBox1.Checked && maskedTextBox1.Text != maskedTextBox2.Text)
             {
                 MessageBox.Show("Введённые пароли не одинаковы!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);                
             }
-            else if (checkBox1.Checked == true && maskedTextBox1.Text == "")
+            else if (checkBox1.Checked && maskedTextBox1.Text == "")
             {
                 MessageBox.Show("Пароль не может быть пустым", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

@@ -154,7 +154,7 @@
             this.maskedTextBox1.Size = new System.Drawing.Size(142, 20);
             this.maskedTextBox1.TabIndex = 8;
             // 
-            // FormEncryption
+            // Form_Encryption
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -163,7 +163,8 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormEncryption";
+            this.Name = "Form_Encryption";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Шифрование";
             this.tableLayoutPanel1.ResumeLayout(false);

@@ -38,14 +38,14 @@ namespace buh_02
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
-            this.cashInOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new buh_02.DataSet1();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
@@ -76,11 +76,10 @@ namespace buh_02
             this.dateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cashInOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new buh_02.DataSet1();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
@@ -92,27 +91,23 @@ namespace buh_02
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.labelResult = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelIn = new System.Windows.Forms.Label();
+            this.labelOut = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.checkDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.inOutDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sumDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.commentDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.budgetBindingSourceIn = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.inOutDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTimeDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sumDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.commentDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.budgetBindingSourceOut = new System.Windows.Forms.BindingSource(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.labelResult = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.labelIn = new System.Windows.Forms.Label();
-            this.labelOut = new System.Windows.Forms.Label();
+            this.budgetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -167,23 +162,20 @@ namespace buh_02
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.cashInOutBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cashInOutBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.toolStrip2.SuspendLayout();
             this.toolStrip3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.budgetBindingSourceIn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.budgetBindingSourceOut)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.budgetBindingSource)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.goalBindingSource)).BeginInit();
@@ -193,18 +185,9 @@ namespace buh_02
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // cashInOutBindingSource
-            // 
-            this.cashInOutBindingSource.DataMember = "CashInOut";
-            this.cashInOutBindingSource.DataSource = this.dataSet1;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // toolStrip1
             // 
+            this.toolStrip1.AutoSize = false;
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton6,
@@ -221,7 +204,7 @@ namespace buh_02
             this.SettingsTSB});
             this.toolStrip1.Location = new System.Drawing.Point(3, 3);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1126, 32);
+            this.toolStrip1.Size = new System.Drawing.Size(957, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "Добавить";
             // 
@@ -230,7 +213,7 @@ namespace buh_02
             this.toolStripButton6.Image = global::buh_02.Properties.Resources.add_32x32;
             this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(60, 29);
+            this.toolStripButton6.Size = new System.Drawing.Size(60, 22);
             this.toolStripButton6.Text = "Доход";
             this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
@@ -239,7 +222,7 @@ namespace buh_02
             this.toolStripButton7.Image = global::buh_02.Properties.Resources.remove_32x32;
             this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(64, 29);
+            this.toolStripButton7.Size = new System.Drawing.Size(64, 22);
             this.toolStripButton7.Text = "Расход";
             this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
             // 
@@ -248,35 +231,37 @@ namespace buh_02
             this.DeleteTSB.Image = global::buh_02.Properties.Resources.delete_32x32;
             this.DeleteTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.DeleteTSB.Name = "DeleteTSB";
-            this.DeleteTSB.Size = new System.Drawing.Size(71, 29);
+            this.DeleteTSB.Size = new System.Drawing.Size(71, 22);
             this.DeleteTSB.Text = "Удалить";
             this.DeleteTSB.Click += new System.EventHandler(this.DeleteTSB_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 32);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripComboBox1
             // 
+            this.toolStripComboBox1.AutoSize = false;
             this.toolStripComboBox1.Items.AddRange(new object[] {
             "Доход",
             "Расход"});
             this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(250, 32);
+            this.toolStripComboBox1.Size = new System.Drawing.Size(250, 23);
             this.toolStripComboBox1.TextChanged += new System.EventHandler(this.toolStripComboBox1_TextChanged);
             // 
             // toolStripLabel5
             // 
             this.toolStripLabel5.Name = "toolStripLabel5";
-            this.toolStripLabel5.Size = new System.Drawing.Size(15, 29);
+            this.toolStripLabel5.Size = new System.Drawing.Size(15, 22);
             this.toolStripLabel5.Text = "C";
             // 
             // toolStripDateTimeChooser3
             // 
+            this.toolStripDateTimeChooser3.AutoSize = false;
             this.toolStripDateTimeChooser3.BackColor = System.Drawing.Color.Transparent;
             this.toolStripDateTimeChooser3.Name = "toolStripDateTimeChooser3";
-            this.toolStripDateTimeChooser3.Size = new System.Drawing.Size(126, 29);
+            this.toolStripDateTimeChooser3.Size = new System.Drawing.Size(126, 25);
             this.toolStripDateTimeChooser3.Text = "toolStripDateTimeChooser3";
             this.toolStripDateTimeChooser3.Value = new System.DateTime(2013, 11, 28, 13, 50, 2, 255);
             this.toolStripDateTimeChooser3.ValueChanged += new System.EventHandler(this.toolStripDateTimeChooser3_ValueChanged);
@@ -284,14 +269,15 @@ namespace buh_02
             // toolStripLabel4
             // 
             this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(21, 29);
+            this.toolStripLabel4.Size = new System.Drawing.Size(21, 22);
             this.toolStripLabel4.Text = "по";
             // 
             // toolStripDateTimeChooser4
             // 
+            this.toolStripDateTimeChooser4.AutoSize = false;
             this.toolStripDateTimeChooser4.BackColor = System.Drawing.Color.Transparent;
             this.toolStripDateTimeChooser4.Name = "toolStripDateTimeChooser4";
-            this.toolStripDateTimeChooser4.Size = new System.Drawing.Size(126, 29);
+            this.toolStripDateTimeChooser4.Size = new System.Drawing.Size(126, 25);
             this.toolStripDateTimeChooser4.Text = "toolStripDateTimeChooser4";
             this.toolStripDateTimeChooser4.Value = new System.DateTime(2013, 11, 28, 13, 50, 34, 831);
             this.toolStripDateTimeChooser4.ValueChanged += new System.EventHandler(this.toolStripDateTimeChooser4_ValueChanged);
@@ -301,8 +287,8 @@ namespace buh_02
             this.FilterClearTSB.Image = global::buh_02.Properties.Resources.expand_32x32;
             this.FilterClearTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.FilterClearTSB.Name = "FilterClearTSB";
-            this.FilterClearTSB.Size = new System.Drawing.Size(128, 29);
-            this.FilterClearTSB.Text = "Отчистить фильтр";
+            this.FilterClearTSB.Size = new System.Drawing.Size(123, 22);
+            this.FilterClearTSB.Text = "Очистить фильтр";
             this.FilterClearTSB.Click += new System.EventHandler(this.FilterClearTSB_Click);
             // 
             // ExitTSB
@@ -312,7 +298,7 @@ namespace buh_02
             this.ExitTSB.Image = global::buh_02.Properties.Resources.door_32x32;
             this.ExitTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ExitTSB.Name = "ExitTSB";
-            this.ExitTSB.Size = new System.Drawing.Size(23, 29);
+            this.ExitTSB.Size = new System.Drawing.Size(23, 22);
             this.ExitTSB.Text = "Выход";
             this.ExitTSB.Click += new System.EventHandler(this.ExitTSB_Click);
             // 
@@ -330,7 +316,7 @@ namespace buh_02
             this.SettingsTSB.Image = global::buh_02.Properties.Resources.gear_wheel_32x32;
             this.SettingsTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.SettingsTSB.Name = "SettingsTSB";
-            this.SettingsTSB.Size = new System.Drawing.Size(32, 29);
+            this.SettingsTSB.Size = new System.Drawing.Size(32, 22);
             this.SettingsTSB.Text = "Дополнительно";
             this.SettingsTSB.Click += new System.EventHandler(this.SettingsTSB_ButtonClick);
             // 
@@ -378,7 +364,7 @@ namespace buh_02
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(20, 407);
+            this.label2.Location = new System.Drawing.Point(20, 414);
             this.label2.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(18, 20);
@@ -395,7 +381,7 @@ namespace buh_02
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1146, 512);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(977, 512);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // tabControl1
@@ -408,7 +394,7 @@ namespace buh_02
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1140, 506);
+            this.tabControl1.Size = new System.Drawing.Size(971, 506);
             this.tabControl1.TabIndex = 6;
             // 
             // tabPage1
@@ -418,7 +404,7 @@ namespace buh_02
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1132, 480);
+            this.tabPage1.Size = new System.Drawing.Size(963, 480);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Доходы-Расходы";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -430,12 +416,12 @@ namespace buh_02
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.dataGridView1, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 35);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 28);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1126, 442);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(957, 449);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // dataGridView1
@@ -467,7 +453,7 @@ namespace buh_02
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1120, 386);
+            this.dataGridView1.Size = new System.Drawing.Size(951, 393);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
@@ -502,6 +488,8 @@ namespace buh_02
             // 
             this.sumDataGridViewTextBoxColumn.DataPropertyName = "Sum";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
             this.sumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.sumDataGridViewTextBoxColumn.FillWeight = 80F;
             this.sumDataGridViewTextBoxColumn.HeaderText = "Сумма";
@@ -517,13 +505,23 @@ namespace buh_02
             this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
             this.commentDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // cashInOutBindingSource
+            // 
+            this.cashInOutBindingSource.DataMember = "CashInOut";
+            this.cashInOutBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.tableLayoutPanel3);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1132, 480);
+            this.tabPage2.Size = new System.Drawing.Size(963, 480);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Бюджет";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -533,11 +531,9 @@ namespace buh_02
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.toolStrip2, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.toolStrip3, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.dataGridView2, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.dataGridView3, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.toolStrip3, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel1, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.dataGridView2, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -546,51 +542,26 @@ namespace buh_02
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1126, 474);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(957, 474);
             this.tableLayoutPanel3.TabIndex = 0;
-            // 
-            // toolStrip2
-            // 
-            this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(563, 25);
-            this.toolStrip2.TabIndex = 0;
-            this.toolStrip2.Text = "toolStrip2";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Image = global::buh_02.Properties.Resources.add_32x32;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(79, 22);
-            this.toolStripButton1.Text = "Добавить";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.Image = global::buh_02.Properties.Resources.delete_32x32;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(71, 22);
-            this.toolStripButton2.Text = "Удалить";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStrip3
             // 
+            this.toolStrip3.AutoSize = false;
+            this.tableLayoutPanel3.SetColumnSpan(this.toolStrip3, 2);
+            this.toolStrip3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStrip3.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton3,
             this.toolStripButton4,
             this.toolStripButton5,
-            this.toolStripSplitButton1});
-            this.toolStrip3.Location = new System.Drawing.Point(563, 0);
+            this.toolStripSplitButton1,
+            this.toolStripSeparator7,
+            this.toolStripButton1});
+            this.toolStrip3.Location = new System.Drawing.Point(0, 0);
             this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(563, 25);
-            this.toolStrip3.TabIndex = 1;
+            this.toolStrip3.Size = new System.Drawing.Size(957, 25);
+            this.toolStrip3.TabIndex = 9;
             this.toolStrip3.Text = "toolStrip3";
             // 
             // toolStripButton3
@@ -600,7 +571,7 @@ namespace buh_02
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(79, 22);
             this.toolStripButton3.Text = "Добавить";
-            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click_1);
             // 
             // toolStripButton4
             // 
@@ -675,143 +646,25 @@ namespace buh_02
             this.toolStripMenuItem10.Size = new System.Drawing.Size(241, 22);
             this.toolStripMenuItem10.Text = "Шифрование";
             // 
-            // dataGridView2
+            // toolStripSeparator7
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AllowUserToResizeRows = false;
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.inOutDataGridViewTextBoxColumn1,
-            this.categoryDataGridViewTextBoxColumn1,
-            this.dateTimeDataGridViewTextBoxColumn1,
-            this.sumDataGridViewTextBoxColumn1,
-            this.commentDataGridViewTextBoxColumn1});
-            this.dataGridView2.DataSource = this.budgetBindingSourceIn;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 28);
-            this.dataGridView2.MultiSelect = false;
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(557, 393);
-            this.dataGridView2.TabIndex = 2;
-            this.dataGridView2.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridView2_Paint);
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
             // 
-            // inOutDataGridViewTextBoxColumn1
+            // toolStripButton1
             // 
-            this.inOutDataGridViewTextBoxColumn1.DataPropertyName = "InOut";
-            this.inOutDataGridViewTextBoxColumn1.HeaderText = "InOut";
-            this.inOutDataGridViewTextBoxColumn1.Name = "inOutDataGridViewTextBoxColumn1";
-            this.inOutDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // categoryDataGridViewTextBoxColumn1
-            // 
-            this.categoryDataGridViewTextBoxColumn1.DataPropertyName = "Category";
-            this.categoryDataGridViewTextBoxColumn1.HeaderText = "Категория";
-            this.categoryDataGridViewTextBoxColumn1.Name = "categoryDataGridViewTextBoxColumn1";
-            this.categoryDataGridViewTextBoxColumn1.Width = 75;
-            // 
-            // dateTimeDataGridViewTextBoxColumn1
-            // 
-            this.dateTimeDataGridViewTextBoxColumn1.DataPropertyName = "DateTime";
-            this.dateTimeDataGridViewTextBoxColumn1.HeaderText = "Дата";
-            this.dateTimeDataGridViewTextBoxColumn1.Name = "dateTimeDataGridViewTextBoxColumn1";
-            this.dateTimeDataGridViewTextBoxColumn1.Width = 70;
-            // 
-            // sumDataGridViewTextBoxColumn1
-            // 
-            this.sumDataGridViewTextBoxColumn1.DataPropertyName = "Sum";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            this.sumDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.sumDataGridViewTextBoxColumn1.HeaderText = "Сумма";
-            this.sumDataGridViewTextBoxColumn1.Name = "sumDataGridViewTextBoxColumn1";
-            this.sumDataGridViewTextBoxColumn1.Width = 50;
-            // 
-            // commentDataGridViewTextBoxColumn1
-            // 
-            this.commentDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.commentDataGridViewTextBoxColumn1.DataPropertyName = "Comment";
-            this.commentDataGridViewTextBoxColumn1.HeaderText = "Комментарий";
-            this.commentDataGridViewTextBoxColumn1.Name = "commentDataGridViewTextBoxColumn1";
-            // 
-            // budgetBindingSourceIn
-            // 
-            this.budgetBindingSourceIn.DataMember = "Budget";
-            this.budgetBindingSourceIn.DataSource = this.dataSet1;
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.AllowUserToAddRows = false;
-            this.dataGridView3.AllowUserToDeleteRows = false;
-            this.dataGridView3.AllowUserToResizeRows = false;
-            this.dataGridView3.AutoGenerateColumns = false;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.inOutDataGridViewTextBoxColumn2,
-            this.categoryDataGridViewTextBoxColumn2,
-            this.dateTimeDataGridViewTextBoxColumn2,
-            this.sumDataGridViewTextBoxColumn2,
-            this.commentDataGridViewTextBoxColumn2});
-            this.dataGridView3.DataSource = this.budgetBindingSourceOut;
-            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView3.Location = new System.Drawing.Point(566, 28);
-            this.dataGridView3.MultiSelect = false;
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersVisible = false;
-            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(557, 393);
-            this.dataGridView3.TabIndex = 3;
-            this.dataGridView3.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridView3_Paint);
-            // 
-            // inOutDataGridViewTextBoxColumn2
-            // 
-            this.inOutDataGridViewTextBoxColumn2.DataPropertyName = "InOut";
-            this.inOutDataGridViewTextBoxColumn2.HeaderText = "InOut";
-            this.inOutDataGridViewTextBoxColumn2.Name = "inOutDataGridViewTextBoxColumn2";
-            this.inOutDataGridViewTextBoxColumn2.Visible = false;
-            // 
-            // categoryDataGridViewTextBoxColumn2
-            // 
-            this.categoryDataGridViewTextBoxColumn2.DataPropertyName = "Category";
-            this.categoryDataGridViewTextBoxColumn2.HeaderText = "Категория";
-            this.categoryDataGridViewTextBoxColumn2.Name = "categoryDataGridViewTextBoxColumn2";
-            this.categoryDataGridViewTextBoxColumn2.Width = 75;
-            // 
-            // dateTimeDataGridViewTextBoxColumn2
-            // 
-            this.dateTimeDataGridViewTextBoxColumn2.DataPropertyName = "DateTime";
-            this.dateTimeDataGridViewTextBoxColumn2.HeaderText = "Дата";
-            this.dateTimeDataGridViewTextBoxColumn2.Name = "dateTimeDataGridViewTextBoxColumn2";
-            this.dateTimeDataGridViewTextBoxColumn2.Width = 70;
-            // 
-            // sumDataGridViewTextBoxColumn2
-            // 
-            this.sumDataGridViewTextBoxColumn2.DataPropertyName = "Sum";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            this.sumDataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
-            this.sumDataGridViewTextBoxColumn2.HeaderText = "Сумма";
-            this.sumDataGridViewTextBoxColumn2.Name = "sumDataGridViewTextBoxColumn2";
-            this.sumDataGridViewTextBoxColumn2.Width = 50;
-            // 
-            // commentDataGridViewTextBoxColumn2
-            // 
-            this.commentDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.commentDataGridViewTextBoxColumn2.DataPropertyName = "Comment";
-            this.commentDataGridViewTextBoxColumn2.HeaderText = "Комментарий";
-            this.commentDataGridViewTextBoxColumn2.Name = "commentDataGridViewTextBoxColumn2";
-            // 
-            // budgetBindingSourceOut
-            // 
-            this.budgetBindingSourceOut.DataMember = "Budget";
-            this.budgetBindingSourceOut.DataSource = this.dataSet1;
+            this.toolStripButton1.Image = global::buh_02.Properties.Resources.filter_32x32;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(166, 22);
+            this.toolStripButton1.Text = "Показывать выполненые";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // panel1
             // 
             this.tableLayoutPanel3.SetColumnSpan(this.panel1, 2);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.labelResult);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.labelIn);
@@ -819,34 +672,33 @@ namespace buh_02
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 427);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1120, 44);
+            this.panel1.Size = new System.Drawing.Size(951, 44);
             this.panel1.TabIndex = 6;
             // 
-            // label4
+            // dateTimePicker1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(140, 11);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Расход";
+            this.dateTimePicker1.Location = new System.Drawing.Point(65, 10);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(130, 20);
+            this.dateTimePicker1.TabIndex = 8;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // label3
+            // label5
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 11);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Доход";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 13);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "На дату";
             // 
             // labelResult
             // 
             this.labelResult.AutoSize = true;
-            this.labelResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelResult.Location = new System.Drawing.Point(388, 2);
+            this.labelResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelResult.Location = new System.Drawing.Point(201, 11);
             this.labelResult.Name = "labelResult";
-            this.labelResult.Size = new System.Drawing.Size(24, 26);
+            this.labelResult.Size = new System.Drawing.Size(18, 20);
             this.labelResult.TabIndex = 1;
             this.labelResult.Text = "0";
             // 
@@ -855,7 +707,7 @@ namespace buh_02
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(287, 2);
+            this.label1.Location = new System.Drawing.Point(484, -170);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 26);
             this.label1.TabIndex = 0;
@@ -866,7 +718,7 @@ namespace buh_02
             this.labelIn.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelIn.AutoSize = true;
             this.labelIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelIn.Location = new System.Drawing.Point(49, 6);
+            this.labelIn.Location = new System.Drawing.Point(246, -166);
             this.labelIn.Name = "labelIn";
             this.labelIn.Size = new System.Drawing.Size(18, 20);
             this.labelIn.TabIndex = 4;
@@ -877,11 +729,84 @@ namespace buh_02
             this.labelOut.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelOut.AutoSize = true;
             this.labelOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelOut.Location = new System.Drawing.Point(189, 6);
+            this.labelOut.Location = new System.Drawing.Point(386, -166);
             this.labelOut.Name = "labelOut";
             this.labelOut.Size = new System.Drawing.Size(18, 20);
             this.labelOut.TabIndex = 5;
             this.labelOut.Text = "0";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.checkDataGridViewCheckBoxColumn,
+            this.inOutDataGridViewTextBoxColumn1,
+            this.categoryDataGridViewTextBoxColumn1,
+            this.dateTimeDataGridViewTextBoxColumn1,
+            this.sumDataGridViewTextBoxColumn1,
+            this.commentDataGridViewTextBoxColumn1});
+            this.tableLayoutPanel3.SetColumnSpan(this.dataGridView2, 2);
+            this.dataGridView2.DataSource = this.budgetBindingSource;
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(3, 28);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(951, 393);
+            this.dataGridView2.TabIndex = 7;
+            this.dataGridView2.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridView2_Paint_1);
+            // 
+            // checkDataGridViewCheckBoxColumn
+            // 
+            this.checkDataGridViewCheckBoxColumn.DataPropertyName = "Check";
+            this.checkDataGridViewCheckBoxColumn.HeaderText = "Выполнено";
+            this.checkDataGridViewCheckBoxColumn.Name = "checkDataGridViewCheckBoxColumn";
+            this.checkDataGridViewCheckBoxColumn.Width = 80;
+            // 
+            // inOutDataGridViewTextBoxColumn1
+            // 
+            this.inOutDataGridViewTextBoxColumn1.DataPropertyName = "InOut";
+            this.inOutDataGridViewTextBoxColumn1.HeaderText = "Доход-Расход";
+            this.inOutDataGridViewTextBoxColumn1.Name = "inOutDataGridViewTextBoxColumn1";
+            // 
+            // categoryDataGridViewTextBoxColumn1
+            // 
+            this.categoryDataGridViewTextBoxColumn1.DataPropertyName = "Category";
+            this.categoryDataGridViewTextBoxColumn1.HeaderText = "Категория";
+            this.categoryDataGridViewTextBoxColumn1.Name = "categoryDataGridViewTextBoxColumn1";
+            // 
+            // dateTimeDataGridViewTextBoxColumn1
+            // 
+            this.dateTimeDataGridViewTextBoxColumn1.DataPropertyName = "DateTime";
+            this.dateTimeDataGridViewTextBoxColumn1.HeaderText = "Дата";
+            this.dateTimeDataGridViewTextBoxColumn1.Name = "dateTimeDataGridViewTextBoxColumn1";
+            this.dateTimeDataGridViewTextBoxColumn1.Width = 80;
+            // 
+            // sumDataGridViewTextBoxColumn1
+            // 
+            this.sumDataGridViewTextBoxColumn1.DataPropertyName = "Sum";
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.sumDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.sumDataGridViewTextBoxColumn1.HeaderText = "Сумма";
+            this.sumDataGridViewTextBoxColumn1.Name = "sumDataGridViewTextBoxColumn1";
+            this.sumDataGridViewTextBoxColumn1.Width = 80;
+            // 
+            // commentDataGridViewTextBoxColumn1
+            // 
+            this.commentDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.commentDataGridViewTextBoxColumn1.DataPropertyName = "Comment";
+            this.commentDataGridViewTextBoxColumn1.HeaderText = "Комментарий";
+            this.commentDataGridViewTextBoxColumn1.Name = "commentDataGridViewTextBoxColumn1";
+            // 
+            // budgetBindingSource
+            // 
+            this.budgetBindingSource.DataMember = "Budget";
+            this.budgetBindingSource.DataSource = this.dataSet1;
+            this.budgetBindingSource.Filter = "Check = false";
             // 
             // tabPage3
             // 
@@ -890,7 +815,7 @@ namespace buh_02
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1132, 480);
+            this.tabPage3.Size = new System.Drawing.Size(963, 480);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Цели";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -913,8 +838,10 @@ namespace buh_02
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.ReadOnly = true;
             this.dataGridView4.RowHeadersVisible = false;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.dataGridView4.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView4.Size = new System.Drawing.Size(1126, 449);
+            this.dataGridView4.Size = new System.Drawing.Size(957, 449);
             this.dataGridView4.TabIndex = 1;
             this.dataGridView4.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellDoubleClick);
             this.dataGridView4.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridView4_Paint);
@@ -930,6 +857,9 @@ namespace buh_02
             // allSumDataGridViewTextBoxColumn
             // 
             this.allSumDataGridViewTextBoxColumn.DataPropertyName = "AllSum";
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.allSumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.allSumDataGridViewTextBoxColumn.HeaderText = "Сумма";
             this.allSumDataGridViewTextBoxColumn.Name = "allSumDataGridViewTextBoxColumn";
             this.allSumDataGridViewTextBoxColumn.ReadOnly = true;
@@ -937,6 +867,9 @@ namespace buh_02
             // historyDataGridViewTextBoxColumn
             // 
             this.historyDataGridViewTextBoxColumn.DataPropertyName = "History";
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.historyDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.historyDataGridViewTextBoxColumn.HeaderText = "Внесено";
             this.historyDataGridViewTextBoxColumn.Name = "historyDataGridViewTextBoxColumn";
             this.historyDataGridViewTextBoxColumn.ReadOnly = true;
@@ -972,7 +905,7 @@ namespace buh_02
             this.toolStripSplitButton3});
             this.toolStrip4.Location = new System.Drawing.Point(3, 3);
             this.toolStrip4.Name = "toolStrip4";
-            this.toolStrip4.Size = new System.Drawing.Size(1126, 25);
+            this.toolStrip4.Size = new System.Drawing.Size(957, 25);
             this.toolStrip4.TabIndex = 0;
             this.toolStrip4.Text = "toolStrip4";
             // 
@@ -1066,7 +999,7 @@ namespace buh_02
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1132, 480);
+            this.tabPage4.Size = new System.Drawing.Size(963, 480);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Отчёты";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1074,13 +1007,14 @@ namespace buh_02
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportViewer1.Location = new System.Drawing.Point(3, 35);
+            this.reportViewer1.Location = new System.Drawing.Point(3, 28);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(1126, 442);
+            this.reportViewer1.Size = new System.Drawing.Size(957, 449);
             this.reportViewer1.TabIndex = 1;
             // 
             // toolStrip5
             // 
+            this.toolStrip5.AutoSize = false;
             this.toolStrip5.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip5.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel1,
@@ -1094,14 +1028,14 @@ namespace buh_02
             this.toolStripSplitButton2});
             this.toolStrip5.Location = new System.Drawing.Point(3, 3);
             this.toolStrip5.Name = "toolStrip5";
-            this.toolStrip5.Size = new System.Drawing.Size(1126, 32);
+            this.toolStrip5.Size = new System.Drawing.Size(957, 25);
             this.toolStrip5.TabIndex = 0;
             this.toolStrip5.Text = "toolStrip5";
             // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(90, 29);
+            this.toolStripLabel1.Size = new System.Drawing.Size(90, 22);
             this.toolStripLabel1.Text = "Показать отчёт";
             // 
             // toolStripComboBox2
@@ -1110,25 +1044,26 @@ namespace buh_02
             "Расходы",
             "Доходы"});
             this.toolStripComboBox2.Name = "toolStripComboBox2";
-            this.toolStripComboBox2.Size = new System.Drawing.Size(200, 32);
+            this.toolStripComboBox2.Size = new System.Drawing.Size(200, 25);
             this.toolStripComboBox2.TextChanged += new System.EventHandler(this.toolStripComboBox2_TextChanged);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 32);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(15, 29);
+            this.toolStripLabel2.Size = new System.Drawing.Size(15, 22);
             this.toolStripLabel2.Text = "С";
             // 
             // toolStripDateTimeChooser1
             // 
             this.toolStripDateTimeChooser1.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripDateTimeChooser1.Margin = new System.Windows.Forms.Padding(0, -1, 0, 2);
             this.toolStripDateTimeChooser1.Name = "toolStripDateTimeChooser1";
-            this.toolStripDateTimeChooser1.Size = new System.Drawing.Size(126, 29);
+            this.toolStripDateTimeChooser1.Size = new System.Drawing.Size(126, 24);
             this.toolStripDateTimeChooser1.Text = "toolStripDateTimeChooser1";
             this.toolStripDateTimeChooser1.Value = new System.DateTime(2013, 11, 28, 13, 47, 36, 986);
             this.toolStripDateTimeChooser1.ValueChanged += new System.EventHandler(this.toolStripComboBox2_TextChanged);
@@ -1136,14 +1071,15 @@ namespace buh_02
             // toolStripLabel3
             // 
             this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(21, 29);
+            this.toolStripLabel3.Size = new System.Drawing.Size(21, 22);
             this.toolStripLabel3.Text = "по";
             // 
             // toolStripDateTimeChooser2
             // 
             this.toolStripDateTimeChooser2.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripDateTimeChooser2.Margin = new System.Windows.Forms.Padding(0, -1, 0, 2);
             this.toolStripDateTimeChooser2.Name = "toolStripDateTimeChooser2";
-            this.toolStripDateTimeChooser2.Size = new System.Drawing.Size(126, 29);
+            this.toolStripDateTimeChooser2.Size = new System.Drawing.Size(126, 24);
             this.toolStripDateTimeChooser2.Text = "toolStripDateTimeChooser2";
             this.toolStripDateTimeChooser2.Value = new System.DateTime(2013, 11, 28, 13, 47, 46, 213);
             this.toolStripDateTimeChooser2.ValueChanged += new System.EventHandler(this.toolStripComboBox2_TextChanged);
@@ -1155,7 +1091,7 @@ namespace buh_02
             this.toolStripButton8.Image = global::buh_02.Properties.Resources.door_32x32;
             this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(23, 29);
+            this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton8.Text = "toolStripButton8";
             this.toolStripButton8.ToolTipText = "Выход";
             this.toolStripButton8.Click += new System.EventHandler(this.ExitTSB_Click);
@@ -1167,7 +1103,7 @@ namespace buh_02
             this.toolStripSplitButton2.Image = global::buh_02.Properties.Resources.gear_wheel_32x32;
             this.toolStripSplitButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton2.Name = "toolStripSplitButton2";
-            this.toolStripSplitButton2.Size = new System.Drawing.Size(32, 29);
+            this.toolStripSplitButton2.Size = new System.Drawing.Size(32, 22);
             this.toolStripSplitButton2.Text = "toolStripSplitButton2";
             this.toolStripSplitButton2.ToolTipText = "Дополнительно";
             this.toolStripSplitButton2.Click += new System.EventHandler(this.SettingsTSB_ButtonClick);
@@ -1197,8 +1133,8 @@ namespace buh_02
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Sum";
-            dataGridViewCellStyle5.NullValue = "0";
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.NullValue = "0";
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewTextBoxColumn1.FillWeight = 80F;
             this.dataGridViewTextBoxColumn1.HeaderText = "Сумма";
             this.dataGridViewTextBoxColumn1.MaxInputLength = 15;
@@ -1226,8 +1162,8 @@ namespace buh_02
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Comment";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewTextBoxColumn4.FillWeight = 80F;
             this.dataGridViewTextBoxColumn4.HeaderText = "Comment";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
@@ -1266,8 +1202,8 @@ namespace buh_02
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.DataPropertyName = "Sum";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewTextBoxColumn9.HeaderText = "Sum";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.Width = 50;
@@ -1304,8 +1240,8 @@ namespace buh_02
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "Sum";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTextBoxColumn14.HeaderText = "Sum";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.Width = 50;
@@ -1360,39 +1296,33 @@ namespace buh_02
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1146, 512);
+            this.ClientSize = new System.Drawing.Size(977, 512);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(890, 460);
+            this.MinimumSize = new System.Drawing.Size(980, 460);
             this.Name = "Form_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "ArxBuh";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.cashInOutBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cashInOutBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
             this.toolStrip3.ResumeLayout(false);
             this.toolStrip3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.budgetBindingSourceIn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.budgetBindingSourceOut)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.budgetBindingSource)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
@@ -1400,7 +1330,6 @@ namespace buh_02
             this.toolStrip4.ResumeLayout(false);
             this.toolStrip4.PerformLayout();
             this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
             this.toolStrip5.ResumeLayout(false);
             this.toolStrip5.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
@@ -1429,11 +1358,6 @@ namespace buh_02
         private System.Windows.Forms.BindingSource cashInOutBindingSource;
         private DataSet1 dataSet1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inOutDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sumDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem категорииДоходовИРасходовToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
@@ -1443,14 +1367,6 @@ namespace buh_02
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.ToolStrip toolStrip2;
-        private System.Windows.Forms.ToolStrip toolStrip3;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.BindingSource budgetBindingSourceIn;
-        private System.Windows.Forms.BindingSource budgetBindingSourceOut;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
@@ -1461,26 +1377,11 @@ namespace buh_02
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
-        private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.Label labelIn;
         private System.Windows.Forms.Label labelOut;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labelResult;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inOutDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateTimeDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sumDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inOutDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateTimeDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sumDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn1;
         private System.Windows.Forms.ToolStripButton toolStripButton6;
         private System.Windows.Forms.ToolStripButton toolStripButton7;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
@@ -1492,13 +1393,6 @@ namespace buh_02
         private System.Windows.Forms.ToolStripButton tsb_AddGoal;
         private System.Windows.Forms.ToolStripButton tsb_GoalDelete;
         private System.Windows.Forms.ToolStripButton toolStripButton11;
-        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
         private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
@@ -1513,11 +1407,6 @@ namespace buh_02
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn allSumDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn historyDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn historyIDDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn3;
         private TabPage tabPage4;
         private ToolStrip toolStrip5;
         private ToolStripLabel toolStripLabel1;
@@ -1534,6 +1423,39 @@ namespace buh_02
         private ToolStripButton toolStripButton8;
         private ToolStripSplitButton toolStripSplitButton2;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private DateTimePicker dateTimePicker1;
+        private Label label5;
+        private DataGridView dataGridView2;
+        private BindingSource budgetBindingSource;
+        private ToolStrip toolStrip3;
+        private ToolStripButton toolStripButton3;
+        private ToolStripButton toolStripButton4;
+        private ToolStripButton toolStripButton5;
+        private ToolStripSplitButton toolStripSplitButton1;
+        private ToolStripMenuItem toolStripMenuItem3;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripMenuItem toolStripMenuItem4;
+        private ToolStripSeparator toolStripSeparator3;
+        private ToolStripMenuItem toolStripMenuItem5;
+        private ToolStripMenuItem toolStripMenuItem10;
+        private ToolStripSeparator toolStripSeparator7;
+        private ToolStripButton toolStripButton1;
+        private DataGridViewTextBoxColumn inOutDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dateTimeDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn sumDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn allSumDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn historyDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn historyIDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn3;
+        private DataGridViewCheckBoxColumn checkDataGridViewCheckBoxColumn;
+        private DataGridViewTextBoxColumn inOutDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dateTimeDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn sumDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn1;
     }
 }
 

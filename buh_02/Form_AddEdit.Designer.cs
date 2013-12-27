@@ -142,7 +142,6 @@
             this.OkBTN.TabIndex = 6;
             this.OkBTN.Text = "Сохранить";
             this.OkBTN.UseVisualStyleBackColor = true;
-            this.OkBTN.Click += new System.EventHandler(this.OkBTN_Click);
             // 
             // label4
             // 
@@ -260,7 +259,6 @@
             this.calculatorTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.calculatorTextBox1.TextBoxText = "0";
             this.calculatorTextBox1.CalculatorParse += new System.EventHandler<PopCalc.Library.CalculatorParseEventArgs>(this.calculatorTextBox1_CalculatorParse);
-            this.calculatorTextBox1.CalculatorFormat += new System.EventHandler<PopCalc.Library.CalculatorFormatEventArgs>(this.calculatorTextBox1_CalculatorFormat);
             // 
             // label1
             // 
@@ -286,7 +284,7 @@
             this.inOutCategoriesBindingSource.DataMember = "InOutCategories";
             this.inOutCategoriesBindingSource.DataSource = this.dataSet1;
             // 
-            // AddEdit
+            // Form_AddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -295,7 +293,8 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "AddEdit";
+            this.Name = "Form_AddEdit";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AddEdit";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddEdit_FormClosing);

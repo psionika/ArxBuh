@@ -154,5 +154,10 @@ namespace buh_02
         }
         #endregion
 
+        private void categoryEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

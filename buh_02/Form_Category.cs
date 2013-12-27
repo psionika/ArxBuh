@@ -15,8 +15,6 @@ namespace buh_02
             loadData("category.xml", "InOutCategories");
 
             InOutfilter();
-
-            
         }
 
         private void Category_FormClosing(object sender, FormClosingEventArgs e)
@@ -24,7 +22,6 @@ namespace buh_02
             saveData("category.xml");
         }
         #endregion
-
 
         #region Dataset Save-Load
         private void saveData(string filename)
@@ -81,26 +78,22 @@ namespace buh_02
         private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
         {
             InOutfilter();
-
         }
 
         private void InOutfilter()
         {
-            if (tabControl1.SelectedTab.Text == "Доходы")
+            switch (tabControl1.SelectedTab.Text)
             {
-                filter("Доход");
-            }
-            else if (tabControl1.SelectedTab.Text == "Расходы")
-            {
-                filter("Расход");
-                dataGridViewTextBoxColumn1.Visible = false;
+                case "Доходы":
+                    inOutCategoriesBindingSource.Filter = "convert(InOut,'System.String') LIKE '*" + "Доход" + "*'";
+                    break;
+                case "Расходы":
+                    inOutCategoriesBindingSource.Filter = "convert(InOut,'System.String') LIKE '*" + "Расход" + "*'";
+                    dataGridViewTextBoxColumn1.Visible = false;
+                    break;
             }
         }
-        
-        private void filter(string str)
-        {
-            inOutCategoriesBindingSource.Filter = "convert(InOut,'System.String') LIKE '*" + str + "*'";
-        }
+
         #endregion
 
         private void toolStripTextBox1_KeyDown(object sender, KeyEventArgs e)

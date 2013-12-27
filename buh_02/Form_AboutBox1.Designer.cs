@@ -228,6 +228,7 @@
             this.Name = "Form_AboutBox1";
             this.Padding = new System.Windows.Forms.Padding(9);
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "О программе";
             this.tableLayoutPanel.ResumeLayout(false);

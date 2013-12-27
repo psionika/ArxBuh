@@ -617,6 +617,10 @@
                 <CellContents>
                   <Textbox Name="Textbox30">
                     <CanGrow>true</CanGrow>
+                    <UserSort>
+                      <SortExpression>=Sum(Fields!Sum.Value)</SortExpression>
+                      <SortExpressionScope>Group1</SortExpressionScope>
+                    </UserSort>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -1040,7 +1044,7 @@
         </Filters>
         <Top>12.1412cm</Top>
         <Left>0.3175cm</Left>
-        <Height>2.96272cm</Height>
+        <Height>2.87625cm</Height>
         <Width>15.16975cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
@@ -1050,7 +1054,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>5.94643in</Height>
+    <Height>6.1486in</Height>
     <Style />
   </Body>
   <Width>6.27034in</Width>
