@@ -14,6 +14,27 @@ namespace buh_02
                 maskedTextBox1.Text = EncryptDecrypt.Password;
                 maskedTextBox2.Text = EncryptDecrypt.Password;
             }
+            EnabledComponents();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            EnabledComponents();
+        }
+
+        private void EnabledComponents()
+        {
+            switch (checkBox1.Checked)
+            {
+                case true:
+                    maskedTextBox1.Enabled = true;
+                    maskedTextBox2.Enabled = true;
+                    break;
+                case false:
+                    maskedTextBox1.Enabled = false;
+                    maskedTextBox2.Enabled = false;
+                    break;
+            }
         }
 
         private void btnOK_Click(object sender, EventArgs e)

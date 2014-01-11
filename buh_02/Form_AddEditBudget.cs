@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 
 using System.Globalization;
 using System.IO;
@@ -17,10 +12,9 @@ namespace buh_02
         public Form_AddEditBudget()
         {
             InitializeComponent();
-
-            loadData("category.xml", "InOutCategories");
-
+            
             comboBox1.Text = Class_element.InOut;
+            filter();
             comboBox2.Text = Class_element.Category;
             dateTimePicker1.Value = Class_element.Date;
             calculatorTextBox1.TextBoxText = Class_element.Sum.ToString();
@@ -121,38 +115,26 @@ namespace buh_02
 
         private void comboBox1_TextChanged(object sender, EventArgs e)
         {
+            filter();
+            validate();
+        }
+
+        private void filter()
+        {
             if (comboBox1.Text == "Доход")
             {
-                filter("Доход");
+                DataView townsView = new DataView(arxDs.ds.Tables["Categories"], "[In] = true", "Category", DataViewRowState.CurrentRows);
+                comboBox2.DataSource = townsView;
+                comboBox2.DisplayMember = "Category";
             }
 
             if (comboBox1.Text == "Расход")
             {
-                filter("Расход");
+                DataView townsView = new DataView(arxDs.ds.Tables["Categories"], "[Out] = true", "Category", DataViewRowState.CurrentRows);
+                comboBox2.DataSource = townsView;
+                comboBox2.DisplayMember = "Category";
             }
-
-            validate();
         }
-
-        private void filter(string str)
-        {
-            inOutCategoriesBindingSource.Filter = "convert(InOut,'System.String') LIKE '*" + str + "*'";
-        }
-
-        #region Dataset Load
-        private void loadData(string filename, string tablename)
-        {
-            dataSet1.Clear();
-
-            if (File.Exists(filename) == true)
-            {
-                dataSet1.ReadXml(filename);
-            }
-
-            comboBox2.DataSource = inOutCategoriesBindingSource;
-            comboBox2.DisplayMember = "Category";
-        }
-        #endregion
 
         private void categoryEdit_Click(object sender, EventArgs e)
         {

@@ -129,6 +129,7 @@
             this.checkBox1.TabIndex = 6;
             this.checkBox1.Text = "Выполнять шифрование?";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label3
             // 

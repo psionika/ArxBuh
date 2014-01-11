@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 
 using System.Globalization;
@@ -12,29 +13,20 @@ namespace buh_02
         public Form_AddEdit()
         {
             InitializeComponent();
-            
-            loadData("category.xml", "InOutCategories");
 
             comboBox1.Text = Class_element.InOut;
+            filter();    
             comboBox2.Text = Class_element.Category;
             dateTimePicker1.Value = Class_element.Date;
             calculatorTextBox1.TextBoxText = Class_element.Sum.ToString();
-            textBox1.Text = Class_element.Comment;
+            textBox1.Text = Class_element.Comment;      
 
             validate();
         }
 
         private void comboBox1_TextChanged(object sender, EventArgs e)
         {
-            if (comboBox1.Text == "Доход")
-            {
-                filter("Доход");
-            }
-
-            if (comboBox1.Text == "Расход")
-            {
-                filter("Расход");
-            }
+            filter();
 
             validate();
         }
@@ -43,29 +35,25 @@ namespace buh_02
         {
             Form_Category category = new Form_Category();
             category.ShowDialog();
-
-            loadData("category.xml", "InOutCategories");
         }
 
-        private void filter(string str)
+        private void filter()
         {
-            inOutCategoriesBindingSource.Filter = "convert(InOut,'System.String') LIKE '*" + str + "*'";
-        }
-
-        #region Dataset Load
-        private void loadData(string filename, string tablename)
-        {
-            dataSet1.Clear();
-
-            if (File.Exists(filename) == true)
+            if (comboBox1.Text == "Доход")
             {
-                dataSet1.ReadXml(filename);
-            }  
+                DataView townsView = new DataView(arxDs.ds.Tables["Categories"], "[In] = true", "Category", DataViewRowState.CurrentRows);
+                comboBox2.DataSource = townsView;
+                comboBox2.DisplayMember = "Category";
+            }
 
-            comboBox2.DataSource = inOutCategoriesBindingSource;
-            comboBox2.DisplayMember = "Category";
+            if (comboBox1.Text == "Расход")
+            {
+                DataView townsView = new DataView(arxDs.ds.Tables["Categories"], "[Out] = true", "Category", DataViewRowState.CurrentRows);
+                comboBox2.DataSource = townsView;
+                comboBox2.DisplayMember = "Category";
+            }
         }
-        #endregion
+
 
         #region Validate
         private bool validate()

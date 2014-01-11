@@ -12,6 +12,11 @@ namespace buh_02
         public static String Comment { get; set; }
     }
 
+    static class arxDs
+    {
+        public static DataSet1 ds { get; set; }
+    }
+
     static class DateBeginEnd
     {
         public static DateTime DateBegin { get; set; }

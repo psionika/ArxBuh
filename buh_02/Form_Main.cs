@@ -123,8 +123,6 @@ namespace buh_02
                     } while (GetDataSet(filename, EncryptDecrypt.Password, dataSet1));
                 }
             }
-
-
         }
 
         #endregion
@@ -208,6 +206,8 @@ namespace buh_02
 
         private void add_element(string inOut)
         {
+            arxDs.ds = dataSet1;
+
             Class_element.InOut = inOut;
             Class_element.Date = DateTime.Today;
             Class_element.Category = "";
@@ -228,6 +228,8 @@ namespace buh_02
 
         private void edit_element()
         {
+            arxDs.ds = dataSet1;
+
             if (dataGridView1.CurrentRow != null)
             {
                 Class_element.InOut = dataGridView1.CurrentRow.Cells[0].Value.ToString();
@@ -361,8 +363,15 @@ namespace buh_02
 
         private void категорииДоходовИРасходовToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            arxDs.ds = dataSet1;
             Form_Category category = new Form_Category();
-            category.ShowDialog();
+
+            if (category.ShowDialog() == DialogResult.OK)
+            {                
+                dataSet1 = arxDs.ds;
+            }
+
+            saveData();
         }
 
         private void SettingsTSB_ButtonClick(object sender, EventArgs e)
@@ -391,6 +400,8 @@ namespace buh_02
 
         private void add_elementBudget(string inOut)
         {
+            arxDs.ds = dataSet1;
+
             Class_element.BudgetCheck = false;
             Class_element.InOut = inOut;
             Class_element.Date = DateTime.Today;

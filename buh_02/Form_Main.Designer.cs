@@ -1356,7 +1356,6 @@ namespace buh_02
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource cashInOutBindingSource;
-        private DataSet1 dataSet1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem категорииДоходовИРасходовToolStripMenuItem;
@@ -1456,6 +1455,7 @@ namespace buh_02
         private DataGridViewTextBoxColumn dateTimeDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn sumDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn1;
+        public DataSet1 dataSet1;
     }
 }
 
