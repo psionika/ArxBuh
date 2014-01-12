@@ -41,14 +41,14 @@ namespace buh_02
         {
             if (comboBox1.Text == "Доход")
             {
-                DataView townsView = new DataView(arxDs.ds.Tables["Categories"], "[In] = true", "Category", DataViewRowState.CurrentRows);
+                DataView townsView = new DataView(arxDs.ds.Tables["Categories"], "[In] = true", "CategoryID", DataViewRowState.CurrentRows);
                 comboBox2.DataSource = townsView;
                 comboBox2.DisplayMember = "Category";
             }
 
             if (comboBox1.Text == "Расход")
             {
-                DataView townsView = new DataView(arxDs.ds.Tables["Categories"], "[Out] = true", "Category", DataViewRowState.CurrentRows);
+                DataView townsView = new DataView(arxDs.ds.Tables["Categories"], "[Out] = true", "CategoryID", DataViewRowState.CurrentRows);
                 comboBox2.DataSource = townsView;
                 comboBox2.DisplayMember = "Category";
             }

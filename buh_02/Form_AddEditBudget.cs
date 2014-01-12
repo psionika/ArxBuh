@@ -123,14 +123,14 @@ namespace buh_02
         {
             if (comboBox1.Text == "Доход")
             {
-                DataView townsView = new DataView(arxDs.ds.Tables["Categories"], "[In] = true", "Category", DataViewRowState.CurrentRows);
+                DataView townsView = new DataView(arxDs.ds.Tables["Categories"], "[In] = true", "CategoryID", DataViewRowState.CurrentRows);
                 comboBox2.DataSource = townsView;
                 comboBox2.DisplayMember = "Category";
             }
 
             if (comboBox1.Text == "Расход")
             {
-                DataView townsView = new DataView(arxDs.ds.Tables["Categories"], "[Out] = true", "Category", DataViewRowState.CurrentRows);
+                DataView townsView = new DataView(arxDs.ds.Tables["Categories"], "[Out] = true", "CategoryID", DataViewRowState.CurrentRows);
                 comboBox2.DataSource = townsView;
                 comboBox2.DisplayMember = "Category";
             }
@@ -138,7 +138,8 @@ namespace buh_02
 
         private void categoryEdit_Click(object sender, EventArgs e)
         {
-
+            Form_Category category = new Form_Category();
+            category.ShowDialog();
         }
 
     }

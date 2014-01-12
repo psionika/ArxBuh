@@ -28,8 +28,8 @@
     <SupportUrl>https://twitter.com/arxont</SupportUrl>
     <PublisherName>Arxont</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>20</ApplicationRevision>
-    <ApplicationVersion>0.0.20.%2a</ApplicationVersion>
+    <ApplicationRevision>22</ApplicationRevision>
+    <ApplicationVersion>0.0.1.22</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -278,10 +278,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\logo.jpg" />
     <None Include="Resources\remove_32x32.png" />
     <None Include="Resources\star_32x32.png" />
     <None Include="Resources\line_graph_32x32.png" />
-    <None Include="Resources\coins.jpg" />
     <None Include="Resources\help_32x32.png" />
     <None Include="Resources\hard_disk_32x32.png" />
     <None Include="Resources\key_2_32x32.png" />

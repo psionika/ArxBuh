@@ -37,6 +37,28 @@ namespace buh_02
             
         }
 
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            if(toolStripTextBox1.Text != "")
+            {
+                DataRow newGoalRow = dataSet1.Tables["Categories"].NewRow();
+                newGoalRow["Category"] = toolStripTextBox1.Text;
+                newGoalRow["In"] = true;
+                newGoalRow["Out"] = true;
+                dataSet1.Tables["Categories"].Rows.Add(newGoalRow);
+            }
+        }
 
+        private void toolStripTextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && toolStripTextBox1.Text != "")
+            {
+                DataRow newGoalRow = dataSet1.Tables["Categories"].NewRow();
+                newGoalRow["Category"] = toolStripTextBox1.Text;
+                newGoalRow["In"] = true;
+                newGoalRow["Out"] = true;
+                dataSet1.Tables["Categories"].Rows.Add(newGoalRow);
+            }
+        }
     }
 }

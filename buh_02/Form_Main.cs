@@ -165,7 +165,6 @@ namespace buh_02
             }
         }
 
-
         private void InOutCalc()
         {
             double i = 0;
@@ -621,26 +620,11 @@ namespace buh_02
 
         private void loadGoal()
         {
-            DataGridViewProgressColumn column = new DataGridViewProgressColumn {Width = 250};
-            dataGridView4.Columns.Add(column);
-        }
+            DataGridViewProgressColumn progressColumn = new DataGridViewProgressColumn {Width = 250, HeaderText = "Прогресс" };
+            dataGridView4.Columns.Add(progressColumn);
 
-        private void tsb_AddGoal_Click(object sender, EventArgs e)
-        {
-            Form_AddEditGoal faeg = new Form_AddEditGoal("", "", "", "-1", dataSet1);
-           
-            if (faeg.ShowDialog() == DialogResult.OK)
-            {
-                var newGoalRow = dataSet1.Tables["Goal"].NewRow();
-
-                newGoalRow["name"] = faeg.txb_GoalName.Text;
-                newGoalRow["AllSum"] = faeg.txb_GoalSum.Text;
-                newGoalRow["Comment"] = faeg.txb_GoalComment.Text;
-
-                dataSet1.Tables["Goal"].Rows.Add(newGoalRow);
-            }
-
-            saveData();
+            DataGridViewTextBoxColumn remainingColumn = new DataGridViewTextBoxColumn { Width = 100, HeaderText = "Осталось" };
+            dataGridView4.Columns.Add(remainingColumn);
         }
 
         private void dataGridView4_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -673,6 +657,23 @@ namespace buh_02
                 }
             }
         }
+        private void tsb_AddGoal_Click_1(object sender, EventArgs e)
+        {
+            Form_AddEditGoal faeg = new Form_AddEditGoal("", "", "", "-1", dataSet1);
+
+            if (faeg.ShowDialog() == DialogResult.OK)
+            {
+                var newGoalRow = dataSet1.Tables["Goal"].NewRow();
+
+                newGoalRow["name"] = faeg.txb_GoalName.Text;
+                newGoalRow["AllSum"] = faeg.txb_GoalSum.Text;
+                newGoalRow["Comment"] = faeg.txb_GoalComment.Text;
+
+                dataSet1.Tables["Goal"].Rows.Add(newGoalRow);
+            }
+
+            saveData();
+        }
 
         private void tsb_GoalDelete_Click(object sender, EventArgs e)
         {
@@ -691,20 +692,31 @@ namespace buh_02
             }
         }
 
-        private void ProgressGoal()
+        private void GoalProgress()
         {
+            double SumGoal = 0;
+            double SumGoalRemaining = 0; 
+
             foreach (DataGridViewRow row in dataGridView4.Rows)
             {
                 if (row.Cells[2].Value.ToString() == "") continue;
 
                 int x = (int)(Convert.ToDouble(row.Cells[2].Value) / (Convert.ToDouble(row.Cells[1].Value) / 100));
+                int y = (int)(Convert.ToDouble(row.Cells[1].Value) - (Convert.ToDouble(row.Cells[2].Value)));
+
+                SumGoal += Convert.ToDouble(row.Cells[1].Value);
+                SumGoalRemaining += Convert.ToDouble(y);
+
                 row.Cells[5].Value = x;
+                row.Cells[6].Value = y.ToString("C2");
             }
+
+            labelGoal.Text = "Всего целей на " + SumGoal.ToString("C2") + ", осталось собрать " + SumGoalRemaining.ToString("C2");
         }
 
         private void dataGridView4_Paint(object sender, PaintEventArgs e)
         {
-            ProgressGoal();
+            GoalProgress();
         }
 
         #endregion
@@ -918,5 +930,6 @@ namespace buh_02
             }
         }
         #endregion
+
     }
 }

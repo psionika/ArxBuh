@@ -115,5 +115,9 @@ namespace buh_02
             System.Diagnostics.Process.Start("http://www.codeproject.com/Articles/18343/C-Popup-Calculator-Button-and-Text-Control");
         }
 
+        private void Form_AboutBox1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
