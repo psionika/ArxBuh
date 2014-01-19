@@ -11,7 +11,7 @@ using System.Security.Cryptography;
 
 using Ionic.Zip;
 
-using Microsoft.Reporting.WinForms; 
+using Microsoft.Reporting.WinForms;
 
 namespace buh_02
 {
@@ -24,17 +24,9 @@ namespace buh_02
             InitializeComponent();
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            saveData();
-            writeSetting();
-
-            backup();
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
-            readSetting();            
+            readSetting();
 
             loadData();
 
@@ -43,10 +35,18 @@ namespace buh_02
 
             clearfilter();
 
-
-
             loadGoal();
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            saveData();
+            writeSetting();
+
+            backup();
+        }
+
+
 
         #endregion
 
@@ -65,6 +65,9 @@ namespace buh_02
 
             props.Fields.EncryptEnable = EncryptDecrypt.Enable;
 
+            props.Fields.UpdateEnabled = UpdateBuh.Enable;
+            props.Fields.UpdatePath = UpdateBuh.Path;
+
             props.WriteXml();
         }
 
@@ -80,6 +83,10 @@ namespace buh_02
             Backup.Enable = props.Fields.BackupEnable;
 
             EncryptDecrypt.Enable = props.Fields.EncryptEnable;
+
+            UpdateBuh.Enable = props.Fields.UpdateEnabled;
+            UpdateBuh.Path = props.Fields.UpdatePath;
+
         }
 
         #endregion
@@ -930,6 +937,12 @@ namespace buh_02
             }
         }
         #endregion
+
+        private void автоматическоеОбновлениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_Update formUpdate = new Form_Update();
+            formUpdate.ShowDialog();
+        }
 
     }
 }

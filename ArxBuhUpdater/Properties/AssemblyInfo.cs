@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Управление общими сведениями о сборке осуществляется с помощью 
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("ArxBuh")]
-[assembly: AssemblyDescription("Программа для ведения домашней бухгалтерии. Написано для себя и под свои нужды. Так, как удобно мне. Программа распространяется по принципу AS IS. Все вопросы - https://twitter.com/arxont")]
+[assembly: AssemblyTitle("ArxBuhUpdater")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Arxont")]
-[assembly: AssemblyProduct("ArxBuh")]
-[assembly: AssemblyCopyright("Licence - CC Atribution (CC-BY)")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ArxBuhUpdater")]
+[assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("a88c7794-4d6c-4561-b6c4-093861e85dae")]
+[assembly: Guid("0c711839-4ddd-4c57-a6c6-632ee64f3fec")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // Можно задать все значения или принять номер построения и номер редакции по умолчанию, 
 // используя "*", как показано ниже:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.0.1.24")]
-[assembly: AssemblyFileVersion("0.0.1.24")]
+[assembly: AssemblyVersion("0.0.0.1")]
+[assembly: AssemblyFileVersion("0.0.0.1")]

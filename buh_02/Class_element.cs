@@ -30,6 +30,12 @@ namespace buh_02
         public static Decimal Counter { get; set; }
     }
 
+    static class UpdateBuh
+    {
+        public static Boolean Enable { get; set; }
+        public static String Path { get; set; }  
+    }
+
     static class EncryptDecrypt
     {
         public static Boolean Enable { get; set; }
