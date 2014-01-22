@@ -9,12 +9,12 @@ namespace buh_02
         public Form_AboutBox1()
         {
             InitializeComponent();
-            this.Text = String.Format("О {0}", AssemblyTitle);
-            this.labelProductName.Text = AssemblyProduct;
-            this.labelVersion.Text = String.Format("Версия {0}", AssemblyVersion);
-            this.labelCopyright.Text = AssemblyCopyright;
-            this.labelCompanyName.Text = AssemblyCompany;
-            this.textBoxDescription.Text = AssemblyDescription;
+            Text = String.Format("О {0}", AssemblyTitle);
+            labelProductName.Text = AssemblyProduct;
+            labelVersion.Text = String.Format("Версия {0}", AssemblyVersion);
+            labelCopyright.Text = AssemblyCopyright;
+            labelCompanyName.Text = AssemblyCompany;
+            textBoxDescription.Text = AssemblyDescription;
         }
 
         #region Методы доступа к атрибутам сборки
@@ -96,24 +96,6 @@ namespace buh_02
             }
         }
         #endregion
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.linkLabel1.LinkVisited = true;
-            System.Diagnostics.Process.Start("http://iconza.ru/");
-        }
-
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.linkLabel2.LinkVisited = true;
-            System.Diagnostics.Process.Start("http://dotnetzip.codeplex.com/");
-        }
-
-        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.linkLabel3.LinkVisited = true;
-            System.Diagnostics.Process.Start("http://www.codeproject.com/Articles/18343/C-Popup-Calculator-Button-and-Text-Control");
-        }
 
         private void Form_AboutBox1_Click(object sender, EventArgs e)
         {

@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Globalization;
 using System.Security.Cryptography;
+using System.ComponentModel;
 
 using Ionic.Zip;
 
@@ -27,11 +28,8 @@ namespace buh_02
         private void Form1_Load(object sender, EventArgs e)
         {
             readSetting();
-
+            
             loadData();
-
-            cashInOutBindingSource.Sort = "DateTime DESC";
-            budgetBindingSource.Sort = "DateTime ASC";
 
             clearfilter();
 
@@ -45,8 +43,6 @@ namespace buh_02
 
             backup();
         }
-
-
 
         #endregion
 
@@ -95,41 +91,41 @@ namespace buh_02
 
         private void saveData()
         {
-            if (EncryptDecrypt.Enable == false)
+            switch (EncryptDecrypt.Enable)
             {
-                dataSet1.WriteXml("data.xml", XmlWriteMode.IgnoreSchema);
-            }
-            else
-            {
-                SetDataSet("data.xml", dataSet1, EncryptDecrypt.Password);
+                case false:
+                    dataSet1.WriteXml("data.xml", XmlWriteMode.IgnoreSchema);
+                    break;
+                default:
+                    SetDataSet("data.xml", dataSet1, EncryptDecrypt.Password);
+                    break;
             }
         }
 
         private void loadData()
         {
             const string filename = "data.xml";
+            if (!File.Exists(filename)) return;
 
             dataSet1.Clear();
 
             if (EncryptDecrypt.Enable == false)
             {
-                if (File.Exists(filename))
-                {
-                    dataSet1.ReadXml(filename);
-                    dataGridView1.DataSource = cashInOutBindingSource;
-                    dataGridView4.DataSource = goalBindingSource;
-                }
+                dataSet1.ReadXml(filename);
+                
+                dataGridView1.DataSource = cashInOutBindingSource; 
+                dataGridView4.DataSource = goalBindingSource;
             }
             else
             {
-                if (File.Exists(filename))
+                do
                 {
-                    do
-                    {
-                        PasswordRequest();
-                    } while (GetDataSet(filename, EncryptDecrypt.Password, dataSet1));
-                }
+                    PasswordRequest();
+                } while (GetDataSet(filename, EncryptDecrypt.Password, dataSet1));
             }
+            
+            dataGridView1.Sort(dataGridView1.Columns[2], ListSortDirection.Descending);
+            dataGridView2.Sort(dataGridView2.Columns[2], ListSortDirection.Ascending);
         }
 
         #endregion
@@ -140,15 +136,14 @@ namespace buh_02
         {
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                var value = row.Cells[0].Value;
-                if (value != null && value.ToString() == "Доход")
+                if (row.Cells[0].Value.ToString() == "Доход")
                     foreach (DataGridViewCell cell in row.Cells)
                     {
                         //Меняем цвет ячейки
                         cell.Style.BackColor = Color.PaleGreen;
                         cell.Style.ForeColor = Color.Black;
                     }
-                else if (value != null)
+                else if (row.Cells[0].Value != null)
                     foreach (DataGridViewCell cell in row.Cells)
                     {
                         //Меняем цвет ячейки
@@ -165,34 +160,32 @@ namespace buh_02
 
             if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                Point pt = dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location;
+                var pt = dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location;
                 pt.X += e.Location.X;
                 pt.Y += e.Location.Y;
+
                 contextMenuStrip1.Show(dataGridView1, pt);
             }
         }
 
         private void InOutCalc()
         {
-            double i = 0;
-            double y = 0;
+            double xIn = 0, xOut = 0;
 
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            foreach (var row in dataGridView1.Rows.Cast<DataGridViewRow>().Where(row => row.Cells[0].Value != null))
             {
-                if (row.Cells[0].Value == null) continue;
                 switch (row.Cells[0].Value.ToString())
                 {
                     case "Доход":
-                        i = i + (double) row.Cells[3].Value;
+                        xIn = xIn + (double) row.Cells[3].Value;
                         break;
                     case "Расход":
-                        y = y + (double) row.Cells[3].Value;
+                        xOut = xOut + (double) row.Cells[3].Value;
                         break;
                 }
             }
 
-            label2.Text = "Доход (" + i.ToString("C2") + ") - Расход (" + y.ToString("C2") + ") = " +
-                          (i - y).ToString("C2");
+            label2.Text = string.Format("Доход ({0}) - Расход ({1}) = {2}", xIn.ToString("C2"), xOut.ToString("C2"), (xIn - xOut).ToString("C2"));
         }
 
         private void dataGridView1_Paint(object sender, PaintEventArgs e)
@@ -240,8 +233,8 @@ namespace buh_02
             {
                 Class_element.InOut = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                 Class_element.Category = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                Class_element.Date = (DateTime) dataGridView1.CurrentRow.Cells[2].Value;
-                Class_element.Sum = (double) dataGridView1.CurrentRow.Cells[3].Value;
+                Class_element.Date = DateTime.ParseExact(dataGridView1.CurrentRow.Cells[2].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
+                Class_element.Sum = Convert.ToDouble(dataGridView1.CurrentRow.Cells[3].Value);
                 Class_element.Comment = dataGridView1.CurrentRow.Cells[4].Value.ToString();
 
                 Form_AddEdit addEdit = new Form_AddEdit();
@@ -249,7 +242,7 @@ namespace buh_02
 
                 if (addEdit.DialogResult == DialogResult.OK)
                 {
-                    DataRow customerRow = ((DataRowView) dataGridView1.CurrentRow.DataBoundItem).Row;
+                    var customerRow = ((DataRowView) dataGridView1.CurrentRow.DataBoundItem).Row;
 
                     customerRow["InOut"] = Class_element.InOut;
                     customerRow["Category"] = Class_element.Category;
@@ -264,19 +257,16 @@ namespace buh_02
 
         private void delete_element()
         {
-            if (dataGridView1.CurrentRow != null)
-            {
-                var result = MessageBox.Show("Вы действительно хотите удалить текущий элемент?",
-                    "Удаление элемента",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
+            if (dataGridView1.CurrentRow == null) return;
+            var result = MessageBox.Show("Вы действительно хотите удалить текущий элемент?",
+                "Удаление элемента",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
 
-                if (result == DialogResult.Yes)
-                {
-                    cashInOutBindingSource.RemoveCurrent();
-                    saveData();
-                }
-            }
+            if (result != DialogResult.Yes) return;
+                cashInOutBindingSource.RemoveCurrent();
+            
+                saveData();
         }
 
         #endregion
@@ -288,10 +278,8 @@ namespace buh_02
             StringBuilder sb = new StringBuilder();
             sb.Append("(");
 
-            foreach (DataColumn col in dataSet1.Tables["CashInOut"].Columns)
+            foreach (var col in dataSet1.Tables["CashInOut"].Columns.Cast<DataColumn>().Where(col => col.DataType == typeof (String)))
             {
-                if (col.DataType != typeof (String)) continue;
-
                 sb.Append(col.ColumnName);
                 sb.Append(" LIKE '*");
                 sb.Append(toolStripComboBox1.Text);
@@ -440,98 +428,60 @@ namespace buh_02
 
         private static void backup()
         {
-            if (Backup.Enable)
+            if (!Backup.Enable) return;
+
+            if (!Directory.Exists(Backup.Dir))
             {
-                if (!Directory.Exists(Backup.Dir))
-                {
-                    Directory.CreateDirectory(Backup.Dir);
-                }
-
-                #region Copy to dir
-
-                string sourceDir = Environment.CurrentDirectory;
-                string backupDir = Environment.CurrentDirectory + "\\" + Backup.Dir;
-
-                try
-                {
-                    string[] xmlList = Directory.GetFiles(sourceDir, "*.xml");
-
-                    // Copy picture files.
-                    foreach (string f in xmlList)
-                    {
-                        // Remove path from the file name.
-                        string fName = f.Substring(sourceDir.Length + 1);
-
-                        // Use the Path.Combine method to safely append the file name to the path.
-                        // Will overwrite if the destination file already exists.
-                        File.Copy(Path.Combine(sourceDir, fName), Path.Combine(backupDir, fName), true);
-                    }
-                }
-                catch (DirectoryNotFoundException dirNotFound)
-                {
-                    MessageBox.Show(dirNotFound.Message);
-                }
-
-                #endregion
-
-                #region Archive
-
-                string TargetDir = Environment.CurrentDirectory + "\\" + Backup.Dir + "\\";
-
-                using (ZipFile zip = new ZipFile())
-                {
-                    zip.CompressionLevel = Ionic.Zlib.CompressionLevel.BestCompression;
-
-                    if (File.Exists("category.xml"))
-                    {
-                        zip.AddFile(TargetDir + "category.xml", "");
-                    }
-                    if (File.Exists("data.xml"))
-                    {
-                        zip.AddFile(TargetDir + "data.xml", "");
-                    }
-                    if (File.Exists("settings.xml"))
-                    {
-                        zip.AddFile(TargetDir + "settings.xml", "");
-                    }
-
-                    zip.Save(TargetDir + "backup " + DateTime.Now.ToString().Replace(":", "-") + ".zip");
-                }
-
-                File.Delete(Environment.CurrentDirectory + "\\" + Backup.Dir + "\\" + "category.xml");
-                File.Delete(Environment.CurrentDirectory + "\\" + Backup.Dir + "\\" + "data.xml");
-                File.Delete(Environment.CurrentDirectory + "\\" + Backup.Dir + "\\" + "settings.xml");
-
-                #endregion
-
-                #region Удаляем лишнее
-
-                int i = Directory.GetFiles(Backup.Dir, "*.*", SearchOption.AllDirectories).Length;
-
-                while (i > Backup.Counter)
-                {
-                    DateTime dt = DateTime.Now;
-                    var fs = Directory.GetFiles(Backup.Dir);
-                    var fileToDelete = "";
-
-                    foreach (string file in fs)
-                    {
-                        FileInfo fi = new FileInfo(file);
-                        if (fi.CreationTime < dt)
-                        {
-                            fileToDelete = file;
-                            dt = fi.CreationTime;
-                        }
-                    }
-
-                    if (File.Exists(fileToDelete))
-                    {
-                        File.Delete(fileToDelete);
-                    }
-                    i = Directory.GetFiles(Backup.Dir, "*.*", SearchOption.AllDirectories).Length;
-                }
-                #endregion
+                Directory.CreateDirectory(Backup.Dir);
             }
+
+            #region Archive
+
+            var TargetDir = Environment.CurrentDirectory + Path.DirectorySeparatorChar + Backup.Dir + Path.DirectorySeparatorChar;
+
+            using (ZipFile zip = new ZipFile())
+            {
+                zip.CompressionLevel = Ionic.Zlib.CompressionLevel.BestCompression;
+
+                if (File.Exists("data.xml"))
+                {
+                    zip.AddFile(Environment.CurrentDirectory + Path.DirectorySeparatorChar + "data.xml", "");
+                }
+                if (File.Exists("settings.xml"))
+                {
+                    zip.AddFile(Environment.CurrentDirectory + Path.DirectorySeparatorChar + "settings.xml", "");
+                }
+
+                zip.Save(TargetDir + "backup " + DateTime.Now.ToString(CultureInfo.InvariantCulture).Replace(@"/", "-").Replace(":","-") + ".zip");
+            }
+
+            #endregion
+
+            #region Удаляем лишнее
+
+            var i = Directory.GetFiles(Backup.Dir, "*.*", SearchOption.AllDirectories).Length;
+
+            while (i > Backup.Counter)
+            {
+                var dt = DateTime.Now;
+                var fs = Directory.GetFiles(Backup.Dir);
+                var fileToDelete = "";
+
+                foreach (var file in fs)
+                {
+                    FileInfo fi = new FileInfo(file);
+
+                    if (fi.CreationTime >= dt) continue;
+
+                    fileToDelete = file;
+                    dt = fi.CreationTime;
+                }
+
+                File.Delete(fileToDelete);
+
+                i = Directory.GetFiles(Backup.Dir, "*.*", SearchOption.AllDirectories).Length;
+            }
+            #endregion
         }
 
         #endregion
@@ -568,7 +518,7 @@ namespace buh_02
 
         public bool GetDataSet(string file, string key, DataSet ds)
         {
-            Rijndael crypto = Rijndael.Create();
+            var crypto = Rijndael.Create();
 
             crypto.IV = Encoding.ASCII.GetBytes("qwert".PadRight(16, 'x'));
             crypto.Key = Encoding.ASCII.GetBytes(key.PadRight(16, 'x'));
@@ -598,7 +548,7 @@ namespace buh_02
 
         public void SetDataSet(string file, DataSet ds, string key)
         {
-            Rijndael crypto = Rijndael.Create();
+            var crypto = Rijndael.Create();
 
             crypto.IV = Encoding.ASCII.GetBytes("qwert".PadRight(16, 'x'));
             crypto.Key = Encoding.ASCII.GetBytes(key.PadRight(16, 'x'));
@@ -642,8 +592,6 @@ namespace buh_02
             {
                 var newGoalRow = ((DataRowView) dataGridView4.CurrentRow.DataBoundItem).Row;
 
-                if (dataGridView4.CurrentRow != null)
-                {
                     var name = newGoalRow["Name"].ToString();
                     var allSum = newGoalRow["AllSum"].ToString();
                     var comment = newGoalRow["Comment"].ToString();
@@ -657,11 +605,10 @@ namespace buh_02
                         newGoalRow["name"] = faeg.txb_GoalName.Text;
                         newGoalRow["AllSum"] = faeg.txb_GoalSum.Text;
                         newGoalRow["Comment"] = faeg.txb_GoalComment.Text;
-                        newGoalRow["History"] = Goal.History.ToString();
+                        newGoalRow["History"] = Goal.History.ToString(CultureInfo.InvariantCulture);
                     }
 
                     saveData();
-                }
             }
         }
         private void tsb_AddGoal_Click_1(object sender, EventArgs e)
@@ -706,7 +653,7 @@ namespace buh_02
 
             foreach (DataGridViewRow row in dataGridView4.Rows)
             {
-                if (row.Cells[2].Value.ToString() == "") continue;
+                if (row.Cells[2].Value.ToString() == "" || row.Cells[2].Value == null) continue;
 
                 int x = (int)(Convert.ToDouble(row.Cells[2].Value) / (Convert.ToDouble(row.Cells[1].Value) / 100));
                 int y = (int)(Convert.ToDouble(row.Cells[1].Value) - (Convert.ToDouble(row.Cells[2].Value)));
@@ -718,7 +665,7 @@ namespace buh_02
                 row.Cells[6].Value = y.ToString("C2");
             }
 
-            labelGoal.Text = "Всего целей на " + SumGoal.ToString("C2") + ", осталось собрать " + SumGoalRemaining.ToString("C2");
+            labelGoal.Text = string.Format("Всего целей на {0}, осталось собрать {1}", SumGoal.ToString("C2"), SumGoalRemaining.ToString("C2"));
         }
 
         private void dataGridView4_Paint(object sender, PaintEventArgs e)
@@ -747,8 +694,8 @@ namespace buh_02
 
         private void RefreshReport()
         {
-            DateTime StartDate = toolStripDateTimeChooser1.Value;
-            DateTime EndDate = toolStripDateTimeChooser2.Value;
+            DateTime StartDate;
+            DateTime EndDate;
 
             ReportDataSource reportDataSource1 = new ReportDataSource
             {
@@ -859,10 +806,7 @@ namespace buh_02
 
         private void InOutBudgetCalc()
         {
-            double t = 0;
-
-            double i = 0;
-            double y = 0;
+            double t = 0, i = 0 , y = 0;
 
             if (dataSet1.Tables["CashInOut"].Rows.Count > 0)
             {
@@ -886,11 +830,6 @@ namespace buh_02
                     t = Convert.ToDouble(sumIN) - Convert.ToDouble(sumOUT);    
                 }
             }
-            else
-            {
-                t = 0;
-            }
-            
 
             foreach (DataGridViewRow row in dataGridView2.Rows)
             {
@@ -905,9 +844,9 @@ namespace buh_02
                         y = y + (double) row.Cells[4].Value;
                     }
                 }
-
-                labelResult.Text = "Текущее " + t.ToString("C2") + " + Доходы " + i.ToString("C2") + " - Расходы " +
-                                   y.ToString("C2") + " = " + ((t + i) - y).ToString("C2");
+                
+                labelResult.Text = string.Format("Текущее {0} + Доходы {1} - Расходы {2} = {3}", 
+                                                  t.ToString("C2"), i.ToString("C2"), y.ToString("C2"), ((t + i) - y).ToString("C2"));
             }
         }
 
@@ -943,6 +882,5 @@ namespace buh_02
             Form_Update formUpdate = new Form_Update();
             formUpdate.ShowDialog();
         }
-
     }
 }

@@ -4,8 +4,6 @@ using System.Windows.Forms;
 
 using System.Globalization;
 
-using System.IO;
-
 namespace buh_02
 {
     public partial class Form_AddEdit : Form
@@ -15,12 +13,13 @@ namespace buh_02
             InitializeComponent();
 
             comboBox1.Text = Class_element.InOut;
-            filter();    
+  
             comboBox2.Text = Class_element.Category;
             dateTimePicker1.Value = Class_element.Date;
             calculatorTextBox1.TextBoxText = Class_element.Sum.ToString();
-            textBox1.Text = Class_element.Comment;      
+            textBox1.Text = Class_element.Comment;
 
+            filter();  
             validate();
         }
 
@@ -53,7 +52,6 @@ namespace buh_02
                 comboBox2.DisplayMember = "Category";
             }
         }
-
 
         #region Validate
         private bool validate()
@@ -121,7 +119,6 @@ namespace buh_02
             }
         }
 
-
         private void calculatorTextBox1_CalculatorParse(object sender, PopCalc.Library.CalculatorParseEventArgs e)
         {
             e.Parsed = parsSum(e.Original);
@@ -141,7 +138,6 @@ namespace buh_02
                 parsed = parsed.Replace(".", ",");
 
                 return parsed;
-           
         }
     }
 }

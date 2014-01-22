@@ -65,6 +65,7 @@ namespace buh_02
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.резервноеКопированиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.шифрованиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.автоматическоеОбновлениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -164,7 +165,6 @@ namespace buh_02
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.автоматическоеОбновлениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -363,6 +363,13 @@ namespace buh_02
             this.шифрованиеToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
             this.шифрованиеToolStripMenuItem.Text = "Шифрование";
             this.шифрованиеToolStripMenuItem.Click += new System.EventHandler(this.шифрованиеToolStripMenuItem_Click);
+            // 
+            // автоматическоеОбновлениеToolStripMenuItem
+            // 
+            this.автоматическоеОбновлениеToolStripMenuItem.Name = "автоматическоеОбновлениеToolStripMenuItem";
+            this.автоматическоеОбновлениеToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.автоматическоеОбновлениеToolStripMenuItem.Text = "Автоматическое обновление";
+            this.автоматическоеОбновлениеToolStripMenuItem.Click += new System.EventHandler(this.автоматическоеОбновлениеToolStripMenuItem_Click);
             // 
             // label2
             // 
@@ -1324,13 +1331,6 @@ namespace buh_02
             this.dataGridViewTextBoxColumn20.HeaderText = "Comment";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            // 
-            // автоматическоеОбновлениеToolStripMenuItem
-            // 
-            this.автоматическоеОбновлениеToolStripMenuItem.Name = "автоматическоеОбновлениеToolStripMenuItem";
-            this.автоматическоеОбновлениеToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
-            this.автоматическоеОбновлениеToolStripMenuItem.Text = "Автоматическое обновление";
-            this.автоматическоеОбновлениеToolStripMenuItem.Click += new System.EventHandler(this.автоматическоеОбновлениеToolStripMenuItem_Click);
             // 
             // Form_Main
             // 
