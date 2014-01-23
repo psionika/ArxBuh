@@ -295,6 +295,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\redo_32x32.png" />
+    <None Include="Resources\calculator_32x32.png" />
     <None Include="Resources\logo.jpg" />
     <None Include="Resources\remove_32x32.png" />
     <None Include="Resources\star_32x32.png" />

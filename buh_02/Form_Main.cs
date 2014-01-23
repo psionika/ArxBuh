@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -44,6 +45,42 @@ namespace buh_02
             backup();
         }
 
+        private void AboutProgramTSB_Click(object sender, EventArgs e)
+        {
+            Form_AboutBox1 about = new Form_AboutBox1();
+            about.ShowDialog();
+        }
+        #endregion
+
+        #region ToolStripButtonAction
+
+        private void CalculatorTSB_Click(object sender, EventArgs e)
+        {
+            Process Proc = new Process
+            {
+                StartInfo = { FileName = "calc.exe", WorkingDirectory = Environment.SystemDirectory }
+            };
+            Proc.Start();
+        }
+
+        private void категорииДоходовИРасходовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            arxDs.ds = dataSet1;
+            Form_Category category = new Form_Category();
+
+            if (category.ShowDialog() == DialogResult.OK)
+            {
+                dataSet1 = arxDs.ds;
+            }
+
+            saveData();
+        }
+
+        private void ExitTSB_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
         #endregion
 
         #region Settings action
@@ -85,10 +122,21 @@ namespace buh_02
 
         }
 
+        private void автоматическоеОбновлениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_Update formUpdate = new Form_Update();
+            formUpdate.ShowDialog();
+        }
+
+        private void SettingsTSB_ButtonClick(object sender, EventArgs e)
+        {
+            SettingsTSB.ShowDropDown();
+        }
         #endregion
 
-        #region DataSet action
+        #region Database action
 
+        #region SaveLoad
         private void saveData()
         {
             switch (EncryptDecrypt.Enable)
@@ -125,379 +173,8 @@ namespace buh_02
             }
             
             dataGridView1.Sort(dataGridView1.Columns[2], ListSortDirection.Descending);
-            dataGridView2.Sort(dataGridView2.Columns[2], ListSortDirection.Ascending);
+            dataGridView2.Sort(dataGridView2.Columns[3], ListSortDirection.Ascending);
         }
-
-        #endregion
-
-        #region DataGridView action
-
-        private void DGPaint()
-        {
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                if (row.Cells[0].Value.ToString() == "Доход")
-                    foreach (DataGridViewCell cell in row.Cells)
-                    {
-                        //Меняем цвет ячейки
-                        cell.Style.BackColor = Color.PaleGreen;
-                        cell.Style.ForeColor = Color.Black;
-                    }
-                else if (row.Cells[0].Value != null)
-                    foreach (DataGridViewCell cell in row.Cells)
-                    {
-                        //Меняем цвет ячейки
-                        cell.Style.BackColor = Color.PaleVioletRed;
-                        cell.Style.ForeColor = Color.Black;
-                    }
-            }
-        }
-
-        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-                dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected = true;
-
-            if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            {
-                var pt = dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location;
-                pt.X += e.Location.X;
-                pt.Y += e.Location.Y;
-
-                contextMenuStrip1.Show(dataGridView1, pt);
-            }
-        }
-
-        private void InOutCalc()
-        {
-            double xIn = 0, xOut = 0;
-
-            foreach (var row in dataGridView1.Rows.Cast<DataGridViewRow>().Where(row => row.Cells[0].Value != null))
-            {
-                switch (row.Cells[0].Value.ToString())
-                {
-                    case "Доход":
-                        xIn = xIn + (double) row.Cells[3].Value;
-                        break;
-                    case "Расход":
-                        xOut = xOut + (double) row.Cells[3].Value;
-                        break;
-                }
-            }
-
-            label2.Text = string.Format("Доход ({0}) - Расход ({1}) = {2}", xIn.ToString("C2"), xOut.ToString("C2"), (xIn - xOut).ToString("C2"));
-        }
-
-        private void dataGridView1_Paint(object sender, PaintEventArgs e)
-        {
-            DGPaint();
-            InOutCalc();
-        }
-
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex != -1) edit_element();
-        }
-
-        #endregion
-
-        #region Element Action (Add, Edit, Delete)
-
-        private void add_element(string inOut)
-        {
-            arxDs.ds = dataSet1;
-
-            Class_element.InOut = inOut;
-            Class_element.Date = DateTime.Today;
-            Class_element.Category = "";
-            Class_element.Sum = 0;
-            Class_element.Comment = "";
-
-            Form_AddEdit addEdit = new Form_AddEdit();
-            addEdit.ShowDialog();
-
-            if (addEdit.DialogResult == DialogResult.OK)
-            {
-                dataSet1.Tables["CashInOut"].Rows.Add(Class_element.InOut, Class_element.Category, Class_element.Date,
-                    Class_element.Sum, Class_element.Comment);
-            }
-
-            saveData();
-        }
-
-        private void edit_element()
-        {
-            arxDs.ds = dataSet1;
-
-            if (dataGridView1.CurrentRow != null)
-            {
-                Class_element.InOut = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                Class_element.Category = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                Class_element.Date = DateTime.ParseExact(dataGridView1.CurrentRow.Cells[2].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
-                Class_element.Sum = Convert.ToDouble(dataGridView1.CurrentRow.Cells[3].Value);
-                Class_element.Comment = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-
-                Form_AddEdit addEdit = new Form_AddEdit();
-                addEdit.ShowDialog();
-
-                if (addEdit.DialogResult == DialogResult.OK)
-                {
-                    var customerRow = ((DataRowView) dataGridView1.CurrentRow.DataBoundItem).Row;
-
-                    customerRow["InOut"] = Class_element.InOut;
-                    customerRow["Category"] = Class_element.Category;
-                    customerRow["DateTime"] = Class_element.Date;
-                    customerRow["Sum"] = Class_element.Sum;
-                    customerRow["Comment"] = Class_element.Comment;
-                }
-            }
-
-            saveData();
-        }
-
-        private void delete_element()
-        {
-            if (dataGridView1.CurrentRow == null) return;
-            var result = MessageBox.Show("Вы действительно хотите удалить текущий элемент?",
-                "Удаление элемента",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-
-            if (result != DialogResult.Yes) return;
-                cashInOutBindingSource.RemoveCurrent();
-            
-                saveData();
-        }
-
-        #endregion
-
-        #region Filter Action
-
-        private void filter()
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("(");
-
-            foreach (var col in dataSet1.Tables["CashInOut"].Columns.Cast<DataColumn>().Where(col => col.DataType == typeof (String)))
-            {
-                sb.Append(col.ColumnName);
-                sb.Append(" LIKE '*");
-                sb.Append(toolStripComboBox1.Text);
-                sb.Append("*'");
-                sb.Append(" OR ");
-            }
-
-            sb.Remove(sb.Length - 3, 2);
-            sb.Append(")");
-
-            sb.Append(string.Format(CultureInfo.InvariantCulture,
-                " AND DateTime >= #{0:MM/dd/yyyy}# AND DateTime <= #{1:MM/dd/yyyy}# ",
-                DateBeginEnd.DateBegin,
-                DateBeginEnd.DateEnd));
-
-            cashInOutBindingSource.Filter = sb.ToString();
-        }
-
-        private void clearfilter()
-        {
-            toolStripComboBox1.Text = "";
-
-            toolStripDateTimeChooser1.Value = DateTime.Now.Date;
-            toolStripDateTimeChooser2.Value = DateTime.Now.Date;
-
-            toolStripDateTimeChooser3.Value = DateTime.Now.Date;
-            toolStripDateTimeChooser4.Value = DateTime.Now.Date;
-                        
-            DateBeginEnd.DateBegin = new DateTime(2011, 1, 1);
-            DateBeginEnd.DateEnd = DateTime.Now;
-
-            dateTimePicker1.Value = DateTime.Now.AddMonths(1);
-
-            cashInOutBindingSource.RemoveFilter();
-        }
-        #endregion
-
-        #region ToolStripButtonAction
-
-        private void toolStripButton6_Click(object sender, EventArgs e)
-        {
-            add_element("Доход");
-        }
-
-        private void toolStripButton7_Click(object sender, EventArgs e)
-        {
-            add_element("Расход");
-        }
-
-        private void DeleteTSB_Click(object sender, EventArgs e)
-        {
-            delete_element();
-        }
-
-        private void toolStripComboBox1_TextChanged(object sender, EventArgs e)
-        {
-            filter();
-        }
-
-        private void FilterClearTSB_Click(object sender, EventArgs e)
-        {
-            clearfilter();
-        }
-
-        private void AboutProgramTSB_Click(object sender, EventArgs e)
-        {
-            Form_AboutBox1 about = new Form_AboutBox1();
-            about.ShowDialog();
-        }
-
-        private void ExitTSB_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void категорииДоходовИРасходовToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            arxDs.ds = dataSet1;
-            Form_Category category = new Form_Category();
-
-            if (category.ShowDialog() == DialogResult.OK)
-            {                
-                dataSet1 = arxDs.ds;
-            }
-
-            saveData();
-        }
-
-        private void SettingsTSB_ButtonClick(object sender, EventArgs e)
-        {
-            SettingsTSB.ShowDropDown();
-        }
-
-        private void toolStripButton3_Click_1(object sender, EventArgs e)
-        {
-            add_elementBudget("Доход");
-        }
-
-        private void toolStripButton4_Click(object sender, EventArgs e)
-        {
-            if (dataGridView2.CurrentRow == null) return;
-
-            var result = MessageBox.Show("Вы действительно хотите удалить текущий элемент?",
-                "Удаление элемента",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-
-            if (result != DialogResult.Yes) return;
-            budgetBindingSource.RemoveCurrent();
-            saveData();
-        }
-
-        private void add_elementBudget(string inOut)
-        {
-            arxDs.ds = dataSet1;
-
-            Class_element.BudgetCheck = false;
-            Class_element.InOut = inOut;
-            Class_element.Date = DateTime.Today;
-            Class_element.Category = "";
-            Class_element.Sum = 0;
-            Class_element.Comment = "";
-
-            Form_AddEditBudget aeb = new Form_AddEditBudget();
-            aeb.ShowDialog();
-
-            if (aeb.DialogResult == DialogResult.OK)
-            {
-                dataSet1.Tables["Budget"].Rows.Add(Class_element.BudgetCheck, Class_element.InOut,
-                    Class_element.Category, Class_element.Date, Class_element.Sum, Class_element.Comment);
-            }
-
-            saveData();
-        }
-        #endregion
-
-        #region Backup action
-
-        private void резервноеКопированиеToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form_Backup backupForm = new Form_Backup();
-            backupForm.ShowDialog();
-
-            writeSetting();
-        }
-
-        private static void backup()
-        {
-            if (!Backup.Enable) return;
-
-            if (!Directory.Exists(Backup.Dir))
-            {
-                Directory.CreateDirectory(Backup.Dir);
-            }
-
-            #region Archive
-
-            var TargetDir = Environment.CurrentDirectory + Path.DirectorySeparatorChar + Backup.Dir + Path.DirectorySeparatorChar;
-
-            using (ZipFile zip = new ZipFile())
-            {
-                zip.CompressionLevel = Ionic.Zlib.CompressionLevel.BestCompression;
-
-                if (File.Exists("data.xml"))
-                {
-                    zip.AddFile(Environment.CurrentDirectory + Path.DirectorySeparatorChar + "data.xml", "");
-                }
-                if (File.Exists("settings.xml"))
-                {
-                    zip.AddFile(Environment.CurrentDirectory + Path.DirectorySeparatorChar + "settings.xml", "");
-                }
-
-                zip.Save(TargetDir + "backup " + DateTime.Now.ToString(CultureInfo.InvariantCulture).Replace(@"/", "-").Replace(":","-") + ".zip");
-            }
-
-            #endregion
-
-            #region Удаляем лишнее
-
-            var i = Directory.GetFiles(Backup.Dir, "*.*", SearchOption.AllDirectories).Length;
-
-            while (i > Backup.Counter)
-            {
-                var dt = DateTime.Now;
-                var fs = Directory.GetFiles(Backup.Dir);
-                var fileToDelete = "";
-
-                foreach (var file in fs)
-                {
-                    FileInfo fi = new FileInfo(file);
-
-                    if (fi.CreationTime >= dt) continue;
-
-                    fileToDelete = file;
-                    dt = fi.CreationTime;
-                }
-
-                File.Delete(fileToDelete);
-
-                i = Directory.GetFiles(Backup.Dir, "*.*", SearchOption.AllDirectories).Length;
-            }
-            #endregion
-        }
-
-        #endregion
-
-        #region Контекстное меню
-
-        private void редактироватьToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            edit_element();
-        }
-
-        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            delete_element();
-        }
-
         #endregion
 
         #region Шифрование
@@ -573,107 +250,278 @@ namespace buh_02
 
         #endregion
 
-        #region Цели
+        #region Backup action
 
-        private void loadGoal()
+        private void резервноеКопированиеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DataGridViewProgressColumn progressColumn = new DataGridViewProgressColumn {Width = 250, HeaderText = "Прогресс" };
-            dataGridView4.Columns.Add(progressColumn);
+            Form_Backup backupForm = new Form_Backup();
+            backupForm.ShowDialog();
 
-            DataGridViewTextBoxColumn remainingColumn = new DataGridViewTextBoxColumn { Width = 100, HeaderText = "Осталось" };
-            dataGridView4.Columns.Add(remainingColumn);
+            writeSetting();
         }
 
-        private void dataGridView4_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private static void backup()
         {
-            if (e.RowIndex == -1) return;
+            if (!Backup.Enable) return;
 
-            if (dataGridView4.CurrentRow != null)
+            if (!Directory.Exists(Backup.Dir))
             {
-                var newGoalRow = ((DataRowView) dataGridView4.CurrentRow.DataBoundItem).Row;
+                Directory.CreateDirectory(Backup.Dir);
+            }
 
-                    var name = newGoalRow["Name"].ToString();
-                    var allSum = newGoalRow["AllSum"].ToString();
-                    var comment = newGoalRow["Comment"].ToString();
-                    var HistoryID = newGoalRow["HistoryID"].ToString();
+            #region Archive
 
-                    Form_AddEditGoal faeg = new Form_AddEditGoal(name, allSum, comment, HistoryID, dataSet1);
-                    faeg.ShowDialog();
+            var TargetDir = Environment.CurrentDirectory + Path.DirectorySeparatorChar + Backup.Dir + Path.DirectorySeparatorChar;
 
-                    if (faeg.DialogResult == DialogResult.OK)
+            using (ZipFile zip = new ZipFile())
+            {
+                zip.CompressionLevel = Ionic.Zlib.CompressionLevel.BestCompression;
+
+                if (File.Exists("data.xml"))
+                {
+                    zip.AddFile(Environment.CurrentDirectory + Path.DirectorySeparatorChar + "data.xml", "");
+                }
+                if (File.Exists("settings.xml"))
+                {
+                    zip.AddFile(Environment.CurrentDirectory + Path.DirectorySeparatorChar + "settings.xml", "");
+                }
+
+                zip.Save(TargetDir + "backup " + DateTime.Now.ToString(CultureInfo.InvariantCulture).Replace(@"/", "-").Replace(":", "-") + ".zip");
+            }
+
+            #endregion
+
+            #region Удаляем лишнее
+
+            var i = Directory.GetFiles(Backup.Dir, "*.*", SearchOption.AllDirectories).Length;
+
+            while (i > Backup.Counter)
+            {
+                var dt = DateTime.Now;
+                var fs = Directory.GetFiles(Backup.Dir);
+                var fileToDelete = "";
+
+                foreach (var file in fs)
+                {
+                    FileInfo fi = new FileInfo(file);
+
+                    if (fi.CreationTime >= dt) continue;
+
+                    fileToDelete = file;
+                    dt = fi.CreationTime;
+                }
+
+                File.Delete(fileToDelete);
+
+                i = Directory.GetFiles(Backup.Dir, "*.*", SearchOption.AllDirectories).Length;
+            }
+            #endregion
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Учёт доходов и расходов
+        #region Контекстное меню
+
+        private void редактироватьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            edit_element();
+        }
+
+        private void повторитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null) return;
+
+            Class_element.InOut = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            Class_element.Category = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            Class_element.Date = DateTime.Now.Date;
+            Class_element.Sum = Convert.ToDouble(dataGridView1.CurrentRow.Cells[3].Value);
+            Class_element.Comment = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+
+            add_element();
+        }
+
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            delete_element();
+        }
+
+        #endregion
+
+        #region DataGridView action
+
+        private void DGPaint()
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells[0].Value.ToString() == "Доход")
+                    foreach (DataGridViewCell cell in row.Cells)
                     {
-                        newGoalRow["name"] = faeg.txb_GoalName.Text;
-                        newGoalRow["AllSum"] = faeg.txb_GoalSum.Text;
-                        newGoalRow["Comment"] = faeg.txb_GoalComment.Text;
-                        newGoalRow["History"] = Goal.History.ToString(CultureInfo.InvariantCulture);
+                        //Меняем цвет ячейки
+                        cell.Style.BackColor = Color.PaleGreen;
+                        cell.Style.ForeColor = Color.Black;
                     }
-
-                    saveData();
+                else if (row.Cells[0].Value != null)
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        //Меняем цвет ячейки
+                        cell.Style.BackColor = Color.PaleVioletRed;
+                        cell.Style.ForeColor = Color.Black;
+                    }
             }
         }
-        private void tsb_AddGoal_Click_1(object sender, EventArgs e)
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Form_AddEditGoal faeg = new Form_AddEditGoal("", "", "", "-1", dataSet1);
+            if (e.RowIndex >= 0)
+                dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected = true;
 
-            if (faeg.ShowDialog() == DialogResult.OK)
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                var newGoalRow = dataSet1.Tables["Goal"].NewRow();
+                var pt = dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location;
+                pt.X += e.Location.X;
+                pt.Y += e.Location.Y;
 
-                newGoalRow["name"] = faeg.txb_GoalName.Text;
-                newGoalRow["AllSum"] = faeg.txb_GoalSum.Text;
-                newGoalRow["Comment"] = faeg.txb_GoalComment.Text;
+                contextMenuStrip1.Show(dataGridView1, pt);
+            }
+        }
 
-                dataSet1.Tables["Goal"].Rows.Add(newGoalRow);
+        private void InOutCalc()
+        {
+            double xIn = 0, xOut = 0;
+
+            foreach (var row in dataGridView1.Rows.Cast<DataGridViewRow>().Where(row => row.Cells[0].Value != null))
+            {
+                switch (row.Cells[0].Value.ToString())
+                {
+                    case "Доход":
+                        xIn = xIn + (double)row.Cells[3].Value;
+                        break;
+                    case "Расход":
+                        xOut = xOut + (double)row.Cells[3].Value;
+                        break;
+                }
+            }
+
+            labelResultInOut.Text = string.Format("Доход ({0}) - Расход ({1}) = {2}", xIn.ToString("C2"), xOut.ToString("C2"), (xIn - xOut).ToString("C2"));
+        }
+
+        private void dataGridView1_Paint(object sender, PaintEventArgs e)
+        {
+            DGPaint();
+            InOutCalc();
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1) edit_element();
+        }
+
+        #endregion
+
+        #region Учёт доходов-расходов (Add, Edit, Delete)
+
+        private void add_element()
+        {
+            arxDs.ds = dataSet1;
+
+            Form_AddEdit addEdit = new Form_AddEdit();
+            addEdit.ShowDialog();
+
+            if (addEdit.DialogResult == DialogResult.OK)
+            {
+                dataSet1.Tables["CashInOut"].Rows.Add(Class_element.InOut, Class_element.Category, Class_element.Date,
+                    Class_element.Sum, Class_element.Comment);
             }
 
             saveData();
         }
 
-        private void tsb_GoalDelete_Click(object sender, EventArgs e)
+        private void edit_element()
         {
-            if (dataGridView4.CurrentRow != null)
+            arxDs.ds = dataSet1;
+
+            if (dataGridView1.CurrentRow == null) return;
+
+            Class_element.InOut = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            Class_element.Category = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            Class_element.Date = DateTime.ParseExact(dataGridView1.CurrentRow.Cells[2].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
+            Class_element.Sum = Convert.ToDouble(dataGridView1.CurrentRow.Cells[3].Value);
+            Class_element.Comment = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+
+            Form_AddEdit addEdit = new Form_AddEdit();
+            addEdit.ShowDialog();
+
+            if (addEdit.DialogResult == DialogResult.OK)
             {
-                var result = MessageBox.Show("Вы действительно хотите удалить текущий элемент?",
-                    "Удаление элемента",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
+                var customerRow = ((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row;
 
-                if (result == DialogResult.Yes)
-                {
-                    goalBindingSource.RemoveCurrent();
-                    saveData();
-                }
-            }
-        }
-
-        private void GoalProgress()
-        {
-            double SumGoal = 0;
-            double SumGoalRemaining = 0; 
-
-            foreach (DataGridViewRow row in dataGridView4.Rows)
-            {
-                if (row.Cells[2].Value.ToString() == "" || row.Cells[2].Value == null) continue;
-
-                int x = (int)(Convert.ToDouble(row.Cells[2].Value) / (Convert.ToDouble(row.Cells[1].Value) / 100));
-                int y = (int)(Convert.ToDouble(row.Cells[1].Value) - (Convert.ToDouble(row.Cells[2].Value)));
-
-                SumGoal += Convert.ToDouble(row.Cells[1].Value);
-                SumGoalRemaining += Convert.ToDouble(y);
-
-                row.Cells[5].Value = x;
-                row.Cells[6].Value = y.ToString("C2");
+                customerRow["InOut"] = Class_element.InOut;
+                customerRow["Category"] = Class_element.Category;
+                customerRow["DateTime"] = Class_element.Date;
+                customerRow["Sum"] = Class_element.Sum;
+                customerRow["Comment"] = Class_element.Comment;
             }
 
-            labelGoal.Text = string.Format("Всего целей на {0}, осталось собрать {1}", SumGoal.ToString("C2"), SumGoalRemaining.ToString("C2"));
+            saveData();
         }
 
-        private void dataGridView4_Paint(object sender, PaintEventArgs e)
+        private void delete_element()
         {
-            GoalProgress();
+            if (dataGridView1.CurrentRow == null) return;
+            var result = MessageBox.Show("Вы действительно хотите удалить текущий элемент?",
+                "Удаление элемента",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result != DialogResult.Yes) return;
+            cashInOutBindingSource.RemoveCurrent();
+
+            saveData();
         }
 
         #endregion
+
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            Class_element.InOut = "Доход";
+            Class_element.Date = DateTime.Today;
+            Class_element.Category = "";
+            Class_element.Sum = 0;
+            Class_element.Comment = "";
+
+            add_element();
+        }
+
+        private void toolStripButton7_Click(object sender, EventArgs e)
+        {
+            Class_element.InOut = "Расход";
+            Class_element.Date = DateTime.Today;
+            Class_element.Category = "";
+            Class_element.Sum = 0;
+            Class_element.Comment = "";
+
+            add_element();
+        }
+
+        private void DeleteTSB_Click(object sender, EventArgs e)
+        {
+            delete_element();
+        }
+
+        #region Filter Action
+
+        private void toolStripComboBox1_TextChanged(object sender, EventArgs e)
+        {
+            filter();
+        }
+
+        private void FilterClearTSB_Click(object sender, EventArgs e)
+        {
+            clearfilter();
+        }
 
         private void toolStripDateTimeChooser3_ValueChanged(object sender, EventArgs e)
         {
@@ -687,62 +535,135 @@ namespace buh_02
             filter();
         }
 
-        private void toolStripComboBox2_TextChanged(object sender, EventArgs e)
+        private void filter()
         {
-            RefreshReport();
+            StringBuilder sb = new StringBuilder();
+            sb.Append("(");
+
+            foreach (var col in dataSet1.Tables["CashInOut"].Columns.Cast<DataColumn>().Where(col => col.DataType == typeof(String)))
+            {
+                sb.Append(col.ColumnName);
+                sb.Append(" LIKE '*");
+                sb.Append(toolStripComboBox1.Text);
+                sb.Append("*'");
+                sb.Append(" OR ");
+            }
+
+            sb.Remove(sb.Length - 3, 2);
+            sb.Append(")");
+
+            sb.Append(string.Format(CultureInfo.InvariantCulture,
+                " AND DateTime >= #{0:MM/dd/yyyy}# AND DateTime <= #{1:MM/dd/yyyy}# ",
+                DateBeginEnd.DateBegin,
+                DateBeginEnd.DateEnd));
+
+            cashInOutBindingSource.Filter = sb.ToString();
         }
 
-        private void RefreshReport()
+        private void clearfilter()
         {
-            DateTime StartDate;
-            DateTime EndDate;
+            toolStripComboBox1.Text = "";
 
-            ReportDataSource reportDataSource1 = new ReportDataSource
-            {
-                Name = "DataSet1",
-                Value = cashInOutBindingSource
-            };
+            toolStripDateTimeChooser1.Value = DateTime.Now.Date;
+            toolStripDateTimeChooser2.Value = DateTime.Now.Date;
 
-            reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            reportViewer1.LocalReport.ReportEmbeddedResource = "buh_02.Report.Report1.rdlc";
+            toolStripDateTimeChooser3.Value = DateTime.Now.Date;
+            toolStripDateTimeChooser4.Value = DateTime.Now.Date;
 
-            if (toolStripDateTimeChooser1.Value.Date == DateTime.Now.Date &&
-                toolStripDateTimeChooser2.Value.Date == DateTime.Now.Date)
-            {   
-                StartDate = new DateTime(2011,12,12);
-                EndDate = DateTime.Now;
-            }
-            else
-            {
-                StartDate = toolStripDateTimeChooser1.Value;
-                EndDate = toolStripDateTimeChooser2.Value;
-            }
+            DateBeginEnd.DateBegin = new DateTime(2011, 1, 1);
+            DateBeginEnd.DateEnd = DateTime.Now;
 
-            ReportParameter psd = new ReportParameter("StartDate", StartDate.ToString());
-            ReportParameter ped = new ReportParameter("EndDate", EndDate.ToString());
+            dateTimePicker1.Value = DateTime.Now.AddMonths(1);
 
-            switch (toolStripComboBox2.Text)
-            {
-                case "Расходы":
-                {
-                    ReportParameter pio = new ReportParameter("InOut", "Расход");
-                    reportViewer1.LocalReport.SetParameters(new[] {psd, ped, pio});
-
-                    reportViewer1.RefreshReport();
-                }
-                    break;
-                case "Доходы":
-                {
-                    ReportParameter pio = new ReportParameter("InOut", "Доход");
-                    reportViewer1.LocalReport.SetParameters(new[] {psd, ped, pio});
-
-                    reportViewer1.RefreshReport();
-                }
-                    break;
-            }
+            cashInOutBindingSource.RemoveFilter();
         }
+        #endregion
+
+        #endregion
 
         #region Бюджет
+        private void toolStripButton3_Click_1(object sender, EventArgs e)
+        {
+            Class_element.BudgetCheck = false;
+            Class_element.InOut = "Доход";
+            Class_element.Date = DateTime.Today;
+            Class_element.Category = "";
+            Class_element.Sum = 0;
+            Class_element.Comment = "";
+
+            add_elementBudget();
+        }
+
+        private void remove_elementBudget()
+        {
+            if (dataGridView2.CurrentRow == null) return;
+
+            var result = MessageBox.Show("Вы действительно хотите удалить текущий элемент?",
+                "Удаление элемента",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result != DialogResult.Yes) return;
+            budgetBindingSource.RemoveCurrent();
+            saveData();
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            remove_elementBudget();
+        }
+
+        private void add_elementBudget()
+        {
+            arxDs.ds = dataSet1;
+
+            Form_AddEditBudget aeb = new Form_AddEditBudget();
+            aeb.ShowDialog();
+
+            if (aeb.DialogResult == DialogResult.OK)
+            {
+                dataSet1.Tables["Budget"].Rows.Add(Class_element.BudgetCheck, Class_element.InOut,
+                    Class_element.Category, Class_element.Date, Class_element.Sum, Class_element.Comment);
+            }
+
+            saveData();
+        }
+
+        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1) edit_elementBudget();
+        }
+
+        private void edit_elementBudget()
+        {
+            arxDs.ds = dataSet1;
+
+            if (dataGridView1.CurrentRow == null) return;
+
+            Class_element.BudgetCheck = Convert.ToBoolean(dataGridView2.CurrentRow.Cells[0].Value);
+            Class_element.InOut = dataGridView2.CurrentRow.Cells[1].Value.ToString();
+            Class_element.Category = dataGridView2.CurrentRow.Cells[2].Value.ToString();
+            Class_element.Date = DateTime.ParseExact(dataGridView2.CurrentRow.Cells[3].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
+            Class_element.Sum = Convert.ToDouble(dataGridView2.CurrentRow.Cells[4].Value);
+            Class_element.Comment = dataGridView2.CurrentRow.Cells[5].Value.ToString();
+
+            Form_AddEditBudget aeb = new Form_AddEditBudget();
+            aeb.ShowDialog();
+
+            if (aeb.DialogResult == DialogResult.OK)
+            {
+                var customerRow = ((DataRowView)dataGridView2.CurrentRow.DataBoundItem).Row;
+
+                customerRow["Check"] = Class_element.BudgetCheck;
+                customerRow["InOut"] = Class_element.InOut;
+                customerRow["Category"] = Class_element.Category;
+                customerRow["DateTime"] = Class_element.Date;
+                customerRow["Sum"] = Class_element.Sum;
+                customerRow["Comment"] = Class_element.Comment;
+            }
+
+            saveData();
+        }
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             if (toolStripButton1.Text == "Показывать выполненые")
@@ -845,7 +766,7 @@ namespace buh_02
                     }
                 }
                 
-                labelResult.Text = string.Format("Текущее {0} + Доходы {1} - Расходы {2} = {3}", 
+                labelResultBudget.Text = string.Format("Текущее {0} + Доходы {1} - Расходы {2} = {3}", 
                                                   t.ToString("C2"), i.ToString("C2"), y.ToString("C2"), ((t + i) - y).ToString("C2"));
             }
         }
@@ -875,12 +796,229 @@ namespace buh_02
                 budgetBindingSource.Filter = sb.ToString();
             }
         }
+
+        private void dataGridView2_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+                dataGridView2.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected = true;
+
+            if (e.Button != MouseButtons.Right || e.RowIndex < 0 || e.ColumnIndex < 0) return;
+            var pt = dataGridView2.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location;
+            pt.X += e.Location.X;
+            pt.Y += e.Location.Y;
+
+            contextMenuStrip2.Show(dataGridView2, pt);
+        }
+
+        private void toolStripMenuItem12_Click(object sender, EventArgs e)
+        {
+            edit_elementBudget();
+        }
+
+        private void toolStripMenuItem13_Click(object sender, EventArgs e)
+        {
+            remove_elementBudget();
+        }
+
+        private void toolStripMenuItem14_Click(object sender, EventArgs e)
+        {
+            Class_element.BudgetCheck = Convert.ToBoolean(dataGridView2.CurrentRow.Cells[0].Value); ;
+            Class_element.InOut = dataGridView2.CurrentRow.Cells[1].Value.ToString();
+            Class_element.Date = DateTime.Today;
+            Class_element.Category = dataGridView2.CurrentRow.Cells[2].Value.ToString();;
+            Class_element.Sum = Convert.ToDouble(dataGridView2.CurrentRow.Cells[4].Value);
+            Class_element.Comment = dataGridView2.CurrentRow.Cells[5].Value.ToString();
+
+            add_elementBudget();
+        }
         #endregion
 
-        private void автоматическоеОбновлениеToolStripMenuItem_Click(object sender, EventArgs e)
+        #region Цели
+
+        private void loadGoal()
         {
-            Form_Update formUpdate = new Form_Update();
-            formUpdate.ShowDialog();
+            DataGridViewProgressColumn progressColumn = new DataGridViewProgressColumn { Width = 250, HeaderText = "Прогресс" };
+            dataGridView4.Columns.Add(progressColumn);
+
+            DataGridViewTextBoxColumn remainingColumn = new DataGridViewTextBoxColumn { Width = 100, HeaderText = "Осталось" };
+            dataGridView4.Columns.Add(remainingColumn);
         }
+
+        private void dataGridView4_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1) edit_elementGoal();
+        }
+
+        private void edit_elementGoal()
+        {
+            if (dataGridView4.CurrentRow == null) return;
+
+            var newGoalRow = ((DataRowView)dataGridView4.CurrentRow.DataBoundItem).Row;
+
+            var name = newGoalRow["Name"].ToString();
+            var allSum = newGoalRow["AllSum"].ToString();
+            var comment = newGoalRow["Comment"].ToString();
+            var HistoryID = newGoalRow["HistoryID"].ToString();
+
+            Form_AddEditGoal faeg = new Form_AddEditGoal(name, allSum, comment, HistoryID, dataSet1);
+            faeg.ShowDialog();
+
+            if (faeg.DialogResult == DialogResult.OK)
+            {
+                newGoalRow["name"] = faeg.txb_GoalName.Text;
+                newGoalRow["AllSum"] = faeg.txb_GoalSum.Text;
+                newGoalRow["Comment"] = faeg.txb_GoalComment.Text;
+                newGoalRow["History"] = Goal.History.ToString(CultureInfo.InvariantCulture);
+            }
+
+            saveData();
+        }
+
+        private void tsb_GoalDelete_Click(object sender, EventArgs e)
+        {
+            remove_elementGoal();
+        }
+
+        private void dataGridView4_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+                dataGridView4.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected = true;
+
+            if (e.Button != MouseButtons.Right || e.RowIndex < 0 || e.ColumnIndex < 0) return;
+            var pt = dataGridView4.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location;
+            pt.X += e.Location.X;
+            pt.Y += e.Location.Y;
+
+            contextMenuStrip3.Show(dataGridView4, pt);
+        }
+
+        private void toolStripMenuItem15_Click(object sender, EventArgs e)
+        {
+            edit_elementGoal();
+        }
+
+        private void toolStripMenuItem16_Click(object sender, EventArgs e)
+        {
+
+            remove_elementGoal();
+        }
+
+        private void tsb_AddGoal_Click_1(object sender, EventArgs e)
+        {
+            Form_AddEditGoal faeg = new Form_AddEditGoal("", "", "", "-1", dataSet1);
+
+            if (faeg.ShowDialog() == DialogResult.OK)
+            {
+                var newGoalRow = dataSet1.Tables["Goal"].NewRow();
+
+                newGoalRow["name"] = faeg.txb_GoalName.Text;
+                newGoalRow["AllSum"] = faeg.txb_GoalSum.Text;
+                newGoalRow["Comment"] = faeg.txb_GoalComment.Text;
+
+                dataSet1.Tables["Goal"].Rows.Add(newGoalRow);
+            }
+
+            saveData();
+        }
+
+        private void remove_elementGoal()
+        {
+            if (dataGridView4.CurrentRow == null) return;
+            var result = MessageBox.Show("Вы действительно хотите удалить текущий элемент?",
+                "Удаление элемента",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result != DialogResult.Yes) return;
+            goalBindingSource.RemoveCurrent();
+            saveData();
+        }
+
+        private void GoalProgress()
+        {
+            double SumGoal = 0;
+            double SumGoalRemaining = 0;
+
+            foreach (DataGridViewRow row in dataGridView4.Rows)
+            {
+                if (row.Cells[2].Value.ToString() == "" || row.Cells[2].Value == null) continue;
+
+                int x = (int)(Convert.ToDouble(row.Cells[2].Value) / (Convert.ToDouble(row.Cells[1].Value) / 100));
+                int y = (int)(Convert.ToDouble(row.Cells[1].Value) - (Convert.ToDouble(row.Cells[2].Value)));
+
+                SumGoal += Convert.ToDouble(row.Cells[1].Value);
+                SumGoalRemaining += Convert.ToDouble(y);
+
+                row.Cells[5].Value = x;
+                row.Cells[6].Value = y.ToString("C2");
+            }
+
+            labelResultGoal.Text = string.Format("Всего целей на {0}, осталось собрать {1}", SumGoal.ToString("C2"), SumGoalRemaining.ToString("C2"));
+        }
+
+        private void dataGridView4_Paint(object sender, PaintEventArgs e)
+        {
+            GoalProgress();
+        }
+
+        #endregion
+
+        #region Отчёты
+        private void toolStripComboBox2_TextChanged(object sender, EventArgs e)
+        {
+            RefreshReport();
+        }
+
+        private void RefreshReport()
+        {
+            DateTime StartDate;
+            DateTime EndDate;
+
+            ReportDataSource reportDataSource1 = new ReportDataSource
+            {
+                Name = "DataSet1",
+                Value = cashInOutBindingSource
+            };
+
+            reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            reportViewer1.LocalReport.ReportEmbeddedResource = "buh_02.Report.Report1.rdlc";
+
+            if (toolStripDateTimeChooser1.Value.Date == DateTime.Now.Date &&
+                toolStripDateTimeChooser2.Value.Date == DateTime.Now.Date)
+            {
+                StartDate = new DateTime(2011, 12, 12);
+                EndDate = DateTime.Now;
+            }
+            else
+            {
+                StartDate = toolStripDateTimeChooser1.Value;
+                EndDate = toolStripDateTimeChooser2.Value;
+            }
+
+            ReportParameter psd = new ReportParameter("StartDate", StartDate.ToString());
+            ReportParameter ped = new ReportParameter("EndDate", EndDate.ToString());
+
+            switch (toolStripComboBox2.Text)
+            {
+                case "Расходы":
+                    {
+                        ReportParameter pio = new ReportParameter("InOut", "Расход");
+                        reportViewer1.LocalReport.SetParameters(new[] { psd, ped, pio });
+
+                        reportViewer1.RefreshReport();
+                    }
+                    break;
+                case "Доходы":
+                    {
+                        ReportParameter pio = new ReportParameter("InOut", "Доход");
+                        reportViewer1.LocalReport.SetParameters(new[] { psd, ped, pio });
+
+                        reportViewer1.RefreshReport();
+                    }
+                    break;
+            }
+        }
+        #endregion
+
     }
 }

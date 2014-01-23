@@ -80,9 +80,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 81);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 13);
+            this.label2.Size = new System.Drawing.Size(130, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Количество копий";
+            this.label2.Text = "Хранить не более копий";
             // 
             // textBox1
             // 
@@ -134,11 +134,11 @@
             this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkBox1.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.checkBox1, 2);
-            this.checkBox1.Location = new System.Drawing.Point(40, 9);
+            this.checkBox1.Location = new System.Drawing.Point(19, 9);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(214, 17);
+            this.checkBox1.Size = new System.Drawing.Size(256, 17);
             this.checkBox1.TabIndex = 6;
-            this.checkBox1.Text = "Выполнять резервное копирование?";
+            this.checkBox1.Text = "При выходе делать резервное копирование?";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
