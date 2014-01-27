@@ -8,11 +8,11 @@ namespace buh_02
         public Form_Encryption()
         {
             InitializeComponent();
-            checkBox1.Checked = EncryptDecrypt.Enable;
-            if (EncryptDecrypt.Password != null)
+            checkBox1.Checked = ArxBuhSettings.EncryptEnable;
+            if (ArxBuhSettings.EncryptPassword != null)
             {
-                maskedTextBox1.Text = EncryptDecrypt.Password;
-                maskedTextBox2.Text = EncryptDecrypt.Password;
+                maskedTextBox1.Text = ArxBuhSettings.EncryptPassword;
+                maskedTextBox2.Text = ArxBuhSettings.EncryptPassword;
             }
             EnabledComponents();
         }
@@ -43,8 +43,8 @@ namespace buh_02
                 && maskedTextBox1.Text == maskedTextBox2.Text 
                 && maskedTextBox1.Text != "")
             {
-                EncryptDecrypt.Enable = checkBox1.Checked;
-                EncryptDecrypt.Password = maskedTextBox1.Text;
+                ArxBuhSettings.EncryptEnable = checkBox1.Checked;
+                ArxBuhSettings.EncryptPassword = maskedTextBox1.Text;
                 
                 Close();
             }
@@ -57,12 +57,10 @@ namespace buh_02
                 MessageBox.Show("Пароль не может быть пустым", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            if (checkBox1.Checked == false)
-            {
-                EncryptDecrypt.Enable = false;
-                EncryptDecrypt.Password = "";
-                Close();
-            }
+            if (checkBox1.Checked) return;
+            ArxBuhSettings.EncryptEnable = false;
+            ArxBuhSettings.EncryptPassword = "";
+            Close();
         }
     }
 }

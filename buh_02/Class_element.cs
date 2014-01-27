@@ -18,28 +18,9 @@ namespace buh_02
     }
 
     static class DateBeginEnd
-    {
+   {
         public static DateTime DateBegin { get; set; }
         public static DateTime DateEnd { get; set; }
-    }
-
-    static class Backup
-    {
-        public static Boolean Enable { get; set; }
-        public static String Dir { get; set; }
-        public static Decimal Counter { get; set; }
-    }
-
-    static class UpdateBuh
-    {
-        public static Boolean Enable { get; set; }
-        public static String Path { get; set; }  
-    }
-
-    static class EncryptDecrypt
-    {
-        public static Boolean Enable { get; set; }
-        public static String Password { get; set; }
     }
 
     static class Goal

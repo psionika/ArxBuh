@@ -11,12 +11,12 @@ namespace ArxBuhUpdater
 {
     public partial class UpdateForm : Form
     {
-        Props props = new Props();
 
         public UpdateForm()
         {
-            props.ReadXml();
-            if (!props.Fields.UpdateEnabled)
+            ArxBuhSettingAction.ReadXml();
+
+            if (!ArxBuhSettings.UpdateEnabled)
             {
                 StartExe();
             }
@@ -47,11 +47,11 @@ namespace ArxBuhUpdater
         {
             try
             {
-                WebRequest req = WebRequest.Create(new Uri(Updater.ChangeLogURL));
-                WebResponse resp = req.GetResponse();
+                var req = WebRequest.Create(new Uri(Updater.ChangeLogURL));
+                var resp = req.GetResponse();
 
                 StreamReader str = new StreamReader(resp.GetResponseStream());
-                string s = str.ReadToEnd();
+                var s = str.ReadToEnd();
                 resp.Close();
                 return s;
             }
@@ -63,7 +63,7 @@ namespace ArxBuhUpdater
 
         private void GetUpdateXML()
         {
-            string AppCastURL = props.Fields.UpdatePath;
+            string AppCastURL = ArxBuhSettings.UpdatePath;
             WebRequest webRequest = WebRequest.Create(AppCastURL);
             webRequest.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
 
@@ -139,8 +139,8 @@ namespace ArxBuhUpdater
 
         private void button4_Click(object sender, EventArgs e)
         {
-            props.Fields.UpdateEnabled = false;
-            props.WriteXml();
+            ArxBuhSettings.UpdateEnabled = false;
+            ArxBuhSettingAction.WriteXml();
             StartExe();
         }
 
@@ -157,7 +157,7 @@ namespace ArxBuhUpdater
             {
                 downloadDialog.ShowDialog();
             }
-            catch (System.Reflection.TargetInvocationException)
+            catch (TargetInvocationException)
             {
             }
         }

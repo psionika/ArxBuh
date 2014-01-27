@@ -9,17 +9,18 @@ namespace buh_02
         {
             InitializeComponent();
 
-            textBox1.Text = Backup.Dir;
-            numericUpDown1.Value = Backup.Counter;
-            checkBox1.Checked = Backup.Enable;
+            checkBox1.Checked = ArxBuhSettings.BackupEnable;
+            textBox1.Text = ArxBuhSettings.BackupDir;
+            numericUpDown1.Value = ArxBuhSettings.BackupCounter;
+            
             EnabledComponents();
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            Backup.Dir = textBox1.Text;
-            Backup.Counter = numericUpDown1.Value;
-            Backup.Enable = checkBox1.Checked;
+            ArxBuhSettings.BackupDir = textBox1.Text;
+            ArxBuhSettings.BackupCounter = numericUpDown1.Value;
+            ArxBuhSettings.BackupEnable = checkBox1.Checked;
         }
 
         private void EnabledComponents()

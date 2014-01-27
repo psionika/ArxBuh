@@ -28,7 +28,7 @@ namespace buh_02
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            readSetting();
+            ArxBuhSettingAction.ReadXml(); 
             
             loadData();
 
@@ -40,8 +40,8 @@ namespace buh_02
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             saveData();
-            writeSetting();
 
+            ArxBuhSettingAction.WriteXml();
             backup();
         }
 
@@ -53,6 +53,17 @@ namespace buh_02
         #endregion
 
         #region ToolStripButtonAction
+
+        private void автоматическоеОбновлениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_Update formUpdate = new Form_Update();
+            formUpdate.ShowDialog();
+        }
+
+        private void SettingsTSB_ButtonClick(object sender, EventArgs e)
+        {
+            SettingsTSB.ShowDropDown();
+        }
 
         private void CalculatorTSB_Click(object sender, EventArgs e)
         {
@@ -83,69 +94,18 @@ namespace buh_02
 
         #endregion
 
-        #region Settings action
-
-        private Class_Props props = new Class_Props();
-
-        private void writeSetting()
-        {
-            props.Fields.Location = Location;
-            props.Fields.FormSize = Size;
-
-            props.Fields.BackupCounter = Backup.Counter;
-            props.Fields.BackupDir = Backup.Dir;
-            props.Fields.BackupEnable = Backup.Enable;
-
-            props.Fields.EncryptEnable = EncryptDecrypt.Enable;
-
-            props.Fields.UpdateEnabled = UpdateBuh.Enable;
-            props.Fields.UpdatePath = UpdateBuh.Path;
-
-            props.WriteXml();
-        }
-
-        private void readSetting()
-        {
-            props.ReadXml();
-
-            Location = props.Fields.Location;
-            Size = props.Fields.FormSize;
-
-            Backup.Dir = props.Fields.BackupDir;
-            Backup.Counter = props.Fields.BackupCounter;
-            Backup.Enable = props.Fields.BackupEnable;
-
-            EncryptDecrypt.Enable = props.Fields.EncryptEnable;
-
-            UpdateBuh.Enable = props.Fields.UpdateEnabled;
-            UpdateBuh.Path = props.Fields.UpdatePath;
-
-        }
-
-        private void автоматическоеОбновлениеToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form_Update formUpdate = new Form_Update();
-            formUpdate.ShowDialog();
-        }
-
-        private void SettingsTSB_ButtonClick(object sender, EventArgs e)
-        {
-            SettingsTSB.ShowDropDown();
-        }
-        #endregion
-
         #region Database action
 
         #region SaveLoad
         private void saveData()
         {
-            switch (EncryptDecrypt.Enable)
+            switch (ArxBuhSettings.EncryptEnable)
             {
                 case false:
                     dataSet1.WriteXml("data.xml", XmlWriteMode.IgnoreSchema);
                     break;
                 default:
-                    SetDataSet("data.xml", dataSet1, EncryptDecrypt.Password);
+                    SetDataSet("data.xml", dataSet1, ArxBuhSettings.EncryptPassword);
                     break;
             }
         }
@@ -157,7 +117,7 @@ namespace buh_02
 
             dataSet1.Clear();
 
-            if (EncryptDecrypt.Enable == false)
+            if (ArxBuhSettings.EncryptEnable == false)
             {
                 dataSet1.ReadXml(filename);
                 
@@ -169,7 +129,7 @@ namespace buh_02
                 do
                 {
                     PasswordRequest();
-                } while (GetDataSet(filename, EncryptDecrypt.Password, dataSet1));
+                } while (GetDataSet(filename, ArxBuhSettings.EncryptPassword, dataSet1));
             }
             
             dataGridView1.Sort(dataGridView1.Columns[2], ListSortDirection.Descending);
@@ -184,7 +144,7 @@ namespace buh_02
             Form_Encryption formEncryption = new Form_Encryption();
             formEncryption.ShowDialog();
 
-            writeSetting();
+            ArxBuhSettingAction.WriteXml();
         }
 
         private void PasswordRequest()
@@ -257,21 +217,21 @@ namespace buh_02
             Form_Backup backupForm = new Form_Backup();
             backupForm.ShowDialog();
 
-            writeSetting();
+            ArxBuhSettingAction.WriteXml();
         }
 
         private static void backup()
         {
-            if (!Backup.Enable) return;
+            if (!ArxBuhSettings.BackupEnable) return;
 
-            if (!Directory.Exists(Backup.Dir))
+            if (!Directory.Exists(ArxBuhSettings.BackupDir))
             {
-                Directory.CreateDirectory(Backup.Dir);
+                Directory.CreateDirectory(ArxBuhSettings.BackupDir);
             }
 
             #region Archive
 
-            var TargetDir = Environment.CurrentDirectory + Path.DirectorySeparatorChar + Backup.Dir + Path.DirectorySeparatorChar;
+            var TargetDir = Environment.CurrentDirectory + Path.DirectorySeparatorChar + ArxBuhSettings.BackupDir + Path.DirectorySeparatorChar;
 
             using (ZipFile zip = new ZipFile())
             {
@@ -293,12 +253,12 @@ namespace buh_02
 
             #region Удаляем лишнее
 
-            var i = Directory.GetFiles(Backup.Dir, "*.*", SearchOption.AllDirectories).Length;
+            var i = Directory.GetFiles(ArxBuhSettings.BackupDir, "*.*", SearchOption.AllDirectories).Length;
 
-            while (i > Backup.Counter)
+            while (i > ArxBuhSettings.BackupCounter)
             {
                 var dt = DateTime.Now;
-                var fs = Directory.GetFiles(Backup.Dir);
+                var fs = Directory.GetFiles(ArxBuhSettings.BackupDir);
                 var fileToDelete = "";
 
                 foreach (var file in fs)
@@ -313,7 +273,7 @@ namespace buh_02
 
                 File.Delete(fileToDelete);
 
-                i = Directory.GetFiles(Backup.Dir, "*.*", SearchOption.AllDirectories).Length;
+                i = Directory.GetFiles(ArxBuhSettings.BackupDir, "*.*", SearchOption.AllDirectories).Length;
             }
             #endregion
         }

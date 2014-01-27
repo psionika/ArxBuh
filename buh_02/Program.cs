@@ -13,7 +13,9 @@ namespace buh_02
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
             Application.Run(new Form_Main());
+            
         }
     }
 }

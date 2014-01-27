@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace buh_02
@@ -15,8 +9,8 @@ namespace buh_02
         {
             InitializeComponent();
 
-            checkBox1.Checked = UpdateBuh.Enable;
-            textBox1.Text = UpdateBuh.Path;
+            checkBox1.Checked = ArxBuhSettings.UpdateEnabled;
+            textBox1.Text = ArxBuhSettings.UpdatePath;
 
             EnabledComponents();
         }
@@ -41,8 +35,8 @@ namespace buh_02
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            UpdateBuh.Enable = checkBox1.Checked;
-            UpdateBuh.Path = textBox1.Text;
+            ArxBuhSettings.UpdateEnabled = checkBox1.Checked;
+            ArxBuhSettings.UpdatePath = textBox1.Text;
         }
 
     }

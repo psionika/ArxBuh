@@ -17,7 +17,7 @@ namespace buh_02
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            EncryptDecrypt.Password = maskedTextBox1.Text;
+            ArxBuhSettings.EncryptPassword = maskedTextBox1.Text;
             Close();
         }
     }
