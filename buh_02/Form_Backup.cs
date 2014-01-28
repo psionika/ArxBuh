@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace buh_02
@@ -30,10 +31,12 @@ namespace buh_02
                 case true:
                     textBox1.Enabled = true;
                     numericUpDown1.Enabled = true;
+                    btnChangeBackupDirectory.Enabled = true;
                     break;
                 case false:
                     textBox1.Enabled = false;
                     numericUpDown1.Enabled = false;
+                    btnChangeBackupDirectory.Enabled = false;
                     break;
             }
         }
@@ -41,6 +44,26 @@ namespace buh_02
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             EnabledComponents();
+        }
+
+        private void btnChangeBackupDirectory_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                folderBrowserDialog1.SelectedPath = string.Empty;
+
+                if (folderBrowserDialog1.ShowDialog() != DialogResult.OK) return;
+
+                if (folderBrowserDialog1.SelectedPath == "")
+                {
+                    return;
+                }
+
+                textBox1.Text = folderBrowserDialog1.SelectedPath;
+            }
+            catch
+            {
+            }
         }
     }
 }

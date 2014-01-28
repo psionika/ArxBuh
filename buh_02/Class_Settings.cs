@@ -22,10 +22,8 @@ namespace buh_02
     {
         public static void WriteXml()
         {
-            ArxBuhSettings.EncryptPassword = "";
-
             var static_class = typeof(ArxBuhSettings);
-            var filename = "settings.xml";
+            const string filename = "settings.xml";
 
             try
             {
@@ -43,7 +41,6 @@ namespace buh_02
                 SoapFormatter formatter = new SoapFormatter();
                 formatter.Serialize(f, a);
                 f.Close();
-
             }
             catch
             {
@@ -53,7 +50,7 @@ namespace buh_02
         public static void ReadXml()
         {
             var static_class = typeof(ArxBuhSettings);
-            var filename = "settings.xml";
+            const string filename = "settings.xml";
 
             try
             {

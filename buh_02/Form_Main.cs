@@ -19,6 +19,9 @@ namespace buh_02
 {
     public partial class Form_Main : Form
     {
+        private const string datafile = "data.xml";
+        private const string settingsfile = "settings.xml";
+
         #region Form action
 
         public Form_Main()
@@ -41,18 +44,20 @@ namespace buh_02
         {
             saveData();
 
+            ArxBuhSettings.EncryptPassword = "";
             ArxBuhSettingAction.WriteXml();
             backup();
         }
+
+        #endregion
+
+        #region ToolStripButtonAction
 
         private void AboutProgramTSB_Click(object sender, EventArgs e)
         {
             Form_AboutBox1 about = new Form_AboutBox1();
             about.ShowDialog();
         }
-        #endregion
-
-        #region ToolStripButtonAction
 
         private void автоматическоеОбновлениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -102,24 +107,23 @@ namespace buh_02
             switch (ArxBuhSettings.EncryptEnable)
             {
                 case false:
-                    dataSet1.WriteXml("data.xml", XmlWriteMode.IgnoreSchema);
+                    dataSet1.WriteXml(datafile, XmlWriteMode.IgnoreSchema);
                     break;
                 default:
-                    SetDataSet("data.xml", dataSet1, ArxBuhSettings.EncryptPassword);
+                    SaveCryptDataSet(datafile, dataSet1, ArxBuhSettings.EncryptPassword);
                     break;
             }
         }
 
         private void loadData()
         {
-            const string filename = "data.xml";
-            if (!File.Exists(filename)) return;
+            if (!File.Exists(datafile)) return;
 
             dataSet1.Clear();
 
             if (ArxBuhSettings.EncryptEnable == false)
             {
-                dataSet1.ReadXml(filename);
+                dataSet1.ReadXml(datafile);
                 
                 dataGridView1.DataSource = cashInOutBindingSource; 
                 dataGridView4.DataSource = goalBindingSource;
@@ -129,7 +133,7 @@ namespace buh_02
                 do
                 {
                     PasswordRequest();
-                } while (GetDataSet(filename, ArxBuhSettings.EncryptPassword, dataSet1));
+                } while (LoadCryptDataSet(datafile, ArxBuhSettings.EncryptPassword, dataSet1));
             }
             
             dataGridView1.Sort(dataGridView1.Columns[2], ListSortDirection.Descending);
@@ -147,13 +151,13 @@ namespace buh_02
             ArxBuhSettingAction.WriteXml();
         }
 
-        private void PasswordRequest()
+        private static void PasswordRequest()
         {
             Form_RequestPassword formRP = new Form_RequestPassword();
             formRP.ShowDialog();
         }
 
-        public bool GetDataSet(string file, string key, DataSet ds)
+        private bool LoadCryptDataSet(string file, string key, DataSet ds)
         {
             var crypto = Rijndael.Create();
 
@@ -183,7 +187,7 @@ namespace buh_02
             return false;
         }
 
-        public void SetDataSet(string file, DataSet ds, string key)
+        private void SaveCryptDataSet(string file, DataSet ds, string key)
         {
             var crypto = Rijndael.Create();
 
@@ -224,6 +228,17 @@ namespace buh_02
         {
             if (!ArxBuhSettings.BackupEnable) return;
 
+            var TargetDir = "";
+
+            if (!ArxBuhSettings.BackupDir.Contains(Path.DirectorySeparatorChar))
+            {
+                TargetDir = Environment.CurrentDirectory + Path.DirectorySeparatorChar + ArxBuhSettings.BackupDir + Path.DirectorySeparatorChar;
+            }
+            else
+            {
+                TargetDir = ArxBuhSettings.BackupDir + Path.DirectorySeparatorChar;
+            }
+
             if (!Directory.Exists(ArxBuhSettings.BackupDir))
             {
                 Directory.CreateDirectory(ArxBuhSettings.BackupDir);
@@ -231,34 +246,35 @@ namespace buh_02
 
             #region Archive
 
-            var TargetDir = Environment.CurrentDirectory + Path.DirectorySeparatorChar + ArxBuhSettings.BackupDir + Path.DirectorySeparatorChar;
-
             using (ZipFile zip = new ZipFile())
             {
                 zip.CompressionLevel = Ionic.Zlib.CompressionLevel.BestCompression;
 
-                if (File.Exists("data.xml"))
+                if (File.Exists(datafile))
                 {
-                    zip.AddFile(Environment.CurrentDirectory + Path.DirectorySeparatorChar + "data.xml", "");
+                    zip.AddFile(Environment.CurrentDirectory + Path.DirectorySeparatorChar + datafile, "");
                 }
-                if (File.Exists("settings.xml"))
+                if (File.Exists(settingsfile))
                 {
-                    zip.AddFile(Environment.CurrentDirectory + Path.DirectorySeparatorChar + "settings.xml", "");
+                    zip.AddFile(Environment.CurrentDirectory + Path.DirectorySeparatorChar + settingsfile, "");
                 }
 
-                zip.Save(TargetDir + "backup " + DateTime.Now.ToString(CultureInfo.InvariantCulture).Replace(@"/", "-").Replace(":", "-") + ".zip");
+                zip.Save(TargetDir + "backup " +
+                         DateTime.Now.ToString(CultureInfo.InvariantCulture)
+                             .Replace(@"/", "-")
+                             .Replace(":", "-") + ".zip");
             }
 
             #endregion
 
             #region Удаляем лишнее
 
-            var i = Directory.GetFiles(ArxBuhSettings.BackupDir, "*.*", SearchOption.AllDirectories).Length;
+            var i = Directory.GetFiles(TargetDir, "*.*", SearchOption.AllDirectories).Length;
 
             while (i > ArxBuhSettings.BackupCounter)
             {
                 var dt = DateTime.Now;
-                var fs = Directory.GetFiles(ArxBuhSettings.BackupDir);
+                var fs = Directory.GetFiles(TargetDir);
                 var fileToDelete = "";
 
                 foreach (var file in fs)
@@ -273,7 +289,7 @@ namespace buh_02
 
                 File.Delete(fileToDelete);
 
-                i = Directory.GetFiles(ArxBuhSettings.BackupDir, "*.*", SearchOption.AllDirectories).Length;
+                i = Directory.GetFiles(TargetDir, "*.*", SearchOption.AllDirectories).Length;
             }
             #endregion
         }
