@@ -11,8 +11,6 @@ using System.Globalization;
 using System.Security.Cryptography;
 using System.ComponentModel;
 
-using Ionic.Zip;
-
 using Microsoft.Reporting.WinForms;
 
 namespace buh_02
@@ -244,26 +242,19 @@ namespace buh_02
                 Directory.CreateDirectory(ArxBuhSettings.BackupDir);
             }
 
-            #region Archive
+            #region Copy to Backup Dir
 
-            using (ZipFile zip = new ZipFile())
-            {
-                zip.CompressionLevel = Ionic.Zlib.CompressionLevel.BestCompression;
-
-                if (File.Exists(datafile))
-                {
-                    zip.AddFile(Environment.CurrentDirectory + Path.DirectorySeparatorChar + datafile, "");
-                }
-                if (File.Exists(settingsfile))
-                {
-                    zip.AddFile(Environment.CurrentDirectory + Path.DirectorySeparatorChar + settingsfile, "");
-                }
-
-                zip.Save(TargetDir + "backup " +
+            File.Copy(Environment.CurrentDirectory + Path.DirectorySeparatorChar + datafile, 
+                TargetDir + Path.DirectorySeparatorChar + "backup data " +
                          DateTime.Now.ToString(CultureInfo.InvariantCulture)
                              .Replace(@"/", "-")
-                             .Replace(":", "-") + ".zip");
-            }
+                             .Replace(":", "-")+".xml");
+
+            File.Copy(Environment.CurrentDirectory + Path.DirectorySeparatorChar + settingsfile,
+                TargetDir + Path.DirectorySeparatorChar + "backup settings " +
+                        DateTime.Now.ToString(CultureInfo.InvariantCulture)
+                            .Replace(@"/", "-")
+                            .Replace(":", "-") + ".xml");
 
             #endregion
 
@@ -271,7 +262,7 @@ namespace buh_02
 
             var i = Directory.GetFiles(TargetDir, "*.*", SearchOption.AllDirectories).Length;
 
-            while (i > ArxBuhSettings.BackupCounter)
+            while (i > ArxBuhSettings.BackupCounter * 2)
             {
                 var dt = DateTime.Now;
                 var fs = Directory.GetFiles(TargetDir);
@@ -995,6 +986,5 @@ namespace buh_02
             }
         }
         #endregion
-
     }
 }

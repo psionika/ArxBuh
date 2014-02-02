@@ -167,9 +167,8 @@
             this.textBox1.Size = new System.Drawing.Size(285, 65);
             this.textBox1.TabIndex = 25;
             this.textBox1.TabStop = false;
-            this.textBox1.Text = "Используются \r\nиконки от http://iconza.ru/\r\nбиблиотека для работы с ZIP http://do" +
-    "tnetzip.codeplex.com/\r\nКомпонент http://www.codeproject.com/Articles/18343/C-Pop" +
-    "up-Calculator-Button-and-Text-Control";
+            this.textBox1.Text = "Используются \r\nиконки от http://iconza.ru/\r\nКомпонент http://www.codeproject.com/" +
+    "Articles/18343/C-Popup-Calculator-Button-and-Text-Control";
             // 
             // textBoxDescription
             // 
