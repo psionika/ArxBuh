@@ -146,6 +146,11 @@ namespace buh_02
             
             dataGridView1.Sort(dataGridView1.Columns[2], ListSortDirection.Descending);
             dataGridView2.Sort(dataGridView2.Columns[3], ListSortDirection.Ascending);
+
+            toolStripDateTimeChooser1.Value = DateTime.Now;
+            toolStripDateTimeChooser2.Value = DateTime.Now;
+            toolStripDateTimeChooser3.Value = DateTime.Now;
+            toolStripDateTimeChooser4.Value = DateTime.Now;
         }
         #endregion
 
@@ -743,7 +748,7 @@ namespace buh_02
                     }
                 }
                 
-                labelResultBudget.Text = string.Format("Текущее {0} + Доходы {1} - Расходы {2} = {3}", 
+                labelResultBudget.Text = string.Format("Текущее {0} + Планируемые Доходы {1} - Планируемые Расходы {2} = {3}", 
                                                   t.ToString("C2"), i.ToString("C2"), y.ToString("C2"), ((t + i) - y).ToString("C2"));
             }
         }
@@ -1010,5 +1015,100 @@ namespace buh_02
         }
         #endregion
 
+        #region Горячие клавиши
+        private void Form_Main_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!e.Alt) return;
+            
+            var key = e.KeyCode;
+            switch (key)
+            {              
+                case Keys.Q:
+                    if (tabControl1.SelectedTab == tabPage1)
+                    {
+                        toolStripButton6.PerformClick();
+                    }
+                    else if (tabControl1.SelectedTab == tabPage2)
+                    {
+                        toolStripButton3.PerformClick();
+                    }
+                    else if (tabControl1.SelectedTab == tabPage3)
+                    {
+                        tsb_AddGoal.PerformClick();
+                    }
+                        break;
+                case Keys.W:
+                        if (tabControl1.SelectedTab == tabPage1)
+                        {
+                            toolStripButton7.PerformClick();
+                        }
+                        else if (tabControl1.SelectedTab == tabPage2)
+                        {
+                            toolStripButton12.PerformClick();
+                        }
+                        break;
+                case Keys.D:
+                        if (tabControl1.SelectedTab == tabPage1)
+                        {
+                            DeleteTSB.PerformClick();
+                        }
+                        else if (tabControl1.SelectedTab == tabPage2)
+                        {
+                            toolStripButton4.PerformClick();
+                        }
+                        else if (tabControl1.SelectedTab == tabPage3)
+                        {
+                            tsb_GoalDelete.PerformClick();
+                        }
+                        break;
+                case Keys.F:
+                        if (tabControl1.SelectedTab == tabPage1)
+                        {
+                            toolStripComboBox1.Focus();
+                        }
+                        break;
+                case Keys.S:
+                        if (tabControl1.SelectedTab == tabPage1)
+                        {
+                            SettingsTSB.PerformClick();
+                        }
+                        else if (tabControl1.SelectedTab == tabPage2)
+                        {
+                            SettingsTSB.PerformClick();
+                        }
+                        else if (tabControl1.SelectedTab == tabPage3)
+                        {
+                            SettingsTSB.PerformClick();
+                        }
+                        else if (tabControl1.SelectedTab == tabPage4)
+                        {
+                            SettingsTSB.PerformClick();
+                        }
+                        break;
+                case Keys.D1:
+                        tabControl1.SelectedTab = tabPage1;
+                        break;
+                case Keys.D2:
+                        tabControl1.SelectedTab = tabPage2;
+                        break;
+                case Keys.D3:
+                        tabControl1.SelectedTab = tabPage3;
+                        break;
+                case Keys.D4:
+                        tabControl1.SelectedTab = tabPage4;
+                        break;
+                case Keys.X:
+                        ExitTSB.PerformClick();
+                        break;
+            }            
+        }
+
+        private void справкаПоГорячимКлавишамToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_HotkeyHelper fhh = new Form_HotkeyHelper();
+            fhh.ShowDialog();
+        }
+
+        #endregion
     }
 }
