@@ -43,24 +43,24 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.categoryEdit = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new buh_02.DataSet1();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.calculatorTextBox1 = new PopCalc.Library.CalculatorTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.dataSet1 = new buh_02.DataSet1();
-            this.categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txbSum = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -224,6 +224,16 @@
             this.comboBox2.Size = new System.Drawing.Size(173, 21);
             this.comboBox2.TabIndex = 0;
             // 
+            // categoriesBindingSource
+            // 
+            this.categoriesBindingSource.DataMember = "Categories";
+            this.categoriesBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.dateTimePicker1);
@@ -242,28 +252,12 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.calculatorTextBox1);
+            this.panel4.Controls.Add(this.txbSum);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(126, 143);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(270, 29);
             this.panel4.TabIndex = 5;
-            // 
-            // calculatorTextBox1
-            // 
-            this.calculatorTextBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.calculatorTextBox1.ButtonFlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.calculatorTextBox1.CalculatorBackColor = System.Drawing.SystemColors.Control;
-            this.calculatorTextBox1.CalculatorHeading = "Введите сумму";
-            this.calculatorTextBox1.CalculatorNumberColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.calculatorTextBox1.CalculatorOperatorColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.calculatorTextBox1.CalculatorTitleColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.calculatorTextBox1.Location = new System.Drawing.Point(3, 3);
-            this.calculatorTextBox1.Name = "calculatorTextBox1";
-            this.calculatorTextBox1.Size = new System.Drawing.Size(193, 20);
-            this.calculatorTextBox1.TabIndex = 0;
-            this.calculatorTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.calculatorTextBox1.TextBoxText = "0";
             // 
             // label1
             // 
@@ -299,15 +293,12 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // dataSet1
+            // txbSum
             // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // categoriesBindingSource
-            // 
-            this.categoriesBindingSource.DataMember = "Categories";
-            this.categoriesBindingSource.DataSource = this.dataSet1;
+            this.txbSum.Location = new System.Drawing.Point(0, 3);
+            this.txbSum.Name = "txbSum";
+            this.txbSum.Size = new System.Drawing.Size(176, 20);
+            this.txbSum.TabIndex = 0;
             // 
             // Form_AddEditBudget
             // 
@@ -327,11 +318,12 @@
             this.tableLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -354,12 +346,12 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Panel panel4;
-        private PopCalc.Library.CalculatorTextBox calculatorTextBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.BindingSource categoriesBindingSource;
         private DataSet1 dataSet1;
+        private System.Windows.Forms.TextBox txbSum;
     }
 }

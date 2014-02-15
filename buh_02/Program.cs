@@ -14,7 +14,19 @@ namespace buh_02
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new Form_Main());
+            //Application.Run(new Form_Main());
+
+            if (!SingleInstance.IsFirstRun)
+            {
+                //windowName текст заголовка окна, типа Form1
+                SingleInstance.ShowWindow("ArxBuh"); // разворачивает окно и выводит на первый план
+                //SingleInstance.SendArgs("windowName", args); //отправляет параметры командной строки, если нужно
+                return;
+            }
+            else
+            {
+                Application.Run(new Form_Main());
+            }
             
         }
     }

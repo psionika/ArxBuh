@@ -70,9 +70,16 @@ namespace buh_02
 
         private void CalculatorTSB_Click(object sender, EventArgs e)
         {
+            var calcPath = Environment.SystemDirectory + Path.DirectorySeparatorChar + "calc.exe";
+
+            if (!File.Exists(calcPath))
+            {
+                MessageBox.Show("Калькулятор в системной папке не найден!");
+                return; }
+
             Process Proc = new Process
             {
-                StartInfo = { FileName = "calc.exe", WorkingDirectory = Environment.SystemDirectory }
+                StartInfo = { FileName = calcPath }
             };
             Proc.Start();
         }
@@ -132,6 +139,9 @@ namespace buh_02
                 {
                     PasswordRequest();
                 } while (LoadCryptDataSet(datafile, ArxBuhSettings.EncryptPassword, dataSet1));
+
+                dataGridView1.DataSource = cashInOutBindingSource;
+                dataGridView4.DataSource = goalBindingSource;
             }
             
             dataGridView1.Sort(dataGridView1.Columns[2], ListSortDirection.Descending);
@@ -528,19 +538,9 @@ namespace buh_02
         }
 
         private void clearfilter()
-        {
-            toolStripComboBox1.Text = "";
-
-            toolStripDateTimeChooser1.Value = DateTime.Now.Date;
-            toolStripDateTimeChooser2.Value = DateTime.Now.Date;
-
-            toolStripDateTimeChooser3.Value = DateTime.Now.Date;
-            toolStripDateTimeChooser4.Value = DateTime.Now.Date;
-
+        {               
             DateBeginEnd.DateBegin = new DateTime(2011, 1, 1);
-            DateBeginEnd.DateEnd = DateTime.Now;
-
-            dateTimePicker1.Value = DateTime.Now.AddMonths(1);
+            DateBeginEnd.DateEnd = DateTime.Now;            
 
             cashInOutBindingSource.RemoveFilter();
         }
@@ -559,7 +559,21 @@ namespace buh_02
             Class_element.Comment = "";
 
             add_elementBudget();
+
         }
+
+        private void toolStripButton12_Click(object sender, EventArgs e)
+        {
+            Class_element.BudgetCheck = false;
+            Class_element.InOut = "Расход";
+            Class_element.Date = DateTime.Today;
+            Class_element.Category = "";
+            Class_element.Sum = 0;
+            Class_element.Comment = "";
+
+            add_elementBudget();
+        }
+
 
         private void remove_elementBudget()
         {
@@ -633,31 +647,27 @@ namespace buh_02
         }
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
+            StringBuilder sb = new StringBuilder();
+
             if (toolStripButton1.Text == "Показывать выполненые")
             {
                 toolStripButton1.Text = "Не показывать выполненные";
                 budgetBindingSource.RemoveFilter();
 
-                StringBuilder sb = new StringBuilder();
-
-
                 sb.Append(string.Format(CultureInfo.InvariantCulture,
                     "DateTime <= #{0:MM/dd/yyyy}# ", dateTimePicker1.Value));
-
-                budgetBindingSource.Filter = sb.ToString();
             }
             else
             {
-                toolStripButton1.Text = "Показывать выполненые";
-                StringBuilder sb = new StringBuilder();
+                toolStripButton1.Text = "Показывать выполненые";                
 
                 sb.Append("Check = false");
 
                 sb.Append(string.Format(CultureInfo.InvariantCulture,
-                    " AND DateTime <= #{0:MM/dd/yyyy}# ", dateTimePicker1.Value));
-
-                budgetBindingSource.Filter = sb.ToString();
+                    " AND DateTime <= #{0:MM/dd/yyyy}# ", dateTimePicker1.Value));                
             }
+
+            budgetBindingSource.Filter = sb.ToString();
         }
 
         private void DGBudgetPaint()
@@ -752,16 +762,14 @@ namespace buh_02
                 sb.Append("Check = false");
                 sb.Append(string.Format(CultureInfo.InvariantCulture,
                     " AND DateTime <= #{0:MM/dd/yyyy}# ", dateTimePicker1.Value));
-
-                budgetBindingSource.Filter = sb.ToString();
             }
             else
             {
                 sb.Append(string.Format(CultureInfo.InvariantCulture,
-                    "DateTime <= #{0:MM/dd/yyyy}# ", dateTimePicker1.Value));
-
-                budgetBindingSource.Filter = sb.ToString();
+                    "DateTime <= #{0:MM/dd/yyyy}# ", dateTimePicker1.Value));                
             }
+
+            budgetBindingSource.Filter = sb.ToString();
         }
 
         private void dataGridView2_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -775,6 +783,19 @@ namespace buh_02
             pt.Y += e.Location.Y;
 
             contextMenuStrip2.Show(dataGridView2, pt);
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridView2.CommitEdit(DataGridViewDataErrorContexts.Commit);
+        }
+
+        private void dataGridView2_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {            
+            DGBudgetPaint();
+            InOutBudgetCalc();
+            filterBudget();
+            dataGridView2.Refresh();
         }
 
         private void toolStripMenuItem12_Click(object sender, EventArgs e)
@@ -877,9 +898,9 @@ namespace buh_02
             if (faeg.ShowDialog() == DialogResult.OK)
             {
                 var newGoalRow = dataSet1.Tables["Goal"].NewRow();
-
+                
                 newGoalRow["name"] = faeg.txb_GoalName.Text;
-                newGoalRow["AllSum"] = faeg.txb_GoalSum.Text;
+                newGoalRow["AllSum"] = (faeg.txb_GoalSum.Text == "") ? "0" : faeg.txb_GoalSum.Text;
                 newGoalRow["Comment"] = faeg.txb_GoalComment.Text;
 
                 dataSet1.Tables["Goal"].Rows.Add(newGoalRow);
@@ -908,7 +929,9 @@ namespace buh_02
 
             foreach (DataGridViewRow row in dataGridView4.Rows)
             {
-                if (row.Cells[2].Value.ToString() == "" || row.Cells[2].Value == null) continue;
+                if (row.Cells[2].Value.ToString() == "" 
+                    || row.Cells[2].Value == null
+                    || Convert.ToDouble(row.Cells[1].Value) == 0 ) continue;
 
                 int x = (int)(Convert.ToDouble(row.Cells[2].Value) / (Convert.ToDouble(row.Cells[1].Value) / 100));
                 int y = (int)(Convert.ToDouble(row.Cells[1].Value) - (Convert.ToDouble(row.Cells[2].Value)));
@@ -986,5 +1009,6 @@ namespace buh_02
             }
         }
         #endregion
+
     }
 }

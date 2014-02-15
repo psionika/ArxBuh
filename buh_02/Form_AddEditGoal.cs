@@ -44,14 +44,12 @@ namespace buh_02
                 DataRow newGoalRow = dataSet1.Tables["GoalHistory"].NewRow();
 
                 newGoalRow["HistoryID"] = Convert.ToInt32(_HistoryID);
-                newGoalRow["DateTime"] = (DateTime)faeg.dtp_DateTimeGoalElement.Value;
-                newGoalRow["Sum"] = faeg.txb_GoalElementAllSum.Text;
+                newGoalRow["DateTime"] = faeg.dtp_DateTimeGoalElement.Value;
+                newGoalRow["Sum"] = (faeg.txb_GoalElementAllSum.Text == "") ? "0" : faeg.txb_GoalElementAllSum.Text;
                 newGoalRow["Comment"] = faeg.txb_GoalElementComment.Text;
 
                 dataSet1.Tables["GoalHistory"].Rows.Add(newGoalRow);
             }
-
-
         }
 
         private void tsb_DeleteGoalElement_Click(object sender, EventArgs e)

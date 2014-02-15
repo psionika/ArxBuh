@@ -46,9 +46,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.calculatorTextBox1 = new PopCalc.Library.CalculatorTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txbSum = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -232,29 +232,12 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.calculatorTextBox1);
+            this.panel4.Controls.Add(this.txbSum);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(126, 108);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(270, 29);
             this.panel4.TabIndex = 5;
-            // 
-            // calculatorTextBox1
-            // 
-            this.calculatorTextBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.calculatorTextBox1.ButtonFlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.calculatorTextBox1.CalculatorBackColor = System.Drawing.SystemColors.Control;
-            this.calculatorTextBox1.CalculatorHeading = "Введите сумму";
-            this.calculatorTextBox1.CalculatorNumberColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.calculatorTextBox1.CalculatorOperatorColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.calculatorTextBox1.CalculatorTitleColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.calculatorTextBox1.Location = new System.Drawing.Point(3, 3);
-            this.calculatorTextBox1.Name = "calculatorTextBox1";
-            this.calculatorTextBox1.Size = new System.Drawing.Size(193, 20);
-            this.calculatorTextBox1.TabIndex = 0;
-            this.calculatorTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.calculatorTextBox1.TextBoxText = "0";
-            this.calculatorTextBox1.CalculatorParse += new System.EventHandler<PopCalc.Library.CalculatorParseEventArgs>(this.calculatorTextBox1_CalculatorParse);
             // 
             // label1
             // 
@@ -269,6 +252,14 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // txbSum
+            // 
+            this.txbSum.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txbSum.Location = new System.Drawing.Point(3, 6);
+            this.txbSum.Name = "txbSum";
+            this.txbSum.Size = new System.Drawing.Size(173, 20);
+            this.txbSum.TabIndex = 0;
             // 
             // Form_AddEdit
             // 
@@ -290,6 +281,7 @@
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
@@ -315,6 +307,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button categoryEdit;
-        private PopCalc.Library.CalculatorTextBox calculatorTextBox1;
+        private System.Windows.Forms.TextBox txbSum;
     }
 }

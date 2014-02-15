@@ -17,7 +17,7 @@ namespace buh_02
             filter();
             comboBox2.Text = Class_element.Category;
             dateTimePicker1.Value = Class_element.Date;
-            calculatorTextBox1.TextBoxText = Class_element.Sum.ToString();
+            txbSum.Text = Class_element.Sum.ToString();
             textBox1.Text = Class_element.Comment;
 
             validate();
@@ -37,7 +37,7 @@ namespace buh_02
                 Class_element.Category = comboBox2.Text;
                 Class_element.Date = dateTimePicker1.Value;
 
-                Class_element.Sum = Convert.ToDouble(parsSum(calculatorTextBox1.TextBoxText));
+                Class_element.Sum = Convert.ToDouble(parsSum(txbSum.Text));
                 Class_element.Comment = textBox1.Text;
 
                 e.Cancel = false;
@@ -83,13 +83,13 @@ namespace buh_02
         {
             try
             {
-                double i = Convert.ToDouble(parsSum(calculatorTextBox1.TextBoxText));
-                errorProvider1.SetError(calculatorTextBox1, "");
+                double i = Convert.ToDouble(parsSum(txbSum.Text));
+                errorProvider1.SetError(txbSum, "");
                 return true;
             }
             catch
             {
-                errorProvider1.SetError(calculatorTextBox1, "Неверные данные!");
+                errorProvider1.SetError(txbSum, "Неверные данные!");
                 return false;
             }
 
