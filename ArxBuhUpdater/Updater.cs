@@ -21,12 +21,12 @@ namespace ArxBuhUpdater
 
     public class Props
     {
-        public void WriteXml()
+        public static void WriteXml()
         {
             ArxBuhSettingAction.WriteXml();
         }
 
-        public void ReadXml()
+        public static void ReadXml()
         {
             ArxBuhSettingAction.ReadXml();
         }

@@ -7,15 +7,15 @@ namespace ArxBuhUpdater
 {
     static class ArxBuhSettings
     {
-        public static Boolean BackupEnable = true;
-        public static String BackupDir = @"Backup";
-        public static Decimal BackupCounter = 10;
+        public static bool BackupEnable = true;
+        public static string BackupDir = @"Backup";
+        public static decimal BackupCounter = 10;
 
-        public static Boolean EncryptEnable = false;
-        public static String EncryptPassword = "";
+        public static bool EncryptEnable;
+        public static string EncryptPassword = "";
 
-        public static String UpdatePath = @"http://arxbuh.itchita.ru/arxbuh.xml";
-        public static Boolean UpdateEnabled = true;
+        public static string UpdatePath = @"http://arxbuh.itchita.ru/arxbuh.xml";
+        public static bool UpdateEnabled = true;
     }
 
     static class ArxBuhSettingAction
@@ -26,12 +26,10 @@ namespace ArxBuhUpdater
 
             var static_class = typeof(ArxBuhSettings);
             var filename = "settings.xml";
-
-            try
             {
                 var fields = static_class.GetFields(BindingFlags.Static | BindingFlags.Public);
 
-                object[,] a = new object[fields.Length, 2];
+                var a = new object[fields.Length, 2];
                 var i = 0;
                 foreach (var field in fields)
                 {
@@ -40,13 +38,10 @@ namespace ArxBuhUpdater
                     i++;
                 }
                 Stream f = File.Open(filename, FileMode.Create);
-                SoapFormatter formatter = new SoapFormatter();
+                var formatter = new SoapFormatter();
                 formatter.Serialize(f, a);
                 f.Close();
 
-            }
-            catch
-            {
             }
         }
 
@@ -54,13 +49,11 @@ namespace ArxBuhUpdater
         {
             var static_class = typeof(ArxBuhSettings);
             var filename = "settings.xml";
-
-            try
             {
                 var fields = static_class.GetFields(BindingFlags.Static | BindingFlags.Public);
                 Stream f = File.Open(filename, FileMode.Open);
-                SoapFormatter formatter = new SoapFormatter();
-                object[,] a = formatter.Deserialize(f) as object[,];
+                var formatter = new SoapFormatter();
+                var a = formatter.Deserialize(f) as object[,];
                 f.Close();
                 if (a != null && a.GetLength(0) != fields.Length) return;
                 var i = 0;
@@ -73,9 +66,6 @@ namespace ArxBuhUpdater
                     }
                     i++;
                 }
-            }
-            catch
-            {
             }
         }
     }

@@ -10,9 +10,9 @@ namespace ArxBuhUpdater
 {
     public partial class FormDownloadUpdate : Form
     {
-        private readonly string _downloadURL;
+        readonly string _downloadURL;
 
-        private string _tempPath;
+        string _tempPath;
 
         public FormDownloadUpdate(string downloadURL)
         {
@@ -21,7 +21,7 @@ namespace ArxBuhUpdater
             _downloadURL = downloadURL;
         }
 
-        private void FormDownloadUpdate_Load(object sender, EventArgs e)
+        void FormDownloadUpdate_Load(object sender, EventArgs e)
         {
             var webClient = new WebClient();
 
@@ -36,17 +36,17 @@ namespace ArxBuhUpdater
             webClient.DownloadFileAsync(uri, _tempPath);
         }
 
-        private void OnDownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        void OnDownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             progressBar.Value = e.ProgressPercentage;
         }
 
-        private void OnDownloadComplete(object sender, AsyncCompletedEventArgs e)
+        void OnDownloadComplete(object sender, AsyncCompletedEventArgs e)
         {
-                Application.Exit();
+            Application.Exit();
         }
 
-        private static string GetFileName(string url)
+        static string GetFileName(string url)
         {
             var fileName = string.Empty;
 

@@ -26,14 +26,14 @@ namespace ArxBuhUpdater
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        void Form1_Load(object sender, EventArgs e)
         {
             Updater.InstalledVersion = AssemblyName.GetAssemblyName("ArxBuh.exe").Version;
             Updater.IsWinFormsApplication = Application.MessageLoop;
 
             if (Updater.NewVersion.CompareTo(Updater.InstalledVersion) == 1)
             {
-                webBrowser1.DocumentText = GetChangeLogHTML(); 
+                webBrowser1.DocumentText = GetChangeLogHTML();
 
                 label7.Text = string.Format(label7.Text, Updater.NewVersion, Updater.InstalledVersion);
             }
@@ -43,14 +43,14 @@ namespace ArxBuhUpdater
             }
         }
 
-        private string GetChangeLogHTML()
+        string GetChangeLogHTML()
         {
             try
             {
                 var req = WebRequest.Create(new Uri(Updater.ChangeLogURL));
                 var resp = req.GetResponse();
 
-                StreamReader str = new StreamReader(resp.GetResponseStream());
+                var str = new StreamReader(resp.GetResponseStream());
                 var s = str.ReadToEnd();
                 resp.Close();
                 return s;
@@ -61,10 +61,10 @@ namespace ArxBuhUpdater
             }
         }
 
-        private void GetUpdateXML()
+        void GetUpdateXML()
         {
-            string AppCastURL = ArxBuhSettings.UpdatePath;
-            WebRequest webRequest = WebRequest.Create(AppCastURL);
+            var AppCastURL = ArxBuhSettings.UpdatePath;
+            var webRequest = WebRequest.Create(AppCastURL);
             webRequest.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
 
             WebResponse webResponse;
@@ -79,7 +79,7 @@ namespace ArxBuhUpdater
                 return;
             }
 
-            Stream appCastStream = webResponse.GetResponseStream();
+            var appCastStream = webResponse.GetResponseStream();
 
             var receivedAppCastDocument = new XmlDocument();
 
@@ -88,36 +88,36 @@ namespace ArxBuhUpdater
                 receivedAppCastDocument.Load(appCastStream);
             }
 
-            XmlNodeList appCastItems = receivedAppCastDocument.SelectNodes("item");
+            var appCastItems = receivedAppCastDocument.SelectNodes("item");
 
             if (appCastItems != null)
                 foreach (XmlNode item in appCastItems)
                 {
-                    XmlNode appCastVersion = item.SelectSingleNode("version");
+                    var appCastVersion = item.SelectSingleNode("version");
                     if (appCastVersion != null)
                     {
-                        String appVersion = appCastVersion.InnerText;
+                        var appVersion = appCastVersion.InnerText;
                         Updater.NewVersion = new Version(appVersion);
                     }
                     else
                         continue;
 
-                    XmlNode appCastChangeLog = item.SelectSingleNode("changelog");
+                    var appCastChangeLog = item.SelectSingleNode("changelog");
 
                     Updater.ChangeLogURL = appCastChangeLog != null ? appCastChangeLog.InnerText : "";
 
-                    XmlNode appCastUrl = item.SelectSingleNode("url");
+                    var appCastUrl = item.SelectSingleNode("url");
 
                     Updater.DownloadURL = appCastUrl != null ? appCastUrl.InnerText : "";
                 }
         }
-        
-        private void button3_Click(object sender, EventArgs e)
+
+        void button3_Click(object sender, EventArgs e)
         {
             StartExe();
         }
 
-        private void StartExe()
+        static void StartExe()
         {
             if (Updater.StartExe)
             {
@@ -132,33 +132,30 @@ namespace ArxBuhUpdater
                 {
                     Updater.StartExe = false;
                     Environment.Exit(0);
-                }  
+                }
             }
-            
+
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        void button4_Click(object sender, EventArgs e)
         {
             ArxBuhSettings.UpdateEnabled = false;
             ArxBuhSettingAction.WriteXml();
             StartExe();
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {   
+        void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
             StartExe();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        void button2_Click(object sender, EventArgs e)
         {
-            var downloadDialog = new FormDownloadUpdate(Updater.DownloadURL);
-
-            try
+            using (var downloadDialog = new FormDownloadUpdate(Updater.DownloadURL))
             {
-                downloadDialog.ShowDialog();
-            }
-            catch (TargetInvocationException)
-            {
+                {
+                    downloadDialog.ShowDialog();
+                }
             }
         }
     }
