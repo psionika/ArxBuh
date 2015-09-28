@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace ArxBuh
@@ -24,8 +26,8 @@ namespace ArxBuh
             }
 
             dataSet1 = (DataSet1)ds;
-            this.goalHistoryBindingSource.DataSource = ds;
-            dataGridView1.DataSource = this.goalHistoryBindingSource;
+            goalHistoryBindingSource.DataSource = ds;
+            dataGridView1.DataSource = goalHistoryBindingSource;
         }
 
         void filter(int HistoryID)
@@ -36,23 +38,35 @@ namespace ArxBuh
 
         void tsb_AddGoalElement_Click(object sender, EventArgs e)
         {
-            var faeg = new Form_AddGoalElement();
-            faeg.ShowDialog();
-
-            if (faeg.DialogResult == DialogResult.OK)
-            {
-                var newGoalRow = dataSet1.Tables["GoalHistory"].NewRow();
-
-                newGoalRow["HistoryID"] = Convert.ToInt32(_HistoryID);
-                newGoalRow["DateTime"] = faeg.dtp_DateTimeGoalElement.Value;
-                newGoalRow["Sum"] = (faeg.txb_GoalElementAllSum.Text == "") ? "0" : faeg.txb_GoalElementAllSum.Text;
-                newGoalRow["Comment"] = faeg.txb_GoalElementComment.Text;
-
-                dataSet1.Tables["GoalHistory"].Rows.Add(newGoalRow);
-            }
+            add_element();
         }
 
         void tsb_DeleteGoalElement_Click(object sender, EventArgs e)
+        {
+            delete_element();
+        }
+
+        void add_element()
+        {
+            using (var faeg = new Form_AddEditGoalElement("Новая выплата по цели"))
+            {
+                faeg.ShowDialog();
+
+                if (faeg.DialogResult == DialogResult.OK)
+                {
+                    var newGoalRow = dataSet1.Tables["GoalHistory"].NewRow();
+
+                    newGoalRow["HistoryID"] = Convert.ToInt32(_HistoryID);
+                    newGoalRow["DateTime"] = faeg.dtp_DateTimeGoalElement.Value;
+                    newGoalRow["Sum"] = (faeg.txb_GoalElementAllSum.Text == "") ? "0" : faeg.txb_GoalElementAllSum.Text;
+                    newGoalRow["Comment"] = faeg.txb_GoalElementComment.Text;
+
+                    dataSet1.Tables["GoalHistory"].Rows.Add(newGoalRow);
+                }
+            }
+        }
+
+        void delete_element()
         {
             if (dataGridView1.CurrentRow != null)
             {
@@ -64,6 +78,30 @@ namespace ArxBuh
                 if (result == DialogResult.Yes)
                 {
                     goalHistoryBindingSource.RemoveCurrent();
+                }
+            }
+        }
+
+        void edit_element()
+        {
+            if (dataGridView1.CurrentRow == null) return;
+
+            using (var addEdit = new Form_AddEditGoalElement("Редактирование выплаты по цели"))
+            {
+                addEdit.dtp_DateTimeGoalElement.Value = DateTime.ParseExact(dataGridView1.CurrentRow.Cells[1].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
+                addEdit.txb_GoalElementAllSum.Text = Convert.ToDouble(dataGridView1.CurrentRow.Cells[2].Value).ToString();
+                addEdit.txb_GoalElementComment.Text = Class_element.Comment = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+
+                addEdit.ShowDialog();
+
+                if (addEdit.DialogResult == DialogResult.OK)
+                {
+                    var editRow = ((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row;
+
+                    editRow["HistoryID"] = Convert.ToInt32(_HistoryID);
+                    editRow["DateTime"] = addEdit.dtp_DateTimeGoalElement.Value;
+                    editRow["Sum"] = (addEdit.txb_GoalElementAllSum.Text == "") ? "0" : addEdit.txb_GoalElementAllSum.Text;
+                    editRow["Comment"] = addEdit.txb_GoalElementComment.Text;
                 }
             }
         }
@@ -81,6 +119,66 @@ namespace ArxBuh
             }
 
             Goal.History = i;
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+                dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected = true;
+
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                Point pt = dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location;
+                pt.X += e.Location.X;
+                pt.Y += e.Location.Y;
+                contextMenuStrip1.Show(dataGridView1, pt);
+            }
+        }
+
+        private void новаяВыплатаПоЦелиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            add_element();
+        }
+
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            delete_element();
+        }
+
+        private void редактироватьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            edit_element();
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1) edit_element();
+        }
+
+        private void повторитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null) return;
+
+            using (var addEdit = new Form_AddEditGoalElement("Редактирование выплаты по цели"))
+            {
+                addEdit.dtp_DateTimeGoalElement.Value = DateTime.ParseExact(dataGridView1.CurrentRow.Cells[1].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
+                addEdit.txb_GoalElementAllSum.Text = Convert.ToDouble(dataGridView1.CurrentRow.Cells[2].Value).ToString();
+                addEdit.txb_GoalElementComment.Text = Class_element.Comment = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+
+                addEdit.ShowDialog();
+
+                if (addEdit.DialogResult == DialogResult.OK)
+                {
+                    var newRow = dataSet1.Tables["GoalHistory"].NewRow();
+
+                    newRow["HistoryID"] = Convert.ToInt32(_HistoryID);
+                    newRow["DateTime"] = addEdit.dtp_DateTimeGoalElement.Value;
+                    newRow["Sum"] = (addEdit.txb_GoalElementAllSum.Text == "") ? "0" : addEdit.txb_GoalElementAllSum.Text;
+                    newRow["Comment"] = addEdit.txb_GoalElementComment.Text;
+
+                    dataSet1.Tables["GoalHistory"].Rows.Add(newRow);
+                }
+            }
         }
     }
 }

@@ -48,7 +48,6 @@ namespace ArxBuh
 
         void btnChangeBackupDirectory_Click(object sender, EventArgs e)
         {
-            try
             {
                 folderBrowserDialog1.SelectedPath = string.Empty;
 
@@ -60,9 +59,6 @@ namespace ArxBuh
                 }
 
                 textBox1.Text = folderBrowserDialog1.SelectedPath;
-            }
-            catch
-            {
             }
         }
     }

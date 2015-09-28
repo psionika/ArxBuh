@@ -33,17 +33,28 @@ namespace ArxBuh
 
             loadData();
 
-            clearfilter();
+            using (var progressColumn = new DataGridViewProgressColumn { Width = 250, HeaderText = "Прогресс" })
+            {
+                dataGridView4.Columns.Add(progressColumn);
+            }
 
-            loadGoal();
+            using (var remainingColumn = new DataGridViewTextBoxColumn { Width = 100, HeaderText = "Осталось" })
+            {
+                dataGridView4.Columns.Add(remainingColumn);
+            }
 
-            toolStripDateTimeChooser1.Value = dataSet1.Tables["CashInOut"].Rows.OfType<DataRow>().
-Select(k => Convert.ToDateTime(k["DateTime"])).Min();
+            if(dataSet1.Tables["CashInOut"].Rows.Count > 0)
+            {
+                toolStripDateTimeChooser1.Value = dataSet1.Tables["CashInOut"].Rows.OfType<DataRow>().Select(k => Convert.ToDateTime(k["DateTime"])).Min();
+                toolStripDateTimeChooser3.Value = dataSet1.Tables["CashInOut"].Rows.OfType<DataRow>().Select(k => Convert.ToDateTime(k["DateTime"])).Min();
+            }
+            else
+            {
+                toolStripDateTimeChooser1.Value = DateTime.Now.AddYears(-1);
+                toolStripDateTimeChooser3.Value = DateTime.Now.AddYears(-1);
+            }
 
             toolStripDateTimeChooser2.Value = DateTime.Now.Date.AddDays(1).AddSeconds(-1);
-
-            toolStripDateTimeChooser3.Value = dataSet1.Tables["CashInOut"].Rows.OfType<DataRow>().
-Select(k => Convert.ToDateTime(k["DateTime"])).Min();
 
             toolStripDateTimeChooser4.Value = DateTime.Now.Date.AddDays(1).AddSeconds(-1);
 
@@ -340,7 +351,7 @@ Select(k => Convert.ToDateTime(k["DateTime"])).Min();
 
             Class_element.InOut = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             Class_element.Category = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            Class_element.Date = DateTime.Now.Date;
+            Class_element.Date = DateTime.ParseExact(dataGridView1.CurrentRow.Cells[2].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
             Class_element.Sum = Convert.ToDouble(dataGridView1.CurrentRow.Cells[3].Value);
             Class_element.Comment = dataGridView1.CurrentRow.Cells[4].Value.ToString();
 
@@ -534,9 +545,9 @@ Select(k => Convert.ToDateTime(k["DateTime"])).Min();
             filter();
         }
 
-        void FilterClearTSB_Click(object sender, EventArgs e)
+        private void FilterClearTSB_Click(object sender, EventArgs e)
         {
-            clearfilter();
+            arxClearFilter();
         }
 
         void toolStripDateTimeChooser3_ValueChanged(object sender, EventArgs e)
@@ -576,10 +587,17 @@ Select(k => Convert.ToDateTime(k["DateTime"])).Min();
             cashInOutBindingSource.Filter = sb.ToString();
         }
 
-        void clearfilter()
+        void arxClearFilter()
         {
-            DateBeginEnd.DateBegin = new DateTime(1901, 1, 1);
-            DateBeginEnd.DateEnd = DateTime.Now;
+            DateBeginEnd.DateBegin = dataSet1.Tables["CashInOut"].Rows.OfType<DataRow>().
+                Select(k => Convert.ToDateTime(k["DateTime"])).Min();
+
+            DateBeginEnd.DateEnd = DateTime.Now.Date.AddDays(1).AddSeconds(-1);
+
+            toolStripDateTimeChooser3.Value = DateBeginEnd.DateBegin;
+            toolStripDateTimeChooser4.Value = DateBeginEnd.DateEnd;
+
+            toolStripComboBox1.Text = "";
 
             cashInOutBindingSource.RemoveFilter();
         }
@@ -852,10 +870,10 @@ Select(k => Convert.ToDateTime(k["DateTime"])).Min();
 
         void toolStripMenuItem14_Click(object sender, EventArgs e)
         {
-            Class_element.BudgetCheck = Convert.ToBoolean(dataGridView2.CurrentRow.Cells[0].Value); ;
+            Class_element.BudgetCheck = Convert.ToBoolean(dataGridView2.CurrentRow.Cells[0].Value);
             Class_element.InOut = dataGridView2.CurrentRow.Cells[1].Value.ToString();
-            Class_element.Date = DateTime.Today;
-            Class_element.Category = dataGridView2.CurrentRow.Cells[2].Value.ToString(); ;
+            Class_element.Date = Class_element.Date = DateTime.ParseExact(dataGridView2.CurrentRow.Cells[3].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
+            Class_element.Category = dataGridView2.CurrentRow.Cells[2].Value.ToString();
             Class_element.Sum = Convert.ToDouble(dataGridView2.CurrentRow.Cells[4].Value);
             Class_element.Comment = dataGridView2.CurrentRow.Cells[5].Value.ToString();
 
@@ -864,15 +882,6 @@ Select(k => Convert.ToDateTime(k["DateTime"])).Min();
         #endregion
 
         #region Цели
-
-        void loadGoal()
-        {
-            var progressColumn = new DataGridViewProgressColumn { Width = 250, HeaderText = "Прогресс" };
-            dataGridView4.Columns.Add(progressColumn);
-
-            var remainingColumn = new DataGridViewTextBoxColumn { Width = 100, HeaderText = "Осталось" };
-            dataGridView4.Columns.Add(remainingColumn);
-        }
 
         void dataGridView4_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -1154,5 +1163,41 @@ Select(k => Convert.ToDateTime(k["DateTime"])).Min();
         }
 
         #endregion
+
+        private void tsbImportCSV_Click(object sender, EventArgs e)
+        {
+            var csvFile = "";
+
+            using (var saveFileDialog1 = new SaveFileDialog())
+            {
+                saveFileDialog1.Title = "CSV - SAVE File";
+                saveFileDialog1.DefaultExt = "csv";
+                saveFileDialog1.Filter = "CSV File|*.CSV|" + "All files (*.*)|*.*";
+                saveFileDialog1.FilterIndex = 1;
+
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    csvFile = saveFileDialog1.FileName;
+
+                    var sb = new StringBuilder();
+
+                    var headers = dataGridView1.Columns.Cast<DataGridViewColumn>();
+                    sb.AppendLine(string.Join(";", headers.Select(column => "\"" + column.HeaderText + "\"").ToArray()));
+
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        var cells = row.Cells.Cast<DataGridViewCell>();
+                        sb.AppendLine(string.Join(";", cells.Select(cell => "\"" + cell.Value.ToString().Replace('\r', ' ').Replace('\n', ' ').Replace(';', ',') + "\"").ToArray()));
+                    }
+
+                    using (TextWriter tw = new StreamWriter(csvFile, false, Encoding.Default))
+                    {
+                        tw.WriteLine(sb);
+
+                        tw.Close();
+                    }
+                }
+            }
+        }
     }
 }

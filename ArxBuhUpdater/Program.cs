@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace ArxBuhUpdater
@@ -14,7 +13,10 @@ namespace ArxBuhUpdater
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UpdateForm());
+            using (var updateForm = new UpdateForm())
+            {
+                Application.Run(updateForm);
+            }
         }
     }
 }

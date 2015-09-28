@@ -1,6 +1,6 @@
 ﻿namespace ArxBuh
 {
-    partial class Form_AddGoalElement
+    partial class Form_AddEditGoalElement
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_AddGoalElement));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -139,7 +138,6 @@
             this.ClientSize = new System.Drawing.Size(354, 191);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(370, 225);
             this.Name = "Form_AddGoalElement";
             this.ShowInTaskbar = false;

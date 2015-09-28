@@ -189,6 +189,8 @@ namespace ArxBuh
             this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
             this.cashInOutBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.tsbImportCSV = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -347,6 +349,7 @@ namespace ArxBuh
             this.toolStripMenuItem1,
             this.категорииДоходовИРасходовToolStripMenuItem,
             this.toolStripMenuItem2,
+            this.tsbImportCSV,
             this.резервноеКопированиеToolStripMenuItem,
             this.шифрованиеToolStripMenuItem,
             this.автоматическоеОбновлениеToolStripMenuItem,
@@ -585,7 +588,7 @@ namespace ArxBuh
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(970, 480);
+            this.tabPage2.Size = new System.Drawing.Size(978, 480);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Бюджет";
             this.tabPage2.ToolTipText = "Бюджет (HotKey - Alt+2)";
@@ -607,7 +610,7 @@ namespace ArxBuh
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(964, 474);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(972, 474);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // toolStrip3
@@ -627,7 +630,7 @@ namespace ArxBuh
             this.toolStripButton2});
             this.toolStrip3.Location = new System.Drawing.Point(0, 0);
             this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(964, 25);
+            this.toolStrip3.Size = new System.Drawing.Size(972, 25);
             this.toolStrip3.TabIndex = 9;
             this.toolStrip3.Text = "toolStrip3";
             // 
@@ -762,7 +765,7 @@ namespace ArxBuh
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 427);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(958, 44);
+            this.panel1.Size = new System.Drawing.Size(966, 44);
             this.panel1.TabIndex = 6;
             // 
             // dateTimePicker1
@@ -847,7 +850,7 @@ namespace ArxBuh
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(958, 393);
+            this.dataGridView2.Size = new System.Drawing.Size(966, 393);
             this.dataGridView2.TabIndex = 7;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             this.dataGridView2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellDoubleClick);
@@ -915,7 +918,7 @@ namespace ArxBuh
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(970, 480);
+            this.tabPage3.Size = new System.Drawing.Size(978, 480);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Цели";
             this.tabPage3.ToolTipText = "Цели (HotKey - Alt+3)";
@@ -935,7 +938,7 @@ namespace ArxBuh
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(964, 474);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(972, 474);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // toolStrip4
@@ -949,7 +952,7 @@ namespace ArxBuh
             this.toolStripButton9});
             this.toolStrip4.Location = new System.Drawing.Point(0, 0);
             this.toolStrip4.Name = "toolStrip4";
-            this.toolStrip4.Size = new System.Drawing.Size(964, 25);
+            this.toolStrip4.Size = new System.Drawing.Size(972, 25);
             this.toolStrip4.TabIndex = 2;
             this.toolStrip4.Text = "toolStrip4";
             // 
@@ -1071,7 +1074,7 @@ namespace ArxBuh
             dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.dataGridView4.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView4.Size = new System.Drawing.Size(958, 393);
+            this.dataGridView4.Size = new System.Drawing.Size(966, 393);
             this.dataGridView4.TabIndex = 1;
             this.dataGridView4.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellDoubleClick);
             this.dataGridView4.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView4_CellMouseClick);
@@ -1145,7 +1148,7 @@ namespace ArxBuh
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(970, 480);
+            this.tabPage4.Size = new System.Drawing.Size(978, 480);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Отчёты";
             this.tabPage4.ToolTipText = "Отчёты (HotKey - Alt+4)";
@@ -1156,7 +1159,7 @@ namespace ArxBuh
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reportViewer1.Location = new System.Drawing.Point(3, 28);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(964, 449);
+            this.reportViewer1.Size = new System.Drawing.Size(972, 449);
             this.reportViewer1.TabIndex = 1;
             // 
             // toolStrip5
@@ -1176,7 +1179,7 @@ namespace ArxBuh
             this.toolStripButton10});
             this.toolStrip5.Location = new System.Drawing.Point(3, 3);
             this.toolStrip5.Name = "toolStrip5";
-            this.toolStrip5.Size = new System.Drawing.Size(964, 25);
+            this.toolStrip5.Size = new System.Drawing.Size(972, 25);
             this.toolStrip5.TabIndex = 0;
             this.toolStrip5.Text = "toolStrip5";
             // 
@@ -1502,13 +1505,13 @@ namespace ArxBuh
             this.toolStripMenuItem13,
             this.toolStripMenuItem14});
             this.contextMenuStrip2.Name = "contextMenuStrip1";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(218, 142);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(218, 120);
             // 
             // toolStripMenuItem17
             // 
             this.toolStripMenuItem17.Image = global::ArxBuh.Properties.Resources.add_32x32;
             this.toolStripMenuItem17.Name = "toolStripMenuItem17";
-            this.toolStripMenuItem17.Size = new System.Drawing.Size(213, 22);
+            this.toolStripMenuItem17.Size = new System.Drawing.Size(217, 22);
             this.toolStripMenuItem17.Text = "Новый планируемый доход";
             this.toolStripMenuItem17.Click += new System.EventHandler(this.toolStripButton3_Click_1);
             // 
@@ -1523,13 +1526,13 @@ namespace ArxBuh
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(210, 6);
+            this.toolStripSeparator10.Size = new System.Drawing.Size(214, 6);
             // 
             // toolStripMenuItem12
             // 
             this.toolStripMenuItem12.Image = global::ArxBuh.Properties.Resources.edit_32x32;
             this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            this.toolStripMenuItem12.Size = new System.Drawing.Size(213, 22);
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(217, 22);
             this.toolStripMenuItem12.Text = "Редактировать";
             this.toolStripMenuItem12.Click += new System.EventHandler(this.toolStripMenuItem12_Click);
             // 
@@ -1537,7 +1540,7 @@ namespace ArxBuh
             // 
             this.toolStripMenuItem13.Image = global::ArxBuh.Properties.Resources.delete_32x32;
             this.toolStripMenuItem13.Name = "toolStripMenuItem13";
-            this.toolStripMenuItem13.Size = new System.Drawing.Size(213, 22);
+            this.toolStripMenuItem13.Size = new System.Drawing.Size(217, 22);
             this.toolStripMenuItem13.Text = "Удалить";
             this.toolStripMenuItem13.Click += new System.EventHandler(this.toolStripMenuItem13_Click);
             // 
@@ -1545,7 +1548,7 @@ namespace ArxBuh
             // 
             this.toolStripMenuItem14.Image = global::ArxBuh.Properties.Resources.redo_32x32;
             this.toolStripMenuItem14.Name = "toolStripMenuItem14";
-            this.toolStripMenuItem14.Size = new System.Drawing.Size(213, 22);
+            this.toolStripMenuItem14.Size = new System.Drawing.Size(217, 22);
             this.toolStripMenuItem14.Text = "Повторить";
             this.toolStripMenuItem14.Click += new System.EventHandler(this.toolStripMenuItem14_Click);
             // 
@@ -1586,6 +1589,13 @@ namespace ArxBuh
             // 
             this.cashInOutBindingSource1.DataMember = "CashInOut";
             this.cashInOutBindingSource1.DataSource = this.dataSet1;
+            // 
+            // tsbImportCSV
+            // 
+            this.tsbImportCSV.Name = "tsbImportCSV";
+            this.tsbImportCSV.Size = new System.Drawing.Size(235, 22);
+            this.tsbImportCSV.Text = "Выгрузить в CSV файл";
+            this.tsbImportCSV.Click += new System.EventHandler(this.tsbImportCSV_Click);
             // 
             // Form_Main
             // 
@@ -1784,6 +1794,8 @@ namespace ArxBuh
         private ToolStripSeparator toolStripSeparator10;
         private ToolStripSeparator toolStripMenuItem21;
         private ToolStripMenuItem справкаПоГорячимКлавишамToolStripMenuItem;
+        private ToolStripMenuItem tsbImportCSV;
+        private SaveFileDialog saveFileDialog1;
     }
 }
 

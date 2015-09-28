@@ -30,7 +30,9 @@ namespace ArxBuh
         {
             if (ValueChanged != null)
             {
-                ValueChanged(this, e);
+                var handler = ValueChanged;
+                if (handler != null)
+                    handler(this, e);
             }
         }
 

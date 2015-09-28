@@ -23,11 +23,11 @@ namespace ArxBuh
                 //SingleInstance.SendArgs("windowName", args); //отправляет параметры командной строки, если нужно
                 return;
             }
-            else
+
+            using (var form_Main = new Form_Main())
             {
-                Application.Run(new Form_Main());
+                Application.Run(form_Main);
             }
-            
         }
     }
 }

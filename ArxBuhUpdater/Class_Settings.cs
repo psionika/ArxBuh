@@ -49,23 +49,25 @@ namespace ArxBuhUpdater
         {
             var static_class = typeof(ArxBuhSettings);
             var filename = "settings.xml";
+
+            if (!File.Exists(filename)) return;
+
+            var fields = static_class.GetFields(BindingFlags.Static | BindingFlags.Public);
+            Stream f = File.Open(filename, FileMode.Open);
+            var formatter = new SoapFormatter();
+            var a = formatter.Deserialize(f) as object[,];
+            f.Close();
+            if (a != null && a.GetLength(0) != fields.Length) return;
+            var i = 0;
+            foreach (var field in fields)
             {
-                var fields = static_class.GetFields(BindingFlags.Static | BindingFlags.Public);
-                Stream f = File.Open(filename, FileMode.Open);
-                var formatter = new SoapFormatter();
-                var a = formatter.Deserialize(f) as object[,];
-                f.Close();
-                if (a != null && a.GetLength(0) != fields.Length) return;
-                var i = 0;
-                foreach (var field in fields)
+                if (a != null && field.Name == (a[i, 0] as string))
                 {
-                    if (a != null && field.Name == (a[i, 0] as string))
-                    {
-                        if (a[i, 1] != null)
-                            field.SetValue(null, a[i, 1]);
-                    }
-                    i++;
+                    if (a[i, 1] != null)
+                        field.SetValue(null, a[i, 1]);
+
                 }
+                i++;
             }
         }
     }

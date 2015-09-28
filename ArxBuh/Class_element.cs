@@ -4,12 +4,12 @@ namespace ArxBuh
 {
     static class Class_element
     {
-        public static Boolean BudgetCheck { get; set; }
-        public static String InOut { get; set; }
-        public static String Category { get; set; }
+        public static bool BudgetCheck { get; set; }
+        public static string InOut { get; set; }
+        public static string Category { get; set; }
         public static DateTime Date { get; set; }
-        public static Double Sum { get; set; }
-        public static String Comment { get; set; }
+        public static double Sum { get; set; }
+        public static string Comment { get; set; }
     }
 
     static class arxDs

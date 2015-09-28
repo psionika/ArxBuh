@@ -11,19 +11,18 @@ namespace ArxBuh
         public Form_AddEdit(string title)
         {
             InitializeComponent();
-            this.Text = title;
+            Text = title;
         }
 
-        private void Form_AddEdit_Load(object sender, EventArgs e)
+        void Form_AddEdit_Load(object sender, EventArgs e)
         {
             comboBox1.Text = Class_element.InOut;
-
             comboBox2.Text = Class_element.Category;
             dateTimePicker1.Value = Class_element.Date;
             txbSum.Text = Class_element.Sum.ToString();
             textBox1.Text = Class_element.Comment;
 
-            filter();
+
             validate();
         }
 
@@ -46,14 +45,16 @@ namespace ArxBuh
         {
             if (comboBox1.Text == "Доход")
             {
-                var townsView = new DataView(arxDs.ds.Tables["Categories"], "[In] = true", "CategoryID", DataViewRowState.CurrentRows);
+                var townsView = new DataView(arxDs.ds.Tables["Categories"], "[In] = true", "CategoryID",
+                    DataViewRowState.CurrentRows);
                 comboBox2.DataSource = townsView;
                 comboBox2.DisplayMember = "Category";
             }
 
             if (comboBox1.Text == "Расход")
             {
-                var townsView = new DataView(arxDs.ds.Tables["Categories"], "[Out] = true", "CategoryID", DataViewRowState.CurrentRows);
+                var townsView = new DataView(arxDs.ds.Tables["Categories"], "[Out] = true", "CategoryID",
+                    DataViewRowState.CurrentRows);
                 comboBox2.DataSource = townsView;
                 comboBox2.DisplayMember = "Category";
             }
@@ -62,14 +63,7 @@ namespace ArxBuh
         #region Validate
         bool validate()
         {
-            if (validate_InOut() && validate_Sum())
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return validate_InOut() && validate_Sum();
         }
 
         bool validate_InOut()
@@ -79,11 +73,9 @@ namespace ArxBuh
                 errorProvider1.SetError(comboBox1, "Выберите хотя бы один вариант");
                 return false;
             }
-            else
-            {
-                errorProvider1.SetError(comboBox1, "");
-                return true;
-            }
+
+            errorProvider1.SetError(comboBox1, "");
+            return true;
         }
 
         bool validate_Sum()

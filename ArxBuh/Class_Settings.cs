@@ -7,15 +7,15 @@ namespace ArxBuh
 {
     static class ArxBuhSettings
     {
-        public static Boolean BackupEnable = true;
-        public static String BackupDir = @"Backup";
-        public static Decimal BackupCounter = 10;
+        public static bool BackupEnable = true;
+        public static string BackupDir = @"Backup";
+        public static decimal BackupCounter = 10;
 
-        public static Boolean EncryptEnable = false;
-        public static String EncryptPassword = "";
+        public static bool EncryptEnable;
+        public static string EncryptPassword = "";
 
-        public static String UpdatePath = @"http://arxbuh.itchita.ru/arxbuh.xml";
-        public static Boolean UpdateEnabled = true;
+        public static string UpdatePath = @"http://arxbuh.itchita.ru/arxbuh.xml";
+        public static bool UpdateEnabled = true;
     }
 
     static class ArxBuhSettingAction
@@ -24,8 +24,6 @@ namespace ArxBuh
         {
             var static_class = typeof(ArxBuhSettings);
             const string filename = "settings.xml";
-
-            try
             {
                 var fields = static_class.GetFields(BindingFlags.Static | BindingFlags.Public);
 
@@ -42,37 +40,31 @@ namespace ArxBuh
                 formatter.Serialize(f, a);
                 f.Close();
             }
-            catch
-            {
-            }
         }
 
         public static void ReadXml()
         {
             var static_class = typeof(ArxBuhSettings);
-            const string filename = "settings.xml";
+            var filename = "settings.xml";
 
-            try
+            if (!File.Exists(filename)) return;
+
+            var fields = static_class.GetFields(BindingFlags.Static | BindingFlags.Public);
+            Stream f = File.Open(filename, FileMode.Open);
+            var formatter = new SoapFormatter();
+            var a = formatter.Deserialize(f) as object[,];
+            f.Close();
+            if (a != null && a.GetLength(0) != fields.Length) return;
+            var i = 0;
+            foreach (var field in fields)
             {
-                var fields = static_class.GetFields(BindingFlags.Static | BindingFlags.Public);
-                Stream f = File.Open(filename, FileMode.Open);
-                var formatter = new SoapFormatter();
-                var a = formatter.Deserialize(f) as object[,];
-                f.Close();
-                if (a != null && a.GetLength(0) != fields.Length) return;
-                var i = 0;
-                foreach (var field in fields)
+                if (a != null && field.Name == (a[i, 0] as string))
                 {
-                    if (a != null && field.Name == (a[i, 0] as string))
-                    {
-                        if (a[i, 1] != null)
-                            field.SetValue(null, a[i, 1]);
-                    }
-                    i++;
+                    if (a[i, 1] != null)
+                        field.SetValue(null, a[i, 1]);
+
                 }
-            }
-            catch
-            {
+                i++;
             }
         }
     }

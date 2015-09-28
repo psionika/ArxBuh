@@ -178,11 +178,11 @@
     <Compile Include="Form_AddEditGoal.Designer.cs">
       <DependentUpon>Form_AddEditGoal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_AddGoalElement.cs">
+    <Compile Include="Form_AddEditGoalElement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_AddGoalElement.Designer.cs">
-      <DependentUpon>Form_AddGoalElement.cs</DependentUpon>
+    <Compile Include="Form_AddEditGoalElement.Designer.cs">
+      <DependentUpon>Form_AddEditGoalElement.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_Update.cs">
       <SubType>Form</SubType>
@@ -222,8 +222,8 @@
     <EmbeddedResource Include="Form_AddEditGoal.resx">
       <DependentUpon>Form_AddEditGoal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_AddGoalElement.resx">
-      <DependentUpon>Form_AddGoalElement.cs</DependentUpon>
+    <EmbeddedResource Include="Form_AddEditGoalElement.resx">
+      <DependentUpon>Form_AddEditGoalElement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Update.resx">
       <DependentUpon>Form_Update.cs</DependentUpon>
