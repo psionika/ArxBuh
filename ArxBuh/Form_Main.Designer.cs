@@ -35,21 +35,23 @@ namespace ArxBuh
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.DeleteTSB = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolsbTransfer = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
@@ -63,6 +65,7 @@ namespace ArxBuh
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.категорииДоходовИРасходовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbImportCSV = new System.Windows.Forms.ToolStripMenuItem();
             this.резервноеКопированиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.шифрованиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.автоматическоеОбновлениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -189,7 +192,6 @@ namespace ArxBuh
             this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
             this.cashInOutBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.tsbImportCSV = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -226,6 +228,8 @@ namespace ArxBuh
             this.toolStripButton6,
             this.toolStripButton7,
             this.DeleteTSB,
+            this.toolStripSeparator11,
+            this.toolsbTransfer,
             this.toolStripSeparator2,
             this.toolStripComboBox1,
             this.toolStripLabel5,
@@ -239,7 +243,7 @@ namespace ArxBuh
             this.toolStripSeparator8});
             this.toolStrip1.Location = new System.Drawing.Point(3, 3);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(972, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1038, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "Добавить";
             // 
@@ -273,6 +277,19 @@ namespace ArxBuh
             this.DeleteTSB.ToolTipText = "Удалить выделенный в данный момент элемент (Hotkey - Alt+D)";
             this.DeleteTSB.Click += new System.EventHandler(this.DeleteTSB_Click);
             // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolsbTransfer
+            // 
+            this.toolsbTransfer.Image = global::ArxBuh.Properties.Resources.expand_32x32;
+            this.toolsbTransfer.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolsbTransfer.Name = "toolsbTransfer";
+            this.toolsbTransfer.Size = new System.Drawing.Size(71, 22);
+            this.toolsbTransfer.Text = "Перевод";
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
@@ -281,11 +298,12 @@ namespace ArxBuh
             // toolStripComboBox1
             // 
             this.toolStripComboBox1.AutoSize = false;
+            this.toolStripComboBox1.DropDownWidth = 210;
             this.toolStripComboBox1.Items.AddRange(new object[] {
             "Доход",
             "Расход"});
             this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(250, 21);
+            this.toolStripComboBox1.Size = new System.Drawing.Size(210, 21);
             this.toolStripComboBox1.TextChanged += new System.EventHandler(this.toolStripComboBox1_TextChanged);
             // 
             // toolStripLabel5
@@ -299,7 +317,7 @@ namespace ArxBuh
             this.toolStripDateTimeChooser3.AutoSize = false;
             this.toolStripDateTimeChooser3.BackColor = System.Drawing.Color.Transparent;
             this.toolStripDateTimeChooser3.Name = "toolStripDateTimeChooser3";
-            this.toolStripDateTimeChooser3.Size = new System.Drawing.Size(126, 25);
+            this.toolStripDateTimeChooser3.Size = new System.Drawing.Size(96, 25);
             this.toolStripDateTimeChooser3.Text = "toolStripDateTimeChooser3";
             this.toolStripDateTimeChooser3.Value = new System.DateTime(2014, 2, 15, 21, 22, 26, 559);
             this.toolStripDateTimeChooser3.ValueChanged += new System.EventHandler(this.toolStripDateTimeChooser3_ValueChanged);
@@ -315,7 +333,7 @@ namespace ArxBuh
             this.toolStripDateTimeChooser4.AutoSize = false;
             this.toolStripDateTimeChooser4.BackColor = System.Drawing.Color.Transparent;
             this.toolStripDateTimeChooser4.Name = "toolStripDateTimeChooser4";
-            this.toolStripDateTimeChooser4.Size = new System.Drawing.Size(126, 25);
+            this.toolStripDateTimeChooser4.Size = new System.Drawing.Size(96, 25);
             this.toolStripDateTimeChooser4.Text = "toolStripDateTimeChooser4";
             this.toolStripDateTimeChooser4.Value = new System.DateTime(2014, 2, 15, 21, 22, 26, 565);
             this.toolStripDateTimeChooser4.ValueChanged += new System.EventHandler(this.toolStripDateTimeChooser4_ValueChanged);
@@ -386,6 +404,13 @@ namespace ArxBuh
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(232, 6);
+            // 
+            // tsbImportCSV
+            // 
+            this.tsbImportCSV.Name = "tsbImportCSV";
+            this.tsbImportCSV.Size = new System.Drawing.Size(235, 22);
+            this.tsbImportCSV.Text = "Выгрузить в CSV файл";
+            this.tsbImportCSV.Click += new System.EventHandler(this.tsbImportCSV_Click);
             // 
             // резервноеКопированиеToolStripMenuItem
             // 
@@ -458,7 +483,7 @@ namespace ArxBuh
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(992, 512);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1058, 512);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // tabControl1
@@ -472,7 +497,7 @@ namespace ArxBuh
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.ShowToolTips = true;
-            this.tabControl1.Size = new System.Drawing.Size(986, 506);
+            this.tabControl1.Size = new System.Drawing.Size(1052, 506);
             this.tabControl1.TabIndex = 6;
             // 
             // tabPage1
@@ -482,7 +507,7 @@ namespace ArxBuh
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(978, 480);
+            this.tabPage1.Size = new System.Drawing.Size(1044, 480);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Доходы-Расходы";
             this.tabPage1.ToolTipText = "Доходы-Расходы (HotKey - Alt+1)";
@@ -500,7 +525,7 @@ namespace ArxBuh
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(972, 449);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1038, 449);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // dataGridView1
@@ -508,14 +533,14 @@ namespace ArxBuh
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.inOutDataGridViewTextBoxColumn,
@@ -530,7 +555,7 @@ namespace ArxBuh
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(966, 393);
+            this.dataGridView1.Size = new System.Drawing.Size(1032, 393);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
@@ -564,10 +589,10 @@ namespace ArxBuh
             // sumDataGridViewTextBoxColumn
             // 
             this.sumDataGridViewTextBoxColumn.DataPropertyName = "Sum";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle12.Format = "C2";
-            dataGridViewCellStyle12.NullValue = null;
-            this.sumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.sumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.sumDataGridViewTextBoxColumn.FillWeight = 80F;
             this.sumDataGridViewTextBoxColumn.HeaderText = "Сумма";
             this.sumDataGridViewTextBoxColumn.Name = "sumDataGridViewTextBoxColumn";
@@ -588,7 +613,7 @@ namespace ArxBuh
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(978, 480);
+            this.tabPage2.Size = new System.Drawing.Size(1044, 480);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Бюджет";
             this.tabPage2.ToolTipText = "Бюджет (HotKey - Alt+2)";
@@ -610,7 +635,7 @@ namespace ArxBuh
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(972, 474);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1038, 474);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // toolStrip3
@@ -630,7 +655,7 @@ namespace ArxBuh
             this.toolStripButton2});
             this.toolStrip3.Location = new System.Drawing.Point(0, 0);
             this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(972, 25);
+            this.toolStrip3.Size = new System.Drawing.Size(1038, 25);
             this.toolStrip3.TabIndex = 9;
             this.toolStrip3.Text = "toolStrip3";
             // 
@@ -765,7 +790,7 @@ namespace ArxBuh
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 427);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(966, 44);
+            this.panel1.Size = new System.Drawing.Size(1032, 44);
             this.panel1.TabIndex = 6;
             // 
             // dateTimePicker1
@@ -850,7 +875,7 @@ namespace ArxBuh
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(966, 393);
+            this.dataGridView2.Size = new System.Drawing.Size(1032, 393);
             this.dataGridView2.TabIndex = 7;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             this.dataGridView2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellDoubleClick);
@@ -887,9 +912,9 @@ namespace ArxBuh
             // sumDataGridViewTextBoxColumn1
             // 
             this.sumDataGridViewTextBoxColumn1.DataPropertyName = "Sum";
-            dataGridViewCellStyle13.Format = "C2";
-            dataGridViewCellStyle13.NullValue = null;
-            this.sumDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.sumDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
             this.sumDataGridViewTextBoxColumn1.HeaderText = "Сумма";
             this.sumDataGridViewTextBoxColumn1.Name = "sumDataGridViewTextBoxColumn1";
             this.sumDataGridViewTextBoxColumn1.Width = 80;
@@ -918,7 +943,7 @@ namespace ArxBuh
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(978, 480);
+            this.tabPage3.Size = new System.Drawing.Size(1044, 480);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Цели";
             this.tabPage3.ToolTipText = "Цели (HotKey - Alt+3)";
@@ -938,7 +963,7 @@ namespace ArxBuh
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(972, 474);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1038, 474);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // toolStrip4
@@ -952,7 +977,7 @@ namespace ArxBuh
             this.toolStripButton9});
             this.toolStrip4.Location = new System.Drawing.Point(0, 0);
             this.toolStrip4.Name = "toolStrip4";
-            this.toolStrip4.Size = new System.Drawing.Size(972, 25);
+            this.toolStrip4.Size = new System.Drawing.Size(1038, 25);
             this.toolStrip4.TabIndex = 2;
             this.toolStrip4.Text = "toolStrip4";
             // 
@@ -1071,10 +1096,10 @@ namespace ArxBuh
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.ReadOnly = true;
             this.dataGridView4.RowHeadersVisible = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.dataGridView4.RowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.dataGridView4.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView4.Size = new System.Drawing.Size(966, 393);
+            this.dataGridView4.Size = new System.Drawing.Size(1032, 393);
             this.dataGridView4.TabIndex = 1;
             this.dataGridView4.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellDoubleClick);
             this.dataGridView4.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView4_CellMouseClick);
@@ -1091,9 +1116,9 @@ namespace ArxBuh
             // allSumDataGridViewTextBoxColumn
             // 
             this.allSumDataGridViewTextBoxColumn.DataPropertyName = "AllSum";
-            dataGridViewCellStyle14.Format = "C2";
-            dataGridViewCellStyle14.NullValue = null;
-            this.allSumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.allSumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.allSumDataGridViewTextBoxColumn.HeaderText = "Сумма";
             this.allSumDataGridViewTextBoxColumn.Name = "allSumDataGridViewTextBoxColumn";
             this.allSumDataGridViewTextBoxColumn.ReadOnly = true;
@@ -1101,9 +1126,9 @@ namespace ArxBuh
             // historyDataGridViewTextBoxColumn
             // 
             this.historyDataGridViewTextBoxColumn.DataPropertyName = "History";
-            dataGridViewCellStyle15.Format = "C2";
-            dataGridViewCellStyle15.NullValue = null;
-            this.historyDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.historyDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.historyDataGridViewTextBoxColumn.HeaderText = "Внесено";
             this.historyDataGridViewTextBoxColumn.Name = "historyDataGridViewTextBoxColumn";
             this.historyDataGridViewTextBoxColumn.ReadOnly = true;
@@ -1148,7 +1173,7 @@ namespace ArxBuh
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(978, 480);
+            this.tabPage4.Size = new System.Drawing.Size(1044, 480);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Отчёты";
             this.tabPage4.ToolTipText = "Отчёты (HotKey - Alt+4)";
@@ -1159,7 +1184,7 @@ namespace ArxBuh
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reportViewer1.Location = new System.Drawing.Point(3, 28);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(972, 449);
+            this.reportViewer1.Size = new System.Drawing.Size(1038, 449);
             this.reportViewer1.TabIndex = 1;
             // 
             // toolStrip5
@@ -1179,7 +1204,7 @@ namespace ArxBuh
             this.toolStripButton10});
             this.toolStrip5.Location = new System.Drawing.Point(3, 3);
             this.toolStrip5.Name = "toolStrip5";
-            this.toolStrip5.Size = new System.Drawing.Size(972, 25);
+            this.toolStrip5.Size = new System.Drawing.Size(1038, 25);
             this.toolStrip5.TabIndex = 0;
             this.toolStrip5.Text = "toolStrip5";
             // 
@@ -1214,7 +1239,7 @@ namespace ArxBuh
             this.toolStripDateTimeChooser1.BackColor = System.Drawing.Color.Transparent;
             this.toolStripDateTimeChooser1.Margin = new System.Windows.Forms.Padding(0, -1, 0, 2);
             this.toolStripDateTimeChooser1.Name = "toolStripDateTimeChooser1";
-            this.toolStripDateTimeChooser1.Size = new System.Drawing.Size(126, 24);
+            this.toolStripDateTimeChooser1.Size = new System.Drawing.Size(96, 24);
             this.toolStripDateTimeChooser1.Text = "toolStripDateTimeChooser1";
             this.toolStripDateTimeChooser1.Value = new System.DateTime(2014, 2, 15, 21, 22, 26, 959);
             this.toolStripDateTimeChooser1.ValueChanged += new System.EventHandler(this.toolStripComboBox2_TextChanged);
@@ -1230,7 +1255,7 @@ namespace ArxBuh
             this.toolStripDateTimeChooser2.BackColor = System.Drawing.Color.Transparent;
             this.toolStripDateTimeChooser2.Margin = new System.Windows.Forms.Padding(0, -1, 0, 2);
             this.toolStripDateTimeChooser2.Name = "toolStripDateTimeChooser2";
-            this.toolStripDateTimeChooser2.Size = new System.Drawing.Size(126, 24);
+            this.toolStripDateTimeChooser2.Size = new System.Drawing.Size(96, 24);
             this.toolStripDateTimeChooser2.Text = "toolStripDateTimeChooser2";
             this.toolStripDateTimeChooser2.Value = new System.DateTime(2014, 2, 15, 21, 22, 26, 963);
             this.toolStripDateTimeChooser2.ValueChanged += new System.EventHandler(this.toolStripComboBox2_TextChanged);
@@ -1336,8 +1361,8 @@ namespace ArxBuh
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Sum";
-            dataGridViewCellStyle17.NullValue = "0";
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle7.NullValue = "0";
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewTextBoxColumn1.FillWeight = 80F;
             this.dataGridViewTextBoxColumn1.HeaderText = "Сумма";
             this.dataGridViewTextBoxColumn1.MaxInputLength = 15;
@@ -1365,8 +1390,8 @@ namespace ArxBuh
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Comment";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewTextBoxColumn4.FillWeight = 80F;
             this.dataGridViewTextBoxColumn4.HeaderText = "Comment";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
@@ -1405,8 +1430,8 @@ namespace ArxBuh
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.DataPropertyName = "Sum";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewTextBoxColumn9.HeaderText = "Sum";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.Width = 50;
@@ -1443,8 +1468,8 @@ namespace ArxBuh
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "Sum";
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTextBoxColumn14.HeaderText = "Sum";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.Width = 50;
@@ -1590,18 +1615,11 @@ namespace ArxBuh
             this.cashInOutBindingSource1.DataMember = "CashInOut";
             this.cashInOutBindingSource1.DataSource = this.dataSet1;
             // 
-            // tsbImportCSV
-            // 
-            this.tsbImportCSV.Name = "tsbImportCSV";
-            this.tsbImportCSV.Size = new System.Drawing.Size(235, 22);
-            this.tsbImportCSV.Text = "Выгрузить в CSV файл";
-            this.tsbImportCSV.Click += new System.EventHandler(this.tsbImportCSV_Click);
-            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(992, 512);
+            this.ClientSize = new System.Drawing.Size(1058, 512);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
@@ -1796,6 +1814,8 @@ namespace ArxBuh
         private ToolStripMenuItem справкаПоГорячимКлавишамToolStripMenuItem;
         private ToolStripMenuItem tsbImportCSV;
         private SaveFileDialog saveFileDialog1;
+        private ToolStripSeparator toolStripSeparator11;
+        private ToolStripButton toolsbTransfer;
     }
 }
 

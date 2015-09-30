@@ -21,7 +21,7 @@ namespace ArxBuh
             flPanel.BackColor = System.Drawing.Color.Transparent;
             dtPicker.Format = DateTimePickerFormat.Short;
             flPanel.Controls.Add(dtPicker);
-            dtPicker.Width = 120;
+            dtPicker.Width = 90;
 
             dtPicker.ValueChanged += new EventHandler(dateTimePicker_ValueChanged);
         }

@@ -9,9 +9,9 @@ namespace ArxBuh
         public Form_AboutBox()
         {
             InitializeComponent();
-            Text = String.Format("О {0}", AssemblyTitle);
+            Text = string.Format("О {0}", AssemblyTitle);
             labelProductName.Text = AssemblyProduct;
-            labelVersion.Text = String.Format("Версия {0}", AssemblyVersion);
+            labelVersion.Text = string.Format("Версия {0}", AssemblyVersion);
             labelCopyright.Text = AssemblyCopyright;
             labelCompanyName.Text = AssemblyCompany;
             textBoxDescription.Text = AssemblyDescription;
@@ -100,6 +100,13 @@ namespace ArxBuh
         void Form_AboutBox1_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            linkLabel1.LinkVisited = true;
+
+            System.Diagnostics.Process.Start("http://iconza.ru/");
         }
     }
 }

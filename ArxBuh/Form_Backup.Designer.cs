@@ -47,7 +47,7 @@
             // 
             this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(70, 119);
+            this.btnOK.Location = new System.Drawing.Point(69, 113);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
@@ -59,7 +59,7 @@
             // 
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(285, 119);
+            this.btnCancel.Location = new System.Drawing.Point(282, 113);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
@@ -89,7 +89,7 @@
             // textBox1
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Location = new System.Drawing.Point(222, 42);
+            this.textBox1.Location = new System.Drawing.Point(219, 42);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(201, 20);
             this.textBox1.TabIndex = 4;
@@ -98,7 +98,7 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numericUpDown1.Location = new System.Drawing.Point(221, 77);
+            this.numericUpDown1.Location = new System.Drawing.Point(218, 77);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(203, 20);
             this.numericUpDown1.TabIndex = 5;
@@ -130,7 +130,8 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(467, 157);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(464, 145);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // checkBox1
@@ -138,7 +139,7 @@
             this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkBox1.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.checkBox1, 3);
-            this.checkBox1.Location = new System.Drawing.Point(105, 9);
+            this.checkBox1.Location = new System.Drawing.Point(104, 9);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(256, 17);
             this.checkBox1.TabIndex = 6;
@@ -149,7 +150,7 @@
             // btnChangeBackupDirectory
             // 
             this.btnChangeBackupDirectory.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnChangeBackupDirectory.Location = new System.Drawing.Point(433, 41);
+            this.btnChangeBackupDirectory.Location = new System.Drawing.Point(429, 41);
             this.btnChangeBackupDirectory.Name = "btnChangeBackupDirectory";
             this.btnChangeBackupDirectory.Size = new System.Drawing.Size(31, 23);
             this.btnChangeBackupDirectory.TabIndex = 7;
@@ -163,14 +164,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(467, 157);
+            this.ClientSize = new System.Drawing.Size(464, 145);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(470, 170);
+            this.MinimumSize = new System.Drawing.Size(470, 170);
             this.Name = "Form_Backup";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Настройка резервного копирования";
+            this.Text = "ArxBuh: Настройка резервного копирования";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

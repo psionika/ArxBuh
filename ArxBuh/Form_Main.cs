@@ -589,8 +589,16 @@ namespace ArxBuh
 
         void arxClearFilter()
         {
-            DateBeginEnd.DateBegin = dataSet1.Tables["CashInOut"].Rows.OfType<DataRow>().
-                Select(k => Convert.ToDateTime(k["DateTime"])).Min();
+            if (dataSet1.Tables["CashInOut"].Rows.Count > 0)
+            {
+                DateBeginEnd.DateBegin = dataSet1.Tables["CashInOut"].Rows.OfType<DataRow>().
+                    Select(k => Convert.ToDateTime(k["DateTime"])).Min();
+            }
+            else
+            {
+                DateBeginEnd.DateBegin = DateTime.Now.AddYears(-1);                
+            }
+
 
             DateBeginEnd.DateEnd = DateTime.Now.Date.AddDays(1).AddSeconds(-1);
 

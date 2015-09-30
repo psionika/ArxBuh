@@ -126,6 +126,12 @@
     <Compile Include="Form_AddEditBudget.Designer.cs">
       <DependentUpon>Form_AddEditBudget.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_AddEditTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_AddEditTransfer.Designer.cs">
+      <DependentUpon>Form_AddEditTransfer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Backup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_AddEditBudget.resx">
       <DependentUpon>Form_AddEditBudget.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_AddEditTransfer.resx">
+      <DependentUpon>Form_AddEditTransfer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Backup.resx">
       <DependentUpon>Form_Backup.cs</DependentUpon>
