@@ -23,6 +23,7 @@ namespace ArxBuh
         public static void WriteXml()
         {
             var static_class = typeof(ArxBuhSettings);
+
             const string filename = "settings.xml";
             {
                 var fields = static_class.GetFields(BindingFlags.Static | BindingFlags.Public);

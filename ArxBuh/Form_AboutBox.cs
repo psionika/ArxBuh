@@ -19,7 +19,7 @@ namespace ArxBuh
 
         #region Методы доступа к атрибутам сборки
 
-        public string AssemblyTitle
+        string AssemblyTitle
         {
             get
             {
@@ -36,7 +36,7 @@ namespace ArxBuh
             }
         }
 
-        public string AssemblyVersion
+        string AssemblyVersion
         {
             get
             {
@@ -44,7 +44,7 @@ namespace ArxBuh
             }
         }
 
-        public string AssemblyDescription
+        string AssemblyDescription
         {
             get
             {
@@ -57,7 +57,7 @@ namespace ArxBuh
             }
         }
 
-        public string AssemblyProduct
+        string AssemblyProduct
         {
             get
             {
@@ -70,7 +70,7 @@ namespace ArxBuh
             }
         }
 
-        public string AssemblyCopyright
+        string AssemblyCopyright
         {
             get
             {
@@ -83,7 +83,7 @@ namespace ArxBuh
             }
         }
 
-        public string AssemblyCompany
+        string AssemblyCompany
         {
             get
             {

@@ -22,7 +22,6 @@ namespace ArxBuh
             txbSum.Text = Class_element.Sum.ToString();
             textBox1.Text = Class_element.Comment;
 
-
             validate();
         }
 
@@ -47,6 +46,7 @@ namespace ArxBuh
             {
                 var townsView = new DataView(arxDs.ds.Tables["Categories"], "[In] = true", "CategoryID",
                     DataViewRowState.CurrentRows);
+
                 comboBox2.DataSource = townsView;
                 comboBox2.DisplayMember = "Category";
             }
