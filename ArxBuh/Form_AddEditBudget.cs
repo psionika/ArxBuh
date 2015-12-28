@@ -17,6 +17,7 @@ namespace ArxBuh
 
         private void Form_AddEditBudget_Load(object sender, EventArgs e)
         {
+            checkBox1.Checked = Class_element.BudgetCheck;
             comboBox1.Text = Class_element.InOut;
             comboBox2.Text = Class_element.Category;
             dateTimePicker1.Value = Class_element.Date;
