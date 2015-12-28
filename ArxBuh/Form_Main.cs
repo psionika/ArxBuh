@@ -887,6 +887,28 @@ namespace ArxBuh
 
             add_elementBudget();
         }
+
+
+        private void ввестиНаОснованииToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView2.CurrentRow == null) return;
+
+            Class_element.InOut = dataGridView2.CurrentRow.Cells[1].Value.ToString();
+            Class_element.Category = dataGridView2.CurrentRow.Cells[2].Value.ToString();
+            Class_element.Date = DateTime.ParseExact(dataGridView2.CurrentRow.Cells[3].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
+            Class_element.Sum = Convert.ToDouble(dataGridView2.CurrentRow.Cells[4].Value);
+            Class_element.Comment = dataGridView2.CurrentRow.Cells[5].Value.ToString();
+
+            var customerRow = ((DataRowView)dataGridView2.CurrentRow.DataBoundItem).Row;
+
+            customerRow["Check"] = true;
+
+            saveData();
+
+            tabControl1.SelectedTab = tabPage1;
+
+            add_element();
+        }
         #endregion
 
         #region Цели
@@ -1207,5 +1229,6 @@ namespace ArxBuh
                 }
             }
         }
+
     }
 }
