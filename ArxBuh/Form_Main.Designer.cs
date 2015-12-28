@@ -873,6 +873,7 @@ namespace ArxBuh
             this.dataGridView2.Location = new System.Drawing.Point(3, 28);
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(1032, 393);
@@ -888,6 +889,7 @@ namespace ArxBuh
             this.checkDataGridViewCheckBoxColumn.DataPropertyName = "Check";
             this.checkDataGridViewCheckBoxColumn.HeaderText = "Выполнено";
             this.checkDataGridViewCheckBoxColumn.Name = "checkDataGridViewCheckBoxColumn";
+            this.checkDataGridViewCheckBoxColumn.ReadOnly = true;
             this.checkDataGridViewCheckBoxColumn.Width = 80;
             // 
             // inOutDataGridViewTextBoxColumn1
@@ -895,18 +897,21 @@ namespace ArxBuh
             this.inOutDataGridViewTextBoxColumn1.DataPropertyName = "InOut";
             this.inOutDataGridViewTextBoxColumn1.HeaderText = "Доход-Расход";
             this.inOutDataGridViewTextBoxColumn1.Name = "inOutDataGridViewTextBoxColumn1";
+            this.inOutDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // categoryDataGridViewTextBoxColumn1
             // 
             this.categoryDataGridViewTextBoxColumn1.DataPropertyName = "Category";
             this.categoryDataGridViewTextBoxColumn1.HeaderText = "Категория";
             this.categoryDataGridViewTextBoxColumn1.Name = "categoryDataGridViewTextBoxColumn1";
+            this.categoryDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dateTimeDataGridViewTextBoxColumn1
             // 
             this.dateTimeDataGridViewTextBoxColumn1.DataPropertyName = "DateTime";
             this.dateTimeDataGridViewTextBoxColumn1.HeaderText = "Дата";
             this.dateTimeDataGridViewTextBoxColumn1.Name = "dateTimeDataGridViewTextBoxColumn1";
+            this.dateTimeDataGridViewTextBoxColumn1.ReadOnly = true;
             this.dateTimeDataGridViewTextBoxColumn1.Width = 80;
             // 
             // sumDataGridViewTextBoxColumn1
@@ -917,6 +922,7 @@ namespace ArxBuh
             this.sumDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
             this.sumDataGridViewTextBoxColumn1.HeaderText = "Сумма";
             this.sumDataGridViewTextBoxColumn1.Name = "sumDataGridViewTextBoxColumn1";
+            this.sumDataGridViewTextBoxColumn1.ReadOnly = true;
             this.sumDataGridViewTextBoxColumn1.Width = 80;
             // 
             // commentDataGridViewTextBoxColumn1
@@ -925,6 +931,7 @@ namespace ArxBuh
             this.commentDataGridViewTextBoxColumn1.DataPropertyName = "Comment";
             this.commentDataGridViewTextBoxColumn1.HeaderText = "Комментарий";
             this.commentDataGridViewTextBoxColumn1.Name = "commentDataGridViewTextBoxColumn1";
+            this.commentDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // budgetBindingSource
             // 
