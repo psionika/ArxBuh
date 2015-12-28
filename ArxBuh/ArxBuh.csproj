@@ -27,8 +27,8 @@
     <SupportUrl>https://twitter.com/arxont</SupportUrl>
     <PublisherName>Arxont</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>22</ApplicationRevision>
-    <ApplicationVersion>0.0.1.22</ApplicationVersion>
+    <ApplicationRevision>31</ApplicationRevision>
+    <ApplicationVersion>0.0.1.31</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -369,6 +369,12 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ArxBuhUpdater\ArxBuhUpdater.csproj">
+      <Project>{b48140ef-a7f9-486b-a72d-cde9c125c9b2}</Project>
+      <Name>ArxBuhUpdater</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
