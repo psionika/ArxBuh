@@ -5,39 +5,39 @@ DependenciesDir=MyProgramDependencies
 
 en.depdownload_msg=The following applications are required before setup can continue:%n%n%1%nDownload and install now?
 de.depdownload_msg=Die folgenden Programme werden benцtigt bevor das Setup fortfahren kann:%n%n%1%nJetzt downloaden und installieren?
-russian.depdownload_msg=Данное обновление требует для своей работы следующие библиотеки: %n%n%1%nСкачать и установить?
+ru.depdownload_msg=Данное обновление требует для своей работы следующие библиотеки: %n%n%1%nСкачать и установить?
 
 en.depdownload_memo_title=Download dependencies
 de.depdownload_memo_title=Abhдngigkeiten downloaden
-russian.depdownload_memo_title=Скачивание дополнительных библиотек
+ru.depdownload_memo_title=Скачивание дополнительных библиотек
 
 en.depinstall_memo_title=Install dependencies
 de.depinstall_memo_title=Abhдngigkeiten installieren
-russian.depinstall_memo_title=Установка дополнительных программ
+ru.depinstall_memo_title=Установка дополнительных программ
 
 en.depinstall_title=Installing dependencies
 de.depinstall_title=Installiere Abhдngigkeiten
-russian.depinstall_title=Установка дополнительных программ
+ru.depinstall_title=Установка дополнительных программ
 
 en.depinstall_description=Please wait while Setup installs dependencies on your computer.
 de.depinstall_description=Warten Sie bitte wдhrend Abhдngigkeiten auf Ihrem Computer installiert wird.
-russian.depinstall_description=Пожалуйста подождите пока установятся необходимые программы.
+ru.depinstall_description=Пожалуйста подождите пока установятся необходимые программы.
 
 en.depinstall_status=Installing %1...
 de.depinstall_status=Installiere %1...
-russian.depinstall_status=Установка %1...
+ru.depinstall_status=Установка %1...
 
 en.depinstall_missing=%1 must be installed before setup can continue. Please install %1 and run Setup again.
 de.depinstall_missing=%1 muss installiert werden bevor das Setup fortfahren kann. Bitte installieren Sie %1 und starten Sie das Setup erneut.
-russian.depinstall_missing=%1 must be installed before setup can continue. Please install %1 and run Setup again.
+ru.depinstall_missing=%1 must be installed before setup can continue. Please install %1 and run Setup again.
 
 en.depinstall_error=An error occured while installing the dependencies. Please restart the computer and run the setup again or install the following dependencies manually:%n
 de.depinstall_error=Ein Fehler ist wдhrend der Installation der Abghдngigkeiten aufgetreten. Bitte starten Sie den Computer neu und fьhren Sie das Setup erneut aus oder installieren Sie die folgenden Abhдngigkeiten per Hand:%n
-russian.depinstall_error=An error occured while installing the dependencies. Please restart the computer and run the setup again or install the following dependencies manually:%n
+ru.depinstall_error=An error occured while installing the dependencies. Please restart the computer and run the setup again or install the following dependencies manually:%n
 
 en.isxdl_langfile=
 de.isxdl_langfile=german2.ini
-russian.isxdl_langfile=russian.ini
+ru.isxdl_langfile=russian.ini
 
 
 [Files]

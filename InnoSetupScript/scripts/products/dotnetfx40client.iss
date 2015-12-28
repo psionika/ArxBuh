@@ -12,7 +12,7 @@ dotnetfx40client_size=3 MB - 197 MB
 ;http://www.microsoft.com/globaldev/reference/lcid-all.mspx
 en.dotnetfx40client_lcid=
 de.dotnetfx40client_lcid=/lcid 1031
-russian.dotnetfx40client_lcid=/lcid 1049
+ru.dotnetfx40client_lcid=/lcid 1049
 
 
 [Code]
