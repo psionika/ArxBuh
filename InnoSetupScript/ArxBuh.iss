@@ -2,6 +2,8 @@
 #define MyBuildDir "..\ArxBuh\Bin\Release"
 #define MyBuildUpdateDir "..\ArxBuhUpdater\Bin\Release"
 
+#define MySetupBaseName "setup_ArxBuh_"
+
 #define MyAppExeName "ArxBuh.exe"
 #define MyUpdaterExeName "ArxBuhUpdater.exe"
 
@@ -13,7 +15,7 @@
 #define MyAppVersion Str(Version[0]) + "." + Str(Version[1]) + "." + Str(Version[2]) + "." + Str(Version[3])
 
 [Setup]
-AppId={{a88c7794-4d6c-4561-b6c4-093861e85dae}
+AppId={{A88C7794-4D6C-4561-B6C4-093861E85DAE}
 AppName="{#MyAppName} - {cm:Product}"
 AppVersion={#MyAppVersion}
 AppVerName={#MyAppName} {#MyAppVersion}
@@ -21,10 +23,12 @@ AppPublisher=Ivan "Arxont" Lezhnev
 AppPublisherURL=https://twitter.com/arxont
 DefaultGroupName={#MyAppName}
 PrivilegesRequired=lowest
-OutputBaseFilename=setup
+OutputBaseFilename={#MySetupBaseName}{#MyAppVersion}
 Compression=lzma
 SolidCompression=yes
 DefaultDirName={userdocs}\ArxBuh
+UninstallDisplayIcon={app}\{#MyAppExeName}
+SetupIconFile=..\ArxBuh\icon.ico
 
 ;Downloading and installing dependencies will only work if the memo/ready page is enabled (default behaviour)
 DisableReadyPage=no
@@ -57,6 +61,10 @@ Name: "{userdesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Flags: nowait postinstall skipifsilent; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"
 
+
+[UninstallRun]
+Filename: {sys}\taskkill.exe; Parameters: "/f /im ArxBuh.exe"; Flags: skipifdoesntexist runhidden
+
 [Code]
 // shared code for installing the products
 #include "scripts\products.iss"
@@ -64,7 +72,10 @@ Filename: "{app}\{#MyAppExeName}"; Flags: nowait postinstall skipifsilent; Descr
 #include "scripts\products\stringversion.iss"
 #include "scripts\products\winversion.iss"
 #include "scripts\products\fileversion.iss"
-#include "scripts\products\dotnetfxversion.iss"      
+#include "scripts\products\dotnetfxversion.iss" 
+
+#include "scripts\UnInstallPrevision.iss"
+     
 
 // actual products
 #ifdef use_dotnetfx40
@@ -82,4 +93,9 @@ begin
 #endif
 
 	Result := true;
+end;
+
+procedure CurStepChanged(CurStep: TSetupStep);
+begin
+   UnInstallPrevision(CurStep);                    
 end;
