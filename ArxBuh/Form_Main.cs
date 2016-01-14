@@ -887,28 +887,6 @@ namespace ArxBuh
 
             add_elementBudget();
         }
-
-
-        private void ввестиНаОснованииToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (dataGridView2.CurrentRow == null) return;
-
-            Class_element.InOut = dataGridView2.CurrentRow.Cells[1].Value.ToString();
-            Class_element.Category = dataGridView2.CurrentRow.Cells[2].Value.ToString();
-            Class_element.Date = DateTime.ParseExact(dataGridView2.CurrentRow.Cells[3].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
-            Class_element.Sum = Convert.ToDouble(dataGridView2.CurrentRow.Cells[4].Value);
-            Class_element.Comment = dataGridView2.CurrentRow.Cells[5].Value.ToString();
-
-            var customerRow = ((DataRowView)dataGridView2.CurrentRow.DataBoundItem).Row;
-
-            customerRow["Check"] = true;
-
-            saveData();
-
-            tabControl1.SelectedTab = tabPage1;
-
-            add_element();
-        }
         #endregion
 
         #region Цели
@@ -1230,5 +1208,149 @@ namespace ArxBuh
             }
         }
 
+        #region Date time filter с по
+        private void сНачалаНеделиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var dt = DateTime.Now.Date;
+
+            while (dt.DayOfWeek != System.DayOfWeek.Monday)
+            {
+                dt = dt.AddDays(-1);
+            }
+
+            DateBeginEnd.DateBegin = dt;
+            DateBeginEnd.DateEnd = DateTime.Now;
+
+            toolStripDateTimeChooser3.Value = DateBeginEnd.DateBegin;
+            toolStripDateTimeChooser4.Value = DateBeginEnd.DateEnd;
+
+            filter();
+        }
+
+
+        private void сНачалаМесяцаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var dt = DateTime.Now.Date;
+
+            dt = new System.DateTime(dt.Year, dt.Month, 1);
+
+            DateBeginEnd.DateBegin = dt;
+            DateBeginEnd.DateEnd = DateTime.Now;
+
+            toolStripDateTimeChooser3.Value = DateBeginEnd.DateBegin;
+            toolStripDateTimeChooser4.Value = DateBeginEnd.DateEnd;
+
+            filter();
+        }
+
+        private void сНачалаГодаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var dt = DateTime.Now.Date;
+
+            dt = new System.DateTime(dt.Year, 1, 1);
+
+            DateBeginEnd.DateBegin = dt;
+            DateBeginEnd.DateEnd = DateTime.Now;
+
+            toolStripDateTimeChooser3.Value = DateBeginEnd.DateBegin;
+            toolStripDateTimeChooser4.Value = DateBeginEnd.DateEnd;
+
+            filter();
+        }
+
+        private void предыдущаяНеделяToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var dtEnd = DateTime.Now.Date;
+
+            if (dtEnd.DayOfWeek == DayOfWeek.Sunday) dtEnd = dtEnd.AddDays(-1);
+
+            while (dtEnd.DayOfWeek != DayOfWeek.Sunday)
+            {
+                dtEnd = dtEnd.AddDays(-1);
+            }
+
+            dtEnd = dtEnd.AddDays(1).AddSeconds(-1);
+
+            var dtBegin = dtEnd;
+
+            while (dtBegin.DayOfWeek != DayOfWeek.Monday)
+            {
+                dtBegin = dtBegin.AddDays(-1);
+            }
+
+            DateBeginEnd.DateBegin = dtBegin;
+            DateBeginEnd.DateEnd = dtEnd;
+
+            toolStripDateTimeChooser3.Value = DateBeginEnd.DateBegin;
+            toolStripDateTimeChooser4.Value = DateBeginEnd.DateEnd;
+
+            filter();
+        }
+
+        private void предыдущийМесяцToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var dtBegin = DateTime.Now.Date;
+            var dtEnd = DateTime.Now.Date;
+
+
+            if(dtBegin.Month != 1)
+            {
+                dtBegin = new System.DateTime(dtBegin.Year, dtBegin.Month - 1, 1);
+                dtEnd = new System.DateTime(dtEnd.Year, dtEnd.Month - 1, DateTime.DaysInMonth(dtEnd.Year, dtEnd.Month - 1), 23, 59, 59);
+            }
+            else
+            {
+                dtBegin = new System.DateTime(dtBegin.Year - 1, 12, 1);
+                dtEnd = new System.DateTime(dtEnd.Year - 1, 12, 31, 23, 59, 59);
+            }
+
+            DateBeginEnd.DateBegin = dtBegin;
+            DateBeginEnd.DateEnd = dtEnd ;
+
+            toolStripDateTimeChooser3.Value = DateBeginEnd.DateBegin;
+            toolStripDateTimeChooser4.Value = DateBeginEnd.DateEnd;
+
+            filter();
+        }
+
+        private void предыдущийГодToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var dtBegin = DateTime.Now.Date;
+            var dtEnd = DateTime.Now.Date;
+
+
+            dtBegin = new System.DateTime(dtBegin.Year - 1, 1, 1);
+            dtEnd = new System.DateTime(dtEnd.Year - 1, 12, 31, 23, 59, 59);
+
+            DateBeginEnd.DateBegin = dtBegin;
+            DateBeginEnd.DateEnd = dtEnd;
+
+            toolStripDateTimeChooser3.Value = DateBeginEnd.DateBegin;
+            toolStripDateTimeChooser4.Value = DateBeginEnd.DateEnd;
+
+            filter();
+        }
+        #endregion
+
+        private void ввестиНаОснованииToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView2.CurrentRow == null) return;
+
+            Class_element.InOut = dataGridView2.CurrentRow.Cells[1].Value.ToString();
+            Class_element.Category = dataGridView2.CurrentRow.Cells[2].Value.ToString();
+            Class_element.Date = DateTime.ParseExact(dataGridView2.CurrentRow.Cells[3].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
+            Class_element.Sum = Convert.ToDouble(dataGridView2.CurrentRow.Cells[4].Value);
+            Class_element.Comment = dataGridView2.CurrentRow.Cells[5].Value.ToString();
+
+            var customerRow = ((DataRowView)dataGridView2.CurrentRow.DataBoundItem).Row;
+
+            customerRow["Check"] = true;
+
+            saveData();
+
+            tabControl1.SelectedTab = tabPage1;
+
+            add_element();
+        }
     }
 }

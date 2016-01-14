@@ -202,7 +202,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <None Include="Resources\flash_32x32.png" />
     <EmbeddedResource Include="Form_AboutBox.resx">
       <DependentUpon>Form_AboutBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -322,6 +321,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\flash_32x32.png" />
     <None Include="Resources\house_32x32.png" />
     <None Include="Resources\redo_32x32.png" />
     <None Include="Resources\calculator_32x32.png" />
