@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArxBuh", "ArxBuh\ArxBuh.csproj", "{8ED0F24A-E071-4EAB-A39B-DA3E7027F6F1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B48140EF-A7F9-486B-A72D-CDE9C125C9B2} = {B48140EF-A7F9-486B-A72D-CDE9C125C9B2}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArxBuhUpdater", "ArxBuhUpdater\ArxBuhUpdater.csproj", "{B48140EF-A7F9-486B-A72D-CDE9C125C9B2}"
 EndProject

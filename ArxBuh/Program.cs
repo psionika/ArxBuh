@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
 
-using NLog;
-
 namespace ArxBuh
 {
     static class Program
     {
-        private static Logger logger = LogManager.GetCurrentClassLogger();
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>

@@ -35,9 +35,9 @@ namespace ArxBuh
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -45,100 +45,16 @@ namespace ArxBuh
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.labelResultInOut = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.inOutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.toolStrip3 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
-            this.labelResultBudget = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.labelIn = new System.Windows.Forms.Label();
-            this.labelOut = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.checkDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.inOutDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sumDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.commentDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.budgetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new ArxBuh.DataSet1();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.toolStrip4 = new System.Windows.Forms.ToolStrip();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.allSumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.historyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.historyIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.commentDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goalBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.labelResultGoal = new System.Windows.Forms.Label();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.toolStrip5 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripComboBox2 = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-            this.cashInOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
-            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cashInOutBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.toolStripDateTimeChooser3 = new ArxBuh.ToolStripDateTimeChooser();
-            this.toolStripDateTimeChooser4 = new ArxBuh.ToolStripDateTimeChooser();
-            this.toolStripDateTimeChooser1 = new ArxBuh.ToolStripDateTimeChooser();
-            this.toolStripDateTimeChooser2 = new ArxBuh.ToolStripDateTimeChooser();
-            this.toolStripMenuItem23 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.DeleteTSB = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.toolsbTransfer = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSplitButton4 = new System.Windows.Forms.ToolStripSplitButton();
             this.сНачалаНеделиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сНачалаМесяцаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -161,6 +77,21 @@ namespace ArxBuh
             this.toolStripMenuItem21 = new System.Windows.Forms.ToolStripSeparator();
             this.справкаПоГорячимКлавишамToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CalculatorTSB = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.labelResultInOut = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.inOutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.toolStrip3 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
@@ -172,8 +103,22 @@ namespace ArxBuh
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.labelResultBudget = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelIn = new System.Windows.Forms.Label();
+            this.labelOut = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.budgetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new ArxBuh.DataSet1();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.toolStrip4 = new System.Windows.Forms.ToolStrip();
             this.tsb_AddGoal = new System.Windows.Forms.ToolStripButton();
             this.tsb_GoalDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
@@ -185,23 +130,78 @@ namespace ArxBuh
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allSumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.historyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.historyIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goalBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.labelResultGoal = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.toolStrip5 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripComboBox2 = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
             this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
+            this.cashInOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.редактироватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.повторитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem20 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem23 = new System.Windows.Forms.ToolStripSeparator();
             this.ввестиНаОснованииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cashInOutBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.toolStripDateTimeChooser3 = new ArxBuh.ToolStripDateTimeChooser();
+            this.toolStripDateTimeChooser4 = new ArxBuh.ToolStripDateTimeChooser();
+            this.toolStripDateTimeChooser1 = new ArxBuh.ToolStripDateTimeChooser();
+            this.toolStripDateTimeChooser2 = new ArxBuh.ToolStripDateTimeChooser();
+            this.checkDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.inOutDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sumDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -256,10 +256,48 @@ namespace ArxBuh
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "Добавить";
             // 
+            // toolStripButton6
+            // 
+            this.toolStripButton6.Image = global::ArxBuh.Properties.Resources.add_32x32;
+            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton6.Name = "toolStripButton6";
+            this.toolStripButton6.Size = new System.Drawing.Size(60, 22);
+            this.toolStripButton6.Text = "Доход";
+            this.toolStripButton6.ToolTipText = "Добавить новый доход (Hotkey - Alt+Q)";
+            this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
+            // 
+            // toolStripButton7
+            // 
+            this.toolStripButton7.Image = global::ArxBuh.Properties.Resources.remove_32x32;
+            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton7.Name = "toolStripButton7";
+            this.toolStripButton7.Size = new System.Drawing.Size(64, 22);
+            this.toolStripButton7.Text = "Расход";
+            this.toolStripButton7.ToolTipText = "Добавить новый расход (Hotkey - Alt+W)";
+            this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
+            // 
+            // DeleteTSB
+            // 
+            this.DeleteTSB.Image = global::ArxBuh.Properties.Resources.delete_32x32;
+            this.DeleteTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.DeleteTSB.Name = "DeleteTSB";
+            this.DeleteTSB.Size = new System.Drawing.Size(71, 22);
+            this.DeleteTSB.Text = "Удалить";
+            this.DeleteTSB.ToolTipText = "Удалить выделенный в данный момент элемент (Hotkey - Alt+D)";
+            this.DeleteTSB.Click += new System.EventHandler(this.DeleteTSB_Click);
+            // 
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
             this.toolStripSeparator11.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolsbTransfer
+            // 
+            this.toolsbTransfer.Image = global::ArxBuh.Properties.Resources.expand_32x32;
+            this.toolsbTransfer.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolsbTransfer.Name = "toolsbTransfer";
+            this.toolsbTransfer.Size = new System.Drawing.Size(74, 22);
+            this.toolsbTransfer.Text = "Перевод";
             // 
             // toolStripSeparator2
             // 
@@ -282,6 +320,188 @@ namespace ArxBuh
             this.toolStripLabel5.Name = "toolStripLabel5";
             this.toolStripLabel5.Size = new System.Drawing.Size(15, 22);
             this.toolStripLabel5.Text = "C";
+            // 
+            // toolStripSplitButton4
+            // 
+            this.toolStripSplitButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripSplitButton4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сНачалаНеделиToolStripMenuItem,
+            this.сНачалаМесяцаToolStripMenuItem,
+            this.сНачалаГодаToolStripMenuItem,
+            this.toolStripMenuItem22,
+            this.предыдущаяНеделяToolStripMenuItem,
+            this.предыдущийМесяцToolStripMenuItem,
+            this.предыдущийГодToolStripMenuItem});
+            this.toolStripSplitButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton4.Image")));
+            this.toolStripSplitButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton4.Name = "toolStripSplitButton4";
+            this.toolStripSplitButton4.Size = new System.Drawing.Size(37, 22);
+            this.toolStripSplitButton4.Text = "по";
+            // 
+            // сНачалаНеделиToolStripMenuItem
+            // 
+            this.сНачалаНеделиToolStripMenuItem.Name = "сНачалаНеделиToolStripMenuItem";
+            this.сНачалаНеделиToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.сНачалаНеделиToolStripMenuItem.Text = "С начала недели";
+            this.сНачалаНеделиToolStripMenuItem.Click += new System.EventHandler(this.сНачалаНеделиToolStripMenuItem_Click);
+            // 
+            // сНачалаМесяцаToolStripMenuItem
+            // 
+            this.сНачалаМесяцаToolStripMenuItem.Name = "сНачалаМесяцаToolStripMenuItem";
+            this.сНачалаМесяцаToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.сНачалаМесяцаToolStripMenuItem.Text = "С начала месяца";
+            this.сНачалаМесяцаToolStripMenuItem.Click += new System.EventHandler(this.сНачалаМесяцаToolStripMenuItem_Click);
+            // 
+            // сНачалаГодаToolStripMenuItem
+            // 
+            this.сНачалаГодаToolStripMenuItem.Name = "сНачалаГодаToolStripMenuItem";
+            this.сНачалаГодаToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.сНачалаГодаToolStripMenuItem.Text = "С начала года";
+            this.сНачалаГодаToolStripMenuItem.Click += new System.EventHandler(this.сНачалаГодаToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem22
+            // 
+            this.toolStripMenuItem22.Name = "toolStripMenuItem22";
+            this.toolStripMenuItem22.Size = new System.Drawing.Size(184, 6);
+            // 
+            // предыдущаяНеделяToolStripMenuItem
+            // 
+            this.предыдущаяНеделяToolStripMenuItem.Name = "предыдущаяНеделяToolStripMenuItem";
+            this.предыдущаяНеделяToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.предыдущаяНеделяToolStripMenuItem.Text = "Предыдущая неделя";
+            this.предыдущаяНеделяToolStripMenuItem.Click += new System.EventHandler(this.предыдущаяНеделяToolStripMenuItem_Click);
+            // 
+            // предыдущийМесяцToolStripMenuItem
+            // 
+            this.предыдущийМесяцToolStripMenuItem.Name = "предыдущийМесяцToolStripMenuItem";
+            this.предыдущийМесяцToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.предыдущийМесяцToolStripMenuItem.Text = "Предыдущий месяц";
+            this.предыдущийМесяцToolStripMenuItem.Click += new System.EventHandler(this.предыдущийМесяцToolStripMenuItem_Click);
+            // 
+            // предыдущийГодToolStripMenuItem
+            // 
+            this.предыдущийГодToolStripMenuItem.Name = "предыдущийГодToolStripMenuItem";
+            this.предыдущийГодToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.предыдущийГодToolStripMenuItem.Text = "Предыдущий год";
+            this.предыдущийГодToolStripMenuItem.Click += new System.EventHandler(this.предыдущийГодToolStripMenuItem_Click);
+            // 
+            // FilterClearTSB
+            // 
+            this.FilterClearTSB.Image = global::ArxBuh.Properties.Resources.expand_32x32;
+            this.FilterClearTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.FilterClearTSB.Name = "FilterClearTSB";
+            this.FilterClearTSB.Size = new System.Drawing.Size(123, 22);
+            this.FilterClearTSB.Text = "Очистить фильтр";
+            this.FilterClearTSB.Click += new System.EventHandler(this.FilterClearTSB_Click);
+            // 
+            // ExitTSB
+            // 
+            this.ExitTSB.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.ExitTSB.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ExitTSB.Image = global::ArxBuh.Properties.Resources.door_32x32;
+            this.ExitTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ExitTSB.Name = "ExitTSB";
+            this.ExitTSB.Size = new System.Drawing.Size(23, 22);
+            this.ExitTSB.Text = "Выход";
+            this.ExitTSB.Click += new System.EventHandler(this.ExitTSB_Click);
+            // 
+            // SettingsTSB
+            // 
+            this.SettingsTSB.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.SettingsTSB.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.SettingsTSB.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AboutProgramTSB,
+            this.toolStripMenuItem1,
+            this.категорииДоходовИРасходовToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.tsbImportCSV,
+            this.резервноеКопированиеToolStripMenuItem,
+            this.шифрованиеToolStripMenuItem,
+            this.автоматическоеОбновлениеToolStripMenuItem,
+            this.toolStripMenuItem21,
+            this.справкаПоГорячимКлавишамToolStripMenuItem});
+            this.SettingsTSB.Image = global::ArxBuh.Properties.Resources.gear_wheel_32x32;
+            this.SettingsTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.SettingsTSB.Name = "SettingsTSB";
+            this.SettingsTSB.Size = new System.Drawing.Size(32, 22);
+            this.SettingsTSB.Text = "Дополнительно";
+            this.SettingsTSB.Click += new System.EventHandler(this.SettingsTSB_ButtonClick);
+            // 
+            // AboutProgramTSB
+            // 
+            this.AboutProgramTSB.Image = global::ArxBuh.Properties.Resources.help_32x32;
+            this.AboutProgramTSB.Name = "AboutProgramTSB";
+            this.AboutProgramTSB.Size = new System.Drawing.Size(249, 22);
+            this.AboutProgramTSB.Text = "О Программе";
+            this.AboutProgramTSB.Click += new System.EventHandler(this.AboutProgramTSB_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(246, 6);
+            // 
+            // категорииДоходовИРасходовToolStripMenuItem
+            // 
+            this.категорииДоходовИРасходовToolStripMenuItem.Name = "категорииДоходовИРасходовToolStripMenuItem";
+            this.категорииДоходовИРасходовToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.категорииДоходовИРасходовToolStripMenuItem.Text = "Категории доходов и расходов";
+            this.категорииДоходовИРасходовToolStripMenuItem.Click += new System.EventHandler(this.категорииДоходовИРасходовToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(246, 6);
+            // 
+            // tsbImportCSV
+            // 
+            this.tsbImportCSV.Name = "tsbImportCSV";
+            this.tsbImportCSV.Size = new System.Drawing.Size(249, 22);
+            this.tsbImportCSV.Text = "Выгрузить в CSV файл";
+            this.tsbImportCSV.Click += new System.EventHandler(this.tsbImportCSV_Click);
+            // 
+            // резервноеКопированиеToolStripMenuItem
+            // 
+            this.резервноеКопированиеToolStripMenuItem.Name = "резервноеКопированиеToolStripMenuItem";
+            this.резервноеКопированиеToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.резервноеКопированиеToolStripMenuItem.Text = "Резервное копирование";
+            this.резервноеКопированиеToolStripMenuItem.Click += new System.EventHandler(this.резервноеКопированиеToolStripMenuItem_Click);
+            // 
+            // шифрованиеToolStripMenuItem
+            // 
+            this.шифрованиеToolStripMenuItem.Name = "шифрованиеToolStripMenuItem";
+            this.шифрованиеToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.шифрованиеToolStripMenuItem.Text = "Шифрование";
+            this.шифрованиеToolStripMenuItem.Click += new System.EventHandler(this.шифрованиеToolStripMenuItem_Click);
+            // 
+            // автоматическоеОбновлениеToolStripMenuItem
+            // 
+            this.автоматическоеОбновлениеToolStripMenuItem.Name = "автоматическоеОбновлениеToolStripMenuItem";
+            this.автоматическоеОбновлениеToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.автоматическоеОбновлениеToolStripMenuItem.Text = "Автоматическое обновление";
+            this.автоматическоеОбновлениеToolStripMenuItem.Click += new System.EventHandler(this.автоматическоеОбновлениеToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem21
+            // 
+            this.toolStripMenuItem21.Name = "toolStripMenuItem21";
+            this.toolStripMenuItem21.Size = new System.Drawing.Size(246, 6);
+            // 
+            // справкаПоГорячимКлавишамToolStripMenuItem
+            // 
+            this.справкаПоГорячимКлавишамToolStripMenuItem.Name = "справкаПоГорячимКлавишамToolStripMenuItem";
+            this.справкаПоГорячимКлавишамToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.справкаПоГорячимКлавишамToolStripMenuItem.Text = "Справка по горячим клавишам";
+            this.справкаПоГорячимКлавишамToolStripMenuItem.Click += new System.EventHandler(this.справкаПоГорячимКлавишамToolStripMenuItem_Click);
+            // 
+            // CalculatorTSB
+            // 
+            this.CalculatorTSB.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.CalculatorTSB.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.CalculatorTSB.Image = global::ArxBuh.Properties.Resources.calculator_32x32;
+            this.CalculatorTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.CalculatorTSB.Name = "CalculatorTSB";
+            this.CalculatorTSB.Size = new System.Drawing.Size(23, 22);
+            this.CalculatorTSB.Text = "Калькулятор";
+            this.CalculatorTSB.Click += new System.EventHandler(this.CalculatorTSB_Click);
             // 
             // toolStripSeparator8
             // 
@@ -486,10 +706,124 @@ namespace ArxBuh
             this.toolStrip3.TabIndex = 9;
             this.toolStrip3.Text = "toolStrip3";
             // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.Image = global::ArxBuh.Properties.Resources.add_32x32;
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(60, 22);
+            this.toolStripButton3.Text = "&Доход";
+            this.toolStripButton3.ToolTipText = "Добавить новый доход в Бюджет  (Hotkey - Alt+Q)";
+            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click_1);
+            // 
+            // toolStripButton12
+            // 
+            this.toolStripButton12.Image = global::ArxBuh.Properties.Resources.remove_32x32;
+            this.toolStripButton12.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton12.Name = "toolStripButton12";
+            this.toolStripButton12.Size = new System.Drawing.Size(64, 22);
+            this.toolStripButton12.Text = "&Расход";
+            this.toolStripButton12.ToolTipText = "Добавить новый расход в Бюджет  (Hotkey - Alt+W)\r\n";
+            this.toolStripButton12.Click += new System.EventHandler(this.toolStripButton12_Click);
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.Image = global::ArxBuh.Properties.Resources.delete_32x32;
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(71, 22);
+            this.toolStripButton4.Text = "Удалить";
+            this.toolStripButton4.ToolTipText = "Удалить выделенный в данный момент элемент  (Hotkey - Alt+D)";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton5.Image = global::ArxBuh.Properties.Resources.door_32x32;
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton5.Text = "Выход";
+            this.toolStripButton5.Click += new System.EventHandler(this.ExitTSB_Click);
+            // 
+            // toolStripSplitButton1
+            // 
+            this.toolStripSplitButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem3,
+            this.toolStripSeparator1,
+            this.toolStripMenuItem4,
+            this.toolStripSeparator3,
+            this.toolStripMenuItem5,
+            this.toolStripMenuItem10});
+            this.toolStripSplitButton1.Image = global::ArxBuh.Properties.Resources.gear_wheel_32x32;
+            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 22);
+            this.toolStripSplitButton1.Text = "Дополнительно";
+            this.toolStripSplitButton1.Click += new System.EventHandler(this.SettingsTSB_ButtonClick);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Image = global::ArxBuh.Properties.Resources.help_32x32;
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(241, 22);
+            this.toolStripMenuItem3.Text = "О Программе";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(238, 6);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(241, 22);
+            this.toolStripMenuItem4.Text = "Категории доходов и расходов";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(238, 6);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(241, 22);
+            this.toolStripMenuItem5.Text = "Резервное копирование";
+            // 
+            // toolStripMenuItem10
+            // 
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(241, 22);
+            this.toolStripMenuItem10.Text = "Шифрование";
+            // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Image = global::ArxBuh.Properties.Resources.filter_32x32;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(166, 22);
+            this.toolStripButton1.Text = "Показывать выполненые";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = global::ArxBuh.Properties.Resources.calculator_32x32;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "Калькулятор";
+            this.toolStripButton2.Click += new System.EventHandler(this.CalculatorTSB_Click);
             // 
             // panel1
             // 
@@ -596,49 +930,6 @@ namespace ArxBuh
             this.dataGridView2.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellValueChanged);
             this.dataGridView2.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridView2_Paint_1);
             // 
-            // checkDataGridViewCheckBoxColumn
-            // 
-            this.checkDataGridViewCheckBoxColumn.DataPropertyName = "Check";
-            this.checkDataGridViewCheckBoxColumn.HeaderText = "Выполнено";
-            this.checkDataGridViewCheckBoxColumn.Name = "checkDataGridViewCheckBoxColumn";
-            this.checkDataGridViewCheckBoxColumn.Width = 80;
-            // 
-            // inOutDataGridViewTextBoxColumn1
-            // 
-            this.inOutDataGridViewTextBoxColumn1.DataPropertyName = "InOut";
-            this.inOutDataGridViewTextBoxColumn1.HeaderText = "Доход-Расход";
-            this.inOutDataGridViewTextBoxColumn1.Name = "inOutDataGridViewTextBoxColumn1";
-            // 
-            // categoryDataGridViewTextBoxColumn1
-            // 
-            this.categoryDataGridViewTextBoxColumn1.DataPropertyName = "Category";
-            this.categoryDataGridViewTextBoxColumn1.HeaderText = "Категория";
-            this.categoryDataGridViewTextBoxColumn1.Name = "categoryDataGridViewTextBoxColumn1";
-            // 
-            // dateTimeDataGridViewTextBoxColumn1
-            // 
-            this.dateTimeDataGridViewTextBoxColumn1.DataPropertyName = "DateTime";
-            this.dateTimeDataGridViewTextBoxColumn1.HeaderText = "Дата";
-            this.dateTimeDataGridViewTextBoxColumn1.Name = "dateTimeDataGridViewTextBoxColumn1";
-            this.dateTimeDataGridViewTextBoxColumn1.Width = 80;
-            // 
-            // sumDataGridViewTextBoxColumn1
-            // 
-            this.sumDataGridViewTextBoxColumn1.DataPropertyName = "Sum";
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.sumDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.sumDataGridViewTextBoxColumn1.HeaderText = "Сумма";
-            this.sumDataGridViewTextBoxColumn1.Name = "sumDataGridViewTextBoxColumn1";
-            this.sumDataGridViewTextBoxColumn1.Width = 80;
-            // 
-            // commentDataGridViewTextBoxColumn1
-            // 
-            this.commentDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.commentDataGridViewTextBoxColumn1.DataPropertyName = "Comment";
-            this.commentDataGridViewTextBoxColumn1.HeaderText = "Комментарий";
-            this.commentDataGridViewTextBoxColumn1.Name = "commentDataGridViewTextBoxColumn1";
-            // 
             // budgetBindingSource
             // 
             this.budgetBindingSource.DataMember = "Budget";
@@ -693,6 +984,102 @@ namespace ArxBuh
             this.toolStrip4.Size = new System.Drawing.Size(1038, 25);
             this.toolStrip4.TabIndex = 2;
             this.toolStrip4.Text = "toolStrip4";
+            // 
+            // tsb_AddGoal
+            // 
+            this.tsb_AddGoal.Image = global::ArxBuh.Properties.Resources.add_32x32;
+            this.tsb_AddGoal.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_AddGoal.Name = "tsb_AddGoal";
+            this.tsb_AddGoal.Size = new System.Drawing.Size(79, 22);
+            this.tsb_AddGoal.Text = "Добавить";
+            this.tsb_AddGoal.ToolTipText = "Добавить новую цель  (Hotkey - Alt+Q)";
+            this.tsb_AddGoal.Click += new System.EventHandler(this.tsb_AddGoal_Click_1);
+            // 
+            // tsb_GoalDelete
+            // 
+            this.tsb_GoalDelete.Image = global::ArxBuh.Properties.Resources.delete_32x32;
+            this.tsb_GoalDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_GoalDelete.Name = "tsb_GoalDelete";
+            this.tsb_GoalDelete.Size = new System.Drawing.Size(71, 22);
+            this.tsb_GoalDelete.Text = "Удалить";
+            this.tsb_GoalDelete.ToolTipText = "Удалить выделенный в данный момент элемент  (Hotkey - Alt+D)";
+            this.tsb_GoalDelete.Click += new System.EventHandler(this.tsb_GoalDelete_Click);
+            // 
+            // toolStripButton11
+            // 
+            this.toolStripButton11.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton11.Image = global::ArxBuh.Properties.Resources.door_32x32;
+            this.toolStripButton11.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton11.Name = "toolStripButton11";
+            this.toolStripButton11.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton11.Text = "toolStripButton11";
+            this.toolStripButton11.ToolTipText = "Выход";
+            this.toolStripButton11.Click += new System.EventHandler(this.ExitTSB_Click);
+            // 
+            // toolStripSplitButton3
+            // 
+            this.toolStripSplitButton3.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSplitButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem6,
+            this.toolStripSeparator4,
+            this.toolStripMenuItem7,
+            this.toolStripSeparator5,
+            this.toolStripMenuItem8,
+            this.toolStripMenuItem9});
+            this.toolStripSplitButton3.Image = global::ArxBuh.Properties.Resources.gear_wheel_32x32;
+            this.toolStripSplitButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton3.Name = "toolStripSplitButton3";
+            this.toolStripSplitButton3.Size = new System.Drawing.Size(32, 22);
+            this.toolStripSplitButton3.Text = "Дополнительно";
+            this.toolStripSplitButton3.Click += new System.EventHandler(this.SettingsTSB_ButtonClick);
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Image = global::ArxBuh.Properties.Resources.help_32x32;
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(241, 22);
+            this.toolStripMenuItem6.Text = "О Программе";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(238, 6);
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(241, 22);
+            this.toolStripMenuItem7.Text = "Категории доходов и расходов";
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(238, 6);
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(241, 22);
+            this.toolStripMenuItem8.Text = "Резервное копирование";
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(241, 22);
+            this.toolStripMenuItem9.Text = "Шифрование";
+            // 
+            // toolStripButton9
+            // 
+            this.toolStripButton9.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton9.Image = global::ArxBuh.Properties.Resources.calculator_32x32;
+            this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton9.Name = "toolStripButton9";
+            this.toolStripButton9.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton9.Text = "Калькулятор";
+            this.toolStripButton9.Click += new System.EventHandler(this.CalculatorTSB_Click);
             // 
             // dataGridView4
             // 
@@ -857,6 +1244,42 @@ namespace ArxBuh
             this.toolStripLabel3.Size = new System.Drawing.Size(21, 22);
             this.toolStripLabel3.Text = "по";
             // 
+            // toolStripButton8
+            // 
+            this.toolStripButton8.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton8.Image = global::ArxBuh.Properties.Resources.door_32x32;
+            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton8.Name = "toolStripButton8";
+            this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton8.Text = "toolStripButton8";
+            this.toolStripButton8.ToolTipText = "Выход";
+            this.toolStripButton8.Click += new System.EventHandler(this.ExitTSB_Click);
+            // 
+            // toolStripSplitButton2
+            // 
+            this.toolStripSplitButton2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSplitButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton2.Image = global::ArxBuh.Properties.Resources.gear_wheel_32x32;
+            this.toolStripSplitButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton2.Name = "toolStripSplitButton2";
+            this.toolStripSplitButton2.Size = new System.Drawing.Size(32, 22);
+            this.toolStripSplitButton2.Text = "toolStripSplitButton2";
+            this.toolStripSplitButton2.ToolTipText = "Дополнительно";
+            this.toolStripSplitButton2.Click += new System.EventHandler(this.SettingsTSB_ButtonClick);
+            // 
+            // toolStripButton10
+            // 
+            this.toolStripButton10.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton10.Image = global::ArxBuh.Properties.Resources.calculator_32x32;
+            this.toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton10.Name = "toolStripButton10";
+            this.toolStripButton10.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton10.Text = "Калькулятор";
+            this.toolStripButton10.ToolTipText = "Калькулятор";
+            this.toolStripButton10.Click += new System.EventHandler(this.CalculatorTSB_Click);
+            // 
             // cashInOutBindingSource
             // 
             this.cashInOutBindingSource.DataMember = "CashInOut";
@@ -874,10 +1297,50 @@ namespace ArxBuh
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(155, 120);
             // 
+            // toolStripMenuItem11
+            // 
+            this.toolStripMenuItem11.Image = global::ArxBuh.Properties.Resources.add_32x32;
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(154, 22);
+            this.toolStripMenuItem11.Text = "Новый доход";
+            this.toolStripMenuItem11.Click += new System.EventHandler(this.toolStripButton6_Click);
+            // 
+            // toolStripMenuItem19
+            // 
+            this.toolStripMenuItem19.Image = global::ArxBuh.Properties.Resources.remove_32x32;
+            this.toolStripMenuItem19.Name = "toolStripMenuItem19";
+            this.toolStripMenuItem19.Size = new System.Drawing.Size(154, 22);
+            this.toolStripMenuItem19.Text = "Новый расход";
+            this.toolStripMenuItem19.Click += new System.EventHandler(this.toolStripButton7_Click);
+            // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
             this.toolStripSeparator9.Size = new System.Drawing.Size(151, 6);
+            // 
+            // редактироватьToolStripMenuItem
+            // 
+            this.редактироватьToolStripMenuItem.Image = global::ArxBuh.Properties.Resources.edit_32x32;
+            this.редактироватьToolStripMenuItem.Name = "редактироватьToolStripMenuItem";
+            this.редактироватьToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.редактироватьToolStripMenuItem.Text = "Редактировать";
+            this.редактироватьToolStripMenuItem.Click += new System.EventHandler(this.редактироватьToolStripMenuItem_Click);
+            // 
+            // удалитьToolStripMenuItem
+            // 
+            this.удалитьToolStripMenuItem.Image = global::ArxBuh.Properties.Resources.delete_32x32;
+            this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.удалитьToolStripMenuItem.Text = "Удалить";
+            this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
+            // 
+            // повторитьToolStripMenuItem
+            // 
+            this.повторитьToolStripMenuItem.Image = global::ArxBuh.Properties.Resources.redo_32x32;
+            this.повторитьToolStripMenuItem.Name = "повторитьToolStripMenuItem";
+            this.повторитьToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.повторитьToolStripMenuItem.Text = "Повторить";
+            this.повторитьToolStripMenuItem.Click += new System.EventHandler(this.повторитьToolStripMenuItem_Click);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1053,12 +1516,65 @@ namespace ArxBuh
             this.toolStripMenuItem23,
             this.ввестиНаОснованииToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip1";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(234, 170);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(234, 148);
+            // 
+            // toolStripMenuItem17
+            // 
+            this.toolStripMenuItem17.Image = global::ArxBuh.Properties.Resources.add_32x32;
+            this.toolStripMenuItem17.Name = "toolStripMenuItem17";
+            this.toolStripMenuItem17.Size = new System.Drawing.Size(233, 22);
+            this.toolStripMenuItem17.Text = "Новый планируемый доход";
+            this.toolStripMenuItem17.Click += new System.EventHandler(this.toolStripButton3_Click_1);
+            // 
+            // toolStripMenuItem20
+            // 
+            this.toolStripMenuItem20.Image = global::ArxBuh.Properties.Resources.remove_32x32;
+            this.toolStripMenuItem20.Name = "toolStripMenuItem20";
+            this.toolStripMenuItem20.Size = new System.Drawing.Size(233, 22);
+            this.toolStripMenuItem20.Text = "Новый планируемый расход";
+            this.toolStripMenuItem20.Click += new System.EventHandler(this.toolStripButton12_Click);
             // 
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
             this.toolStripSeparator10.Size = new System.Drawing.Size(230, 6);
+            // 
+            // toolStripMenuItem12
+            // 
+            this.toolStripMenuItem12.Image = global::ArxBuh.Properties.Resources.edit_32x32;
+            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(233, 22);
+            this.toolStripMenuItem12.Text = "Редактировать";
+            this.toolStripMenuItem12.Click += new System.EventHandler(this.toolStripMenuItem12_Click);
+            // 
+            // toolStripMenuItem13
+            // 
+            this.toolStripMenuItem13.Image = global::ArxBuh.Properties.Resources.delete_32x32;
+            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
+            this.toolStripMenuItem13.Size = new System.Drawing.Size(233, 22);
+            this.toolStripMenuItem13.Text = "Удалить";
+            this.toolStripMenuItem13.Click += new System.EventHandler(this.toolStripMenuItem13_Click);
+            // 
+            // toolStripMenuItem14
+            // 
+            this.toolStripMenuItem14.Image = global::ArxBuh.Properties.Resources.redo_32x32;
+            this.toolStripMenuItem14.Name = "toolStripMenuItem14";
+            this.toolStripMenuItem14.Size = new System.Drawing.Size(233, 22);
+            this.toolStripMenuItem14.Text = "Повторить";
+            this.toolStripMenuItem14.Click += new System.EventHandler(this.toolStripMenuItem14_Click);
+            // 
+            // toolStripMenuItem23
+            // 
+            this.toolStripMenuItem23.Name = "toolStripMenuItem23";
+            this.toolStripMenuItem23.Size = new System.Drawing.Size(230, 6);
+            // 
+            // ввестиНаОснованииToolStripMenuItem
+            // 
+            this.ввестиНаОснованииToolStripMenuItem.Image = global::ArxBuh.Properties.Resources.flash_32x32;
+            this.ввестиНаОснованииToolStripMenuItem.Name = "ввестиНаОснованииToolStripMenuItem";
+            this.ввестиНаОснованииToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.ввестиНаОснованииToolStripMenuItem.Text = "Ввести на основании";
+            this.ввестиНаОснованииToolStripMenuItem.Click += new System.EventHandler(this.ввестиНаОснованииToolStripMenuItem_Click);
             // 
             // contextMenuStrip3
             // 
@@ -1068,6 +1584,30 @@ namespace ArxBuh
             this.toolStripMenuItem16});
             this.contextMenuStrip3.Name = "contextMenuStrip1";
             this.contextMenuStrip3.Size = new System.Drawing.Size(155, 70);
+            // 
+            // toolStripMenuItem18
+            // 
+            this.toolStripMenuItem18.Image = global::ArxBuh.Properties.Resources.add_32x32;
+            this.toolStripMenuItem18.Name = "toolStripMenuItem18";
+            this.toolStripMenuItem18.Size = new System.Drawing.Size(154, 22);
+            this.toolStripMenuItem18.Text = "Добавить";
+            this.toolStripMenuItem18.Click += new System.EventHandler(this.tsb_AddGoal_Click_1);
+            // 
+            // toolStripMenuItem15
+            // 
+            this.toolStripMenuItem15.Image = global::ArxBuh.Properties.Resources.edit_32x32;
+            this.toolStripMenuItem15.Name = "toolStripMenuItem15";
+            this.toolStripMenuItem15.Size = new System.Drawing.Size(154, 22);
+            this.toolStripMenuItem15.Text = "Редактировать";
+            this.toolStripMenuItem15.Click += new System.EventHandler(this.toolStripMenuItem15_Click);
+            // 
+            // toolStripMenuItem16
+            // 
+            this.toolStripMenuItem16.Image = global::ArxBuh.Properties.Resources.delete_32x32;
+            this.toolStripMenuItem16.Name = "toolStripMenuItem16";
+            this.toolStripMenuItem16.Size = new System.Drawing.Size(154, 22);
+            this.toolStripMenuItem16.Text = "Удалить";
+            this.toolStripMenuItem16.Click += new System.EventHandler(this.toolStripMenuItem16_Click);
             // 
             // cashInOutBindingSource1
             // 
@@ -1114,588 +1654,53 @@ namespace ArxBuh
             this.toolStripDateTimeChooser2.Value = new System.DateTime(2014, 2, 15, 21, 22, 26, 963);
             this.toolStripDateTimeChooser2.ValueChanged += new System.EventHandler(this.toolStripComboBox2_TextChanged);
             // 
-            // toolStripMenuItem23
-            // 
-            this.toolStripMenuItem23.Name = "toolStripMenuItem23";
-            this.toolStripMenuItem23.Size = new System.Drawing.Size(230, 6);
-            // 
-            // toolStripButton6
-            // 
-            this.toolStripButton6.Image = global::ArxBuh.Properties.Resources.add_32x32;
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(60, 22);
-            this.toolStripButton6.Text = "Доход";
-            this.toolStripButton6.ToolTipText = "Добавить новый доход (Hotkey - Alt+Q)";
-            this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
-            // 
-            // toolStripButton7
-            // 
-            this.toolStripButton7.Image = global::ArxBuh.Properties.Resources.remove_32x32;
-            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(64, 22);
-            this.toolStripButton7.Text = "Расход";
-            this.toolStripButton7.ToolTipText = "Добавить новый расход (Hotkey - Alt+W)";
-            this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
-            // 
-            // DeleteTSB
-            // 
-            this.DeleteTSB.Image = global::ArxBuh.Properties.Resources.delete_32x32;
-            this.DeleteTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.DeleteTSB.Name = "DeleteTSB";
-            this.DeleteTSB.Size = new System.Drawing.Size(71, 22);
-            this.DeleteTSB.Text = "Удалить";
-            this.DeleteTSB.ToolTipText = "Удалить выделенный в данный момент элемент (Hotkey - Alt+D)";
-            this.DeleteTSB.Click += new System.EventHandler(this.DeleteTSB_Click);
-            // 
-            // toolsbTransfer
-            // 
-            this.toolsbTransfer.Image = global::ArxBuh.Properties.Resources.expand_32x32;
-            this.toolsbTransfer.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolsbTransfer.Name = "toolsbTransfer";
-            this.toolsbTransfer.Size = new System.Drawing.Size(74, 22);
-            this.toolsbTransfer.Text = "Перевод";
-            // 
-            // toolStripSplitButton4
-            // 
-            this.toolStripSplitButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripSplitButton4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.сНачалаНеделиToolStripMenuItem,
-            this.сНачалаМесяцаToolStripMenuItem,
-            this.сНачалаГодаToolStripMenuItem,
-            this.toolStripMenuItem22,
-            this.предыдущаяНеделяToolStripMenuItem,
-            this.предыдущийМесяцToolStripMenuItem,
-            this.предыдущийГодToolStripMenuItem});
-            this.toolStripSplitButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton4.Image")));
-            this.toolStripSplitButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton4.Name = "toolStripSplitButton4";
-            this.toolStripSplitButton4.Size = new System.Drawing.Size(37, 22);
-            this.toolStripSplitButton4.Text = "по";
-            // 
-            // сНачалаНеделиToolStripMenuItem
-            // 
-            this.сНачалаНеделиToolStripMenuItem.Name = "сНачалаНеделиToolStripMenuItem";
-            this.сНачалаНеделиToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.сНачалаНеделиToolStripMenuItem.Text = "С начала недели";
-            this.сНачалаНеделиToolStripMenuItem.Click += new System.EventHandler(this.сНачалаНеделиToolStripMenuItem_Click);
-            // 
-            // сНачалаМесяцаToolStripMenuItem
-            // 
-            this.сНачалаМесяцаToolStripMenuItem.Name = "сНачалаМесяцаToolStripMenuItem";
-            this.сНачалаМесяцаToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.сНачалаМесяцаToolStripMenuItem.Text = "С начала месяца";
-            this.сНачалаМесяцаToolStripMenuItem.Click += new System.EventHandler(this.сНачалаМесяцаToolStripMenuItem_Click);
-            // 
-            // сНачалаГодаToolStripMenuItem
-            // 
-            this.сНачалаГодаToolStripMenuItem.Name = "сНачалаГодаToolStripMenuItem";
-            this.сНачалаГодаToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.сНачалаГодаToolStripMenuItem.Text = "С начала года";
-            this.сНачалаГодаToolStripMenuItem.Click += new System.EventHandler(this.сНачалаГодаToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem22
-            // 
-            this.toolStripMenuItem22.Name = "toolStripMenuItem22";
-            this.toolStripMenuItem22.Size = new System.Drawing.Size(184, 6);
-            // 
-            // предыдущаяНеделяToolStripMenuItem
-            // 
-            this.предыдущаяНеделяToolStripMenuItem.Name = "предыдущаяНеделяToolStripMenuItem";
-            this.предыдущаяНеделяToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.предыдущаяНеделяToolStripMenuItem.Text = "Предыдущая неделя";
-            this.предыдущаяНеделяToolStripMenuItem.Click += new System.EventHandler(this.предыдущаяНеделяToolStripMenuItem_Click);
-            // 
-            // предыдущийМесяцToolStripMenuItem
-            // 
-            this.предыдущийМесяцToolStripMenuItem.Name = "предыдущийМесяцToolStripMenuItem";
-            this.предыдущийМесяцToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.предыдущийМесяцToolStripMenuItem.Text = "Предыдущий месяц";
-            this.предыдущийМесяцToolStripMenuItem.Click += new System.EventHandler(this.предыдущийМесяцToolStripMenuItem_Click);
-            // 
-            // предыдущийГодToolStripMenuItem
-            // 
-            this.предыдущийГодToolStripMenuItem.Name = "предыдущийГодToolStripMenuItem";
-            this.предыдущийГодToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.предыдущийГодToolStripMenuItem.Text = "Предыдущий год";
-            this.предыдущийГодToolStripMenuItem.Click += new System.EventHandler(this.предыдущийГодToolStripMenuItem_Click);
-            // 
-            // FilterClearTSB
-            // 
-            this.FilterClearTSB.Image = global::ArxBuh.Properties.Resources.expand_32x32;
-            this.FilterClearTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.FilterClearTSB.Name = "FilterClearTSB";
-            this.FilterClearTSB.Size = new System.Drawing.Size(123, 22);
-            this.FilterClearTSB.Text = "Очистить фильтр";
-            this.FilterClearTSB.Click += new System.EventHandler(this.FilterClearTSB_Click);
-            // 
-            // ExitTSB
-            // 
-            this.ExitTSB.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.ExitTSB.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ExitTSB.Image = global::ArxBuh.Properties.Resources.door_32x32;
-            this.ExitTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ExitTSB.Name = "ExitTSB";
-            this.ExitTSB.Size = new System.Drawing.Size(23, 22);
-            this.ExitTSB.Text = "Выход";
-            this.ExitTSB.Click += new System.EventHandler(this.ExitTSB_Click);
-            // 
-            // SettingsTSB
-            // 
-            this.SettingsTSB.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.SettingsTSB.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.SettingsTSB.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AboutProgramTSB,
-            this.toolStripMenuItem1,
-            this.категорииДоходовИРасходовToolStripMenuItem,
-            this.toolStripMenuItem2,
-            this.tsbImportCSV,
-            this.резервноеКопированиеToolStripMenuItem,
-            this.шифрованиеToolStripMenuItem,
-            this.автоматическоеОбновлениеToolStripMenuItem,
-            this.toolStripMenuItem21,
-            this.справкаПоГорячимКлавишамToolStripMenuItem});
-            this.SettingsTSB.Image = global::ArxBuh.Properties.Resources.gear_wheel_32x32;
-            this.SettingsTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.SettingsTSB.Name = "SettingsTSB";
-            this.SettingsTSB.Size = new System.Drawing.Size(32, 22);
-            this.SettingsTSB.Text = "Дополнительно";
-            this.SettingsTSB.Click += new System.EventHandler(this.SettingsTSB_ButtonClick);
-            // 
-            // AboutProgramTSB
-            // 
-            this.AboutProgramTSB.Image = global::ArxBuh.Properties.Resources.help_32x32;
-            this.AboutProgramTSB.Name = "AboutProgramTSB";
-            this.AboutProgramTSB.Size = new System.Drawing.Size(249, 22);
-            this.AboutProgramTSB.Text = "О Программе";
-            this.AboutProgramTSB.Click += new System.EventHandler(this.AboutProgramTSB_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(246, 6);
-            // 
-            // категорииДоходовИРасходовToolStripMenuItem
-            // 
-            this.категорииДоходовИРасходовToolStripMenuItem.Name = "категорииДоходовИРасходовToolStripMenuItem";
-            this.категорииДоходовИРасходовToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
-            this.категорииДоходовИРасходовToolStripMenuItem.Text = "Категории доходов и расходов";
-            this.категорииДоходовИРасходовToolStripMenuItem.Click += new System.EventHandler(this.категорииДоходовИРасходовToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(246, 6);
-            // 
-            // tsbImportCSV
-            // 
-            this.tsbImportCSV.Name = "tsbImportCSV";
-            this.tsbImportCSV.Size = new System.Drawing.Size(249, 22);
-            this.tsbImportCSV.Text = "Выгрузить в CSV файл";
-            this.tsbImportCSV.Click += new System.EventHandler(this.tsbImportCSV_Click);
-            // 
-            // резервноеКопированиеToolStripMenuItem
-            // 
-            this.резервноеКопированиеToolStripMenuItem.Name = "резервноеКопированиеToolStripMenuItem";
-            this.резервноеКопированиеToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
-            this.резервноеКопированиеToolStripMenuItem.Text = "Резервное копирование";
-            this.резервноеКопированиеToolStripMenuItem.Click += new System.EventHandler(this.резервноеКопированиеToolStripMenuItem_Click);
-            // 
-            // шифрованиеToolStripMenuItem
-            // 
-            this.шифрованиеToolStripMenuItem.Name = "шифрованиеToolStripMenuItem";
-            this.шифрованиеToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
-            this.шифрованиеToolStripMenuItem.Text = "Шифрование";
-            this.шифрованиеToolStripMenuItem.Click += new System.EventHandler(this.шифрованиеToolStripMenuItem_Click);
-            // 
-            // автоматическоеОбновлениеToolStripMenuItem
-            // 
-            this.автоматическоеОбновлениеToolStripMenuItem.Name = "автоматическоеОбновлениеToolStripMenuItem";
-            this.автоматическоеОбновлениеToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
-            this.автоматическоеОбновлениеToolStripMenuItem.Text = "Автоматическое обновление";
-            this.автоматическоеОбновлениеToolStripMenuItem.Click += new System.EventHandler(this.автоматическоеОбновлениеToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem21
-            // 
-            this.toolStripMenuItem21.Name = "toolStripMenuItem21";
-            this.toolStripMenuItem21.Size = new System.Drawing.Size(246, 6);
-            // 
-            // справкаПоГорячимКлавишамToolStripMenuItem
-            // 
-            this.справкаПоГорячимКлавишамToolStripMenuItem.Name = "справкаПоГорячимКлавишамToolStripMenuItem";
-            this.справкаПоГорячимКлавишамToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
-            this.справкаПоГорячимКлавишамToolStripMenuItem.Text = "Справка по горячим клавишам";
-            this.справкаПоГорячимКлавишамToolStripMenuItem.Click += new System.EventHandler(this.справкаПоГорячимКлавишамToolStripMenuItem_Click);
-            // 
-            // CalculatorTSB
-            // 
-            this.CalculatorTSB.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.CalculatorTSB.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.CalculatorTSB.Image = global::ArxBuh.Properties.Resources.calculator_32x32;
-            this.CalculatorTSB.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.CalculatorTSB.Name = "CalculatorTSB";
-            this.CalculatorTSB.Size = new System.Drawing.Size(23, 22);
-            this.CalculatorTSB.Text = "Калькулятор";
-            this.CalculatorTSB.Click += new System.EventHandler(this.CalculatorTSB_Click);
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.Image = global::ArxBuh.Properties.Resources.add_32x32;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(60, 22);
-            this.toolStripButton3.Text = "&Доход";
-            this.toolStripButton3.ToolTipText = "Добавить новый доход в Бюджет  (Hotkey - Alt+Q)";
-            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click_1);
-            // 
-            // toolStripButton12
-            // 
-            this.toolStripButton12.Image = global::ArxBuh.Properties.Resources.remove_32x32;
-            this.toolStripButton12.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton12.Name = "toolStripButton12";
-            this.toolStripButton12.Size = new System.Drawing.Size(64, 22);
-            this.toolStripButton12.Text = "&Расход";
-            this.toolStripButton12.ToolTipText = "Добавить новый расход в Бюджет  (Hotkey - Alt+W)\r\n";
-            this.toolStripButton12.Click += new System.EventHandler(this.toolStripButton12_Click);
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.Image = global::ArxBuh.Properties.Resources.delete_32x32;
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(71, 22);
-            this.toolStripButton4.Text = "Удалить";
-            this.toolStripButton4.ToolTipText = "Удалить выделенный в данный момент элемент  (Hotkey - Alt+D)";
-            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
-            // 
-            // toolStripButton5
-            // 
-            this.toolStripButton5.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = global::ArxBuh.Properties.Resources.door_32x32;
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton5.Text = "Выход";
-            this.toolStripButton5.Click += new System.EventHandler(this.ExitTSB_Click);
-            // 
-            // toolStripSplitButton1
-            // 
-            this.toolStripSplitButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem3,
-            this.toolStripSeparator1,
-            this.toolStripMenuItem4,
-            this.toolStripSeparator3,
-            this.toolStripMenuItem5,
-            this.toolStripMenuItem10});
-            this.toolStripSplitButton1.Image = global::ArxBuh.Properties.Resources.gear_wheel_32x32;
-            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 22);
-            this.toolStripSplitButton1.Text = "Дополнительно";
-            this.toolStripSplitButton1.Click += new System.EventHandler(this.SettingsTSB_ButtonClick);
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Image = global::ArxBuh.Properties.Resources.help_32x32;
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(241, 22);
-            this.toolStripMenuItem3.Text = "О Программе";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(238, 6);
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(241, 22);
-            this.toolStripMenuItem4.Text = "Категории доходов и расходов";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(238, 6);
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(241, 22);
-            this.toolStripMenuItem5.Text = "Резервное копирование";
-            // 
-            // toolStripMenuItem10
-            // 
-            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(241, 22);
-            this.toolStripMenuItem10.Text = "Шифрование";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Image = global::ArxBuh.Properties.Resources.filter_32x32;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(166, 22);
-            this.toolStripButton1.Text = "Показывать выполненые";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = global::ArxBuh.Properties.Resources.calculator_32x32;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "Калькулятор";
-            this.toolStripButton2.Click += new System.EventHandler(this.CalculatorTSB_Click);
-            // 
-            // tsb_AddGoal
-            // 
-            this.tsb_AddGoal.Image = global::ArxBuh.Properties.Resources.add_32x32;
-            this.tsb_AddGoal.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_AddGoal.Name = "tsb_AddGoal";
-            this.tsb_AddGoal.Size = new System.Drawing.Size(79, 22);
-            this.tsb_AddGoal.Text = "Добавить";
-            this.tsb_AddGoal.ToolTipText = "Добавить новую цель  (Hotkey - Alt+Q)";
-            this.tsb_AddGoal.Click += new System.EventHandler(this.tsb_AddGoal_Click_1);
-            // 
-            // tsb_GoalDelete
-            // 
-            this.tsb_GoalDelete.Image = global::ArxBuh.Properties.Resources.delete_32x32;
-            this.tsb_GoalDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_GoalDelete.Name = "tsb_GoalDelete";
-            this.tsb_GoalDelete.Size = new System.Drawing.Size(71, 22);
-            this.tsb_GoalDelete.Text = "Удалить";
-            this.tsb_GoalDelete.ToolTipText = "Удалить выделенный в данный момент элемент  (Hotkey - Alt+D)";
-            this.tsb_GoalDelete.Click += new System.EventHandler(this.tsb_GoalDelete_Click);
-            // 
-            // toolStripButton11
-            // 
-            this.toolStripButton11.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton11.Image = global::ArxBuh.Properties.Resources.door_32x32;
-            this.toolStripButton11.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton11.Name = "toolStripButton11";
-            this.toolStripButton11.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton11.Text = "toolStripButton11";
-            this.toolStripButton11.ToolTipText = "Выход";
-            this.toolStripButton11.Click += new System.EventHandler(this.ExitTSB_Click);
-            // 
-            // toolStripSplitButton3
-            // 
-            this.toolStripSplitButton3.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripSplitButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem6,
-            this.toolStripSeparator4,
-            this.toolStripMenuItem7,
-            this.toolStripSeparator5,
-            this.toolStripMenuItem8,
-            this.toolStripMenuItem9});
-            this.toolStripSplitButton3.Image = global::ArxBuh.Properties.Resources.gear_wheel_32x32;
-            this.toolStripSplitButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton3.Name = "toolStripSplitButton3";
-            this.toolStripSplitButton3.Size = new System.Drawing.Size(32, 22);
-            this.toolStripSplitButton3.Text = "Дополнительно";
-            this.toolStripSplitButton3.Click += new System.EventHandler(this.SettingsTSB_ButtonClick);
-            // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.Image = global::ArxBuh.Properties.Resources.help_32x32;
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(241, 22);
-            this.toolStripMenuItem6.Text = "О Программе";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(238, 6);
-            // 
-            // toolStripMenuItem7
-            // 
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(241, 22);
-            this.toolStripMenuItem7.Text = "Категории доходов и расходов";
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(238, 6);
-            // 
-            // toolStripMenuItem8
-            // 
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(241, 22);
-            this.toolStripMenuItem8.Text = "Резервное копирование";
-            // 
-            // toolStripMenuItem9
-            // 
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(241, 22);
-            this.toolStripMenuItem9.Text = "Шифрование";
-            // 
-            // toolStripButton9
-            // 
-            this.toolStripButton9.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton9.Image = global::ArxBuh.Properties.Resources.calculator_32x32;
-            this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton9.Name = "toolStripButton9";
-            this.toolStripButton9.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton9.Text = "Калькулятор";
-            this.toolStripButton9.Click += new System.EventHandler(this.CalculatorTSB_Click);
-            // 
-            // toolStripButton8
-            // 
-            this.toolStripButton8.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton8.Image = global::ArxBuh.Properties.Resources.door_32x32;
-            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton8.Text = "toolStripButton8";
-            this.toolStripButton8.ToolTipText = "Выход";
-            this.toolStripButton8.Click += new System.EventHandler(this.ExitTSB_Click);
-            // 
-            // toolStripSplitButton2
-            // 
-            this.toolStripSplitButton2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripSplitButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton2.Image = global::ArxBuh.Properties.Resources.gear_wheel_32x32;
-            this.toolStripSplitButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton2.Name = "toolStripSplitButton2";
-            this.toolStripSplitButton2.Size = new System.Drawing.Size(32, 22);
-            this.toolStripSplitButton2.Text = "toolStripSplitButton2";
-            this.toolStripSplitButton2.ToolTipText = "Дополнительно";
-            this.toolStripSplitButton2.Click += new System.EventHandler(this.SettingsTSB_ButtonClick);
-            // 
-            // toolStripButton10
-            // 
-            this.toolStripButton10.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton10.Image = global::ArxBuh.Properties.Resources.calculator_32x32;
-            this.toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton10.Name = "toolStripButton10";
-            this.toolStripButton10.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton10.Text = "Калькулятор";
-            this.toolStripButton10.ToolTipText = "Калькулятор";
-            this.toolStripButton10.Click += new System.EventHandler(this.CalculatorTSB_Click);
-            // 
-            // toolStripMenuItem11
-            // 
-            this.toolStripMenuItem11.Image = global::ArxBuh.Properties.Resources.add_32x32;
-            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(154, 22);
-            this.toolStripMenuItem11.Text = "Новый доход";
-            this.toolStripMenuItem11.Click += new System.EventHandler(this.toolStripButton6_Click);
-            // 
-            // toolStripMenuItem19
-            // 
-            this.toolStripMenuItem19.Image = global::ArxBuh.Properties.Resources.remove_32x32;
-            this.toolStripMenuItem19.Name = "toolStripMenuItem19";
-            this.toolStripMenuItem19.Size = new System.Drawing.Size(154, 22);
-            this.toolStripMenuItem19.Text = "Новый расход";
-            this.toolStripMenuItem19.Click += new System.EventHandler(this.toolStripButton7_Click);
-            // 
-            // редактироватьToolStripMenuItem
-            // 
-            this.редактироватьToolStripMenuItem.Image = global::ArxBuh.Properties.Resources.edit_32x32;
-            this.редактироватьToolStripMenuItem.Name = "редактироватьToolStripMenuItem";
-            this.редактироватьToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.редактироватьToolStripMenuItem.Text = "Редактировать";
-            this.редактироватьToolStripMenuItem.Click += new System.EventHandler(this.редактироватьToolStripMenuItem_Click);
-            // 
-            // удалитьToolStripMenuItem
-            // 
-            this.удалитьToolStripMenuItem.Image = global::ArxBuh.Properties.Resources.delete_32x32;
-            this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.удалитьToolStripMenuItem.Text = "Удалить";
-            this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
-            // 
-            // повторитьToolStripMenuItem
-            // 
-            this.повторитьToolStripMenuItem.Image = global::ArxBuh.Properties.Resources.redo_32x32;
-            this.повторитьToolStripMenuItem.Name = "повторитьToolStripMenuItem";
-            this.повторитьToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.повторитьToolStripMenuItem.Text = "Повторить";
-            this.повторитьToolStripMenuItem.Click += new System.EventHandler(this.повторитьToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem17
-            // 
-            this.toolStripMenuItem17.Image = global::ArxBuh.Properties.Resources.add_32x32;
-            this.toolStripMenuItem17.Name = "toolStripMenuItem17";
-            this.toolStripMenuItem17.Size = new System.Drawing.Size(233, 22);
-            this.toolStripMenuItem17.Text = "Новый планируемый доход";
-            this.toolStripMenuItem17.Click += new System.EventHandler(this.toolStripButton3_Click_1);
-            // 
-            // toolStripMenuItem20
-            // 
-            this.toolStripMenuItem20.Image = global::ArxBuh.Properties.Resources.remove_32x32;
-            this.toolStripMenuItem20.Name = "toolStripMenuItem20";
-            this.toolStripMenuItem20.Size = new System.Drawing.Size(233, 22);
-            this.toolStripMenuItem20.Text = "Новый планируемый расход";
-            this.toolStripMenuItem20.Click += new System.EventHandler(this.toolStripButton12_Click);
-            // 
-            // toolStripMenuItem12
-            // 
-            this.toolStripMenuItem12.Image = global::ArxBuh.Properties.Resources.edit_32x32;
-            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            this.toolStripMenuItem12.Size = new System.Drawing.Size(233, 22);
-            this.toolStripMenuItem12.Text = "Редактировать";
-            this.toolStripMenuItem12.Click += new System.EventHandler(this.toolStripMenuItem12_Click);
-            // 
-            // toolStripMenuItem13
-            // 
-            this.toolStripMenuItem13.Image = global::ArxBuh.Properties.Resources.delete_32x32;
-            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
-            this.toolStripMenuItem13.Size = new System.Drawing.Size(233, 22);
-            this.toolStripMenuItem13.Text = "Удалить";
-            this.toolStripMenuItem13.Click += new System.EventHandler(this.toolStripMenuItem13_Click);
-            // 
-            // toolStripMenuItem14
-            // 
-            this.toolStripMenuItem14.Image = global::ArxBuh.Properties.Resources.redo_32x32;
-            this.toolStripMenuItem14.Name = "toolStripMenuItem14";
-            this.toolStripMenuItem14.Size = new System.Drawing.Size(233, 22);
-            this.toolStripMenuItem14.Text = "Повторить";
-            this.toolStripMenuItem14.Click += new System.EventHandler(this.toolStripMenuItem14_Click);
-            // 
-            // ввестиНаОснованииToolStripMenuItem
-            // 
-            this.ввестиНаОснованииToolStripMenuItem.Image = global::ArxBuh.Properties.Resources.flash_32x32;
-            this.ввестиНаОснованииToolStripMenuItem.Name = "ввестиНаОснованииToolStripMenuItem";
-            this.ввестиНаОснованииToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.ввестиНаОснованииToolStripMenuItem.Text = "Ввести на основании";
-            this.ввестиНаОснованииToolStripMenuItem.Click += new System.EventHandler(this.ввестиНаОснованииToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem18
-            // 
-            this.toolStripMenuItem18.Image = global::ArxBuh.Properties.Resources.add_32x32;
-            this.toolStripMenuItem18.Name = "toolStripMenuItem18";
-            this.toolStripMenuItem18.Size = new System.Drawing.Size(154, 22);
-            this.toolStripMenuItem18.Text = "Добавить";
-            this.toolStripMenuItem18.Click += new System.EventHandler(this.tsb_AddGoal_Click_1);
-            // 
-            // toolStripMenuItem15
-            // 
-            this.toolStripMenuItem15.Image = global::ArxBuh.Properties.Resources.edit_32x32;
-            this.toolStripMenuItem15.Name = "toolStripMenuItem15";
-            this.toolStripMenuItem15.Size = new System.Drawing.Size(154, 22);
-            this.toolStripMenuItem15.Text = "Редактировать";
-            this.toolStripMenuItem15.Click += new System.EventHandler(this.toolStripMenuItem15_Click);
-            // 
-            // toolStripMenuItem16
-            // 
-            this.toolStripMenuItem16.Image = global::ArxBuh.Properties.Resources.delete_32x32;
-            this.toolStripMenuItem16.Name = "toolStripMenuItem16";
-            this.toolStripMenuItem16.Size = new System.Drawing.Size(154, 22);
-            this.toolStripMenuItem16.Text = "Удалить";
-            this.toolStripMenuItem16.Click += new System.EventHandler(this.toolStripMenuItem16_Click);
+            // checkDataGridViewCheckBoxColumn
+            // 
+            this.checkDataGridViewCheckBoxColumn.DataPropertyName = "Check";
+            this.checkDataGridViewCheckBoxColumn.HeaderText = "Выполнено";
+            this.checkDataGridViewCheckBoxColumn.Name = "checkDataGridViewCheckBoxColumn";
+            this.checkDataGridViewCheckBoxColumn.Width = 80;
+            // 
+            // inOutDataGridViewTextBoxColumn1
+            // 
+            this.inOutDataGridViewTextBoxColumn1.DataPropertyName = "InOut";
+            this.inOutDataGridViewTextBoxColumn1.HeaderText = "Доход-Расход";
+            this.inOutDataGridViewTextBoxColumn1.Name = "inOutDataGridViewTextBoxColumn1";
+            this.inOutDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // categoryDataGridViewTextBoxColumn1
+            // 
+            this.categoryDataGridViewTextBoxColumn1.DataPropertyName = "Category";
+            this.categoryDataGridViewTextBoxColumn1.HeaderText = "Категория";
+            this.categoryDataGridViewTextBoxColumn1.Name = "categoryDataGridViewTextBoxColumn1";
+            this.categoryDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dateTimeDataGridViewTextBoxColumn1
+            // 
+            this.dateTimeDataGridViewTextBoxColumn1.DataPropertyName = "DateTime";
+            this.dateTimeDataGridViewTextBoxColumn1.HeaderText = "Дата";
+            this.dateTimeDataGridViewTextBoxColumn1.Name = "dateTimeDataGridViewTextBoxColumn1";
+            this.dateTimeDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dateTimeDataGridViewTextBoxColumn1.Width = 80;
+            // 
+            // sumDataGridViewTextBoxColumn1
+            // 
+            this.sumDataGridViewTextBoxColumn1.DataPropertyName = "Sum";
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.sumDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.sumDataGridViewTextBoxColumn1.HeaderText = "Сумма";
+            this.sumDataGridViewTextBoxColumn1.Name = "sumDataGridViewTextBoxColumn1";
+            this.sumDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.sumDataGridViewTextBoxColumn1.Width = 80;
+            // 
+            // commentDataGridViewTextBoxColumn1
+            // 
+            this.commentDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.commentDataGridViewTextBoxColumn1.DataPropertyName = "Comment";
+            this.commentDataGridViewTextBoxColumn1.HeaderText = "Комментарий";
+            this.commentDataGridViewTextBoxColumn1.Name = "commentDataGridViewTextBoxColumn1";
+            this.commentDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // Form_Main
             // 
@@ -1843,12 +1848,6 @@ namespace ArxBuh
         private DataGridViewTextBoxColumn historyDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn historyIDDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn3;
-        private DataGridViewCheckBoxColumn checkDataGridViewCheckBoxColumn;
-        private DataGridViewTextBoxColumn inOutDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dateTimeDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn sumDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn1;
         public DataSet1 dataSet1;
         private TableLayoutPanel tableLayoutPanel4;
         private ToolStrip toolStrip4;
@@ -1907,6 +1906,12 @@ namespace ArxBuh
         private ToolStripMenuItem предыдущийГодToolStripMenuItem;
         private ToolStripSeparator toolStripMenuItem23;
         private ToolStripMenuItem ввестиНаОснованииToolStripMenuItem;
+        private DataGridViewCheckBoxColumn checkDataGridViewCheckBoxColumn;
+        private DataGridViewTextBoxColumn inOutDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dateTimeDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn sumDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn1;
     }
 }
 
