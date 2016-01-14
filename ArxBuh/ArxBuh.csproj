@@ -118,6 +118,12 @@
     <Compile Include="Form_AboutBox.Designer.cs">
       <DependentUpon>Form_AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_AccountList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_AccountList.Designer.cs">
+      <DependentUpon>Form_AccountList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_AddEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +210,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form_AboutBox.resx">
       <DependentUpon>Form_AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_AccountList.resx">
+      <DependentUpon>Form_AccountList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_AddEdit.resx">
       <DependentUpon>Form_AddEdit.cs</DependentUpon>

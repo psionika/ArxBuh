@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace ArxBuh
 {
-    public partial class Form_AddEditTransfer: Form
+    public partial class Form_AccountList : Form
     {
-        public Form_AddEditTransfer()
+        public Form_AccountList()
         {
             InitializeComponent();
         }

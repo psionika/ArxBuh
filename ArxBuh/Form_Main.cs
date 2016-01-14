@@ -179,6 +179,7 @@ namespace ArxBuh
             dataGridView1.Sort(dataGridView1.Columns[2], ListSortDirection.Descending);
             dataGridView2.Sort(dataGridView2.Columns[3], ListSortDirection.Ascending);
         }
+
         #endregion
 
         #region Шифрование
@@ -383,6 +384,12 @@ namespace ArxBuh
                         foreach (DataGridViewCell cell in row.Cells)
                         {
                             cell.Style.BackColor = Color.PaleVioletRed;
+                        }
+                        break;
+                    case "Перевод":
+                        foreach (DataGridViewCell cell in row.Cells)
+                        {
+                            cell.Style.BackColor = Color.Goldenrod;
                         }
                         break;
                     default:
@@ -596,7 +603,6 @@ namespace ArxBuh
             }
             else
             {
-                DateBeginEnd.DateBegin = DateTime.Now.AddYears(-1);                
             }
 
 
@@ -886,6 +892,27 @@ namespace ArxBuh
             Class_element.Comment = dataGridView2.CurrentRow.Cells[5].Value.ToString();
 
             add_elementBudget();
+        }
+
+        private void ввестиНаОснованииToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView2.CurrentRow == null) return;
+
+            Class_element.InOut = dataGridView2.CurrentRow.Cells[1].Value.ToString();
+            Class_element.Category = dataGridView2.CurrentRow.Cells[2].Value.ToString();
+            Class_element.Date = DateTime.ParseExact(dataGridView2.CurrentRow.Cells[3].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
+            Class_element.Sum = Convert.ToDouble(dataGridView2.CurrentRow.Cells[4].Value);
+            Class_element.Comment = dataGridView2.CurrentRow.Cells[5].Value.ToString();
+
+            var customerRow = ((DataRowView)dataGridView2.CurrentRow.DataBoundItem).Row;
+
+            customerRow["Check"] = true;
+
+            saveData();
+
+            tabControl1.SelectedTab = tabPage1;
+
+            add_element();
         }
         #endregion
 
@@ -1211,51 +1238,32 @@ namespace ArxBuh
         #region Date time filter с по
         private void сНачалаНеделиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var dt = DateTime.Now.Date;
+            var dtBegin = DateTime.Now.Date;
 
-            while (dt.DayOfWeek != System.DayOfWeek.Monday)
+            while (dtBegin.DayOfWeek != DayOfWeek.Monday)
             {
-                dt = dt.AddDays(-1);
+                dtBegin = dtBegin.AddDays(-1);
             }
 
-            DateBeginEnd.DateBegin = dt;
-            DateBeginEnd.DateEnd = DateTime.Now;
-
-            toolStripDateTimeChooser3.Value = DateBeginEnd.DateBegin;
-            toolStripDateTimeChooser4.Value = DateBeginEnd.DateEnd;
-
-            filter();
+            dateTimePeriod(dtBegin, DateTime.Now);
         }
-
 
         private void сНачалаМесяцаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var dt = DateTime.Now.Date;
+            var dtBegin = DateTime.Now.Date;
 
-            dt = new System.DateTime(dt.Year, dt.Month, 1);
+            dtBegin = new DateTime(dtBegin.Year, dtBegin.Month, 1);
 
-            DateBeginEnd.DateBegin = dt;
-            DateBeginEnd.DateEnd = DateTime.Now;
-
-            toolStripDateTimeChooser3.Value = DateBeginEnd.DateBegin;
-            toolStripDateTimeChooser4.Value = DateBeginEnd.DateEnd;
-
-            filter();
+            dateTimePeriod(dtBegin, DateTime.Now);
         }
 
         private void сНачалаГодаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var dt = DateTime.Now.Date;
+            var dtBegin = DateTime.Now.Date;
 
-            dt = new System.DateTime(dt.Year, 1, 1);
+            dtBegin = new DateTime(dtBegin.Year, 1, 1);
 
-            DateBeginEnd.DateBegin = dt;
-            DateBeginEnd.DateEnd = DateTime.Now;
-
-            toolStripDateTimeChooser3.Value = DateBeginEnd.DateBegin;
-            toolStripDateTimeChooser4.Value = DateBeginEnd.DateEnd;
-
-            filter();
+            dateTimePeriod(dtBegin, DateTime.Now);
         }
 
         private void предыдущаяНеделяToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1278,13 +1286,7 @@ namespace ArxBuh
                 dtBegin = dtBegin.AddDays(-1);
             }
 
-            DateBeginEnd.DateBegin = dtBegin;
-            DateBeginEnd.DateEnd = dtEnd;
-
-            toolStripDateTimeChooser3.Value = DateBeginEnd.DateBegin;
-            toolStripDateTimeChooser4.Value = DateBeginEnd.DateEnd;
-
-            filter();
+            dateTimePeriod(dtBegin, dtEnd);
         }
 
         private void предыдущийМесяцToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1292,25 +1294,18 @@ namespace ArxBuh
             var dtBegin = DateTime.Now.Date;
             var dtEnd = DateTime.Now.Date;
 
-
             if(dtBegin.Month != 1)
             {
-                dtBegin = new System.DateTime(dtBegin.Year, dtBegin.Month - 1, 1);
-                dtEnd = new System.DateTime(dtEnd.Year, dtEnd.Month - 1, DateTime.DaysInMonth(dtEnd.Year, dtEnd.Month - 1), 23, 59, 59);
+                dtBegin = new DateTime(dtBegin.Year, dtBegin.Month - 1, 1);
+                dtEnd = new DateTime(dtEnd.Year, dtEnd.Month - 1, DateTime.DaysInMonth(dtEnd.Year, dtEnd.Month - 1), 23, 59, 59);
             }
             else
             {
-                dtBegin = new System.DateTime(dtBegin.Year - 1, 12, 1);
-                dtEnd = new System.DateTime(dtEnd.Year - 1, 12, 31, 23, 59, 59);
+                dtBegin = new DateTime(dtBegin.Year - 1, 12, 1);
+                dtEnd = new DateTime(dtEnd.Year - 1, 12, 31, 23, 59, 59);
             }
 
-            DateBeginEnd.DateBegin = dtBegin;
-            DateBeginEnd.DateEnd = dtEnd ;
-
-            toolStripDateTimeChooser3.Value = DateBeginEnd.DateBegin;
-            toolStripDateTimeChooser4.Value = DateBeginEnd.DateEnd;
-
-            filter();
+            dateTimePeriod(dtBegin, dtEnd);
         }
 
         private void предыдущийГодToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1318,10 +1313,14 @@ namespace ArxBuh
             var dtBegin = DateTime.Now.Date;
             var dtEnd = DateTime.Now.Date;
 
+            dtBegin = new DateTime(dtBegin.Year - 1, 1, 1);
+            dtEnd = new DateTime(dtEnd.Year - 1, 12, 31, 23, 59, 59);
 
-            dtBegin = new System.DateTime(dtBegin.Year - 1, 1, 1);
-            dtEnd = new System.DateTime(dtEnd.Year - 1, 12, 31, 23, 59, 59);
+            dateTimePeriod(dtBegin, dtEnd);
+        }
 
+        void dateTimePeriod(DateTime dtBegin, DateTime dtEnd)
+        {
             DateBeginEnd.DateBegin = dtBegin;
             DateBeginEnd.DateEnd = dtEnd;
 
@@ -1332,25 +1331,20 @@ namespace ArxBuh
         }
         #endregion
 
-        private void ввестиНаОснованииToolStripMenuItem_Click(object sender, EventArgs e)
+        private void СписокСчетовtoolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (dataGridView2.CurrentRow == null) return;
+            using (var fListAcc = new Form_AccountList())
+            {
+                fListAcc.ShowDialog();
+            }
+        }
 
-            Class_element.InOut = dataGridView2.CurrentRow.Cells[1].Value.ToString();
-            Class_element.Category = dataGridView2.CurrentRow.Cells[2].Value.ToString();
-            Class_element.Date = DateTime.ParseExact(dataGridView2.CurrentRow.Cells[3].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
-            Class_element.Sum = Convert.ToDouble(dataGridView2.CurrentRow.Cells[4].Value);
-            Class_element.Comment = dataGridView2.CurrentRow.Cells[5].Value.ToString();
-
-            var customerRow = ((DataRowView)dataGridView2.CurrentRow.DataBoundItem).Row;
-
-            customerRow["Check"] = true;
-
-            saveData();
-
-            tabControl1.SelectedTab = tabPage1;
-
-            add_element();
+        private void toolsbTransfer_Click(object sender, EventArgs e)
+        {
+            using (var fTransfer = new Form_AddEditTransfer())
+            {
+                fTransfer.ShowDialog();
+            }
         }
     }
 }

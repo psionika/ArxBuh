@@ -38,6 +38,7 @@ namespace ArxBuh
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -45,7 +46,6 @@ namespace ArxBuh
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
@@ -55,6 +55,7 @@ namespace ArxBuh
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripDateTimeChooser3 = new ArxBuh.ToolStripDateTimeChooser();
             this.toolStripSplitButton4 = new System.Windows.Forms.ToolStripSplitButton();
             this.сНачалаНеделиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сНачалаМесяцаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,12 +64,14 @@ namespace ArxBuh
             this.предыдущаяНеделяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.предыдущийМесяцToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.предыдущийГодToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDateTimeChooser4 = new ArxBuh.ToolStripDateTimeChooser();
             this.FilterClearTSB = new System.Windows.Forms.ToolStripButton();
             this.ExitTSB = new System.Windows.Forms.ToolStripButton();
             this.SettingsTSB = new System.Windows.Forms.ToolStripSplitButton();
             this.AboutProgramTSB = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.категорииДоходовИРасходовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.СписокСчетовtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbImportCSV = new System.Windows.Forms.ToolStripMenuItem();
             this.резервноеКопированиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -97,12 +100,6 @@ namespace ArxBuh
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -114,6 +111,12 @@ namespace ArxBuh
             this.labelIn = new System.Windows.Forms.Label();
             this.labelOut = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.checkDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.inOutDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sumDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.budgetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new ArxBuh.DataSet1();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -123,12 +126,6 @@ namespace ArxBuh
             this.tsb_GoalDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSplitButton3 = new System.Windows.Forms.ToolStripSplitButton();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -145,7 +142,9 @@ namespace ArxBuh
             this.toolStripComboBox2 = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripDateTimeChooser1 = new ArxBuh.ToolStripDateTimeChooser();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripDateTimeChooser2 = new ArxBuh.ToolStripDateTimeChooser();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
             this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
@@ -192,16 +191,6 @@ namespace ArxBuh
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
             this.cashInOutBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.toolStripDateTimeChooser3 = new ArxBuh.ToolStripDateTimeChooser();
-            this.toolStripDateTimeChooser4 = new ArxBuh.ToolStripDateTimeChooser();
-            this.toolStripDateTimeChooser1 = new ArxBuh.ToolStripDateTimeChooser();
-            this.toolStripDateTimeChooser2 = new ArxBuh.ToolStripDateTimeChooser();
-            this.checkDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.inOutDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sumDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.commentDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -298,6 +287,7 @@ namespace ArxBuh
             this.toolsbTransfer.Name = "toolsbTransfer";
             this.toolsbTransfer.Size = new System.Drawing.Size(74, 22);
             this.toolsbTransfer.Text = "Перевод";
+            this.toolsbTransfer.Click += new System.EventHandler(this.toolsbTransfer_Click);
             // 
             // toolStripSeparator2
             // 
@@ -320,6 +310,16 @@ namespace ArxBuh
             this.toolStripLabel5.Name = "toolStripLabel5";
             this.toolStripLabel5.Size = new System.Drawing.Size(15, 22);
             this.toolStripLabel5.Text = "C";
+            // 
+            // toolStripDateTimeChooser3
+            // 
+            this.toolStripDateTimeChooser3.AutoSize = false;
+            this.toolStripDateTimeChooser3.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripDateTimeChooser3.Name = "toolStripDateTimeChooser3";
+            this.toolStripDateTimeChooser3.Size = new System.Drawing.Size(96, 29);
+            this.toolStripDateTimeChooser3.Text = "toolStripDateTimeChooser3";
+            this.toolStripDateTimeChooser3.Value = new System.DateTime(2014, 2, 15, 21, 22, 26, 559);
+            this.toolStripDateTimeChooser3.ValueChanged += new System.EventHandler(this.toolStripDateTimeChooser3_ValueChanged);
             // 
             // toolStripSplitButton4
             // 
@@ -385,6 +385,17 @@ namespace ArxBuh
             this.предыдущийГодToolStripMenuItem.Text = "Предыдущий год";
             this.предыдущийГодToolStripMenuItem.Click += new System.EventHandler(this.предыдущийГодToolStripMenuItem_Click);
             // 
+            // toolStripDateTimeChooser4
+            // 
+            this.toolStripDateTimeChooser4.AutoSize = false;
+            this.toolStripDateTimeChooser4.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripDateTimeChooser4.Margin = new System.Windows.Forms.Padding(0);
+            this.toolStripDateTimeChooser4.Name = "toolStripDateTimeChooser4";
+            this.toolStripDateTimeChooser4.Size = new System.Drawing.Size(96, 29);
+            this.toolStripDateTimeChooser4.Text = "toolStripDateTimeChooser4";
+            this.toolStripDateTimeChooser4.Value = new System.DateTime(2014, 2, 15, 21, 22, 26, 565);
+            this.toolStripDateTimeChooser4.ValueChanged += new System.EventHandler(this.toolStripDateTimeChooser4_ValueChanged);
+            // 
             // FilterClearTSB
             // 
             this.FilterClearTSB.Image = global::ArxBuh.Properties.Resources.expand_32x32;
@@ -413,6 +424,7 @@ namespace ArxBuh
             this.AboutProgramTSB,
             this.toolStripMenuItem1,
             this.категорииДоходовИРасходовToolStripMenuItem,
+            this.СписокСчетовtoolStripMenuItem,
             this.toolStripMenuItem2,
             this.tsbImportCSV,
             this.резервноеКопированиеToolStripMenuItem,
@@ -446,6 +458,13 @@ namespace ArxBuh
             this.категорииДоходовИРасходовToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
             this.категорииДоходовИРасходовToolStripMenuItem.Text = "Категории доходов и расходов";
             this.категорииДоходовИРасходовToolStripMenuItem.Click += new System.EventHandler(this.категорииДоходовИРасходовToolStripMenuItem_Click);
+            // 
+            // СписокСчетовtoolStripMenuItem
+            // 
+            this.СписокСчетовtoolStripMenuItem.Name = "СписокСчетовtoolStripMenuItem";
+            this.СписокСчетовtoolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.СписокСчетовtoolStripMenuItem.Text = "Список счетов";
+            this.СписокСчетовtoolStripMenuItem.Click += new System.EventHandler(this.СписокСчетовtoolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -751,54 +770,12 @@ namespace ArxBuh
             // 
             this.toolStripSplitButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem3,
-            this.toolStripSeparator1,
-            this.toolStripMenuItem4,
-            this.toolStripSeparator3,
-            this.toolStripMenuItem5,
-            this.toolStripMenuItem10});
             this.toolStripSplitButton1.Image = global::ArxBuh.Properties.Resources.gear_wheel_32x32;
             this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton1.Name = "toolStripSplitButton1";
             this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 22);
             this.toolStripSplitButton1.Text = "Дополнительно";
             this.toolStripSplitButton1.Click += new System.EventHandler(this.SettingsTSB_ButtonClick);
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Image = global::ArxBuh.Properties.Resources.help_32x32;
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(241, 22);
-            this.toolStripMenuItem3.Text = "О Программе";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(238, 6);
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(241, 22);
-            this.toolStripMenuItem4.Text = "Категории доходов и расходов";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(238, 6);
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(241, 22);
-            this.toolStripMenuItem5.Text = "Резервное копирование";
-            // 
-            // toolStripMenuItem10
-            // 
-            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(241, 22);
-            this.toolStripMenuItem10.Text = "Шифрование";
             // 
             // toolStripSeparator7
             // 
@@ -930,6 +907,54 @@ namespace ArxBuh
             this.dataGridView2.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellValueChanged);
             this.dataGridView2.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridView2_Paint_1);
             // 
+            // checkDataGridViewCheckBoxColumn
+            // 
+            this.checkDataGridViewCheckBoxColumn.DataPropertyName = "Check";
+            this.checkDataGridViewCheckBoxColumn.HeaderText = "Выполнено";
+            this.checkDataGridViewCheckBoxColumn.Name = "checkDataGridViewCheckBoxColumn";
+            this.checkDataGridViewCheckBoxColumn.Width = 80;
+            // 
+            // inOutDataGridViewTextBoxColumn1
+            // 
+            this.inOutDataGridViewTextBoxColumn1.DataPropertyName = "InOut";
+            this.inOutDataGridViewTextBoxColumn1.HeaderText = "Доход-Расход";
+            this.inOutDataGridViewTextBoxColumn1.Name = "inOutDataGridViewTextBoxColumn1";
+            this.inOutDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // categoryDataGridViewTextBoxColumn1
+            // 
+            this.categoryDataGridViewTextBoxColumn1.DataPropertyName = "Category";
+            this.categoryDataGridViewTextBoxColumn1.HeaderText = "Категория";
+            this.categoryDataGridViewTextBoxColumn1.Name = "categoryDataGridViewTextBoxColumn1";
+            this.categoryDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dateTimeDataGridViewTextBoxColumn1
+            // 
+            this.dateTimeDataGridViewTextBoxColumn1.DataPropertyName = "DateTime";
+            this.dateTimeDataGridViewTextBoxColumn1.HeaderText = "Дата";
+            this.dateTimeDataGridViewTextBoxColumn1.Name = "dateTimeDataGridViewTextBoxColumn1";
+            this.dateTimeDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dateTimeDataGridViewTextBoxColumn1.Width = 80;
+            // 
+            // sumDataGridViewTextBoxColumn1
+            // 
+            this.sumDataGridViewTextBoxColumn1.DataPropertyName = "Sum";
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.sumDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.sumDataGridViewTextBoxColumn1.HeaderText = "Сумма";
+            this.sumDataGridViewTextBoxColumn1.Name = "sumDataGridViewTextBoxColumn1";
+            this.sumDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.sumDataGridViewTextBoxColumn1.Width = 80;
+            // 
+            // commentDataGridViewTextBoxColumn1
+            // 
+            this.commentDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.commentDataGridViewTextBoxColumn1.DataPropertyName = "Comment";
+            this.commentDataGridViewTextBoxColumn1.HeaderText = "Комментарий";
+            this.commentDataGridViewTextBoxColumn1.Name = "commentDataGridViewTextBoxColumn1";
+            this.commentDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
             // budgetBindingSource
             // 
             this.budgetBindingSource.DataMember = "Budget";
@@ -1021,54 +1046,12 @@ namespace ArxBuh
             // 
             this.toolStripSplitButton3.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripSplitButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem6,
-            this.toolStripSeparator4,
-            this.toolStripMenuItem7,
-            this.toolStripSeparator5,
-            this.toolStripMenuItem8,
-            this.toolStripMenuItem9});
             this.toolStripSplitButton3.Image = global::ArxBuh.Properties.Resources.gear_wheel_32x32;
             this.toolStripSplitButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton3.Name = "toolStripSplitButton3";
             this.toolStripSplitButton3.Size = new System.Drawing.Size(32, 22);
             this.toolStripSplitButton3.Text = "Дополнительно";
             this.toolStripSplitButton3.Click += new System.EventHandler(this.SettingsTSB_ButtonClick);
-            // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.Image = global::ArxBuh.Properties.Resources.help_32x32;
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(241, 22);
-            this.toolStripMenuItem6.Text = "О Программе";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(238, 6);
-            // 
-            // toolStripMenuItem7
-            // 
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(241, 22);
-            this.toolStripMenuItem7.Text = "Категории доходов и расходов";
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(238, 6);
-            // 
-            // toolStripMenuItem8
-            // 
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(241, 22);
-            this.toolStripMenuItem8.Text = "Резервное копирование";
-            // 
-            // toolStripMenuItem9
-            // 
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(241, 22);
-            this.toolStripMenuItem9.Text = "Шифрование";
             // 
             // toolStripButton9
             // 
@@ -1238,11 +1221,31 @@ namespace ArxBuh
             this.toolStripLabel2.Size = new System.Drawing.Size(15, 22);
             this.toolStripLabel2.Text = "С";
             // 
+            // toolStripDateTimeChooser1
+            // 
+            this.toolStripDateTimeChooser1.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripDateTimeChooser1.Margin = new System.Windows.Forms.Padding(0, -1, 0, 2);
+            this.toolStripDateTimeChooser1.Name = "toolStripDateTimeChooser1";
+            this.toolStripDateTimeChooser1.Size = new System.Drawing.Size(96, 24);
+            this.toolStripDateTimeChooser1.Text = "toolStripDateTimeChooser1";
+            this.toolStripDateTimeChooser1.Value = new System.DateTime(2014, 2, 15, 21, 22, 26, 959);
+            this.toolStripDateTimeChooser1.ValueChanged += new System.EventHandler(this.toolStripComboBox2_TextChanged);
+            // 
             // toolStripLabel3
             // 
             this.toolStripLabel3.Name = "toolStripLabel3";
             this.toolStripLabel3.Size = new System.Drawing.Size(21, 22);
             this.toolStripLabel3.Text = "по";
+            // 
+            // toolStripDateTimeChooser2
+            // 
+            this.toolStripDateTimeChooser2.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripDateTimeChooser2.Margin = new System.Windows.Forms.Padding(0, -1, 0, 2);
+            this.toolStripDateTimeChooser2.Name = "toolStripDateTimeChooser2";
+            this.toolStripDateTimeChooser2.Size = new System.Drawing.Size(96, 24);
+            this.toolStripDateTimeChooser2.Text = "toolStripDateTimeChooser2";
+            this.toolStripDateTimeChooser2.Value = new System.DateTime(2014, 2, 15, 21, 22, 26, 963);
+            this.toolStripDateTimeChooser2.ValueChanged += new System.EventHandler(this.toolStripComboBox2_TextChanged);
             // 
             // toolStripButton8
             // 
@@ -1614,94 +1617,6 @@ namespace ArxBuh
             this.cashInOutBindingSource1.DataMember = "CashInOut";
             this.cashInOutBindingSource1.DataSource = this.dataSet1;
             // 
-            // toolStripDateTimeChooser3
-            // 
-            this.toolStripDateTimeChooser3.AutoSize = false;
-            this.toolStripDateTimeChooser3.BackColor = System.Drawing.Color.Transparent;
-            this.toolStripDateTimeChooser3.Name = "toolStripDateTimeChooser3";
-            this.toolStripDateTimeChooser3.Size = new System.Drawing.Size(96, 25);
-            this.toolStripDateTimeChooser3.Text = "toolStripDateTimeChooser3";
-            this.toolStripDateTimeChooser3.Value = new System.DateTime(2014, 2, 15, 21, 22, 26, 559);
-            this.toolStripDateTimeChooser3.ValueChanged += new System.EventHandler(this.toolStripDateTimeChooser3_ValueChanged);
-            // 
-            // toolStripDateTimeChooser4
-            // 
-            this.toolStripDateTimeChooser4.AutoSize = false;
-            this.toolStripDateTimeChooser4.BackColor = System.Drawing.Color.Transparent;
-            this.toolStripDateTimeChooser4.Name = "toolStripDateTimeChooser4";
-            this.toolStripDateTimeChooser4.Size = new System.Drawing.Size(96, 25);
-            this.toolStripDateTimeChooser4.Text = "toolStripDateTimeChooser4";
-            this.toolStripDateTimeChooser4.Value = new System.DateTime(2014, 2, 15, 21, 22, 26, 565);
-            this.toolStripDateTimeChooser4.ValueChanged += new System.EventHandler(this.toolStripDateTimeChooser4_ValueChanged);
-            // 
-            // toolStripDateTimeChooser1
-            // 
-            this.toolStripDateTimeChooser1.BackColor = System.Drawing.Color.Transparent;
-            this.toolStripDateTimeChooser1.Margin = new System.Windows.Forms.Padding(0, -1, 0, 2);
-            this.toolStripDateTimeChooser1.Name = "toolStripDateTimeChooser1";
-            this.toolStripDateTimeChooser1.Size = new System.Drawing.Size(96, 24);
-            this.toolStripDateTimeChooser1.Text = "toolStripDateTimeChooser1";
-            this.toolStripDateTimeChooser1.Value = new System.DateTime(2014, 2, 15, 21, 22, 26, 959);
-            this.toolStripDateTimeChooser1.ValueChanged += new System.EventHandler(this.toolStripComboBox2_TextChanged);
-            // 
-            // toolStripDateTimeChooser2
-            // 
-            this.toolStripDateTimeChooser2.BackColor = System.Drawing.Color.Transparent;
-            this.toolStripDateTimeChooser2.Margin = new System.Windows.Forms.Padding(0, -1, 0, 2);
-            this.toolStripDateTimeChooser2.Name = "toolStripDateTimeChooser2";
-            this.toolStripDateTimeChooser2.Size = new System.Drawing.Size(96, 24);
-            this.toolStripDateTimeChooser2.Text = "toolStripDateTimeChooser2";
-            this.toolStripDateTimeChooser2.Value = new System.DateTime(2014, 2, 15, 21, 22, 26, 963);
-            this.toolStripDateTimeChooser2.ValueChanged += new System.EventHandler(this.toolStripComboBox2_TextChanged);
-            // 
-            // checkDataGridViewCheckBoxColumn
-            // 
-            this.checkDataGridViewCheckBoxColumn.DataPropertyName = "Check";
-            this.checkDataGridViewCheckBoxColumn.HeaderText = "Выполнено";
-            this.checkDataGridViewCheckBoxColumn.Name = "checkDataGridViewCheckBoxColumn";
-            this.checkDataGridViewCheckBoxColumn.Width = 80;
-            // 
-            // inOutDataGridViewTextBoxColumn1
-            // 
-            this.inOutDataGridViewTextBoxColumn1.DataPropertyName = "InOut";
-            this.inOutDataGridViewTextBoxColumn1.HeaderText = "Доход-Расход";
-            this.inOutDataGridViewTextBoxColumn1.Name = "inOutDataGridViewTextBoxColumn1";
-            this.inOutDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // categoryDataGridViewTextBoxColumn1
-            // 
-            this.categoryDataGridViewTextBoxColumn1.DataPropertyName = "Category";
-            this.categoryDataGridViewTextBoxColumn1.HeaderText = "Категория";
-            this.categoryDataGridViewTextBoxColumn1.Name = "categoryDataGridViewTextBoxColumn1";
-            this.categoryDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dateTimeDataGridViewTextBoxColumn1
-            // 
-            this.dateTimeDataGridViewTextBoxColumn1.DataPropertyName = "DateTime";
-            this.dateTimeDataGridViewTextBoxColumn1.HeaderText = "Дата";
-            this.dateTimeDataGridViewTextBoxColumn1.Name = "dateTimeDataGridViewTextBoxColumn1";
-            this.dateTimeDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dateTimeDataGridViewTextBoxColumn1.Width = 80;
-            // 
-            // sumDataGridViewTextBoxColumn1
-            // 
-            this.sumDataGridViewTextBoxColumn1.DataPropertyName = "Sum";
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.sumDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.sumDataGridViewTextBoxColumn1.HeaderText = "Сумма";
-            this.sumDataGridViewTextBoxColumn1.Name = "sumDataGridViewTextBoxColumn1";
-            this.sumDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.sumDataGridViewTextBoxColumn1.Width = 80;
-            // 
-            // commentDataGridViewTextBoxColumn1
-            // 
-            this.commentDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.commentDataGridViewTextBoxColumn1.DataPropertyName = "Comment";
-            this.commentDataGridViewTextBoxColumn1.HeaderText = "Комментарий";
-            this.commentDataGridViewTextBoxColumn1.Name = "commentDataGridViewTextBoxColumn1";
-            this.commentDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1835,12 +1750,6 @@ namespace ArxBuh
         private ToolStripButton toolStripButton4;
         private ToolStripButton toolStripButton5;
         private ToolStripSplitButton toolStripSplitButton1;
-        private ToolStripMenuItem toolStripMenuItem3;
-        private ToolStripSeparator toolStripSeparator1;
-        private ToolStripMenuItem toolStripMenuItem4;
-        private ToolStripSeparator toolStripSeparator3;
-        private ToolStripMenuItem toolStripMenuItem5;
-        private ToolStripMenuItem toolStripMenuItem10;
         private ToolStripSeparator toolStripSeparator7;
         private ToolStripButton toolStripButton1;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
@@ -1855,12 +1764,6 @@ namespace ArxBuh
         private ToolStripButton tsb_GoalDelete;
         private ToolStripButton toolStripButton11;
         private ToolStripSplitButton toolStripSplitButton3;
-        private ToolStripMenuItem toolStripMenuItem6;
-        private ToolStripSeparator toolStripSeparator4;
-        private ToolStripMenuItem toolStripMenuItem7;
-        private ToolStripSeparator toolStripSeparator5;
-        private ToolStripMenuItem toolStripMenuItem8;
-        private ToolStripMenuItem toolStripMenuItem9;
         private Label labelResultGoal;
         private ToolStripMenuItem автоматическоеОбновлениеToolStripMenuItem;
         private ToolStripMenuItem повторитьToolStripMenuItem;
@@ -1912,6 +1815,7 @@ namespace ArxBuh
         private DataGridViewTextBoxColumn dateTimeDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn sumDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn1;
+        private ToolStripMenuItem СписокСчетовtoolStripMenuItem;
     }
 }
 
