@@ -1341,8 +1341,19 @@ namespace ArxBuh
 
         private void toolsbTransfer_Click(object sender, EventArgs e)
         {
-            using (var fTransfer = new Form_AddEditTransfer())
+            add_transfer();
+        }
+
+        private void add_transfer()
+        {
+            using (var fTransfer = new Form_AddEditTransfer("Новый перевод"))
             {
+                Class_element.InOut = "Основной";
+                Class_element.Category = "Основной";
+                Class_element.Date = DateTime.Now.Date;
+                Class_element.Sum = 0;
+                Class_element.Comment = "";
+
                 fTransfer.ShowDialog();
             }
         }
