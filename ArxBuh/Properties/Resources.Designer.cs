@@ -123,6 +123,16 @@ namespace ArxBuh.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap down_arrow_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("down_arrow_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap edit_32x32 {
             get {
                 object obj = ResourceManager.GetObject("edit_32x32", resourceCulture);
@@ -266,6 +276,16 @@ namespace ArxBuh.Properties {
         internal static System.Drawing.Bitmap table_32x32 {
             get {
                 object obj = ResourceManager.GetObject("table_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap up_arrow_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("up_arrow_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -36,16 +36,18 @@ namespace ArxBuh
         {
             using (var category = new Form_Category())
             {
-                category.ShowDialog();
+                category.ShowDialog();                
             }
+
+            filter();
         }
 
         void filter()
         {
             if (comboBox1.Text == "Доход")
             {
-                var townsView = new DataView(arxDs.ds.Tables["Categories"], "[In] = true", "CategoryID",
-                    DataViewRowState.CurrentRows);
+                var townsView = new DataView(arxDs.ds.Tables["Categories"], "[In] = true", "",
+                    DataViewRowState.CurrentRows );
 
                 comboBox2.DataSource = townsView;
                 comboBox2.DisplayMember = "Category";
@@ -53,7 +55,7 @@ namespace ArxBuh
 
             if (comboBox1.Text == "Расход")
             {
-                var townsView = new DataView(arxDs.ds.Tables["Categories"], "[Out] = true", "CategoryID",
+                var townsView = new DataView(arxDs.ds.Tables["Categories"], "[Out] = true", "",
                     DataViewRowState.CurrentRows);
                 comboBox2.DataSource = townsView;
                 comboBox2.DisplayMember = "Category";

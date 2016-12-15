@@ -208,6 +208,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Resources\down_arrow_32x32.png" />
+    <None Include="Resources\up_arrow_32x32.png" />
     <EmbeddedResource Include="Form_AboutBox.resx">
       <DependentUpon>Form_AboutBox.cs</DependentUpon>
     </EmbeddedResource>
