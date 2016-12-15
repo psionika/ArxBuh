@@ -143,7 +143,16 @@ namespace ArxBuh
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripDateTimeChooser1 = new ArxBuh.ToolStripDateTimeChooser();
-            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.сНачалаНеделиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.сНачалаМесяцаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.сНачалаГодаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.предыдущаяНеделяToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.предыдущийМесяцToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.предыдущийГодToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+            this.заВсёВремяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDateTimeChooser2 = new ArxBuh.ToolStripDateTimeChooser();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
@@ -191,6 +200,8 @@ namespace ArxBuh
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
             this.cashInOutBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
+            this.заВсёВремяToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -331,7 +342,9 @@ namespace ArxBuh
             this.toolStripMenuItem22,
             this.предыдущаяНеделяToolStripMenuItem,
             this.предыдущийМесяцToolStripMenuItem,
-            this.предыдущийГодToolStripMenuItem});
+            this.предыдущийГодToolStripMenuItem,
+            this.toolStripMenuItem5,
+            this.заВсёВремяToolStripMenuItem1});
             this.toolStripSplitButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton4.Image")));
             this.toolStripSplitButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton4.Name = "toolStripSplitButton4";
@@ -1184,7 +1197,7 @@ namespace ArxBuh
             this.toolStripSeparator6,
             this.toolStripLabel2,
             this.toolStripDateTimeChooser1,
-            this.toolStripLabel3,
+            this.toolStripDropDownButton1,
             this.toolStripDateTimeChooser2,
             this.toolStripButton8,
             this.toolStripSplitButton2,
@@ -1231,11 +1244,83 @@ namespace ArxBuh
             this.toolStripDateTimeChooser1.Value = new System.DateTime(2014, 2, 15, 21, 22, 26, 959);
             this.toolStripDateTimeChooser1.ValueChanged += new System.EventHandler(this.toolStripComboBox2_TextChanged);
             // 
-            // toolStripLabel3
+            // toolStripDropDownButton1
             // 
-            this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(21, 22);
-            this.toolStripLabel3.Text = "по";
+            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сНачалаНеделиToolStripMenuItem1,
+            this.сНачалаМесяцаToolStripMenuItem1,
+            this.сНачалаГодаToolStripMenuItem1,
+            this.toolStripMenuItem3,
+            this.предыдущаяНеделяToolStripMenuItem1,
+            this.предыдущийМесяцToolStripMenuItem1,
+            this.предыдущийГодToolStripMenuItem1,
+            this.toolStripMenuItem4,
+            this.заВсёВремяToolStripMenuItem});
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(34, 22);
+            this.toolStripDropDownButton1.Text = "по";
+            // 
+            // сНачалаНеделиToolStripMenuItem1
+            // 
+            this.сНачалаНеделиToolStripMenuItem1.Name = "сНачалаНеделиToolStripMenuItem1";
+            this.сНачалаНеделиToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
+            this.сНачалаНеделиToolStripMenuItem1.Text = "С начала недели";
+            this.сНачалаНеделиToolStripMenuItem1.Click += new System.EventHandler(this.сНачалаНеделиToolStripMenuItem1_Click);
+            // 
+            // сНачалаМесяцаToolStripMenuItem1
+            // 
+            this.сНачалаМесяцаToolStripMenuItem1.Name = "сНачалаМесяцаToolStripMenuItem1";
+            this.сНачалаМесяцаToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
+            this.сНачалаМесяцаToolStripMenuItem1.Text = "С начала месяца";
+            this.сНачалаМесяцаToolStripMenuItem1.Click += new System.EventHandler(this.сНачалаМесяцаToolStripMenuItem1_Click);
+            // 
+            // сНачалаГодаToolStripMenuItem1
+            // 
+            this.сНачалаГодаToolStripMenuItem1.Name = "сНачалаГодаToolStripMenuItem1";
+            this.сНачалаГодаToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
+            this.сНачалаГодаToolStripMenuItem1.Text = "С начала года";
+            this.сНачалаГодаToolStripMenuItem1.Click += new System.EventHandler(this.сНачалаГодаToolStripMenuItem1_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(184, 6);
+            // 
+            // предыдущаяНеделяToolStripMenuItem1
+            // 
+            this.предыдущаяНеделяToolStripMenuItem1.Name = "предыдущаяНеделяToolStripMenuItem1";
+            this.предыдущаяНеделяToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
+            this.предыдущаяНеделяToolStripMenuItem1.Text = "Предыдущая неделя";
+            this.предыдущаяНеделяToolStripMenuItem1.Click += new System.EventHandler(this.предыдущаяНеделяToolStripMenuItem1_Click);
+            // 
+            // предыдущийМесяцToolStripMenuItem1
+            // 
+            this.предыдущийМесяцToolStripMenuItem1.Name = "предыдущийМесяцToolStripMenuItem1";
+            this.предыдущийМесяцToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
+            this.предыдущийМесяцToolStripMenuItem1.Text = "Предыдущий месяц";
+            this.предыдущийМесяцToolStripMenuItem1.Click += new System.EventHandler(this.предыдущийМесяцToolStripMenuItem1_Click);
+            // 
+            // предыдущийГодToolStripMenuItem1
+            // 
+            this.предыдущийГодToolStripMenuItem1.Name = "предыдущийГодToolStripMenuItem1";
+            this.предыдущийГодToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
+            this.предыдущийГодToolStripMenuItem1.Text = "Предыдущий год";
+            this.предыдущийГодToolStripMenuItem1.Click += new System.EventHandler(this.предыдущийГодToolStripMenuItem1_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(184, 6);
+            // 
+            // заВсёВремяToolStripMenuItem
+            // 
+            this.заВсёВремяToolStripMenuItem.Name = "заВсёВремяToolStripMenuItem";
+            this.заВсёВремяToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.заВсёВремяToolStripMenuItem.Text = "За всё время";
+            this.заВсёВремяToolStripMenuItem.Click += new System.EventHandler(this.заВсёВремяToolStripMenuItem_Click);
             // 
             // toolStripDateTimeChooser2
             // 
@@ -1617,6 +1702,18 @@ namespace ArxBuh
             this.cashInOutBindingSource1.DataMember = "CashInOut";
             this.cashInOutBindingSource1.DataSource = this.dataSet1;
             // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(184, 6);
+            // 
+            // заВсёВремяToolStripMenuItem1
+            // 
+            this.заВсёВремяToolStripMenuItem1.Name = "заВсёВремяToolStripMenuItem1";
+            this.заВсёВремяToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
+            this.заВсёВремяToolStripMenuItem1.Text = "За всё время";
+            this.заВсёВремяToolStripMenuItem1.Click += new System.EventHandler(this.заВсёВремяToolStripMenuItem1_Click);
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1733,7 +1830,6 @@ namespace ArxBuh
         private ToolStripSeparator toolStripSeparator6;
         private ToolStripLabel toolStripLabel2;
         private ToolStripDateTimeChooser toolStripDateTimeChooser1;
-        private ToolStripLabel toolStripLabel3;
         private ToolStripDateTimeChooser toolStripDateTimeChooser2;
         private ToolStripDateTimeChooser toolStripDateTimeChooser3;
         private ToolStripDateTimeChooser toolStripDateTimeChooser4;
@@ -1816,6 +1912,18 @@ namespace ArxBuh
         private DataGridViewTextBoxColumn sumDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn1;
         private ToolStripMenuItem СписокСчетовtoolStripMenuItem;
+        private ToolStripDropDownButton toolStripDropDownButton1;
+        private ToolStripMenuItem сНачалаНеделиToolStripMenuItem1;
+        private ToolStripMenuItem сНачалаМесяцаToolStripMenuItem1;
+        private ToolStripMenuItem сНачалаГодаToolStripMenuItem1;
+        private ToolStripSeparator toolStripMenuItem3;
+        private ToolStripMenuItem предыдущаяНеделяToolStripMenuItem1;
+        private ToolStripMenuItem предыдущийМесяцToolStripMenuItem1;
+        private ToolStripMenuItem предыдущийГодToolStripMenuItem1;
+        private ToolStripSeparator toolStripMenuItem4;
+        private ToolStripMenuItem заВсёВремяToolStripMenuItem;
+        private ToolStripSeparator toolStripMenuItem5;
+        private ToolStripMenuItem заВсёВремяToolStripMenuItem1;
     }
 }
 

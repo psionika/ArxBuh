@@ -1328,6 +1328,16 @@ namespace ArxBuh
             dateTimePeriod(dtBegin, dtEnd);
         }
 
+        private void заВсёВремяToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var dtBegin = dataSet1.Tables["CashInOut"].Rows.OfType<DataRow>().
+                    Select(k => Convert.ToDateTime(k["DateTime"])).Min();
+
+            var dtEnd = DateTime.Now.Date.AddDays(1).AddSeconds(-1);
+
+            dateTimePeriod(dtBegin, dtEnd);
+        }
+
         void dateTimePeriod(DateTime dtBegin, DateTime dtEnd)
         {
             DateBeginEnd.DateBegin = dtBegin;
@@ -1338,6 +1348,7 @@ namespace ArxBuh
 
             filter();
         }
+
         #endregion
 
         private void СписокСчетовtoolStripMenuItem_Click(object sender, EventArgs e)
@@ -1366,5 +1377,108 @@ namespace ArxBuh
                 fTransfer.ShowDialog();
             }
         }
+
+        private void сНачалаНеделиToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var dtBegin = DateTime.Now.Date;
+
+            while (dtBegin.DayOfWeek != DayOfWeek.Monday)
+            {
+                dtBegin = dtBegin.AddDays(-1);
+            }
+
+            dateTimePeriodReport(dtBegin, DateTime.Now);
+        }
+
+        private void сНачалаМесяцаToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var dtBegin = DateTime.Now.Date;
+
+            dtBegin = new DateTime(dtBegin.Year, dtBegin.Month, 1);
+
+            dateTimePeriodReport(dtBegin, DateTime.Now);
+        }
+
+        private void сНачалаГодаToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var dtBegin = DateTime.Now.Date;
+
+            dtBegin = new DateTime(dtBegin.Year, 1, 1);
+
+            dateTimePeriodReport(dtBegin, DateTime.Now);
+        }
+
+        private void предыдущаяНеделяToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var dtEnd = DateTime.Now.Date;
+
+            if (dtEnd.DayOfWeek == DayOfWeek.Sunday) dtEnd = dtEnd.AddDays(-1);
+
+            while (dtEnd.DayOfWeek != DayOfWeek.Sunday)
+            {
+                dtEnd = dtEnd.AddDays(-1);
+            }
+
+            dtEnd = dtEnd.AddDays(1).AddSeconds(-1);
+
+            var dtBegin = dtEnd;
+
+            while (dtBegin.DayOfWeek != DayOfWeek.Monday)
+            {
+                dtBegin = dtBegin.AddDays(-1);
+            }
+
+            dateTimePeriodReport(dtBegin, dtEnd);
+        }
+
+        private void предыдущийМесяцToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var dtBegin = DateTime.Now.Date;
+            var dtEnd = DateTime.Now.Date;
+
+            if (dtBegin.Month != 1)
+            {
+                dtBegin = new DateTime(dtBegin.Year, dtBegin.Month - 1, 1);
+                dtEnd = new DateTime(dtEnd.Year, dtEnd.Month - 1, DateTime.DaysInMonth(dtEnd.Year, dtEnd.Month - 1), 23, 59, 59);
+            }
+            else
+            {
+                dtBegin = new DateTime(dtBegin.Year - 1, 12, 1);
+                dtEnd = new DateTime(dtEnd.Year - 1, 12, 31, 23, 59, 59);
+            }
+
+            dateTimePeriodReport(dtBegin, dtEnd);
+        }
+
+        private void предыдущийГодToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var dtBegin = DateTime.Now.Date;
+            var dtEnd = DateTime.Now.Date;
+
+            dtBegin = new DateTime(dtBegin.Year - 1, 1, 1);
+            dtEnd = new DateTime(dtEnd.Year - 1, 12, 31, 23, 59, 59);
+
+            dateTimePeriodReport(dtBegin, dtEnd);
+        }
+
+        private void заВсёВремяToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var dtBegin = dataSet1.Tables["CashInOut"].Rows.OfType<DataRow>().
+        Select(k => Convert.ToDateTime(k["DateTime"])).Min();
+
+            var dtEnd = DateTime.Now.Date.AddDays(1).AddSeconds(-1);
+
+            dateTimePeriodReport(dtBegin, dtEnd);
+        }
+
+        void dateTimePeriodReport(DateTime dtBegin, DateTime dtEnd)
+        {
+            toolStripDateTimeChooser1.Value = dtBegin;
+            toolStripDateTimeChooser2.Value = dtEnd;
+
+            RefreshReport();
+        }
+
+
     }
 }
