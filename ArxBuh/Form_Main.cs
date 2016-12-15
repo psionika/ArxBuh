@@ -1479,6 +1479,14 @@ namespace ArxBuh
             RefreshReport();
         }
 
+        private void toolStripSplitButton4_ButtonClick(object sender, EventArgs e)
+        {
+            toolStripSplitButton4.ShowDropDown();
+        }
 
+        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
+        {
+            toolStripDropDownButton1.ShowDropDown();
+        }
     }
 }

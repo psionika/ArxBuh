@@ -64,6 +64,8 @@ namespace ArxBuh
             this.предыдущаяНеделяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.предыдущийМесяцToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.предыдущийГодToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
+            this.заВсёВремяToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDateTimeChooser4 = new ArxBuh.ToolStripDateTimeChooser();
             this.FilterClearTSB = new System.Windows.Forms.ToolStripButton();
             this.ExitTSB = new System.Windows.Forms.ToolStripButton();
@@ -200,8 +202,6 @@ namespace ArxBuh
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
             this.cashInOutBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
-            this.заВсёВремяToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -350,6 +350,7 @@ namespace ArxBuh
             this.toolStripSplitButton4.Name = "toolStripSplitButton4";
             this.toolStripSplitButton4.Size = new System.Drawing.Size(37, 22);
             this.toolStripSplitButton4.Text = "по";
+            this.toolStripSplitButton4.ButtonClick += new System.EventHandler(this.toolStripSplitButton4_ButtonClick);
             // 
             // сНачалаНеделиToolStripMenuItem
             // 
@@ -397,6 +398,18 @@ namespace ArxBuh
             this.предыдущийГодToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.предыдущийГодToolStripMenuItem.Text = "Предыдущий год";
             this.предыдущийГодToolStripMenuItem.Click += new System.EventHandler(this.предыдущийГодToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(184, 6);
+            // 
+            // заВсёВремяToolStripMenuItem1
+            // 
+            this.заВсёВремяToolStripMenuItem1.Name = "заВсёВремяToolStripMenuItem1";
+            this.заВсёВремяToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
+            this.заВсёВремяToolStripMenuItem1.Text = "За всё время";
+            this.заВсёВремяToolStripMenuItem1.Click += new System.EventHandler(this.заВсёВремяToolStripMenuItem1_Click);
             // 
             // toolStripDateTimeChooser4
             // 
@@ -1262,6 +1275,7 @@ namespace ArxBuh
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
             this.toolStripDropDownButton1.Size = new System.Drawing.Size(34, 22);
             this.toolStripDropDownButton1.Text = "по";
+            this.toolStripDropDownButton1.Click += new System.EventHandler(this.toolStripDropDownButton1_Click);
             // 
             // сНачалаНеделиToolStripMenuItem1
             // 
@@ -1701,18 +1715,6 @@ namespace ArxBuh
             // 
             this.cashInOutBindingSource1.DataMember = "CashInOut";
             this.cashInOutBindingSource1.DataSource = this.dataSet1;
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(184, 6);
-            // 
-            // заВсёВремяToolStripMenuItem1
-            // 
-            this.заВсёВремяToolStripMenuItem1.Name = "заВсёВремяToolStripMenuItem1";
-            this.заВсёВремяToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
-            this.заВсёВремяToolStripMenuItem1.Text = "За всё время";
-            this.заВсёВремяToolStripMenuItem1.Click += new System.EventHandler(this.заВсёВремяToolStripMenuItem1_Click);
             // 
             // Form_Main
             // 
