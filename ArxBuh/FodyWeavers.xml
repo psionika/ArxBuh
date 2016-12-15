@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Weavers>
+  <Costura  IncludeDebugSymbols='false' >
+    <IncludeAssemblies>
+      Microsoft.ReportViewer.Common
+      Microsoft.ReportViewer.DataVisualization
+      Microsoft.ReportViewer.ProcessingObjectModel
+      Microsoft.ReportViewer.WinForms
+    </IncludeAssemblies>
+  </Costura>
+</Weavers>
