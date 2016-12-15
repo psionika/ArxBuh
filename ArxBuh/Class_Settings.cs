@@ -16,6 +16,8 @@ namespace ArxBuh
 
         public static string UpdatePath = @"http://arxbuh.itchita.ru/arxbuh.xml";
         public static bool UpdateEnabled = true;
+
+        public static DateTime BudgetDate;
     }
 
     static class ArxBuhSettingAction

@@ -58,8 +58,14 @@ namespace ArxBuh
 
             toolStripDateTimeChooser4.Value = DateTime.Now.Date.AddDays(1).AddSeconds(-1);
 
-            dateTimePicker1.Value = DateTime.Now.Date.AddMonths(1);
-
+            if (ArxBuhSettings.BudgetDate != new DateTime(1,1,1,0,0,0,0))
+            {
+                dateTimePicker1.Value = ArxBuhSettings.BudgetDate;
+            }
+            else
+            {
+                dateTimePicker1.Value = DateTime.Now.Date.AddMonths(3);
+            }
         }
 
         void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -825,6 +831,9 @@ namespace ArxBuh
         void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             filterBudget();
+
+            ArxBuhSettings.BudgetDate = dateTimePicker1.Value;
+            ArxBuhSettingAction.WriteXml();
         }
 
         void filterBudget()
