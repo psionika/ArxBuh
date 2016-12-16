@@ -1076,7 +1076,8 @@ namespace ArxBuh
             if (toolStripDateTimeChooser1.Value.Date == DateTime.Now.Date &&
                 toolStripDateTimeChooser2.Value.Date == DateTime.Now.Date)
             {
-                StartDate = new DateTime(2011, 12, 12);
+                StartDate = dataSet1.Tables["CashInOut"].Rows.OfType<DataRow>().
+        Select(k => Convert.ToDateTime(k["DateTime"])).Min(); 
                 EndDate = DateTime.Now;
             }
             else
