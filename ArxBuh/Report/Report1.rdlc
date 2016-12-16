@@ -13,7 +13,7 @@
               </Group>
               <SortExpressions>
                 <SortExpression>
-                  <Value>=Fields!Category.Value</Value>
+                  <Value>=Sum(Fields!Sum.Value)</Value>
                 </SortExpression>
               </SortExpressions>
               <Label>=Fields!Category.Value</Label>
@@ -677,7 +677,7 @@
         <Top>0.5027cm</Top>
         <Left>0.3175cm</Left>
         <Height>1.90583cm</Height>
-        <Width>15.62835cm</Width>
+        <Width>15.62834cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -1268,7 +1268,7 @@
         <Top>13.7287cm</Top>
         <Left>0.3175cm</Left>
         <Height>3.47625cm</Height>
-        <Width>15.62835cm</Width>
+        <Width>15.62836cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
