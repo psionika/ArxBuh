@@ -1030,11 +1030,13 @@ namespace ArxBuh
             foreach (DataGridViewRow row in dataGridView4.Rows)
             {
 
-
                 if (row.Cells[2].Value.ToString() == ""
                     || row.Cells[2].Value == null
                     || Convert.ToDouble(row.Cells[1].Value) == 0)
-                    continue;
+                {
+                    row.Cells[2].Value = 0;                    
+                }
+
 
                 var x = (int)(Convert.ToDouble(row.Cells[2].Value) / (Convert.ToDouble(row.Cells[1].Value) / 100));
                 var y = (int)(Convert.ToDouble(row.Cells[1].Value) - (Convert.ToDouble(row.Cells[2].Value)));
