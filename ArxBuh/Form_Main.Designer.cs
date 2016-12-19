@@ -202,6 +202,8 @@ namespace ArxBuh
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
             this.cashInOutBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -1029,7 +1031,9 @@ namespace ArxBuh
             this.tsb_GoalDelete,
             this.toolStripButton11,
             this.toolStripSplitButton3,
-            this.toolStripButton9});
+            this.toolStripButton9,
+            this.toolStripSeparator1,
+            this.toolStripButton13});
             this.toolStrip4.Location = new System.Drawing.Point(0, 0);
             this.toolStrip4.Name = "toolStrip4";
             this.toolStrip4.Size = new System.Drawing.Size(1038, 25);
@@ -1716,6 +1720,20 @@ namespace ArxBuh
             this.cashInOutBindingSource1.DataMember = "CashInOut";
             this.cashInOutBindingSource1.DataSource = this.dataSet1;
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton13
+            // 
+            this.toolStripButton13.Image = global::ArxBuh.Properties.Resources.filter_32x32;
+            this.toolStripButton13.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton13.Name = "toolStripButton13";
+            this.toolStripButton13.Size = new System.Drawing.Size(173, 22);
+            this.toolStripButton13.Text = "Показывать выполненные";
+            this.toolStripButton13.Click += new System.EventHandler(this.toolStripButton13_Click);
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1926,6 +1944,8 @@ namespace ArxBuh
         private ToolStripMenuItem заВсёВремяToolStripMenuItem;
         private ToolStripSeparator toolStripMenuItem5;
         private ToolStripMenuItem заВсёВремяToolStripMenuItem1;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripButton toolStripButton13;
     }
 }
 

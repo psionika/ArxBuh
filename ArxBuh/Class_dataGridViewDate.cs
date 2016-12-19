@@ -43,7 +43,9 @@ namespace ArxBuh
             if (value != null)
                 progressVal = (int)value;
 
+
             var percentage = ((float)progressVal / 100.0f);
+
             using (var backColorBrush = new SolidBrush(cellStyle.BackColor))
             {
                 using (var foreColorBrush = new SolidBrush(cellStyle.ForeColor))
@@ -52,6 +54,7 @@ namespace ArxBuh
                     base.Paint(g, clipBounds, cellBounds,
                      rowIndex, cellState, value, formattedValue, errorText,
                      cellStyle, advancedBorderStyle, (paintParts & ~DataGridViewPaintParts.ContentForeground));
+
                     if (percentage > 0.0)
                     {
                         // Draw the progress bar and the text
@@ -60,15 +63,15 @@ namespace ArxBuh
                             // Draw the progress bar and the text
                             g.FillRectangle(solidBrush, cellBounds.X + 2, cellBounds.Y + 2, Convert.ToInt32((percentage * cellBounds.Width - 4)), cellBounds.Height - 4);
                         }
-                        g.DrawString(progressVal.ToString() + "%", cellStyle.Font, foreColorBrush, cellBounds.X + 6, cellBounds.Y + 2);
+                        g.DrawString(progressVal.ToString() + " %", cellStyle.Font, foreColorBrush, cellBounds.X + 6, cellBounds.Y + 2);
                     }
                     else
                     {
                         // draw the text
                         if (DataGridView.CurrentRow.Index == rowIndex)
-                            g.DrawString(progressVal.ToString() + "%", cellStyle.Font, new SolidBrush(cellStyle.SelectionForeColor), cellBounds.X + 6, cellBounds.Y + 2);
+                            g.DrawString(progressVal.ToString() + " %", cellStyle.Font, new SolidBrush(cellStyle.SelectionForeColor), cellBounds.X + 6, cellBounds.Y + 2);
                         else
-                            g.DrawString(progressVal.ToString() + "%", cellStyle.Font, foreColorBrush, cellBounds.X + 6, cellBounds.Y + 2);
+                            g.DrawString(progressVal.ToString() + " %", cellStyle.Font, foreColorBrush, cellBounds.X + 6, cellBounds.Y + 2);
                     }
                 }
             }

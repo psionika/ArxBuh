@@ -33,7 +33,7 @@ namespace ArxBuh
 
             loadData();
 
-            using (var progressColumn = new DataGridViewProgressColumn { Width = 250, HeaderText = "Прогресс" })
+            using (var progressColumn = new DataGridViewProgressColumn { Width = 250, Name = "Progress", HeaderText = "Прогресс" })
             {
                 dataGridView4.Columns.Add(progressColumn);
             }
@@ -985,7 +985,6 @@ namespace ArxBuh
 
         void toolStripMenuItem16_Click(object sender, EventArgs e)
         {
-
             remove_elementGoal();
         }
 
@@ -1011,6 +1010,7 @@ namespace ArxBuh
         void remove_elementGoal()
         {
             if (dataGridView4.CurrentRow == null) return;
+
             var result = MessageBox.Show("Вы действительно хотите удалить текущий элемент?",
                 "Удаление элемента",
                 MessageBoxButtons.YesNo,
@@ -1026,8 +1026,11 @@ namespace ArxBuh
             double SumGoal = 0;
             double SumGoalRemaining = 0;
 
+
             foreach (DataGridViewRow row in dataGridView4.Rows)
             {
+
+
                 if (row.Cells[2].Value.ToString() == ""
                     || row.Cells[2].Value == null
                     || Convert.ToDouble(row.Cells[1].Value) == 0)
@@ -1041,9 +1044,37 @@ namespace ArxBuh
 
                 row.Cells[5].Value = x;
                 row.Cells[6].Value = y.ToString("C2");
+            }            
+
+            foreach(DataGridViewRow row in dataGridView4.Rows)
+            {
+                if (toolStripButton13.Text != "Показывать выполненные")
+                {
+                    row.Visible = true;
+                }
+                else
+                {
+                    if ((int)(row.Cells[5].Value) >= 100)
+                    {
+                        if(dataGridView4.CurrentCell.RowIndex == row.Index)
+                        {
+                            foreach (DataGridViewRow rowV in dataGridView4.Rows)
+                            {
+                                if (rowV.Visible && row.Index != rowV.Index)
+                                {
+                                    dataGridView4.CurrentCell = dataGridView4.Rows[rowV.Index].Cells[0];
+                                    dataGridView4.Rows[rowV.Index].Selected = true;
+                                    break;
+                                }
+                            }
+                        }
+
+                        row.Visible = false;
+                    }                    
+                }
             }
 
-            labelResultGoal.Text = string.Format("Всего целей на {0}, осталось собрать {1}", SumGoal.ToString("C2"), SumGoalRemaining.ToString("C2"));
+            labelResultGoal.Text = string.Format($"Всего целей на {SumGoal.ToString("C2")}, осталось собрать {SumGoalRemaining.ToString("C2")}");
         }
 
         void dataGridView4_Paint(object sender, PaintEventArgs e)
@@ -1488,6 +1519,22 @@ namespace ArxBuh
         private void toolStripDropDownButton1_Click(object sender, EventArgs e)
         {
             toolStripDropDownButton1.ShowDropDown();
+        }
+
+        private void toolStripButton13_Click(object sender, EventArgs e)
+        {
+            var sb = new StringBuilder();
+
+            if (toolStripButton13.Text == "Показывать выполненные")
+            {
+                toolStripButton13.Text = "Не показывать выполненные";
+                GoalProgress();
+            }
+            else
+            {
+                toolStripButton13.Text = "Показывать выполненные";
+                GoalProgress();
+            }
         }
     }
 }
