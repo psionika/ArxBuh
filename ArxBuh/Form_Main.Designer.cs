@@ -39,13 +39,14 @@ namespace ArxBuh
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
@@ -313,7 +314,8 @@ namespace ArxBuh
             this.toolStripComboBox1.DropDownWidth = 210;
             this.toolStripComboBox1.Items.AddRange(new object[] {
             "Доход",
-            "Расход"});
+            "Расход",
+            "Перевод"});
             this.toolStripComboBox1.Name = "toolStripComboBox1";
             this.toolStripComboBox1.Size = new System.Drawing.Size(210, 23);
             this.toolStripComboBox1.TextChanged += new System.EventHandler(this.toolStripComboBox1_TextChanged);
@@ -670,23 +672,27 @@ namespace ArxBuh
             this.categoryDataGridViewTextBoxColumn.HeaderText = "Категория";
             this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
             this.categoryDataGridViewTextBoxColumn.ReadOnly = true;
+            this.categoryDataGridViewTextBoxColumn.Width = 180;
             // 
             // dateTimeDataGridViewTextBoxColumn
             // 
             this.dateTimeDataGridViewTextBoxColumn.DataPropertyName = "DateTime";
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dateTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.dateTimeDataGridViewTextBoxColumn.FillWeight = 80F;
             this.dateTimeDataGridViewTextBoxColumn.HeaderText = "Дата";
             this.dateTimeDataGridViewTextBoxColumn.Name = "dateTimeDataGridViewTextBoxColumn";
             this.dateTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateTimeDataGridViewTextBoxColumn.Width = 85;
+            this.dateTimeDataGridViewTextBoxColumn.Width = 70;
             // 
             // sumDataGridViewTextBoxColumn
             // 
             this.sumDataGridViewTextBoxColumn.DataPropertyName = "Sum";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.sumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.sumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.sumDataGridViewTextBoxColumn.FillWeight = 80F;
             this.sumDataGridViewTextBoxColumn.HeaderText = "Сумма";
             this.sumDataGridViewTextBoxColumn.Name = "sumDataGridViewTextBoxColumn";
@@ -967,9 +973,9 @@ namespace ArxBuh
             // sumDataGridViewTextBoxColumn1
             // 
             this.sumDataGridViewTextBoxColumn1.DataPropertyName = "Sum";
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.sumDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.sumDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
             this.sumDataGridViewTextBoxColumn1.HeaderText = "Сумма";
             this.sumDataGridViewTextBoxColumn1.Name = "sumDataGridViewTextBoxColumn1";
             this.sumDataGridViewTextBoxColumn1.ReadOnly = true;
@@ -1127,8 +1133,8 @@ namespace ArxBuh
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.ReadOnly = true;
             this.dataGridView4.RowHeadersVisible = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.dataGridView4.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.dataGridView4.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView4.Size = new System.Drawing.Size(1032, 393);
             this.dataGridView4.TabIndex = 1;
@@ -1147,9 +1153,9 @@ namespace ArxBuh
             // allSumDataGridViewTextBoxColumn
             // 
             this.allSumDataGridViewTextBoxColumn.DataPropertyName = "AllSum";
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.allSumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.allSumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.allSumDataGridViewTextBoxColumn.HeaderText = "Сумма";
             this.allSumDataGridViewTextBoxColumn.Name = "allSumDataGridViewTextBoxColumn";
             this.allSumDataGridViewTextBoxColumn.ReadOnly = true;
@@ -1157,9 +1163,9 @@ namespace ArxBuh
             // historyDataGridViewTextBoxColumn
             // 
             this.historyDataGridViewTextBoxColumn.DataPropertyName = "History";
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.historyDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.historyDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
             this.historyDataGridViewTextBoxColumn.HeaderText = "Внесено";
             this.historyDataGridViewTextBoxColumn.Name = "historyDataGridViewTextBoxColumn";
             this.historyDataGridViewTextBoxColumn.ReadOnly = true;
@@ -1465,8 +1471,8 @@ namespace ArxBuh
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Sum";
-            dataGridViewCellStyle7.NullValue = "0";
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.NullValue = "0";
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewTextBoxColumn1.FillWeight = 80F;
             this.dataGridViewTextBoxColumn1.HeaderText = "Сумма";
             this.dataGridViewTextBoxColumn1.MaxInputLength = 15;
@@ -1494,8 +1500,8 @@ namespace ArxBuh
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Comment";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewTextBoxColumn4.FillWeight = 80F;
             this.dataGridViewTextBoxColumn4.HeaderText = "Comment";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
@@ -1534,8 +1540,8 @@ namespace ArxBuh
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.DataPropertyName = "Sum";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTextBoxColumn9.HeaderText = "Sum";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.Width = 50;
@@ -1572,8 +1578,8 @@ namespace ArxBuh
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "Sum";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewTextBoxColumn14.HeaderText = "Sum";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.Width = 50;
@@ -1895,11 +1901,6 @@ namespace ArxBuh
         private ToolStripButton toolStripButton2;
         private ToolStripButton toolStripButton9;
         private ToolStripButton toolStripButton10;
-        private DataGridViewTextBoxColumn inOutDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dateTimeDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn sumDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn;
         private BindingSource cashInOutBindingSource1;
         private ToolStripMenuItem toolStripMenuItem11;
         private ToolStripMenuItem toolStripMenuItem17;
@@ -1946,6 +1947,11 @@ namespace ArxBuh
         private ToolStripMenuItem заВсёВремяToolStripMenuItem1;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripButton toolStripButton13;
+        private DataGridViewTextBoxColumn inOutDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dateTimeDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn sumDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn;
     }
 }
 

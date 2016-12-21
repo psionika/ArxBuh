@@ -395,7 +395,7 @@ namespace ArxBuh
                     case "Перевод":
                         foreach (DataGridViewCell cell in row.Cells)
                         {
-                            cell.Style.BackColor = Color.Goldenrod;
+                            cell.Style.BackColor = Color.PaleTurquoise;
                         }
                         break;
                     default:
@@ -451,7 +451,19 @@ namespace ArxBuh
 
         void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1) edit_element();
+            if (e.RowIndex != -1)
+            {
+                var type = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+
+                if (type == "Доход" || type == "Расход")
+                {
+                    edit_element();
+                }
+                else if (type == "Перевод")
+                {
+                    editTransfer();
+                }                
+            }
         }
 
         #endregion
@@ -494,13 +506,13 @@ namespace ArxBuh
 
                 if (addEdit.DialogResult == DialogResult.OK)
                 {
-                    var customerRow = ((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row;
+                    var editRow = ((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row;
 
-                    customerRow["InOut"] = Class_element.InOut;
-                    customerRow["Category"] = Class_element.Category;
-                    customerRow["DateTime"] = Class_element.Date;
-                    customerRow["Sum"] = Class_element.Sum;
-                    customerRow["Comment"] = Class_element.Comment;
+                    editRow["InOut"] = Class_element.InOut;
+                    editRow["Category"] = Class_element.Category;
+                    editRow["DateTime"] = Class_element.Date;
+                    editRow["Sum"] = Class_element.Sum;
+                    editRow["Comment"] = Class_element.Comment;
                 }
 
                 saveData();
@@ -1419,6 +1431,50 @@ namespace ArxBuh
                 Class_element.Comment = "";
 
                 fTransfer.ShowDialog();
+
+                if (fTransfer.DialogResult == DialogResult.OK)
+                {
+                    dataSet1.Tables["CashInOut"].Rows.Add(Class_element.InOut, Class_element.Category, Class_element.Date,
+                        Class_element.Sum, Class_element.Comment);
+                }               
+
+                saveData();
+            }
+        }
+
+        private void editTransfer()
+        {
+            arxDs.ds = dataSet1;
+
+            using (var fTransfer = new Form_AddEditTransfer("Новый перевод"))
+            {
+                var array = dataGridView1.CurrentRow.Cells[1].Value.ToString().Split(
+                         new string[] { "->" }, StringSplitOptions.None);
+
+                var inOut = array[0];
+                var category = array[1];               
+
+                Class_element.InOut = inOut;
+                Class_element.Category = category;
+
+                Class_element.Date = DateTime.ParseExact(dataGridView1.CurrentRow.Cells[2].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
+                Class_element.Sum = Convert.ToDouble(dataGridView1.CurrentRow.Cells[3].Value);
+                Class_element.Comment = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+
+                fTransfer.ShowDialog();
+
+                if (fTransfer.DialogResult == DialogResult.OK)
+                {
+                    var editRow = ((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row;
+
+                    editRow["InOut"] = Class_element.InOut;
+                    editRow["Category"] = Class_element.Category;
+                    editRow["DateTime"] = Class_element.Date;
+                    editRow["Sum"] = Class_element.Sum;
+                    editRow["Comment"] = Class_element.Comment;
+                }
+
+                saveData();
             }
         }
 

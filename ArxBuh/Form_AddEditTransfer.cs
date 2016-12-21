@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -29,13 +30,13 @@ namespace ArxBuh
 
         private void Form_AddEditTransfer_Load(object sender, EventArgs e)
         {
+            fillComboBoxes();
+
             comboBox1.Text = Class_element.InOut;
             comboBox2.Text = Class_element.Category;
             dateTimePicker1.Value = Class_element.Date;
             textBoxSum.Text = Class_element.Sum.ToString();
-            textBoxComment.Text = Class_element.Comment;
-
-            fillComboBoxes();
+            textBoxComment.Text = Class_element.Comment;            
         }
 
         private void fillComboBoxes()
@@ -47,14 +48,10 @@ namespace ArxBuh
                      DataViewRowState.CurrentRows);
 
             if (!view1.Cast<DataRowView>()
-                .Any(rv => rv.Row.Field<string>("Account") == "Общий"))
+                .Any(rv => rv.Row.Field<string>("Account") == "Основной"))
             {
-                DataRowView newRow1 = view1.AddNew();
-                newRow1["Account"] = "Общий";
-                newRow1.EndEdit();
-
                 DataRowView newRow2 = view1.AddNew();
-                newRow2["Account"] = "Общий";
+                newRow2["Account"] = "Основной";
                 newRow2.EndEdit();
             }
 
@@ -83,6 +80,45 @@ namespace ArxBuh
             }
 
             fillComboBoxes();
+        }
+
+        private void Form_AddEditTransfer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (DialogResult == DialogResult.OK)
+            {
+                Class_element.InOut = "Перевод";
+                Class_element.Category = $"{comboBox1.Text}->{comboBox2.Text}";
+                Class_element.Date = dateTimePicker1.Value;
+
+                Class_element.Sum = Convert.ToDouble(parsSum(textBoxSum.Text));
+                Class_element.Comment = textBoxComment.Text;
+
+                e.Cancel = false;
+            }
+            else if (DialogResult == DialogResult.Cancel)
+            {
+                e.Cancel = false;
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
+
+        string parsSum(string e)
+        {
+            var c = CultureInfo.CurrentCulture;
+            var cs = c.NumberFormat.CurrencySymbol;
+            var ns = c.NumberFormat.NegativeSign;
+            var parsed = e;
+            if (parsed.Contains(cs))
+                parsed = parsed.Replace(cs, "");
+            if (parsed.StartsWith("(") && parsed.EndsWith(")"))
+                parsed = ns + parsed.Replace("(", "").Replace(")", "");
+
+            parsed = parsed.Replace(".", ",");
+
+            return parsed;
         }
     }
 }
