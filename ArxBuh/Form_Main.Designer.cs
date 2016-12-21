@@ -129,6 +129,8 @@ namespace ArxBuh
             this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSplitButton3 = new System.Windows.Forms.ToolStripSplitButton();
             this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.allSumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -202,8 +204,6 @@ namespace ArxBuh
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
             this.cashInOutBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -1094,6 +1094,20 @@ namespace ArxBuh
             this.toolStripButton9.Text = "Калькулятор";
             this.toolStripButton9.Click += new System.EventHandler(this.CalculatorTSB_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton13
+            // 
+            this.toolStripButton13.Image = global::ArxBuh.Properties.Resources.filter_32x32;
+            this.toolStripButton13.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton13.Name = "toolStripButton13";
+            this.toolStripButton13.Size = new System.Drawing.Size(173, 22);
+            this.toolStripButton13.Text = "Показывать выполненные";
+            this.toolStripButton13.Click += new System.EventHandler(this.toolStripButton13_Click);
+            // 
             // dataGridView4
             // 
             this.dataGridView4.AllowUserToAddRows = false;
@@ -1719,20 +1733,6 @@ namespace ArxBuh
             // 
             this.cashInOutBindingSource1.DataMember = "CashInOut";
             this.cashInOutBindingSource1.DataSource = this.dataSet1;
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripButton13
-            // 
-            this.toolStripButton13.Image = global::ArxBuh.Properties.Resources.filter_32x32;
-            this.toolStripButton13.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton13.Name = "toolStripButton13";
-            this.toolStripButton13.Size = new System.Drawing.Size(173, 22);
-            this.toolStripButton13.Text = "Показывать выполненные";
-            this.toolStripButton13.Click += new System.EventHandler(this.toolStripButton13_Click);
             // 
             // Form_Main
             // 

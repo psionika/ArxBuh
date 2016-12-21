@@ -14,11 +14,47 @@ namespace ArxBuh
         public Form_AccountList()
         {
             InitializeComponent();
+
+            dataSet1 = arxDs.ds;
+
+            accountsBindingSource.DataSource = arxDs.ds;
+
+            dataGridView1.DataSource = accountsBindingSource;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void Form_AccountList_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            arxDs.ds = dataSet1;
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            if (toolStripTextBox1.Text != "")
+            {
+                var newAccountRow = dataSet1.Tables["Accounts"].NewRow();
+                newAccountRow["Account"] = toolStripTextBox1.Text;
+                newAccountRow["StartSum"] = 0;
+
+                dataSet1.Tables["Accounts"].Rows.Add(newAccountRow);
+            }
+        }
+
+        private void dataGridView1_Paint(object sender, PaintEventArgs e)
+        {
+            var sumAccounts = Convert.ToDecimal(dataSet1.Tables["Accounts"].Compute("Sum(StartSum)", ""));
+
+            decimal xIn = 0, xOut = 0;
+
+            xIn = Convert.ToDecimal(dataSet1.Tables["CashInOut"].Compute("Sum(Sum)", "InOut = 'Доход'"));
+            xOut = Convert.ToDecimal(dataSet1.Tables["CashInOut"].Compute("Sum(Sum)", "InOut = 'Расход'"));
+
+
+            labelResult.Text = $"Вклады: ({sumAccounts.ToString("C2")}) + текущее ({(xIn - xOut).ToString("C2")}) = Всего {(sumAccounts + (xIn - xOut)).ToString("C2")}";
         }
     }
 }

@@ -2072,10 +2072,10 @@ namespace ArxBuh {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public AccountsRow AddAccountsRow(string AccountID, string Account, string StartSum) {
+            public AccountsRow AddAccountsRow(string Account, decimal StartSum) {
                 AccountsRow rowAccountsRow = ((AccountsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        AccountID,
+                        null,
                         Account,
                         StartSum};
                 rowAccountsRow.ItemArray = columnValuesArray;
@@ -2108,12 +2108,18 @@ namespace ArxBuh {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnAccountID = new global::System.Data.DataColumn("AccountID", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnAccountID = new global::System.Data.DataColumn("AccountID", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAccountID);
                 this.columnAccount = new global::System.Data.DataColumn("Account", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAccount);
-                this.columnStartSum = new global::System.Data.DataColumn("StartSum", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnStartSum = new global::System.Data.DataColumn("StartSum", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStartSum);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnAccountID}, false));
+                this.columnAccountID.AutoIncrement = true;
+                this.columnAccountID.AutoIncrementSeed = 1;
+                this.columnAccountID.AllowDBNull = false;
+                this.columnAccountID.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3008,14 +3014,9 @@ namespace ArxBuh {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string AccountID {
+            public long AccountID {
                 get {
-                    try {
-                        return ((string)(this[this.tableAccounts.AccountIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AccountID\' in table \'Accounts\' is DBNull.", e);
-                    }
+                    return ((long)(this[this.tableAccounts.AccountIDColumn]));
                 }
                 set {
                     this[this.tableAccounts.AccountIDColumn] = value;
@@ -3040,10 +3041,10 @@ namespace ArxBuh {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string StartSum {
+            public decimal StartSum {
                 get {
                     try {
-                        return ((string)(this[this.tableAccounts.StartSumColumn]));
+                        return ((decimal)(this[this.tableAccounts.StartSumColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'StartSum\' in table \'Accounts\' is DBNull.", e);
@@ -3052,18 +3053,6 @@ namespace ArxBuh {
                 set {
                     this[this.tableAccounts.StartSumColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsAccountIDNull() {
-                return this.IsNull(this.tableAccounts.AccountIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetAccountIDNull() {
-                this[this.tableAccounts.AccountIDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

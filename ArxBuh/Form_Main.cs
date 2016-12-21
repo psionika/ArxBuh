@@ -1387,9 +1387,17 @@ namespace ArxBuh
 
         private void СписокСчетовtoolStripMenuItem_Click(object sender, EventArgs e)
         {
+            arxDs.ds = dataSet1;
+
             using (var fListAcc = new Form_AccountList())
             {
-                fListAcc.ShowDialog();
+                
+                if (fListAcc.ShowDialog() == DialogResult.OK)
+                {
+                    dataSet1 = arxDs.ds;
+                }
+
+                saveData();
             }
         }
 
