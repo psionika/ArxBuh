@@ -1408,6 +1408,8 @@ namespace ArxBuh
 
         private void add_transfer()
         {
+            arxDs.ds = dataSet1;
+
             using (var fTransfer = new Form_AddEditTransfer("Новый перевод"))
             {
                 Class_element.InOut = "Основной";

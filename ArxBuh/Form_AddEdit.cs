@@ -46,18 +46,18 @@ namespace ArxBuh
         {
             if (comboBox1.Text == "Доход")
             {
-                var townsView = new DataView(arxDs.ds.Tables["Categories"], "[In] = true", "",
+                var view = new DataView(arxDs.ds.Tables["Categories"], "[In] = true", "",
                     DataViewRowState.CurrentRows );
 
-                comboBox2.DataSource = townsView;
+                comboBox2.DataSource = view;
                 comboBox2.DisplayMember = "Category";
             }
 
             if (comboBox1.Text == "Расход")
             {
-                var townsView = new DataView(arxDs.ds.Tables["Categories"], "[Out] = true", "",
+                var view = new DataView(arxDs.ds.Tables["Categories"], "[Out] = true", "",
                     DataViewRowState.CurrentRows);
-                comboBox2.DataSource = townsView;
+                comboBox2.DataSource = view;
                 comboBox2.DisplayMember = "Category";
             }
         }

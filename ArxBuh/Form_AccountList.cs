@@ -46,15 +46,37 @@ namespace ArxBuh
 
         private void dataGridView1_Paint(object sender, PaintEventArgs e)
         {
-            var sumAccounts = Convert.ToDecimal(dataSet1.Tables["Accounts"].Compute("Sum(StartSum)", ""));
+            if (dataSet1.Tables["Accounts"].Rows.Count > 0)
+            {
+                var sumAccounts = Convert.ToDecimal(dataSet1.Tables["Accounts"].Compute("Sum(StartSum)", ""));
 
-            decimal xIn = 0, xOut = 0;
+                decimal xIn = 0, xOut = 0;
 
-            xIn = Convert.ToDecimal(dataSet1.Tables["CashInOut"].Compute("Sum(Sum)", "InOut = 'Доход'"));
-            xOut = Convert.ToDecimal(dataSet1.Tables["CashInOut"].Compute("Sum(Sum)", "InOut = 'Расход'"));
+                xIn = Convert.ToDecimal(dataSet1.Tables["CashInOut"].Compute("Sum(Sum)", "InOut = 'Доход'"));
+                xOut = Convert.ToDecimal(dataSet1.Tables["CashInOut"].Compute("Sum(Sum)", "InOut = 'Расход'"));
 
 
-            labelResult.Text = $"Вклады: ({sumAccounts.ToString("C2")}) + текущее ({(xIn - xOut).ToString("C2")}) = Всего {(sumAccounts + (xIn - xOut)).ToString("C2")}";
+                labelResult.Text = $"Вклады: ({sumAccounts.ToString("C2")}) + текущее ({(xIn - xOut).ToString("C2")}) = Всего {(sumAccounts + (xIn - xOut)).ToString("C2")}";
+            }            
+        }
+
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            accountsBindingSource.RemoveCurrent();
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+                dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected = true;
+
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                var pt = dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location;
+                pt.X += e.Location.X;
+                pt.Y += e.Location.Y;
+                contextMenuStrip1.Show(dataGridView1, pt);
+            }
         }
     }
 }
