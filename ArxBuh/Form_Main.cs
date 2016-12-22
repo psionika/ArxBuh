@@ -425,7 +425,7 @@ namespace ArxBuh
 
         void InOutCalc()
         {
-            double xIn = 0, xOut = 0;
+            double xIn = 0, xOut = 0, xTransfer = 0;
 
             foreach (var row in dataGridView1.Rows.Cast<DataGridViewRow>().Where(row => row.Cells[0].Value != null))
             {
@@ -437,10 +437,27 @@ namespace ArxBuh
                     case "Расход":
                         xOut = xOut + (double)row.Cells[3].Value;
                         break;
+                    case "Перевод":
+                        {
+                            var array = row.Cells[1].Value.ToString().Split(new string[] { "->" }, StringSplitOptions.None);
+
+                            var transferOut = array[0];
+                            var transferIn = array[1];
+
+                            if(transferOut == "Основной")
+                            {
+                                xTransfer = xTransfer - (double)row.Cells[3].Value;
+                            }
+                            else
+                            {
+                                xTransfer = xTransfer + (double)row.Cells[3].Value;
+                            }
+                        }
+                        break;
                 }
             }
 
-            labelResultInOut.Text = string.Format("Доход ({0}) - Расход ({1}) = {2}", xIn.ToString("C2"), xOut.ToString("C2"), (xIn - xOut).ToString("C2"));
+            labelResultInOut.Text = $"Доход ({xIn.ToString("C2")}) - Расход ({xOut.ToString("C2")}) + Перевод ({xTransfer.ToString("C2")}) = {(xIn - xOut + xTransfer).ToString("C2")}";
         }
 
         void dataGridView1_Paint(object sender, PaintEventArgs e)
