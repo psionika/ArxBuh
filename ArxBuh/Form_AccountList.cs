@@ -78,5 +78,61 @@ namespace ArxBuh
                 contextMenuStrip1.Show(dataGridView1, pt);
             }
         }
+
+        private void переместитьВверхToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null) return;
+
+            if (dataGridView1.RowCount > 0)
+            {
+                var idx = dataGridView1.SelectedRows[0].Index;
+
+                var dt = dataSet1.Tables["Accounts"];
+
+                var array = dt.Rows[idx].ItemArray;
+
+                var row = dt.Rows[idx];
+
+                if (idx != 0)
+                {
+                    dt.Rows.Remove(row);
+
+                    row = dt.NewRow();
+                    row.ItemArray = array;
+
+                    dt.Rows.InsertAt(row, idx - 1);
+
+                    dataGridView1.CurrentCell = dataGridView1.Rows[idx - 1].Cells[1];
+                }
+            }
+        }
+
+        private void переместитьВнизToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null) return;
+
+            if (dataGridView1.RowCount > 0)
+            {
+                var idx = dataGridView1.SelectedRows[0].Index;
+
+                var dt = dataSet1.Tables["Accounts"];
+
+                var array = dt.Rows[idx].ItemArray;
+
+                var row = dt.Rows[idx];
+
+                if (idx != dataGridView1.Rows.Count - 1)
+                {
+                    dt.Rows.Remove(row);
+
+                    row = dt.NewRow();
+                    row.ItemArray = array;
+
+                    dt.Rows.InsertAt(row, idx + 1);
+
+                    dataGridView1.CurrentCell = dataGridView1.Rows[idx + 1].Cells[1];
+                }
+            }
+        }
     }
 }

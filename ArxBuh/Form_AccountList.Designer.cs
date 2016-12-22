@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_AccountList));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnOk = new System.Windows.Forms.Button();
@@ -48,6 +48,9 @@
             this.labelResult = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.переместитьВверхToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.переместитьВнизToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -149,9 +152,9 @@
             // accountIDDataGridViewTextBoxColumn
             // 
             this.accountIDDataGridViewTextBoxColumn.DataPropertyName = "AccountID";
-            dataGridViewCellStyle1.Format = "C2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.accountIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.accountIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.accountIDDataGridViewTextBoxColumn.FillWeight = 40F;
             this.accountIDDataGridViewTextBoxColumn.HeaderText = "AccountID";
             this.accountIDDataGridViewTextBoxColumn.Name = "accountIDDataGridViewTextBoxColumn";
@@ -168,9 +171,9 @@
             // startSumDataGridViewTextBoxColumn
             // 
             this.startSumDataGridViewTextBoxColumn.DataPropertyName = "StartSum";
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.startSumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.startSumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.startSumDataGridViewTextBoxColumn.FillWeight = 140F;
             this.startSumDataGridViewTextBoxColumn.HeaderText = "Начальная сумма";
             this.startSumDataGridViewTextBoxColumn.Name = "startSumDataGridViewTextBoxColumn";
@@ -210,17 +213,41 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.удалитьToolStripMenuItem});
+            this.удалитьToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.переместитьВверхToolStripMenuItem,
+            this.переместитьВнизToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(119, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(180, 98);
             // 
             // удалитьToolStripMenuItem
             // 
             this.удалитьToolStripMenuItem.Image = global::ArxBuh.Properties.Resources.delete_32x32;
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.удалитьToolStripMenuItem.Text = "Удалить";
             this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(176, 6);
+            // 
+            // переместитьВверхToolStripMenuItem
+            // 
+            this.переместитьВверхToolStripMenuItem.Image = global::ArxBuh.Properties.Resources.up_arrow_32x32;
+            this.переместитьВверхToolStripMenuItem.Name = "переместитьВверхToolStripMenuItem";
+            this.переместитьВверхToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.переместитьВверхToolStripMenuItem.Text = "Переместить вверх";
+            this.переместитьВверхToolStripMenuItem.Click += new System.EventHandler(this.переместитьВверхToolStripMenuItem_Click);
+            // 
+            // переместитьВнизToolStripMenuItem
+            // 
+            this.переместитьВнизToolStripMenuItem.Image = global::ArxBuh.Properties.Resources.down_arrow_32x32;
+            this.переместитьВнизToolStripMenuItem.Name = "переместитьВнизToolStripMenuItem";
+            this.переместитьВнизToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.переместитьВнизToolStripMenuItem.Text = "Переместить вниз";
+            this.переместитьВнизToolStripMenuItem.Click += new System.EventHandler(this.переместитьВнизToolStripMenuItem_Click);
             // 
             // Form_AccountList
             // 
@@ -267,5 +294,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn startSumDataGridViewTextBoxColumn;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem переместитьВверхToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem переместитьВнизToolStripMenuItem;
     }
 }
