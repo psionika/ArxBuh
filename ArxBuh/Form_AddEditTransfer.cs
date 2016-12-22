@@ -50,9 +50,10 @@ namespace ArxBuh
             if (!view1.Cast<DataRowView>()
                 .Any(rv => rv.Row.Field<string>("Account") == "Основной"))
             {
-                DataRowView newRow2 = view1.AddNew();
-                newRow2["Account"] = "Основной";
-                newRow2.EndEdit();
+                DataRowView newRow = view1.AddNew();
+                newRow["Account"] = "Основной";
+                newRow["StartSum"] = 0;
+                newRow.EndEdit();
             }
 
             comboBox1.DataSource = view1;

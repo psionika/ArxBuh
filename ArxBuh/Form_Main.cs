@@ -1463,7 +1463,7 @@ namespace ArxBuh
         {
             arxDs.ds = dataSet1;
 
-            using (var fTransfer = new Form_AddEditTransfer("Новый перевод"))
+            using (var fTransfer = new Form_AddEditTransfer("Редактирование перевода"))
             {
                 var array = dataGridView1.CurrentRow.Cells[1].Value.ToString().Split(
                          new string[] { "->" }, StringSplitOptions.None);

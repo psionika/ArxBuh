@@ -20,6 +20,19 @@ namespace ArxBuh
             accountsBindingSource.DataSource = arxDs.ds;
 
             dataGridView1.DataSource = accountsBindingSource;
+
+            var view1 = new DataView(arxDs.ds.Tables["Accounts"], "", "",
+                    DataViewRowState.CurrentRows);
+
+            if (!view1.Cast<DataRowView>()
+                .Any(rv => rv.Row.Field<string>("Account") == "Основной"))
+            {
+                DataRowView newRow = view1.AddNew();
+                newRow["Account"] = "Основной";
+                newRow["StartSum"] = 0;
+                newRow.EndEdit();
+            }
+
         }
 
         private void btnOk_Click(object sender, EventArgs e)
