@@ -21,6 +21,11 @@ namespace ArxBuh
 
             dataGridView1.DataSource = accountsBindingSource;
 
+            using (var remainingColumn = new DataGridViewTextBoxColumn { Width = 100, HeaderText = "Текущее состояние", ReadOnly = true })
+            {
+                dataGridView1.Columns.Add(remainingColumn);
+            }
+
             var view1 = new DataView(arxDs.ds.Tables["Accounts"], "", "",
                     DataViewRowState.CurrentRows);
 
