@@ -425,17 +425,17 @@ namespace ArxBuh
 
         void InOutCalc()
         {
-            double xIn = 0, xOut = 0, xTransfer = 0;
+            decimal xIn = 0, xOut = 0, xTransfer = 0;
 
             foreach (var row in dataGridView1.Rows.Cast<DataGridViewRow>().Where(row => row.Cells[0].Value != null))
             {
                 switch (row.Cells[0].Value.ToString())
                 {
                     case "Доход":
-                        xIn = xIn + (double)row.Cells[3].Value;
+                        xIn = xIn + (decimal)row.Cells[3].Value;
                         break;
                     case "Расход":
-                        xOut = xOut + (double)row.Cells[3].Value;
+                        xOut = xOut + (decimal)row.Cells[3].Value;
                         break;
                     case "Перевод":
                         {
@@ -446,11 +446,11 @@ namespace ArxBuh
 
                             if(transferOut == "Основной")
                             {
-                                xTransfer = xTransfer - (double)row.Cells[3].Value;
+                                xTransfer = xTransfer - (decimal)row.Cells[3].Value;
                             }
                             else
                             {
-                                xTransfer = xTransfer + (double)row.Cells[3].Value;
+                                xTransfer = xTransfer + (decimal)row.Cells[3].Value;
                             }
                         }
                         break;
@@ -813,7 +813,7 @@ namespace ArxBuh
 
         void InOutBudgetCalc()
         {
-            double t = 0, i = 0, y = 0;
+            decimal xTransfer = 0, t = 0, i = 0, y = 0;
 
             if (dataSet1.Tables["CashInOut"].Rows.Count > 0)
             {
@@ -1052,8 +1052,8 @@ namespace ArxBuh
 
         void GoalProgress()
         {
-            double SumGoal = 0;
-            double SumGoalRemaining = 0;
+            decimal SumGoal = 0;
+            decimal SumGoalRemaining = 0;
 
 
             foreach (DataGridViewRow row in dataGridView4.Rows)
@@ -1061,7 +1061,7 @@ namespace ArxBuh
 
                 if (row.Cells[2].Value.ToString() == ""
                     || row.Cells[2].Value == null
-                    || Convert.ToDouble(row.Cells[1].Value) == 0)
+                    || Convert.ToDecimal(row.Cells[1].Value) == 0)
                 {
                     row.Cells[2].Value = 0;                    
                 }
@@ -1070,8 +1070,8 @@ namespace ArxBuh
                 var x = (int)(Convert.ToDouble(row.Cells[2].Value) / (Convert.ToDouble(row.Cells[1].Value) / 100));
                 var y = (int)(Convert.ToDouble(row.Cells[1].Value) - (Convert.ToDouble(row.Cells[2].Value)));
 
-                SumGoal += Convert.ToDouble(row.Cells[1].Value);
-                SumGoalRemaining += Convert.ToDouble(y);
+                SumGoal += Convert.ToDecimal(row.Cells[1].Value);
+                SumGoalRemaining += Convert.ToDecimal(y);
 
                 row.Cells[5].Value = x;
                 row.Cells[6].Value = y.ToString("C2");

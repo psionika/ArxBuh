@@ -581,7 +581,7 @@ namespace ArxBuh {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CashInOutRow AddCashInOutRow(string InOut, string Category, System.DateTime DateTime, double Sum, string Comment) {
+            public CashInOutRow AddCashInOutRow(string InOut, string Category, System.DateTime DateTime, decimal Sum, string Comment) {
                 CashInOutRow rowCashInOutRow = ((CashInOutRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         InOut,
@@ -627,7 +627,7 @@ namespace ArxBuh {
                 base.Columns.Add(this.columnCategory);
                 this.columnDateTime = new global::System.Data.DataColumn("DateTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDateTime);
-                this.columnSum = new global::System.Data.DataColumn("Sum", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnSum = new global::System.Data.DataColumn("Sum", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSum);
                 this.columnComment = new global::System.Data.DataColumn("Comment", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnComment);
@@ -895,7 +895,7 @@ namespace ArxBuh {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BudgetRow AddBudgetRow(bool Check, string InOut, string Category, System.DateTime DateTime, double Sum, string Comment) {
+            public BudgetRow AddBudgetRow(bool Check, string InOut, string Category, System.DateTime DateTime, decimal Sum, string Comment) {
                 BudgetRow rowBudgetRow = ((BudgetRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Check,
@@ -945,7 +945,7 @@ namespace ArxBuh {
                 base.Columns.Add(this.columnCategory);
                 this.columnDateTime = new global::System.Data.DataColumn("DateTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDateTime);
-                this.columnSum = new global::System.Data.DataColumn("Sum", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnSum = new global::System.Data.DataColumn("Sum", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSum);
                 this.columnComment = new global::System.Data.DataColumn("Comment", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnComment);
@@ -2305,10 +2305,10 @@ namespace ArxBuh {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double Sum {
+            public decimal Sum {
                 get {
                     try {
-                        return ((double)(this[this.tableCashInOut.SumColumn]));
+                        return ((decimal)(this[this.tableCashInOut.SumColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Sum\' in table \'CashInOut\' is DBNull.", e);
@@ -2464,10 +2464,10 @@ namespace ArxBuh {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double Sum {
+            public decimal Sum {
                 get {
                     try {
-                        return ((double)(this[this.tableBudget.SumColumn]));
+                        return ((decimal)(this[this.tableBudget.SumColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Sum\' in table \'Budget\' is DBNull.", e);
