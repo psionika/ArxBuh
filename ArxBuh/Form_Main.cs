@@ -826,17 +826,40 @@ namespace ArxBuh
                 }
                 else if (!Convert.IsDBNull(sumIN) && Convert.IsDBNull(sumOUT))
                 {
-                    t = Convert.ToDouble(sumIN);
+                    t = Convert.ToDecimal(sumIN);
                 }
                 else if (Convert.IsDBNull(sumIN) && !Convert.IsDBNull(sumOUT))
                 {
-                    t = Convert.ToDouble(sumOUT) * (-1);
+                    t = Convert.ToDecimal(sumOUT) * (-1);
                 }
                 else
                 {
-                    t = Convert.ToDouble(sumIN) - Convert.ToDouble(sumOUT);
+                    t = Convert.ToDecimal(sumIN) - Convert.ToDecimal(sumOUT);
                 }
             }
+
+            foreach (DataRow dr in dataSet1.Tables["CashInOut"].Rows)
+            {
+                if (dr["InOut"].ToString() == "Перевод")
+                {
+                    var array = dr["Category"].ToString().Split(new string[] { "->" }, StringSplitOptions.None);
+
+                    var transferOut = array[0];
+                    var transferIn = array[1];
+
+                    if (transferOut == "Основной")
+                    {
+                        xTransfer = xTransfer - (decimal)dr["Sum"];
+                    }
+                    else
+                    {
+                        xTransfer = xTransfer + (decimal)dr["Sum"];
+                    }
+                }                  
+                
+            }
+
+            t = t + xTransfer;
 
             foreach (DataGridViewRow row in dataGridView2.Rows)
             {
@@ -844,17 +867,16 @@ namespace ArxBuh
                 {
                     if ((bool)row.Cells[0].Value != true && row.Cells[1].Value.ToString() == "Доход")
                     {
-                        i = i + (double)row.Cells[4].Value;
+                        i = i + (decimal)row.Cells[4].Value;
                     }
                     else if ((bool)row.Cells[0].Value != true && row.Cells[1].Value.ToString() == "Расход")
                     {
-                        y = y + (double)row.Cells[4].Value;
+                        y = y + (decimal)row.Cells[4].Value;
                     }
-                }
-
-                labelResultBudget.Text = string.Format("Текущее {0} + Планируемые Доходы {1} - Планируемые Расходы {2} = {3}",
-                                                  t.ToString("C2"), i.ToString("C2"), y.ToString("C2"), ((t + i) - y).ToString("C2"));
+                }                
             }
+            labelResultBudget.Text = $"Текущее {t.ToString("C2")} + Планируемые Доходы {i.ToString("C2")} - "
+                    + $"Планируемые Расходы {y.ToString("C2")} = {((t + i) - y).ToString("C2")}";
         }
 
         void dateTimePicker1_ValueChanged(object sender, EventArgs e)
