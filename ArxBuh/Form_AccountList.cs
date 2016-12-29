@@ -68,13 +68,35 @@ namespace ArxBuh
             {
                 var sumAccounts = Convert.ToDecimal(dataSet1.Tables["Accounts"].Compute("Sum(StartSum)", ""));
 
-                decimal xIn = 0, xOut = 0;
+                decimal xIn = 0, xOut = 0, xTransfer = 0;
 
                 xIn = Convert.ToDecimal(dataSet1.Tables["CashInOut"].Compute("Sum(Sum)", "InOut = 'Доход'"));
                 xOut = Convert.ToDecimal(dataSet1.Tables["CashInOut"].Compute("Sum(Sum)", "InOut = 'Расход'"));
 
+                foreach (DataRow dr in dataSet1.Tables["CashInOut"].Rows)
+                {
+                    if (dr["InOut"].ToString() == "Перевод")
+                    {
+                        var array = dr["Category"].ToString().Split(new string[] { "->" }, StringSplitOptions.None);
 
-                labelResult.Text = $"Вклады: ({sumAccounts.ToString("C2")}) + текущее ({(xIn - xOut).ToString("C2")}) = Всего {(sumAccounts + (xIn - xOut)).ToString("C2")}";
+                        var transferOut = array[0];
+                        var transferIn = array[1];
+
+                        if (transferOut == "Основной")
+                        {
+                            xTransfer = xTransfer - (decimal)dr["Sum"];
+                        }
+                        else
+                        {
+                            xTransfer = xTransfer + (decimal)dr["Sum"];
+                        }
+                    }
+                }
+
+
+                
+
+                labelResult.Text = $"Вклады: ({sumAccounts.ToString("C2")}) + текущее ({(xIn - xOut + xTransfer).ToString("C2")}) = Всего {(sumAccounts + (xIn - xOut + xTransfer)).ToString("C2")}";
             }            
         }
 
