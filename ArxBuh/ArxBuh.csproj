@@ -324,6 +324,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\magic_wand_32x32.png" />
     <None Include="Resources\flash_32x32.png" />
     <None Include="Resources\house_32x32.png" />
     <None Include="Resources\redo_32x32.png" />

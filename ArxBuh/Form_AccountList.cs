@@ -91,10 +91,7 @@ namespace ArxBuh
                             xTransfer = xTransfer + (decimal)dr["Sum"];
                         }
                     }
-                }
-
-
-                
+                }                
 
                 labelResult.Text = $"Вклады: ({sumAccounts.ToString("C2")}) + текущее ({(xIn - xOut + xTransfer).ToString("C2")}) = Всего {(sumAccounts + (xIn - xOut + xTransfer)).ToString("C2")}";
             }            

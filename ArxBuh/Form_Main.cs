@@ -356,13 +356,18 @@ namespace ArxBuh
         {
             if (dataGridView1.CurrentRow == null) return;
 
-            Class_element.InOut = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            Class_element.Category = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            Class_element.Date = DateTime.ParseExact(dataGridView1.CurrentRow.Cells[2].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
-            Class_element.Sum = Convert.ToDouble(dataGridView1.CurrentRow.Cells[3].Value);
-            Class_element.Comment = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            if(dataGridView1.CurrentRow.Cells[0].Value.ToString() == "Доход" ||
+                dataGridView1.CurrentRow.Cells[0].Value.ToString() == "Расход")
+            {
+                Class_element.InOut = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                Class_element.Category = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                Class_element.Date = DateTime.ParseExact(dataGridView1.CurrentRow.Cells[2].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
+                Class_element.Sum = Convert.ToDouble(dataGridView1.CurrentRow.Cells[3].Value);
+                Class_element.Comment = dataGridView1.CurrentRow.Cells[4].Value.ToString();
 
-            add_element();
+                add_element();
+            }            
+                        
         }
 
         void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -478,7 +483,7 @@ namespace ArxBuh
                 }
                 else if (type == "Перевод")
                 {
-                    editTransfer();
+                    edit_transfer();
                 }                
             }
         }
@@ -1454,6 +1459,12 @@ namespace ArxBuh
 
         private void toolsbTransfer_Click(object sender, EventArgs e)
         {
+            Class_element.InOut = "Основной";
+            Class_element.Category = "Основной";
+            Class_element.Date = DateTime.Now.Date;
+            Class_element.Sum = 0;
+            Class_element.Comment = "";
+
             add_transfer();
         }
 
@@ -1463,12 +1474,6 @@ namespace ArxBuh
 
             using (var fTransfer = new Form_AddEditTransfer("Новый перевод"))
             {
-                Class_element.InOut = "Основной";
-                Class_element.Category = "Основной";
-                Class_element.Date = DateTime.Now.Date;
-                Class_element.Sum = 0;
-                Class_element.Comment = "";
-
                 fTransfer.ShowDialog();
 
                 if (fTransfer.DialogResult == DialogResult.OK)
@@ -1481,7 +1486,7 @@ namespace ArxBuh
             }
         }
 
-        private void editTransfer()
+        private void edit_transfer()
         {
             arxDs.ds = dataSet1;
 
@@ -1642,6 +1647,30 @@ namespace ArxBuh
                 toolStripButton13.Text = "Показывать выполненные";
                 GoalProgress();
             }
+        }
+
+        private void преобразоватьВПереводToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null) return;
+            
+            Class_element.InOut = "Основной";
+            Class_element.Category = "";
+            Class_element.Date = DateTime.ParseExact(dataGridView1.CurrentRow.Cells[2].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
+            Class_element.Sum = Convert.ToDouble(dataGridView1.CurrentRow.Cells[3].Value);
+            Class_element.Comment = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+
+            add_transfer();
+            saveData();
+
+            var result = MessageBox.Show("Вы хотите удалить элемент на основании которого был создан перевод?",
+                "Удаление элемента",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result != DialogResult.Yes) return;
+            cashInOutBindingSource.RemoveCurrent();
+
+            saveData();                
         }
     }
 }

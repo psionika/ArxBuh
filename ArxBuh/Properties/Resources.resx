@@ -133,9 +133,6 @@
   <data name="delete_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="up_arrow_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\up_arrow_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="table_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\table_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -145,8 +142,11 @@
   <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="expand_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\expand_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="edit_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\edit_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="help_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\help_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="redo_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\redo_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,17 +163,20 @@
   <data name="key_2_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\key_2_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="expand_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\expand_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="add_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="up_arrow_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\up_arrow_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="down_arrow_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\down_arrow_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="filter_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\filter_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="help_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\help_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="edit_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\edit_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="calculator_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calculator_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,7 +187,7 @@
   <data name="remove_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\remove_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="down_arrow_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\down_arrow_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="magic_wand_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\magic_wand_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
