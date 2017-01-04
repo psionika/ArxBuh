@@ -1468,7 +1468,7 @@ namespace ArxBuh
             add_transfer();
         }
 
-        private void add_transfer()
+        private bool add_transfer()
         {
             arxDs.ds = dataSet1;
 
@@ -1480,9 +1480,12 @@ namespace ArxBuh
                 {
                     dataSet1.Tables["CashInOut"].Rows.Add(Class_element.InOut, Class_element.Category, Class_element.Date,
                         Class_element.Sum, Class_element.Comment);
-                }               
+                    saveData();
 
-                saveData();
+                    return true;
+                }
+
+                return false;
             }
         }
 
@@ -1659,18 +1662,18 @@ namespace ArxBuh
             Class_element.Sum = Convert.ToDouble(dataGridView1.CurrentRow.Cells[3].Value);
             Class_element.Comment = dataGridView1.CurrentRow.Cells[4].Value.ToString();
 
-            add_transfer();
-            saveData();
-
-            var result = MessageBox.Show("Вы хотите удалить элемент на основании которого был создан перевод?",
+            if(add_transfer())
+            {
+                var result = MessageBox.Show("Вы хотите удалить элемент на основании которого был создан перевод?",
                 "Удаление элемента",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
-            if (result != DialogResult.Yes) return;
-            cashInOutBindingSource.RemoveCurrent();
+                if (result != DialogResult.Yes) return;
+                cashInOutBindingSource.RemoveCurrent();
 
-            saveData();                
+                saveData();
+            }
         }
     }
 }

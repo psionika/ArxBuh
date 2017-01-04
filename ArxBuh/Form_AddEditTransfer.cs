@@ -28,6 +28,8 @@ namespace ArxBuh
             Close();
         }
 
+        
+
         private void Form_AddEditTransfer_Load(object sender, EventArgs e)
         {
             fillComboBoxes();
@@ -85,7 +87,7 @@ namespace ArxBuh
 
         private void Form_AddEditTransfer_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (DialogResult == DialogResult.OK)
+            if (DialogResult == DialogResult.OK && ValidateData())
             {
                 Class_element.InOut = "Перевод";
                 Class_element.Category = $"{comboBox1.Text}->{comboBox2.Text}";
@@ -103,6 +105,40 @@ namespace ArxBuh
             else
             {
                 e.Cancel = true;
+            }
+        }
+
+        private bool ValidateData()
+        {
+            return validateComboBox() && validate_Sum();
+        }
+
+        bool validateComboBox()
+        {
+            if (comboBox1.Text == comboBox2.Text)
+            {
+                errorProvider1.SetError(comboBox1, "Счета должны быть разными");
+                errorProvider1.SetError(comboBox2, "Счета должны быть разными");
+                return false;
+            }
+
+            errorProvider1.SetError(comboBox1, "");
+            errorProvider1.SetError(comboBox2, "");
+            return true;
+        }
+
+        bool validate_Sum()
+        {
+            try
+            {
+                var i = Convert.ToDouble(parsSum(textBoxSum.Text));
+                errorProvider1.SetError(textBoxSum, "");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                errorProvider1.SetError(textBoxSum, "Неверные данные!");
+                return false;
             }
         }
 
