@@ -1145,6 +1145,7 @@ namespace ArxBuh
         #region Отчёты
         void toolStripComboBox2_TextChanged(object sender, EventArgs e)
         {
+            arxClearFilter();
             RefreshReport();
         }
 
