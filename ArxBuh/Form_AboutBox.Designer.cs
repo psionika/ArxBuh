@@ -208,6 +208,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(467, 343);
             this.Name = "Form_AboutBox";
             this.Padding = new System.Windows.Forms.Padding(9);
             this.ShowInTaskbar = false;

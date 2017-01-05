@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_AddEditGoal));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnOk = new System.Windows.Forms.Button();
@@ -212,9 +212,9 @@
             // dateTimeDataGridViewTextBoxColumn
             // 
             this.dateTimeDataGridViewTextBoxColumn.DataPropertyName = "DateTime";
-            dataGridViewCellStyle4.Format = "D";
-            dataGridViewCellStyle4.NullValue = null;
-            this.dateTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Format = "D";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dateTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.dateTimeDataGridViewTextBoxColumn.HeaderText = "Дата";
             this.dateTimeDataGridViewTextBoxColumn.Name = "dateTimeDataGridViewTextBoxColumn";
             this.dateTimeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -222,9 +222,9 @@
             // sumDataGridViewTextBoxColumn
             // 
             this.sumDataGridViewTextBoxColumn.DataPropertyName = "Sum";
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.sumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.sumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.sumDataGridViewTextBoxColumn.HeaderText = "Внесено";
             this.sumDataGridViewTextBoxColumn.Name = "sumDataGridViewTextBoxColumn";
             this.sumDataGridViewTextBoxColumn.ReadOnly = true;
@@ -266,7 +266,7 @@
             this.tsb_AddGoalElement.Image = global::ArxBuh.Properties.Resources.add_32x32;
             this.tsb_AddGoalElement.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsb_AddGoalElement.Name = "tsb_AddGoalElement";
-            this.tsb_AddGoalElement.Size = new System.Drawing.Size(77, 27);
+            this.tsb_AddGoalElement.Size = new System.Drawing.Size(79, 27);
             this.tsb_AddGoalElement.Text = "Добавить";
             this.tsb_AddGoalElement.Click += new System.EventHandler(this.tsb_AddGoalElement_Click);
             // 
@@ -289,9 +289,9 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "DateTime";
-            dataGridViewCellStyle6.Format = "D";
-            dataGridViewCellStyle6.NullValue = null;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Format = "D";
+            dataGridViewCellStyle3.NullValue = null;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn2.HeaderText = "DateTime";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
@@ -317,26 +317,26 @@
             this.удалитьToolStripMenuItem,
             this.повторитьToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(195, 120);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(205, 98);
             // 
             // новаяВыплатаПоЦелиToolStripMenuItem
             // 
             this.новаяВыплатаПоЦелиToolStripMenuItem.Image = global::ArxBuh.Properties.Resources.add_32x32;
             this.новаяВыплатаПоЦелиToolStripMenuItem.Name = "новаяВыплатаПоЦелиToolStripMenuItem";
-            this.новаяВыплатаПоЦелиToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.новаяВыплатаПоЦелиToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.новаяВыплатаПоЦелиToolStripMenuItem.Text = "Новая выплата по цели";
             this.новаяВыплатаПоЦелиToolStripMenuItem.Click += new System.EventHandler(this.новаяВыплатаПоЦелиToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(191, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(201, 6);
             // 
             // редактироватьToolStripMenuItem
             // 
             this.редактироватьToolStripMenuItem.Image = global::ArxBuh.Properties.Resources.edit_32x32;
             this.редактироватьToolStripMenuItem.Name = "редактироватьToolStripMenuItem";
-            this.редактироватьToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.редактироватьToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.редактироватьToolStripMenuItem.Text = "Редактировать";
             this.редактироватьToolStripMenuItem.Click += new System.EventHandler(this.редактироватьToolStripMenuItem_Click);
             // 
@@ -344,7 +344,7 @@
             // 
             this.удалитьToolStripMenuItem.Image = global::ArxBuh.Properties.Resources.delete_32x32;
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.удалитьToolStripMenuItem.Text = "Удалить";
             this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
             // 
@@ -352,7 +352,7 @@
             // 
             this.повторитьToolStripMenuItem.Image = global::ArxBuh.Properties.Resources.redo_32x32;
             this.повторитьToolStripMenuItem.Name = "повторитьToolStripMenuItem";
-            this.повторитьToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.повторитьToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.повторитьToolStripMenuItem.Text = "Повторить";
             this.повторитьToolStripMenuItem.Click += new System.EventHandler(this.повторитьToolStripMenuItem_Click);
             // 
@@ -363,9 +363,11 @@
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(484, 416);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1000, 1000);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(400, 400);
             this.Name = "Form_AddEditGoal";
             this.ShowInTaskbar = false;

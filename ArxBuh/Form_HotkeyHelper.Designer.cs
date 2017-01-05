@@ -28,9 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_HotkeyHelper));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnOK = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,14 +48,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -123,6 +124,87 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(523, 347);
             this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // label16
+            // 
+            this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(156, 315);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(116, 13);
+            this.label16.TabIndex = 15;
+            this.label16.Text = "Выход из программы";
+            // 
+            // label15
+            // 
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label15.Location = new System.Drawing.Point(48, 313);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(56, 17);
+            this.label15.TabIndex = 14;
+            this.label15.Text = "Alt + X";
+            // 
+            // label14
+            // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(156, 208);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(163, 13);
+            this.label14.TabIndex = 13;
+            this.label14.Text = "Удаляет выделенный элемент";
+            // 
+            // label13
+            // 
+            this.label13.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(156, 175);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(123, 13);
+            this.label13.TabIndex = 12;
+            this.label13.Text = "Создаёт новый Расход";
+            // 
+            // label12
+            // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(156, 142);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(332, 13);
+            this.label12.TabIndex = 11;
+            this.label12.Text = "Создаёт новый Доход (на вкладке цели, добавляет новую цель)";
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(156, 109);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(143, 13);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "Перейти на вкладу Отчёты";
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(156, 76);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(138, 13);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Перейти на вкладку Цели";
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(156, 43);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(152, 13);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Перейти на вкладку Бюджет";
             // 
             // label1
             // 
@@ -211,87 +293,6 @@
             this.label8.TabIndex = 7;
             this.label8.Text = "Перейти на вкладку Доходы-Расходы";
             // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(156, 43);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(152, 13);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Перейти на вкладку Бюджет";
-            // 
-            // label10
-            // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(156, 76);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(138, 13);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "Перейти на вкладку Цели";
-            // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(156, 109);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(143, 13);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "Перейти на вкладу Отчёты";
-            // 
-            // label12
-            // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(156, 142);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(332, 13);
-            this.label12.TabIndex = 11;
-            this.label12.Text = "Создаёт новый Доход (на вкладке цели, добавляет новую цель)";
-            // 
-            // label13
-            // 
-            this.label13.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(156, 175);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(123, 13);
-            this.label13.TabIndex = 12;
-            this.label13.Text = "Создаёт новый Расход";
-            // 
-            // label14
-            // 
-            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(156, 208);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(163, 13);
-            this.label14.TabIndex = 13;
-            this.label14.Text = "Удаляет выделенный элемент";
-            // 
-            // label15
-            // 
-            this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label15.Location = new System.Drawing.Point(48, 313);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(56, 17);
-            this.label15.TabIndex = 14;
-            this.label15.Text = "Alt + X";
-            // 
-            // label16
-            // 
-            this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(156, 315);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(116, 13);
-            this.label16.TabIndex = 15;
-            this.label16.Text = "Выход из программы";
-            // 
             // label17
             // 
             this.label17.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -342,7 +343,12 @@
             this.CancelButton = this.btnOK;
             this.ClientSize = new System.Drawing.Size(529, 388);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(545, 427);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(545, 427);
             this.Name = "Form_HotkeyHelper";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Справка по горячим клавишам";

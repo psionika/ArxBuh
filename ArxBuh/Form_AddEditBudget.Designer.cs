@@ -62,9 +62,9 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
-            //
+            // 
             // tableLayoutPanel1
-            //
+            // 
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 123F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -96,18 +96,18 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(399, 319);
             this.tableLayoutPanel1.TabIndex = 1;
-            //
+            // 
             // textBox1
-            //
+            // 
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox1.Location = new System.Drawing.Point(126, 178);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(270, 98);
             this.textBox1.TabIndex = 6;
-            //
+            // 
             // label2
-            //
+            // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 116);
@@ -115,9 +115,9 @@
             this.label2.Size = new System.Drawing.Size(33, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Дата";
-            //
+            // 
             // label3
-            //
+            // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(3, 220);
@@ -125,9 +125,9 @@
             this.label3.Size = new System.Drawing.Size(77, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Комментарий";
-            //
+            // 
             // CancelBTN
-            //
+            // 
             this.CancelBTN.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CancelBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.CancelBTN.Location = new System.Drawing.Point(18, 287);
@@ -136,9 +136,9 @@
             this.CancelBTN.TabIndex = 7;
             this.CancelBTN.Text = "Отмена";
             this.CancelBTN.UseVisualStyleBackColor = true;
-            //
+            // 
             // OkBTN
-            //
+            // 
             this.OkBTN.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OkBTN.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.OkBTN.Location = new System.Drawing.Point(128, 287);
@@ -147,9 +147,9 @@
             this.OkBTN.TabIndex = 6;
             this.OkBTN.Text = "Сохранить";
             this.OkBTN.UseVisualStyleBackColor = true;
-            //
+            // 
             // label4
-            //
+            // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(3, 151);
@@ -157,9 +157,9 @@
             this.label4.Size = new System.Drawing.Size(41, 13);
             this.label4.TabIndex = 0;
             this.label4.Text = "Сумма";
-            //
+            // 
             // label5
-            //
+            // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(3, 81);
@@ -168,18 +168,18 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Категория";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            //
+            // 
             // panel1
-            //
+            // 
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(126, 38);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(270, 29);
             this.panel1.TabIndex = 8;
-            //
+            // 
             // comboBox1
-            //
+            // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
@@ -190,9 +190,9 @@
             this.comboBox1.Size = new System.Drawing.Size(173, 21);
             this.comboBox1.TabIndex = 0;
             this.comboBox1.TextChanged += new System.EventHandler(this.comboBox1_TextChanged);
-            //
+            // 
             // panel2
-            //
+            // 
             this.panel2.Controls.Add(this.categoryEdit);
             this.panel2.Controls.Add(this.comboBox2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -200,9 +200,9 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(270, 29);
             this.panel2.TabIndex = 9;
-            //
+            // 
             // categoryEdit
-            //
+            // 
             this.categoryEdit.Location = new System.Drawing.Point(182, 5);
             this.categoryEdit.Name = "categoryEdit";
             this.categoryEdit.Size = new System.Drawing.Size(25, 23);
@@ -211,9 +211,9 @@
             this.categoryEdit.Text = "...";
             this.categoryEdit.UseVisualStyleBackColor = true;
             this.categoryEdit.Click += new System.EventHandler(this.categoryEdit_Click);
-            //
+            // 
             // comboBox2
-            //
+            // 
             this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comboBox2.DataSource = this.categoriesBindingSource;
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -222,51 +222,51 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(173, 21);
             this.comboBox2.TabIndex = 0;
-            //
+            // 
             // categoriesBindingSource
-            //
+            // 
             this.categoriesBindingSource.DataMember = "Categories";
             this.categoriesBindingSource.DataSource = this.dataSet1;
-            //
+            // 
             // dataSet1
-            //
+            // 
             this.dataSet1.DataSetName = "DataSet1";
             this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            //
+            // 
             // panel3
-            //
+            // 
             this.panel3.Controls.Add(this.dateTimePicker1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(126, 108);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(270, 29);
             this.panel3.TabIndex = 10;
-            //
+            // 
             // dateTimePicker1
-            //
+            // 
             this.dateTimePicker1.Location = new System.Drawing.Point(3, 2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(173, 20);
             this.dateTimePicker1.TabIndex = 0;
-            //
+            // 
             // panel4
-            //
+            // 
             this.panel4.Controls.Add(this.txbSum);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(126, 143);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(270, 29);
             this.panel4.TabIndex = 5;
-            //
+            // 
             // txbSum
-            //
+            // 
             this.txbSum.Location = new System.Drawing.Point(0, 3);
             this.txbSum.Name = "txbSum";
             this.txbSum.Size = new System.Drawing.Size(176, 20);
             this.txbSum.TabIndex = 0;
-            //
+            // 
             // label1
-            //
+            // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 46);
@@ -274,9 +274,9 @@
             this.label1.Size = new System.Drawing.Size(99, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Доход или Расход";
-            //
+            // 
             // label6
-            //
+            // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(3, 11);
@@ -284,9 +284,9 @@
             this.label6.Size = new System.Drawing.Size(70, 13);
             this.label6.TabIndex = 0;
             this.label6.Text = "Выполнено?";
-            //
+            // 
             // checkBox1
-            //
+            // 
             this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(126, 10);
@@ -294,20 +294,23 @@
             this.checkBox1.Size = new System.Drawing.Size(15, 14);
             this.checkBox1.TabIndex = 11;
             this.checkBox1.UseVisualStyleBackColor = true;
-            //
+            // 
             // errorProvider1
-            //
+            // 
             this.errorProvider1.ContainerControl = this;
-            //
+            // 
             // Form_AddEditBudget
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.CancelBTN;
             this.ClientSize = new System.Drawing.Size(399, 319);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(415, 358);
             this.Name = "Form_AddEditBudget";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

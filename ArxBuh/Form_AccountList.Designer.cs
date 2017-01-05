@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_AccountList));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnOk = new System.Windows.Forms.Button();
@@ -152,9 +152,9 @@
             // accountIDDataGridViewTextBoxColumn
             // 
             this.accountIDDataGridViewTextBoxColumn.DataPropertyName = "AccountID";
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.accountIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Format = "C2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.accountIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.accountIDDataGridViewTextBoxColumn.FillWeight = 40F;
             this.accountIDDataGridViewTextBoxColumn.HeaderText = "AccountID";
             this.accountIDDataGridViewTextBoxColumn.Name = "accountIDDataGridViewTextBoxColumn";
@@ -171,9 +171,9 @@
             // startSumDataGridViewTextBoxColumn
             // 
             this.startSumDataGridViewTextBoxColumn.DataPropertyName = "StartSum";
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.startSumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.startSumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.startSumDataGridViewTextBoxColumn.FillWeight = 140F;
             this.startSumDataGridViewTextBoxColumn.HeaderText = "Начальная сумма";
             this.startSumDataGridViewTextBoxColumn.Name = "startSumDataGridViewTextBoxColumn";
@@ -218,7 +218,7 @@
             this.переместитьВверхToolStripMenuItem,
             this.переместитьВнизToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(180, 98);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(180, 76);
             // 
             // удалитьToolStripMenuItem
             // 
@@ -256,8 +256,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(735, 435);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(751, 474);
             this.Name = "Form_AccountList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Список счетов";

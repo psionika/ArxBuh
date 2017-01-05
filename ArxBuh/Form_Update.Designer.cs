@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Update));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -129,7 +130,12 @@
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(379, 184);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(395, 223);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(395, 223);
             this.Name = "Form_Update";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Обновление программы";
