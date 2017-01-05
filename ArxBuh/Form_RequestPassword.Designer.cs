@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_RequestPassword));
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -35,6 +36,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelLanguage = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,13 +98,33 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
+            // labelLanguage
+            // 
+            this.labelLanguage.AutoSize = true;
+            this.labelLanguage.BackColor = System.Drawing.Color.DodgerBlue;
+            this.labelLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelLanguage.ForeColor = System.Drawing.Color.White;
+            this.labelLanguage.Location = new System.Drawing.Point(322, 52);
+            this.labelLanguage.Name = "labelLanguage";
+            this.labelLanguage.Padding = new System.Windows.Forms.Padding(0, 4, 0, 3);
+            this.labelLanguage.Size = new System.Drawing.Size(25, 20);
+            this.labelLanguage.TabIndex = 5;
+            this.labelLanguage.Text = "RU";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 25;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form_RequestPassword
             // 
             this.AcceptButton = this.btnOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(334, 115);
+            this.ClientSize = new System.Drawing.Size(355, 115);
+            this.Controls.Add(this.labelLanguage);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.label2);
@@ -129,5 +152,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label labelLanguage;
+        private System.Windows.Forms.Timer timer1;
     }
 }

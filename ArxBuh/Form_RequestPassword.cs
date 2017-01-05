@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace ArxBuh
@@ -19,6 +20,11 @@ namespace ArxBuh
         {
             ArxBuhSettings.EncryptPassword = maskedTextBox1.Text;
             Close();
+        }        
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            labelLanguage.Text = InputLanguage.CurrentInputLanguage.Culture.TwoLetterISOLanguageName.ToUpper();
         }
     }
 }
