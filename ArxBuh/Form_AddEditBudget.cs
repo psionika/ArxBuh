@@ -12,7 +12,7 @@ namespace ArxBuh
         public Form_AddEditBudget(string title)
         {
             InitializeComponent();
-            Text = title;
+            Text = $"ArxBuh: {title}";
         }
 
         private void Form_AddEditBudget_Load(object sender, EventArgs e)

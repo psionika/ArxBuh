@@ -171,7 +171,7 @@
             this.Name = "Form_Encryption";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Настройка шифрования";
+            this.Text = "ArxBuh: Настройка шифрования";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

@@ -7,7 +7,7 @@ namespace ArxBuh
         public Form_AddEditGoalElement(string title)
         {
             InitializeComponent();
-            Text = title;
+            Text = $"ArxBuh: {title}";
         }
     }
 }

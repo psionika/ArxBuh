@@ -260,6 +260,7 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(415, 358);
             this.Name = "Form_AddEditTransfer";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Новый перевод";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_AddEditTransfer_FormClosing);

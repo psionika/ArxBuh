@@ -137,8 +137,9 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(395, 223);
             this.Name = "Form_Update";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Обновление программы";
+            this.Text = "ArxBuh: Обновление программы";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);

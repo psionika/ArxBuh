@@ -146,7 +146,7 @@
             this.Name = "Form_AddEditGoalElement";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Выплата по цели";
+            this.Text = "ArxBuh: Выплата по цели";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

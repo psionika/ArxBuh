@@ -262,8 +262,9 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(751, 474);
             this.Name = "Form_AccountList";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Список счетов";
+            this.Text = "ArxBuh: Список счетов";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_AccountList_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

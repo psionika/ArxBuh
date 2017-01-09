@@ -11,7 +11,7 @@ namespace ArxBuh
         public Form_AddEdit(string title)
         {
             InitializeComponent();
-            Text = title;
+            Text = $"ArxBuh: {title}";
         }
 
         void Form_AddEdit_Load(object sender, EventArgs e)

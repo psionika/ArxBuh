@@ -350,8 +350,9 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(545, 427);
             this.Name = "Form_HotkeyHelper";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Справка по горячим клавишам";
+            this.Text = "ArxBuh: Справка по горячим клавишам";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();

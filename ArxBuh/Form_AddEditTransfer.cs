@@ -15,7 +15,7 @@ namespace ArxBuh
         public Form_AddEditTransfer(string title)
         {
             InitializeComponent();
-            Text = title;
+            Text = $"ArxBuh: {title}";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

@@ -9,7 +9,7 @@ namespace ArxBuh
         public Form_AboutBox()
         {
             InitializeComponent();
-            Text = string.Format("О {0}", AssemblyTitle);
+
             labelProductName.Text = AssemblyProduct;
             labelVersion.Text = string.Format("Версия {0}", AssemblyVersion);
             labelCopyright.Text = AssemblyCopyright;
