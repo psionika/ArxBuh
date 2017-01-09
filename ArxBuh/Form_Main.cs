@@ -509,7 +509,7 @@ namespace ArxBuh
 
         #region Учёт доходов-расходов (Add, Edit, Delete)
 
-        void add_element()
+        bool add_element()
         {
             arxDs.ds = dataSet1;
 
@@ -521,9 +521,12 @@ namespace ArxBuh
                 {
                     dataSet1.Tables["CashInOut"].Rows.Add(Class_element.InOut, Class_element.Category, Class_element.Date,
                         Class_element.Sum, Class_element.Comment);
-                }
 
-                saveData();
+                    saveData();
+
+                    return true;
+                }
+                return false;
             }
         }
 
@@ -980,21 +983,28 @@ namespace ArxBuh
         {
             if (dataGridView2.CurrentRow == null) return;
 
+            var customerRow = ((DataRowView)dataGridView2.CurrentRow.DataBoundItem).Row;
+
             Class_element.InOut = dataGridView2.CurrentRow.Cells[1].Value.ToString();
             Class_element.Category = dataGridView2.CurrentRow.Cells[2].Value.ToString();
             Class_element.Date = DateTime.ParseExact(dataGridView2.CurrentRow.Cells[3].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
             Class_element.Sum = Convert.ToDouble(dataGridView2.CurrentRow.Cells[4].Value);
             Class_element.Comment = dataGridView2.CurrentRow.Cells[5].Value.ToString();
 
-            var customerRow = ((DataRowView)dataGridView2.CurrentRow.DataBoundItem).Row;
-
-            customerRow["Check"] = true;
-
-            saveData();
-
             tabControl1.SelectedTab = tabPage1;
 
-            add_element();
+            if (add_element())
+            {
+                var result = MessageBox.Show("Вы хотите отметить выполненным элемент на основании которого была создана операция?",
+                "Выполнено",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+                if (result != DialogResult.Yes) return;
+                customerRow["Check"] = true;
+
+                saveData();
+            }
         }
         #endregion
 
