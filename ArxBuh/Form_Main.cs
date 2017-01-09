@@ -356,7 +356,7 @@ namespace ArxBuh
         {
             if (dataGridView1.CurrentRow == null) return;
 
-            if(dataGridView1.CurrentRow.Cells[0].Value.ToString() == "Доход" ||
+            if (dataGridView1.CurrentRow.Cells[0].Value.ToString() == "Доход" ||
                 dataGridView1.CurrentRow.Cells[0].Value.ToString() == "Расход")
             {
                 Class_element.InOut = dataGridView1.CurrentRow.Cells[0].Value.ToString();
@@ -366,7 +366,24 @@ namespace ArxBuh
                 Class_element.Comment = dataGridView1.CurrentRow.Cells[4].Value.ToString();
 
                 add_element();
-            }            
+            }
+            else if (dataGridView1.CurrentRow.Cells[0].Value.ToString() == "Перевод")
+            {
+                var array = dataGridView1.CurrentRow.Cells[1].Value.ToString().Split(
+                         new string[] { "->" }, StringSplitOptions.None);
+
+                var inOut = array[0];
+                var category = array[1];
+
+                Class_element.InOut = inOut;
+                Class_element.Category = category;
+
+                Class_element.Date = DateTime.ParseExact(dataGridView1.CurrentRow.Cells[2].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
+                Class_element.Sum = Convert.ToDouble(dataGridView1.CurrentRow.Cells[3].Value);
+                Class_element.Comment = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+
+                add_transfer();
+            }
                         
         }
 
