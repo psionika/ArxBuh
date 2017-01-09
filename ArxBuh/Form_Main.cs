@@ -1693,5 +1693,15 @@ namespace ArxBuh
                 saveData();
             }
         }
+
+        private void contextMenuStrip1_Opened(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null) return;
+
+            var convertToTransferButtonVisible = (dataGridView1.CurrentRow.Cells[0].Value.ToString() == "Доход")
+                                                 || (dataGridView1.CurrentRow.Cells[0].Value.ToString() == "Расход");
+            преобразоватьВПереводToolStripMenuItem.Available = convertToTransferButtonVisible;
+            toolStripMenuItem6.Available = convertToTransferButtonVisible;
+        }
     }
 }
