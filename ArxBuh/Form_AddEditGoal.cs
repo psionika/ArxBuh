@@ -159,7 +159,7 @@ namespace ArxBuh
         {
             if (dataGridView1.CurrentRow == null) return;
 
-            using (var addEdit = new Form_AddEditGoalElement("Редактирование выплаты по цели"))
+            using (var addEdit = new Form_AddEditGoalElement("Новая выплата по цели"))
             {
                 addEdit.dtp_DateTimeGoalElement.Value = DateTime.ParseExact(dataGridView1.CurrentRow.Cells[1].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
                 addEdit.txb_GoalElementAllSum.Text = Convert.ToDouble(dataGridView1.CurrentRow.Cells[2].Value).ToString();
