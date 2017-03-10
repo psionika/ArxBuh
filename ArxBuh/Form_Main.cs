@@ -1109,10 +1109,8 @@ namespace ArxBuh
             decimal SumGoal = 0;
             decimal SumGoalRemaining = 0;
 
-
             foreach (DataGridViewRow row in dataGridView4.Rows)
             {
-
                 if (row.Cells[2].Value.ToString() == ""
                     || row.Cells[2].Value == null
                     || Convert.ToDecimal(row.Cells[1].Value) == 0)
@@ -1120,18 +1118,21 @@ namespace ArxBuh
                     row.Cells[2].Value = 0;                    
                 }
 
-
                 var x = (int)(Convert.ToDouble(row.Cells[2].Value) / (Convert.ToDouble(row.Cells[1].Value) / 100));
                 var y = (int)(Convert.ToDouble(row.Cells[1].Value) - (Convert.ToDouble(row.Cells[2].Value)));
 
-                SumGoal += Convert.ToDecimal(row.Cells[1].Value);
-                SumGoalRemaining += Convert.ToDecimal(y);
-
                 row.Cells[5].Value = x;
                 row.Cells[6].Value = y.ToString("C2");
-            }            
 
-            foreach(DataGridViewRow row in dataGridView4.Rows)
+                if ((toolStripButton13.Text == "Показывать выполненные" && (int)(row.Cells[5].Value) < 100) ||
+                     toolStripButton13.Text != "Показывать выполненные" )
+                {
+                    SumGoal += Convert.ToDecimal(row.Cells[1].Value);
+                    SumGoalRemaining += Convert.ToDecimal(y);
+                }
+            }
+
+            foreach (DataGridViewRow row in dataGridView4.Rows)
             {
                 if (toolStripButton13.Text != "Показывать выполненные")
                 {
