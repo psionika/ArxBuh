@@ -49,12 +49,14 @@
             this.txbSum = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -62,7 +64,6 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 123F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.CancelBTN, 0, 5);
@@ -74,6 +75,7 @@
             this.tableLayoutPanel1.Controls.Add(this.panel3, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel4, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel5, 1, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -90,11 +92,11 @@
             // 
             // textBox1
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(126, 143);
+            this.textBox1.Location = new System.Drawing.Point(3, 3);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(5);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(270, 98);
+            this.textBox1.Size = new System.Drawing.Size(267, 95);
             this.textBox1.TabIndex = 6;
             // 
             // label2
@@ -194,7 +196,7 @@
             // 
             // categoryEdit
             // 
-            this.categoryEdit.Location = new System.Drawing.Point(182, 5);
+            this.categoryEdit.Location = new System.Drawing.Point(182, 3);
             this.categoryEdit.Name = "categoryEdit";
             this.categoryEdit.Size = new System.Drawing.Size(25, 23);
             this.categoryEdit.TabIndex = 0;
@@ -208,7 +210,7 @@
             this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(3, 6);
+            this.comboBox2.Location = new System.Drawing.Point(3, 5);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(173, 21);
             this.comboBox2.TabIndex = 0;
@@ -224,6 +226,7 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dateTimePicker1.Location = new System.Drawing.Point(3, 2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(173, 20);
@@ -241,8 +244,8 @@
             // 
             // txbSum
             // 
-            this.txbSum.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txbSum.Location = new System.Drawing.Point(3, 6);
+            this.txbSum.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txbSum.Location = new System.Drawing.Point(3, 5);
             this.txbSum.Name = "txbSum";
             this.txbSum.Size = new System.Drawing.Size(173, 20);
             this.txbSum.TabIndex = 0;
@@ -260,6 +263,15 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.textBox1);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(126, 143);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(270, 98);
+            this.panel5.TabIndex = 11;
             // 
             // Form_AddEdit
             // 
@@ -287,6 +299,8 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -312,5 +326,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button categoryEdit;
         private System.Windows.Forms.TextBox txbSum;
+        private System.Windows.Forms.Panel panel5;
     }
 }

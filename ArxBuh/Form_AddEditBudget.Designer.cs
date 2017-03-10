@@ -185,7 +185,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Доход",
             "Расход"});
-            this.comboBox1.Location = new System.Drawing.Point(3, 5);
+            this.comboBox1.Location = new System.Drawing.Point(0, 5);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(173, 21);
             this.comboBox1.TabIndex = 0;
@@ -218,7 +218,7 @@
             this.comboBox2.DataSource = this.categoriesBindingSource;
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(3, 6);
+            this.comboBox2.Location = new System.Drawing.Point(0, 6);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(173, 21);
             this.comboBox2.TabIndex = 0;
@@ -244,7 +244,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(3, 2);
+            this.dateTimePicker1.Location = new System.Drawing.Point(0, 2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(173, 20);
             this.dateTimePicker1.TabIndex = 0;
