@@ -1158,8 +1158,8 @@ namespace ArxBuh
                     }                    
                 }
             }
-
-            labelResultGoal.Text = string.Format($"Всего целей на {SumGoal.ToString("C2")}, осталось собрать {SumGoalRemaining.ToString("C2")}");
+            string procent = (1 - SumGoalRemaining / SumGoal).ToString("p1");
+            labelResultGoal.Text = string.Format($"Всего целей на {SumGoal.ToString("C2")}, осталось собрать {SumGoalRemaining.ToString("C2")} ({procent} собрано)");
         }
 
         void dataGridView4_Paint(object sender, PaintEventArgs e)
