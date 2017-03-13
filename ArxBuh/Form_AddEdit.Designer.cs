@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_AddEdit));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.CancelBTN = new System.Windows.Forms.Button();
@@ -48,15 +47,16 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.txbSum = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel5 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -89,15 +89,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(399, 284);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(3, 3);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(5);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(267, 95);
-            this.textBox1.TabIndex = 6;
             // 
             // label2
             // 
@@ -260,10 +251,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Доход или Расход";
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.textBox1);
@@ -272,6 +259,20 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(270, 98);
             this.panel5.TabIndex = 11;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(3, 3);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(5);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox1.Size = new System.Drawing.Size(267, 95);
+            this.textBox1.TabIndex = 6;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // Form_AddEdit
             // 
@@ -298,9 +299,9 @@
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }

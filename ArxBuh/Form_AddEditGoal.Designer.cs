@@ -173,6 +173,7 @@
             this.txb_GoalComment.Location = new System.Drawing.Point(251, 78);
             this.txb_GoalComment.Multiline = true;
             this.txb_GoalComment.Name = "txb_GoalComment";
+            this.txb_GoalComment.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txb_GoalComment.Size = new System.Drawing.Size(223, 63);
             this.txb_GoalComment.TabIndex = 3;
             // 

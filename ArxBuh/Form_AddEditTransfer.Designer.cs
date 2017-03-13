@@ -131,6 +131,7 @@
             this.textBoxComment.Location = new System.Drawing.Point(126, 141);
             this.textBoxComment.Multiline = true;
             this.textBoxComment.Name = "textBoxComment";
+            this.textBoxComment.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxComment.Size = new System.Drawing.Size(270, 130);
             this.textBoxComment.TabIndex = 11;
             // 
