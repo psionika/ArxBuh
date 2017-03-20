@@ -160,7 +160,7 @@
             this.panel1.Location = new System.Drawing.Point(126, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(270, 29);
-            this.panel1.TabIndex = 8;
+            this.panel1.TabIndex = 1;
             // 
             // comboBox1
             // 
@@ -183,14 +183,14 @@
             this.panel2.Location = new System.Drawing.Point(126, 38);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(270, 29);
-            this.panel2.TabIndex = 9;
+            this.panel2.TabIndex = 2;
             // 
             // categoryEdit
             // 
             this.categoryEdit.Location = new System.Drawing.Point(182, 3);
             this.categoryEdit.Name = "categoryEdit";
             this.categoryEdit.Size = new System.Drawing.Size(25, 23);
-            this.categoryEdit.TabIndex = 0;
+            this.categoryEdit.TabIndex = 1;
             this.categoryEdit.TabStop = false;
             this.categoryEdit.Text = "...";
             this.categoryEdit.UseVisualStyleBackColor = true;
@@ -213,7 +213,7 @@
             this.panel3.Location = new System.Drawing.Point(126, 73);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(270, 29);
-            this.panel3.TabIndex = 10;
+            this.panel3.TabIndex = 3;
             // 
             // dateTimePicker1
             // 
@@ -231,7 +231,7 @@
             this.panel4.Location = new System.Drawing.Point(126, 108);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(270, 29);
-            this.panel4.TabIndex = 5;
+            this.panel4.TabIndex = 4;
             // 
             // txbSum
             // 
@@ -258,7 +258,7 @@
             this.panel5.Location = new System.Drawing.Point(126, 143);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(270, 98);
-            this.panel5.TabIndex = 11;
+            this.panel5.TabIndex = 5;
             // 
             // textBox1
             // 
@@ -268,7 +268,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox1.Size = new System.Drawing.Size(267, 95);
-            this.textBox1.TabIndex = 6;
+            this.textBox1.TabIndex = 0;
             // 
             // errorProvider1
             // 

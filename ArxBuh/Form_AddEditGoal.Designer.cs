@@ -105,7 +105,7 @@
             this.btnOk.Location = new System.Drawing.Point(83, 387);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
-            this.btnOk.TabIndex = 0;
+            this.btnOk.TabIndex = 6;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.button1_Click);
@@ -117,7 +117,7 @@
             this.btnCancel.Location = new System.Drawing.Point(325, 387);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Отмена";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -128,7 +128,7 @@
             this.label1.Location = new System.Drawing.Point(104, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(33, 13);
-            this.label1.TabIndex = 2;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Цель";
             // 
             // label2
@@ -138,7 +138,7 @@
             this.label2.Location = new System.Drawing.Point(58, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(126, 13);
-            this.label2.TabIndex = 2;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Сумма для достижения";
             // 
             // label4
@@ -148,7 +148,7 @@
             this.label4.Location = new System.Drawing.Point(82, 103);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 13);
-            this.label4.TabIndex = 2;
+            this.label4.TabIndex = 0;
             this.label4.Text = "Комментарий";
             // 
             // txb_GoalName
@@ -157,7 +157,7 @@
             this.txb_GoalName.Location = new System.Drawing.Point(251, 7);
             this.txb_GoalName.Name = "txb_GoalName";
             this.txb_GoalName.Size = new System.Drawing.Size(223, 20);
-            this.txb_GoalName.TabIndex = 3;
+            this.txb_GoalName.TabIndex = 1;
             // 
             // txb_GoalSum
             // 
@@ -165,7 +165,7 @@
             this.txb_GoalSum.Location = new System.Drawing.Point(251, 42);
             this.txb_GoalSum.Name = "txb_GoalSum";
             this.txb_GoalSum.Size = new System.Drawing.Size(223, 20);
-            this.txb_GoalSum.TabIndex = 3;
+            this.txb_GoalSum.TabIndex = 2;
             // 
             // txb_GoalComment
             // 
@@ -198,7 +198,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(478, 195);
-            this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
@@ -259,7 +259,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 150);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(484, 30);
-            this.toolStrip1.TabIndex = 5;
+            this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // tsb_AddGoalElement

@@ -70,7 +70,7 @@
             this.btnOK.Location = new System.Drawing.Point(51, 157);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 0;
+            this.btnOK.TabIndex = 4;
             this.btnOK.Text = "ОК";
             this.btnOK.UseVisualStyleBackColor = true;
             // 
@@ -81,7 +81,7 @@
             this.btnCancel.Location = new System.Drawing.Point(228, 157);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Отмена";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -92,7 +92,7 @@
             this.label1.Location = new System.Drawing.Point(70, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 13);
-            this.label1.TabIndex = 2;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Дата:";
             // 
             // dtp_DateTimeGoalElement
@@ -101,7 +101,7 @@
             this.dtp_DateTimeGoalElement.Location = new System.Drawing.Point(181, 7);
             this.dtp_DateTimeGoalElement.Name = "dtp_DateTimeGoalElement";
             this.dtp_DateTimeGoalElement.Size = new System.Drawing.Size(169, 20);
-            this.dtp_DateTimeGoalElement.TabIndex = 3;
+            this.dtp_DateTimeGoalElement.TabIndex = 1;
             // 
             // label2
             // 
@@ -110,7 +110,7 @@
             this.label2.Location = new System.Drawing.Point(66, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
-            this.label2.TabIndex = 2;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Сумма:";
             // 
             // txb_GoalElementAllSum
@@ -119,7 +119,7 @@
             this.txb_GoalElementAllSum.Location = new System.Drawing.Point(181, 42);
             this.txb_GoalElementAllSum.Name = "txb_GoalElementAllSum";
             this.txb_GoalElementAllSum.Size = new System.Drawing.Size(169, 20);
-            this.txb_GoalElementAllSum.TabIndex = 4;
+            this.txb_GoalElementAllSum.TabIndex = 2;
             // 
             // txb_GoalElementComment
             // 
@@ -130,7 +130,7 @@
             this.txb_GoalElementComment.Name = "txb_GoalElementComment";
             this.txb_GoalElementComment.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txb_GoalElementComment.Size = new System.Drawing.Size(348, 70);
-            this.txb_GoalElementComment.TabIndex = 4;
+            this.txb_GoalElementComment.TabIndex = 3;
             // 
             // Form_AddEditGoalElement
             // 

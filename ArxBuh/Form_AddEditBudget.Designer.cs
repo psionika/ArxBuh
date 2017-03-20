@@ -95,7 +95,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(399, 319);
-            this.tableLayoutPanel1.TabIndex = 1;
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // textBox1
             // 
@@ -134,7 +134,7 @@
             this.CancelBTN.Location = new System.Drawing.Point(18, 287);
             this.CancelBTN.Name = "CancelBTN";
             this.CancelBTN.Size = new System.Drawing.Size(87, 23);
-            this.CancelBTN.TabIndex = 7;
+            this.CancelBTN.TabIndex = 8;
             this.CancelBTN.Text = "Отмена";
             this.CancelBTN.UseVisualStyleBackColor = true;
             // 
@@ -145,7 +145,7 @@
             this.OkBTN.Location = new System.Drawing.Point(128, 287);
             this.OkBTN.Name = "OkBTN";
             this.OkBTN.Size = new System.Drawing.Size(265, 23);
-            this.OkBTN.TabIndex = 6;
+            this.OkBTN.TabIndex = 7;
             this.OkBTN.Text = "Сохранить";
             this.OkBTN.UseVisualStyleBackColor = true;
             // 
@@ -177,7 +177,7 @@
             this.panel1.Location = new System.Drawing.Point(126, 38);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(270, 29);
-            this.panel1.TabIndex = 8;
+            this.panel1.TabIndex = 2;
             // 
             // comboBox1
             // 
@@ -200,7 +200,7 @@
             this.panel2.Location = new System.Drawing.Point(126, 73);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(270, 29);
-            this.panel2.TabIndex = 9;
+            this.panel2.TabIndex = 3;
             // 
             // categoryEdit
             // 
@@ -241,7 +241,7 @@
             this.panel3.Location = new System.Drawing.Point(126, 108);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(270, 29);
-            this.panel3.TabIndex = 10;
+            this.panel3.TabIndex = 4;
             // 
             // dateTimePicker1
             // 
@@ -293,7 +293,7 @@
             this.checkBox1.Location = new System.Drawing.Point(126, 10);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 11;
+            this.checkBox1.TabIndex = 1;
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // errorProvider1
