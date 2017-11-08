@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace ArxBuh
 {
-    public partial class Form_Encryption : Form
+    public partial class FormEncryption : Form
     {
-        public Form_Encryption()
+        public FormEncryption()
         {
             InitializeComponent();
             checkBox1.Checked = ArxBuhSettings.EncryptEnable;

@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace ArxBuh
 {
-    public partial class Form_HotkeyHelper : Form
+    public partial class FormHotkeyHelper : Form
     {
-        public Form_HotkeyHelper()
+        public FormHotkeyHelper()
         {
             InitializeComponent();
         }

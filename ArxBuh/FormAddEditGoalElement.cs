@@ -2,9 +2,9 @@
 
 namespace ArxBuh
 {
-    public partial class Form_AddEditGoalElement : Form
+    public partial class FormAddEditGoalElement : Form
     {
-        public Form_AddEditGoalElement(string title)
+        public FormAddEditGoalElement(string title)
         {
             InitializeComponent();
             Text = $"ArxBuh: {title}";

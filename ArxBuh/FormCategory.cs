@@ -5,16 +5,16 @@ using System.IO;
 
 namespace ArxBuh
 {
-    public partial class Form_Category : Form
+    public partial class FormCategory : Form
     {
         #region Form Action
-        public Form_Category()
+        public FormCategory()
         {
             InitializeComponent();
 
-            dataSet1 = arxDs.ds;
+            dataSet1 = ArxDs.ds;
 
-            categoriesBindingSource.DataSource = arxDs.ds;
+            categoriesBindingSource.DataSource = ArxDs.ds;
 
             dataGridView1.DataSource = categoriesBindingSource;
         }
@@ -138,7 +138,7 @@ namespace ArxBuh
 
         private void Form_Category_FormClosing(object sender, FormClosingEventArgs e)
         {
-            arxDs.ds = dataSet1;
+            ArxDs.ds = dataSet1;
         }
     }
 }

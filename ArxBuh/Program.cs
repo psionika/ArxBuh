@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace ArxBuh
 {
-    static class Program
+    internal static class Program
     {
         /// <summary>
         /// Главная точка входа для приложения.
@@ -20,9 +20,9 @@ namespace ArxBuh
                 return;
             }
 
-            using (var form_Main = new Form_Main())
+            using (var formMain = new FormMain())
             {
-                Application.Run(form_Main);
+                Application.Run(formMain);
             }
         }
     }

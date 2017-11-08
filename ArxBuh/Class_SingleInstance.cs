@@ -8,16 +8,16 @@ namespace ArxBuh
 {
     internal static class SingleInstance
     {
-        const int WM_COPYDATA = 0x4A;
-        static readonly bool isNew;
-        static readonly string guid;
-        static Mutex _mutex;
+        private const int WM_COPYDATA = 0x4A;
+        private static readonly bool isNew;
+        private static readonly string guid;
+        private static readonly Mutex _mutex;
 
         static SingleInstance()
         {
-            using (Process currentProcess = Process.GetCurrentProcess())
+            using (var currentProcess = Process.GetCurrentProcess())
             {
-                guid = string.Format("[{0}]", currentProcess.ProcessName);
+                guid = $"[{currentProcess.ProcessName}]";
             }
 
             if (_mutex == null)
@@ -33,16 +33,16 @@ namespace ArxBuh
         }
 
         [DllImport("user32.dll", SetLastError = true)]
-        static extern bool ShowWindow(IntPtr hWnd, ShowWindowCommand nCmdShow);
+        private static extern bool ShowWindow(IntPtr hWnd, ShowWindowCommand nCmdShow);
 
         [DllImport("user32.dll", EntryPoint = "FindWindow", CharSet = CharSet.Auto, SetLastError = true)]
-        static extern IntPtr FindWindowByCaption(IntPtr ZeroOnly, string lpWindowName);
+        private static extern IntPtr FindWindowByCaption(IntPtr ZeroOnly, string lpWindowName);
 
         [DllImport("user32.dll", SetLastError = true)]
-        static extern bool SetForegroundWindow(IntPtr hWnd);
+        private static extern bool SetForegroundWindow(IntPtr hWnd);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        static extern int SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
+        private static extern int SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
 
         /// <summary>
         /// Разворачивает и выводит на первый план окно c указанным заголовком
@@ -109,8 +109,8 @@ namespace ArxBuh
 
             var cmd = "";
 
-            for (int i = 0; i < args.Length; i++)
-                cmd = String.Concat(cmd, " ", args[i]);
+            foreach (var t in args)
+                cmd = string.Concat(cmd, " ", t);
 
             var cds = new COPYDATASTRUCT { lpData = cmd, cbData = cmd.Length + 1 };
 
@@ -123,7 +123,7 @@ namespace ArxBuh
         #region Nested type: COPYDATASTRUCT
 
         [StructLayout(LayoutKind.Sequential)]
-        struct COPYDATASTRUCT
+        private struct COPYDATASTRUCT
         {
             public int dwData;
             public int cbData;
@@ -135,7 +135,7 @@ namespace ArxBuh
 
         #region Nested type: ShowWindowCommand
 
-        enum ShowWindowCommand
+        private enum ShowWindowCommand
         {
             /// <summary>
             /// Hides the window and activates another window.

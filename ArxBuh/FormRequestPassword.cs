@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace ArxBuh
 {
-    public partial class Form_RequestPassword : Form
+    public partial class FormRequestPassword : Form
     {
-        public Form_RequestPassword()
+        public FormRequestPassword()
         {
             InitializeComponent();
         }

@@ -110,53 +110,53 @@
     </Compile>
     <Compile Include="Class_Settings.cs" />
     <Compile Include="Class_SingleInstance.cs" />
-    <Compile Include="Form_AboutBox.cs">
+    <Compile Include="FormAboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_AboutBox.Designer.cs">
-      <DependentUpon>Form_AboutBox.cs</DependentUpon>
+    <Compile Include="FormAboutBox.Designer.cs">
+      <DependentUpon>FormAboutBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_AccountList.cs">
+    <Compile Include="FormAccountList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_AccountList.Designer.cs">
-      <DependentUpon>Form_AccountList.cs</DependentUpon>
+    <Compile Include="FormAccountList.Designer.cs">
+      <DependentUpon>FormAccountList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_AddEdit.cs">
+    <Compile Include="FormAddEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_AddEdit.Designer.cs">
-      <DependentUpon>Form_AddEdit.cs</DependentUpon>
+    <Compile Include="FormAddEdit.Designer.cs">
+      <DependentUpon>FormAddEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_AddEditBudget.cs">
+    <Compile Include="FormAddEditBudget.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_AddEditBudget.Designer.cs">
-      <DependentUpon>Form_AddEditBudget.cs</DependentUpon>
+    <Compile Include="FormAddEditBudget.Designer.cs">
+      <DependentUpon>FormAddEditBudget.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_AddEditTransfer.cs">
+    <Compile Include="FormAddEditTransfer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_AddEditTransfer.Designer.cs">
-      <DependentUpon>Form_AddEditTransfer.cs</DependentUpon>
+    <Compile Include="FormAddEditTransfer.Designer.cs">
+      <DependentUpon>FormAddEditTransfer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_AutoCloseApp.cs">
+    <Compile Include="FormAutoCloseApp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_AutoCloseApp.Designer.cs">
-      <DependentUpon>Form_AutoCloseApp.cs</DependentUpon>
+    <Compile Include="FormAutoCloseApp.Designer.cs">
+      <DependentUpon>FormAutoCloseApp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Backup.cs">
+    <Compile Include="FormBackup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Backup.Designer.cs">
-      <DependentUpon>Form_Backup.cs</DependentUpon>
+    <Compile Include="FormBackup.Designer.cs">
+      <DependentUpon>FormBackup.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Category.cs">
+    <Compile Include="FormCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Category.Designer.cs">
-      <DependentUpon>Form_Category.cs</DependentUpon>
+    <Compile Include="FormCategory.Designer.cs">
+      <DependentUpon>FormCategory.cs</DependentUpon>
     </Compile>
     <Compile Include="Class_dataGridViewDate.cs" />
     <Compile Include="DataSet1.cs">
@@ -168,96 +168,96 @@
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Class_element.cs" />
-    <Compile Include="Form_Encryption.cs">
+    <Compile Include="FormEncryption.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Encryption.Designer.cs">
-      <DependentUpon>Form_Encryption.cs</DependentUpon>
+    <Compile Include="FormEncryption.Designer.cs">
+      <DependentUpon>FormEncryption.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_HotkeyHelper.cs">
+    <Compile Include="FormHotkeyHelper.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_HotkeyHelper.Designer.cs">
-      <DependentUpon>Form_HotkeyHelper.cs</DependentUpon>
+    <Compile Include="FormHotkeyHelper.Designer.cs">
+      <DependentUpon>FormHotkeyHelper.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Main.cs">
+    <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Main.Designer.cs">
-      <DependentUpon>Form_Main.cs</DependentUpon>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_RequestPassword.cs">
+    <Compile Include="FormRequestPassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_RequestPassword.Designer.cs">
-      <DependentUpon>Form_RequestPassword.cs</DependentUpon>
+    <Compile Include="FormRequestPassword.Designer.cs">
+      <DependentUpon>FormRequestPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_AddEditGoal.cs">
+    <Compile Include="FormAddEditGoal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_AddEditGoal.Designer.cs">
-      <DependentUpon>Form_AddEditGoal.cs</DependentUpon>
+    <Compile Include="FormAddEditGoal.Designer.cs">
+      <DependentUpon>FormAddEditGoal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_AddEditGoalElement.cs">
+    <Compile Include="FormAddEditGoalElement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_AddEditGoalElement.Designer.cs">
-      <DependentUpon>Form_AddEditGoalElement.cs</DependentUpon>
+    <Compile Include="FormAddEditGoalElement.Designer.cs">
+      <DependentUpon>FormAddEditGoalElement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Update.cs">
+    <Compile Include="FormUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Update.Designer.cs">
-      <DependentUpon>Form_Update.cs</DependentUpon>
+    <Compile Include="FormUpdate.Designer.cs">
+      <DependentUpon>FormUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Resources\down_arrow_32x32.png" />
     <None Include="Resources\up_arrow_32x32.png" />
-    <EmbeddedResource Include="Form_AboutBox.resx">
-      <DependentUpon>Form_AboutBox.cs</DependentUpon>
+    <EmbeddedResource Include="FormAboutBox.resx">
+      <DependentUpon>FormAboutBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_AccountList.resx">
-      <DependentUpon>Form_AccountList.cs</DependentUpon>
+    <EmbeddedResource Include="FormAccountList.resx">
+      <DependentUpon>FormAccountList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_AddEdit.resx">
-      <DependentUpon>Form_AddEdit.cs</DependentUpon>
+    <EmbeddedResource Include="FormAddEdit.resx">
+      <DependentUpon>FormAddEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_AddEditBudget.resx">
-      <DependentUpon>Form_AddEditBudget.cs</DependentUpon>
+    <EmbeddedResource Include="FormAddEditBudget.resx">
+      <DependentUpon>FormAddEditBudget.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_AddEditTransfer.resx">
-      <DependentUpon>Form_AddEditTransfer.cs</DependentUpon>
+    <EmbeddedResource Include="FormAddEditTransfer.resx">
+      <DependentUpon>FormAddEditTransfer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_AutoCloseApp.resx">
-      <DependentUpon>Form_AutoCloseApp.cs</DependentUpon>
+    <EmbeddedResource Include="FormAutoCloseApp.resx">
+      <DependentUpon>FormAutoCloseApp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Backup.resx">
-      <DependentUpon>Form_Backup.cs</DependentUpon>
+    <EmbeddedResource Include="FormBackup.resx">
+      <DependentUpon>FormBackup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Category.resx">
-      <DependentUpon>Form_Category.cs</DependentUpon>
+    <EmbeddedResource Include="FormCategory.resx">
+      <DependentUpon>FormCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Encryption.resx">
-      <DependentUpon>Form_Encryption.cs</DependentUpon>
+    <EmbeddedResource Include="FormEncryption.resx">
+      <DependentUpon>FormEncryption.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_HotkeyHelper.resx">
-      <DependentUpon>Form_HotkeyHelper.cs</DependentUpon>
+    <EmbeddedResource Include="FormHotkeyHelper.resx">
+      <DependentUpon>FormHotkeyHelper.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Main.resx">
-      <DependentUpon>Form_Main.cs</DependentUpon>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_RequestPassword.resx">
-      <DependentUpon>Form_RequestPassword.cs</DependentUpon>
+    <EmbeddedResource Include="FormRequestPassword.resx">
+      <DependentUpon>FormRequestPassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_AddEditGoal.resx">
-      <DependentUpon>Form_AddEditGoal.cs</DependentUpon>
+    <EmbeddedResource Include="FormAddEditGoal.resx">
+      <DependentUpon>FormAddEditGoal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_AddEditGoalElement.resx">
-      <DependentUpon>Form_AddEditGoalElement.cs</DependentUpon>
+    <EmbeddedResource Include="FormAddEditGoalElement.resx">
+      <DependentUpon>FormAddEditGoalElement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Update.resx">
-      <DependentUpon>Form_Update.cs</DependentUpon>
+    <EmbeddedResource Include="FormUpdate.resx">
+      <DependentUpon>FormUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

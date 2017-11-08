@@ -6,11 +6,11 @@ using System.Windows.Forms;
 
 namespace ArxBuh
 {
-    public partial class Form_AddEditGoal : Form
+    public partial class FormAddEditGoal : Form
     {
         Int32 _HistoryID;
 
-        public Form_AddEditGoal(string name, string sum, string comment, string HistoryID, DataSet ds)
+        public FormAddEditGoal(string name, string sum, string comment, string HistoryID, DataSet ds)
         {
             InitializeComponent();
 
@@ -48,7 +48,7 @@ namespace ArxBuh
 
         void add_element()
         {
-            using (var faeg = new Form_AddEditGoalElement("Новая выплата по цели"))
+            using (var faeg = new FormAddEditGoalElement("Новая выплата по цели"))
             {
                 faeg.ShowDialog();
 
@@ -86,11 +86,11 @@ namespace ArxBuh
         {
             if (dataGridView1.CurrentRow == null) return;
 
-            using (var addEdit = new Form_AddEditGoalElement("Редактирование выплаты по цели"))
+            using (var addEdit = new FormAddEditGoalElement("Редактирование выплаты по цели"))
             {
                 addEdit.dtp_DateTimeGoalElement.Value = DateTime.ParseExact(dataGridView1.CurrentRow.Cells[1].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
                 addEdit.txb_GoalElementAllSum.Text = Convert.ToDouble(dataGridView1.CurrentRow.Cells[2].Value).ToString();
-                addEdit.txb_GoalElementComment.Text = Class_element.Comment = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                addEdit.txb_GoalElementComment.Text = ClassElement.Comment = dataGridView1.CurrentRow.Cells[3].Value.ToString();
 
                 addEdit.ShowDialog();
 
@@ -159,11 +159,11 @@ namespace ArxBuh
         {
             if (dataGridView1.CurrentRow == null) return;
 
-            using (var addEdit = new Form_AddEditGoalElement("Новая выплата по цели"))
+            using (var addEdit = new FormAddEditGoalElement("Новая выплата по цели"))
             {
                 addEdit.dtp_DateTimeGoalElement.Value = DateTime.ParseExact(dataGridView1.CurrentRow.Cells[1].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
                 addEdit.txb_GoalElementAllSum.Text = Convert.ToDouble(dataGridView1.CurrentRow.Cells[2].Value).ToString();
-                addEdit.txb_GoalElementComment.Text = Class_element.Comment = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                addEdit.txb_GoalElementComment.Text = ClassElement.Comment = dataGridView1.CurrentRow.Cells[3].Value.ToString();
 
                 addEdit.ShowDialog();
 

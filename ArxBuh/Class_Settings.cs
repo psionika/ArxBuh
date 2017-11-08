@@ -24,35 +24,34 @@ namespace ArxBuh
     {
         public static void WriteXml()
         {
-            var static_class = typeof(ArxBuhSettings);
+            var staticClass = typeof(ArxBuhSettings);
 
             const string filename = "settings.xml";
-            {
-                var fields = static_class.GetFields(BindingFlags.Static | BindingFlags.Public);
 
-                var a = new object[fields.Length, 2];
-                var i = 0;
-                foreach (var field in fields)
-                {
-                    a[i, 0] = field.Name;
-                    a[i, 1] = field.GetValue(null);
-                    i++;
-                }
-                Stream f = File.Open(filename, FileMode.Create);
-                var formatter = new SoapFormatter();
-                formatter.Serialize(f, a);
-                f.Close();
+            var fields = staticClass.GetFields(BindingFlags.Static | BindingFlags.Public);
+
+            var a = new object[fields.Length, 2];
+            var i = 0;
+            foreach (var field in fields)
+            {
+                a[i, 0] = field.Name;
+                a[i, 1] = field.GetValue(null);
+                i++;
             }
+            Stream f = File.Open(filename, FileMode.Create);
+            var formatter = new SoapFormatter();
+            formatter.Serialize(f, a);
+            f.Close();
         }
 
         public static void ReadXml()
         {
-            var static_class = typeof(ArxBuhSettings);
-            var filename = "settings.xml";
+            var staticClass = typeof(ArxBuhSettings);
+            const string filename = "settings.xml";
 
             if (!File.Exists(filename)) return;
 
-            var fields = static_class.GetFields(BindingFlags.Static | BindingFlags.Public);
+            var fields = staticClass.GetFields(BindingFlags.Static | BindingFlags.Public);
             Stream f = File.Open(filename, FileMode.Open);
             var formatter = new SoapFormatter();
             var a = formatter.Deserialize(f) as object[,];

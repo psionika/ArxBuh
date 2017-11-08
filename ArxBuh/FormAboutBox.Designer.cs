@@ -1,6 +1,6 @@
 ﻿namespace ArxBuh
 {
-    partial class Form_AboutBox
+    partial class FormAboutBox
     {
         /// <summary>
         /// Требуется переменная конструктора.
@@ -27,7 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_AboutBox));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAboutBox));
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.labelProductName = new System.Windows.Forms.Label();
@@ -196,7 +196,7 @@
             this.textBoxDescription.TabStop = false;
             this.textBoxDescription.Text = "Описание";
             // 
-            // Form_AboutBox
+            // FormAboutBox
             // 
             this.AcceptButton = this.okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,7 +209,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(467, 343);
-            this.Name = "Form_AboutBox";
+            this.Name = "FormAboutBox";
             this.Padding = new System.Windows.Forms.Padding(9);
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

@@ -4,37 +4,20 @@ using System.Windows.Forms;
 
 namespace ArxBuh
 {
-    public partial class Form_AboutBox : Form
+    public partial class FormAboutBox : Form
     {
-        public Form_AboutBox()
+        public FormAboutBox()
         {
             InitializeComponent();
 
             labelProductName.Text = AssemblyProduct;
-            labelVersion.Text = string.Format("Версия {0}", AssemblyVersion);
+            labelVersion.Text = $"Версия {AssemblyVersion}";
             labelCopyright.Text = AssemblyCopyright;
             labelCompanyName.Text = AssemblyCompany;
             textBoxDescription.Text = AssemblyDescription;
         }
 
         #region Методы доступа к атрибутам сборки
-
-        string AssemblyTitle
-        {
-            get
-            {
-                var attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
-                if (attributes.Length > 0)
-                {
-                    var titleAttribute = (AssemblyTitleAttribute)attributes[0];
-                    if (titleAttribute.Title != "")
-                    {
-                        return titleAttribute.Title;
-                    }
-                }
-                return System.IO.Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().CodeBase);
-            }
-        }
 
         string AssemblyVersion
         {

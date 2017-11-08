@@ -1,6 +1,6 @@
 ﻿namespace ArxBuh
 {
-    partial class Form_AutoCloseApp
+    partial class FormAutoCloseApp
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_AutoCloseApp));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAutoCloseApp));
             this.SuspendLayout();
             // 
             // Form_AutoCloseApp

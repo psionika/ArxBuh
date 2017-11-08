@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ArxBuh
 {
-    public partial class Form_AddEditTransfer: Form
+    public partial class FormAddEditTransfer: Form
     {
-        public Form_AddEditTransfer(string title)
+        public FormAddEditTransfer(string title)
         {
             InitializeComponent();
             Text = $@"ArxBuh: {title}";
@@ -34,19 +34,19 @@ namespace ArxBuh
         {
             fillComboBoxes();
 
-            comboBox1.Text = Class_element.InOut;
-            comboBox2.Text = Class_element.Category;
-            dateTimePicker1.Value = Class_element.Date;
-            textBoxSum.Text = Class_element.Sum.ToString();
-            textBoxComment.Text = Class_element.Comment;            
+            comboBox1.Text = ClassElement.InOut;
+            comboBox2.Text = ClassElement.Category;
+            dateTimePicker1.Value = ClassElement.Date;
+            textBoxSum.Text = ClassElement.Sum.ToString();
+            textBoxComment.Text = ClassElement.Comment;            
         }
 
         private void fillComboBoxes()
         {
-            var view1 = new DataView(arxDs.ds.Tables["Accounts"], "", "",
+            var view1 = new DataView(ArxDs.ds.Tables["Accounts"], "", "",
                      DataViewRowState.CurrentRows);
 
-            var view2 = new DataView(arxDs.ds.Tables["Accounts"], "", "",
+            var view2 = new DataView(ArxDs.ds.Tables["Accounts"], "", "",
                      DataViewRowState.CurrentRows);
 
             if (view1.Cast<DataRowView>().All(rv => rv.Row.Field<string>("Account") != "Основной"))
@@ -66,7 +66,7 @@ namespace ArxBuh
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (var accountsList = new Form_AccountList())
+            using (var accountsList = new FormAccountList())
             {
                 accountsList.ShowDialog();
             }
@@ -78,12 +78,12 @@ namespace ArxBuh
         {
             if (DialogResult == DialogResult.OK && ValidateData())
             {
-                Class_element.InOut = "Перевод";
-                Class_element.Category = $"{comboBox1.Text}->{comboBox2.Text}";
-                Class_element.Date = dateTimePicker1.Value;
+                ClassElement.InOut = "Перевод";
+                ClassElement.Category = $"{comboBox1.Text}->{comboBox2.Text}";
+                ClassElement.Date = dateTimePicker1.Value;
 
-                Class_element.Sum = Convert.ToDouble(parsSum(textBoxSum.Text));
-                Class_element.Comment = textBoxComment.Text;
+                ClassElement.Sum = Convert.ToDouble(parsSum(textBoxSum.Text));
+                ClassElement.Comment = textBoxComment.Text;
 
                 e.Cancel = false;
             }

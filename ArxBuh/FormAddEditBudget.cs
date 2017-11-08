@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace ArxBuh
 {
-    public partial class Form_AddEditBudget : Form
+    public partial class FormAddEditBudget : Form
     {
-        public Form_AddEditBudget(string title)
+        public FormAddEditBudget(string title)
         {
             InitializeComponent();
             Text = $"ArxBuh: {title}";
@@ -17,12 +17,12 @@ namespace ArxBuh
 
         private void Form_AddEditBudget_Load(object sender, EventArgs e)
         {
-            checkBox1.Checked = Class_element.BudgetCheck;
-            comboBox1.Text = Class_element.InOut;
-            comboBox2.Text = Class_element.Category;
-            dateTimePicker1.Value = Class_element.Date;
-            txbSum.Text = Class_element.Sum.ToString();
-            textBox1.Text = Class_element.Comment;
+            checkBox1.Checked = ClassElement.BudgetCheck;
+            comboBox1.Text = ClassElement.InOut;
+            comboBox2.Text = ClassElement.Category;
+            dateTimePicker1.Value = ClassElement.Date;
+            txbSum.Text = ClassElement.Sum.ToString();
+            textBox1.Text = ClassElement.Comment;
 
             validate();
         }
@@ -31,13 +31,13 @@ namespace ArxBuh
         {
             if (DialogResult == DialogResult.OK && validate())
             {
-                Class_element.BudgetCheck = checkBox1.Checked;
-                Class_element.InOut = comboBox1.Text;
-                Class_element.Category = comboBox2.Text;
-                Class_element.Date = dateTimePicker1.Value;
+                ClassElement.BudgetCheck = checkBox1.Checked;
+                ClassElement.InOut = comboBox1.Text;
+                ClassElement.Category = comboBox2.Text;
+                ClassElement.Date = dateTimePicker1.Value;
 
-                Class_element.Sum = Convert.ToDouble(parsSum(txbSum.Text));
-                Class_element.Comment = textBox1.Text;
+                ClassElement.Sum = Convert.ToDouble(parsSum(txbSum.Text));
+                ClassElement.Comment = textBox1.Text;
 
                 e.Cancel = false;
             }
@@ -113,7 +113,7 @@ namespace ArxBuh
         {
             if (comboBox1.Text == "Доход")
             {
-                var townsView = new DataView(arxDs.ds.Tables["Categories"], "[In] = true", "",
+                var townsView = new DataView(ArxDs.ds.Tables["Categories"], "[In] = true", "",
                     DataViewRowState.CurrentRows);
                 comboBox2.DataSource = townsView;
                 comboBox2.DisplayMember = "Category";
@@ -121,7 +121,7 @@ namespace ArxBuh
 
             if (comboBox1.Text == "Расход")
             {
-                var townsView = new DataView(arxDs.ds.Tables["Categories"], "[Out] = true", "",
+                var townsView = new DataView(ArxDs.ds.Tables["Categories"], "[Out] = true", "",
                     DataViewRowState.CurrentRows);
                 comboBox2.DataSource = townsView;
                 comboBox2.DisplayMember = "Category";
@@ -130,7 +130,7 @@ namespace ArxBuh
 
         void categoryEdit_Click(object sender, EventArgs e)
         {
-            using (var category = new Form_Category())
+            using (var category = new FormCategory())
             {
                 category.ShowDialog();
 

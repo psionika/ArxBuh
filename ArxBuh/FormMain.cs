@@ -16,14 +16,14 @@ using System.Runtime.InteropServices;
 
 namespace ArxBuh
 {
-    public partial class Form_Main : Form
+    public partial class FormMain : Form
     {
         const string datafile = "data.xml";
         const string settingsfile = "settings.xml";
 
         #region Form action
 
-        public Form_Main()
+        public FormMain()
         {
             InitializeComponent();
         }
@@ -85,7 +85,7 @@ namespace ArxBuh
 
         void AboutProgramTSB_Click(object sender, EventArgs e)
         {
-            using (var about = new Form_AboutBox())
+            using (var about = new FormAboutBox())
             {
                 about.ShowDialog();
             }
@@ -93,7 +93,7 @@ namespace ArxBuh
 
         void автоматическоеОбновлениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (var formUpdate = new Form_Update())
+            using (var formUpdate = new FormUpdate())
             {
                 formUpdate.ShowDialog();
             }
@@ -123,13 +123,13 @@ namespace ArxBuh
 
         void категорииДоходовИРасходовToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            arxDs.ds = dataSet1;
+            ArxDs.ds = dataSet1;
 
-            using (var category = new Form_Category())
+            using (var category = new FormCategory())
             {
                 if (category.ShowDialog() == DialogResult.OK)
                 {
-                    dataSet1 = arxDs.ds;
+                    dataSet1 = ArxDs.ds;
                 }
 
                 SaveData();
@@ -190,7 +190,7 @@ namespace ArxBuh
 
         void шифрованиеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (var formEncryption = new Form_Encryption())
+            using (var formEncryption = new FormEncryption())
             {
                 formEncryption.ShowDialog();
 
@@ -200,7 +200,7 @@ namespace ArxBuh
 
         private static void PasswordRequest()
         {
-            using (var formRp = new Form_RequestPassword())
+            using (var formRp = new FormRequestPassword())
             {
                 formRp.ShowDialog();
             }
@@ -267,7 +267,7 @@ namespace ArxBuh
 
         void резервноеКопированиеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (var backupForm = new Form_Backup())
+            using (var backupForm = new FormBackup())
             {
                 backupForm.ShowDialog();
 
@@ -357,11 +357,11 @@ namespace ArxBuh
             if (dataGridView1.CurrentRow.Cells[0].Value.ToString() == "Доход" ||
                 dataGridView1.CurrentRow.Cells[0].Value.ToString() == "Расход")
             {
-                Class_element.InOut = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                Class_element.Category = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                Class_element.Date = DateTime.ParseExact(dataGridView1.CurrentRow.Cells[2].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
-                Class_element.Sum = Convert.ToDouble(dataGridView1.CurrentRow.Cells[3].Value);
-                Class_element.Comment = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                ClassElement.InOut = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                ClassElement.Category = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                ClassElement.Date = DateTime.ParseExact(dataGridView1.CurrentRow.Cells[2].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
+                ClassElement.Sum = Convert.ToDouble(dataGridView1.CurrentRow.Cells[3].Value);
+                ClassElement.Comment = dataGridView1.CurrentRow.Cells[4].Value.ToString();
 
                 add_element();
             }
@@ -373,12 +373,12 @@ namespace ArxBuh
                 var inOut = array[0];
                 var category = array[1];
 
-                Class_element.InOut = inOut;
-                Class_element.Category = category;
+                ClassElement.InOut = inOut;
+                ClassElement.Category = category;
 
-                Class_element.Date = DateTime.ParseExact(dataGridView1.CurrentRow.Cells[2].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
-                Class_element.Sum = Convert.ToDouble(dataGridView1.CurrentRow.Cells[3].Value);
-                Class_element.Comment = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                ClassElement.Date = DateTime.ParseExact(dataGridView1.CurrentRow.Cells[2].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
+                ClassElement.Sum = Convert.ToDouble(dataGridView1.CurrentRow.Cells[3].Value);
+                ClassElement.Comment = dataGridView1.CurrentRow.Cells[4].Value.ToString();
 
                 add_transfer();
             }
@@ -509,16 +509,16 @@ namespace ArxBuh
 
         bool add_element()
         {
-            arxDs.ds = dataSet1;
+            ArxDs.ds = dataSet1;
 
-            using (var addEdit = new Form_AddEdit("Новый элемент"))
+            using (var addEdit = new FormAddEdit("Новый элемент"))
             {
                 addEdit.ShowDialog();
 
                 if (addEdit.DialogResult == DialogResult.OK)
                 {
-                    dataSet1.Tables["CashInOut"].Rows.Add(Class_element.InOut, Class_element.Category, Class_element.Date,
-                        Class_element.Sum, Class_element.Comment);
+                    dataSet1.Tables["CashInOut"].Rows.Add(ClassElement.InOut, ClassElement.Category, ClassElement.Date,
+                        ClassElement.Sum, ClassElement.Comment);
 
                     SaveData();
 
@@ -530,17 +530,17 @@ namespace ArxBuh
 
         void edit_element()
         {
-            arxDs.ds = dataSet1;
+            ArxDs.ds = dataSet1;
 
             if (dataGridView1.CurrentRow == null) return;
 
-            Class_element.InOut = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            Class_element.Category = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            Class_element.Date = DateTime.ParseExact(dataGridView1.CurrentRow.Cells[2].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
-            Class_element.Sum = Convert.ToDouble(dataGridView1.CurrentRow.Cells[3].Value);
-            Class_element.Comment = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            ClassElement.InOut = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            ClassElement.Category = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            ClassElement.Date = DateTime.ParseExact(dataGridView1.CurrentRow.Cells[2].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
+            ClassElement.Sum = Convert.ToDouble(dataGridView1.CurrentRow.Cells[3].Value);
+            ClassElement.Comment = dataGridView1.CurrentRow.Cells[4].Value.ToString();
 
-            using (var addEdit = new Form_AddEdit("Редактирование элемента"))
+            using (var addEdit = new FormAddEdit("Редактирование элемента"))
             {
                 addEdit.ShowDialog();
 
@@ -548,11 +548,11 @@ namespace ArxBuh
                 {
                     var editRow = ((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row;
 
-                    editRow["InOut"] = Class_element.InOut;
-                    editRow["Category"] = Class_element.Category;
-                    editRow["DateTime"] = Class_element.Date;
-                    editRow["Sum"] = Class_element.Sum;
-                    editRow["Comment"] = Class_element.Comment;
+                    editRow["InOut"] = ClassElement.InOut;
+                    editRow["Category"] = ClassElement.Category;
+                    editRow["DateTime"] = ClassElement.Date;
+                    editRow["Sum"] = ClassElement.Sum;
+                    editRow["Comment"] = ClassElement.Comment;
                 }
 
                 SaveData();
@@ -578,22 +578,22 @@ namespace ArxBuh
 
         void toolStripButton6_Click(object sender, EventArgs e)
         {
-            Class_element.InOut = "Доход";
-            Class_element.Date = DateTime.Today;
-            Class_element.Category = "";
-            Class_element.Sum = 0;
-            Class_element.Comment = "";
+            ClassElement.InOut = "Доход";
+            ClassElement.Date = DateTime.Today;
+            ClassElement.Category = "";
+            ClassElement.Sum = 0;
+            ClassElement.Comment = "";
 
             add_element();
         }
 
         void toolStripButton7_Click(object sender, EventArgs e)
         {
-            Class_element.InOut = "Расход";
-            Class_element.Date = DateTime.Today;
-            Class_element.Category = "";
-            Class_element.Sum = 0;
-            Class_element.Comment = "";
+            ClassElement.InOut = "Расход";
+            ClassElement.Date = DateTime.Today;
+            ClassElement.Category = "";
+            ClassElement.Sum = 0;
+            ClassElement.Comment = "";
 
             add_element();
         }
@@ -680,12 +680,12 @@ namespace ArxBuh
         #region Бюджет
         void toolStripButton3_Click_1(object sender, EventArgs e)
         {
-            Class_element.BudgetCheck = false;
-            Class_element.InOut = "Доход";
-            Class_element.Date = DateTime.Today;
-            Class_element.Category = "";
-            Class_element.Sum = 0;
-            Class_element.Comment = "";
+            ClassElement.BudgetCheck = false;
+            ClassElement.InOut = "Доход";
+            ClassElement.Date = DateTime.Today;
+            ClassElement.Category = "";
+            ClassElement.Sum = 0;
+            ClassElement.Comment = "";
 
             add_elementBudget();
 
@@ -693,12 +693,12 @@ namespace ArxBuh
 
         void toolStripButton12_Click(object sender, EventArgs e)
         {
-            Class_element.BudgetCheck = false;
-            Class_element.InOut = "Расход";
-            Class_element.Date = DateTime.Today;
-            Class_element.Category = "";
-            Class_element.Sum = 0;
-            Class_element.Comment = "";
+            ClassElement.BudgetCheck = false;
+            ClassElement.InOut = "Расход";
+            ClassElement.Date = DateTime.Today;
+            ClassElement.Category = "";
+            ClassElement.Sum = 0;
+            ClassElement.Comment = "";
 
             add_elementBudget();
         }
@@ -724,16 +724,16 @@ namespace ArxBuh
 
         void add_elementBudget()
         {
-            arxDs.ds = dataSet1;
+            ArxDs.ds = dataSet1;
 
-            using (var aeb = new Form_AddEditBudget("Новый элемент"))
+            using (var aeb = new FormAddEditBudget("Новый элемент"))
             {
                 aeb.ShowDialog();
 
                 if (aeb.DialogResult == DialogResult.OK)
                 {
-                    dataSet1.Tables["Budget"].Rows.Add(Class_element.BudgetCheck, Class_element.InOut,
-                        Class_element.Category, Class_element.Date, Class_element.Sum, Class_element.Comment);
+                    dataSet1.Tables["Budget"].Rows.Add(ClassElement.BudgetCheck, ClassElement.InOut,
+                        ClassElement.Category, ClassElement.Date, ClassElement.Sum, ClassElement.Comment);
                 }
 
                 SaveData();
@@ -747,18 +747,18 @@ namespace ArxBuh
 
         void edit_elementBudget()
         {
-            arxDs.ds = dataSet1;
+            ArxDs.ds = dataSet1;
 
             if (dataGridView1.CurrentRow == null) return;
 
-            Class_element.BudgetCheck = Convert.ToBoolean(dataGridView2.CurrentRow.Cells[0].Value);
-            Class_element.InOut = dataGridView2.CurrentRow.Cells[1].Value.ToString();
-            Class_element.Category = dataGridView2.CurrentRow.Cells[2].Value.ToString();
-            Class_element.Date = DateTime.ParseExact(dataGridView2.CurrentRow.Cells[3].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
-            Class_element.Sum = Convert.ToDouble(dataGridView2.CurrentRow.Cells[4].Value);
-            Class_element.Comment = dataGridView2.CurrentRow.Cells[5].Value.ToString();
+            ClassElement.BudgetCheck = Convert.ToBoolean(dataGridView2.CurrentRow.Cells[0].Value);
+            ClassElement.InOut = dataGridView2.CurrentRow.Cells[1].Value.ToString();
+            ClassElement.Category = dataGridView2.CurrentRow.Cells[2].Value.ToString();
+            ClassElement.Date = DateTime.ParseExact(dataGridView2.CurrentRow.Cells[3].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
+            ClassElement.Sum = Convert.ToDouble(dataGridView2.CurrentRow.Cells[4].Value);
+            ClassElement.Comment = dataGridView2.CurrentRow.Cells[5].Value.ToString();
 
-            using (var aeb = new Form_AddEditBudget("Редактирование элемента"))
+            using (var aeb = new FormAddEditBudget("Редактирование элемента"))
             {
                 aeb.ShowDialog();
 
@@ -766,12 +766,12 @@ namespace ArxBuh
                 {
                     var customerRow = ((DataRowView)dataGridView2.CurrentRow.DataBoundItem).Row;
 
-                    customerRow["Check"] = Class_element.BudgetCheck;
-                    customerRow["InOut"] = Class_element.InOut;
-                    customerRow["Category"] = Class_element.Category;
-                    customerRow["DateTime"] = Class_element.Date;
-                    customerRow["Sum"] = Class_element.Sum;
-                    customerRow["Comment"] = Class_element.Comment;
+                    customerRow["Check"] = ClassElement.BudgetCheck;
+                    customerRow["InOut"] = ClassElement.InOut;
+                    customerRow["Category"] = ClassElement.Category;
+                    customerRow["DateTime"] = ClassElement.Date;
+                    customerRow["Sum"] = ClassElement.Sum;
+                    customerRow["Comment"] = ClassElement.Comment;
                 }
 
                 SaveData();
@@ -967,12 +967,12 @@ namespace ArxBuh
 
         void toolStripMenuItem14_Click(object sender, EventArgs e)
         {
-            Class_element.BudgetCheck = Convert.ToBoolean(dataGridView2.CurrentRow.Cells[0].Value);
-            Class_element.InOut = dataGridView2.CurrentRow.Cells[1].Value.ToString();
-            Class_element.Date = DateTime.ParseExact(dataGridView2.CurrentRow.Cells[3].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
-            Class_element.Category = dataGridView2.CurrentRow.Cells[2].Value.ToString();
-            Class_element.Sum = Convert.ToDouble(dataGridView2.CurrentRow.Cells[4].Value);
-            Class_element.Comment = dataGridView2.CurrentRow.Cells[5].Value.ToString();
+            ClassElement.BudgetCheck = Convert.ToBoolean(dataGridView2.CurrentRow.Cells[0].Value);
+            ClassElement.InOut = dataGridView2.CurrentRow.Cells[1].Value.ToString();
+            ClassElement.Date = DateTime.ParseExact(dataGridView2.CurrentRow.Cells[3].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
+            ClassElement.Category = dataGridView2.CurrentRow.Cells[2].Value.ToString();
+            ClassElement.Sum = Convert.ToDouble(dataGridView2.CurrentRow.Cells[4].Value);
+            ClassElement.Comment = dataGridView2.CurrentRow.Cells[5].Value.ToString();
 
             add_elementBudget();
         }
@@ -983,11 +983,11 @@ namespace ArxBuh
 
             var customerRow = ((DataRowView)dataGridView2.CurrentRow.DataBoundItem).Row;
 
-            Class_element.InOut = dataGridView2.CurrentRow.Cells[1].Value.ToString();
-            Class_element.Category = dataGridView2.CurrentRow.Cells[2].Value.ToString();
-            Class_element.Date = DateTime.ParseExact(dataGridView2.CurrentRow.Cells[3].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
-            Class_element.Sum = Convert.ToDouble(dataGridView2.CurrentRow.Cells[4].Value);
-            Class_element.Comment = dataGridView2.CurrentRow.Cells[5].Value.ToString();
+            ClassElement.InOut = dataGridView2.CurrentRow.Cells[1].Value.ToString();
+            ClassElement.Category = dataGridView2.CurrentRow.Cells[2].Value.ToString();
+            ClassElement.Date = DateTime.ParseExact(dataGridView2.CurrentRow.Cells[3].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
+            ClassElement.Sum = Convert.ToDouble(dataGridView2.CurrentRow.Cells[4].Value);
+            ClassElement.Comment = dataGridView2.CurrentRow.Cells[5].Value.ToString();
 
             tabControl1.SelectedTab = tabPage1;
 
@@ -1024,7 +1024,7 @@ namespace ArxBuh
             var comment = editGoalRow["Comment"].ToString();
             var historyId = editGoalRow["HistoryID"].ToString();
 
-            using (var faeg = new Form_AddEditGoal(name, allSum, comment, historyId, dataSet1))
+            using (var faeg = new FormAddEditGoal(name, allSum, comment, historyId, dataSet1))
             {
                 faeg.ShowDialog();
 
@@ -1078,7 +1078,7 @@ namespace ArxBuh
 
             dataSet1.Tables["Goal"].Rows.Add(newGoalRow);
 
-            using (var faeg = new Form_AddEditGoal("", "", "", newGoalRow["HistoryID"].ToString(), dataSet1))
+            using (var faeg = new FormAddEditGoal("", "", "", newGoalRow["HistoryID"].ToString(), dataSet1))
             {
                 if (faeg.ShowDialog() != DialogResult.OK)
                 {
@@ -1334,7 +1334,7 @@ namespace ArxBuh
 
         void справкаПоГорячимКлавишамToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (var fhh = new Form_HotkeyHelper())
+            using (var fhh = new FormHotkeyHelper())
             {
                 fhh.ShowDialog();
             }
@@ -1484,14 +1484,14 @@ namespace ArxBuh
 
         private void СписокСчетовtoolStripMenuItem_Click(object sender, EventArgs e)
         {
-            arxDs.ds = dataSet1;
+            ArxDs.ds = dataSet1;
 
-            using (var fListAcc = new Form_AccountList())
+            using (var fListAcc = new FormAccountList())
             {
                 
                 if (fListAcc.ShowDialog() == DialogResult.OK)
                 {
-                    dataSet1 = arxDs.ds;
+                    dataSet1 = ArxDs.ds;
                 }
 
                 SaveData();
@@ -1500,27 +1500,27 @@ namespace ArxBuh
 
         private void toolsbTransfer_Click(object sender, EventArgs e)
         {
-            Class_element.InOut = "Основной";
-            Class_element.Category = "Основной";
-            Class_element.Date = DateTime.Now.Date;
-            Class_element.Sum = 0;
-            Class_element.Comment = "";
+            ClassElement.InOut = "Основной";
+            ClassElement.Category = "Основной";
+            ClassElement.Date = DateTime.Now.Date;
+            ClassElement.Sum = 0;
+            ClassElement.Comment = "";
 
             add_transfer();
         }
 
         private bool add_transfer()
         {
-            arxDs.ds = dataSet1;
+            ArxDs.ds = dataSet1;
 
-            using (var fTransfer = new Form_AddEditTransfer("Новый перевод"))
+            using (var fTransfer = new FormAddEditTransfer("Новый перевод"))
             {
                 fTransfer.ShowDialog();
 
                 if (fTransfer.DialogResult == DialogResult.OK)
                 {
-                    dataSet1.Tables["CashInOut"].Rows.Add(Class_element.InOut, Class_element.Category, Class_element.Date,
-                        Class_element.Sum, Class_element.Comment);
+                    dataSet1.Tables["CashInOut"].Rows.Add(ClassElement.InOut, ClassElement.Category, ClassElement.Date,
+                        ClassElement.Sum, ClassElement.Comment);
                     SaveData();
 
                     return true;
@@ -1532,9 +1532,9 @@ namespace ArxBuh
 
         private void edit_transfer()
         {
-            arxDs.ds = dataSet1;
+            ArxDs.ds = dataSet1;
 
-            using (var fTransfer = new Form_AddEditTransfer("Редактирование перевода"))
+            using (var fTransfer = new FormAddEditTransfer("Редактирование перевода"))
             {
                 var array = dataGridView1.CurrentRow.Cells[1].Value.ToString().Split(
                          new string[] { "->" }, StringSplitOptions.None);
@@ -1542,12 +1542,12 @@ namespace ArxBuh
                 var inOut = array[0];
                 var category = array[1];               
 
-                Class_element.InOut = inOut;
-                Class_element.Category = category;
+                ClassElement.InOut = inOut;
+                ClassElement.Category = category;
 
-                Class_element.Date = DateTime.ParseExact(dataGridView1.CurrentRow.Cells[2].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
-                Class_element.Sum = Convert.ToDouble(dataGridView1.CurrentRow.Cells[3].Value);
-                Class_element.Comment = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                ClassElement.Date = DateTime.ParseExact(dataGridView1.CurrentRow.Cells[2].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
+                ClassElement.Sum = Convert.ToDouble(dataGridView1.CurrentRow.Cells[3].Value);
+                ClassElement.Comment = dataGridView1.CurrentRow.Cells[4].Value.ToString();
 
                 fTransfer.ShowDialog();
 
@@ -1555,11 +1555,11 @@ namespace ArxBuh
                 {
                     var editRow = ((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row;
 
-                    editRow["InOut"] = Class_element.InOut;
-                    editRow["Category"] = Class_element.Category;
-                    editRow["DateTime"] = Class_element.Date;
-                    editRow["Sum"] = Class_element.Sum;
-                    editRow["Comment"] = Class_element.Comment;
+                    editRow["InOut"] = ClassElement.InOut;
+                    editRow["Category"] = ClassElement.Category;
+                    editRow["DateTime"] = ClassElement.Date;
+                    editRow["Sum"] = ClassElement.Sum;
+                    editRow["Comment"] = ClassElement.Comment;
                 }
 
                 SaveData();
@@ -1697,11 +1697,11 @@ namespace ArxBuh
         {
             if (dataGridView1.CurrentRow == null) return;
             
-            Class_element.InOut = "Основной";
-            Class_element.Category = "";
-            Class_element.Date = DateTime.ParseExact(dataGridView1.CurrentRow.Cells[2].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
-            Class_element.Sum = Convert.ToDouble(dataGridView1.CurrentRow.Cells[3].Value);
-            Class_element.Comment = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            ClassElement.InOut = "Основной";
+            ClassElement.Category = "";
+            ClassElement.Date = DateTime.ParseExact(dataGridView1.CurrentRow.Cells[2].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
+            ClassElement.Sum = Convert.ToDouble(dataGridView1.CurrentRow.Cells[3].Value);
+            ClassElement.Comment = dataGridView1.CurrentRow.Cells[4].Value.ToString();
 
             if(add_transfer())
             {
@@ -1754,7 +1754,7 @@ namespace ArxBuh
 
         private void автоматическоеЗакрытиеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (var formAutoClose = new Form_AutoCloseApp())
+            using (var formAutoClose = new FormAutoCloseApp())
             {
                 formAutoClose.ShowDialog();
 

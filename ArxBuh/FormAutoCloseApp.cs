@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace ArxBuh
 {
-    public partial class Form_AutoCloseApp : Form
+    public partial class FormAutoCloseApp : Form
     {
-        public Form_AutoCloseApp()
+        public FormAutoCloseApp()
         {
             InitializeComponent();
         }

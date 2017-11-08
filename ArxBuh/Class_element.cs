@@ -2,7 +2,7 @@
 
 namespace ArxBuh
 {
-    static class Class_element
+    static class ClassElement
     {
         public static bool BudgetCheck { get; set; }
         public static string InOut { get; set; }
@@ -12,7 +12,7 @@ namespace ArxBuh
         public static string Comment { get; set; }
     }
 
-    static class arxDs
+    static class ArxDs
     {
         public static DataSet1 ds { get; set; }
     }
@@ -25,6 +25,6 @@ namespace ArxBuh
 
     static class Goal
     {
-        public static Int32 History { get; set; }
+        public static int History { get; set; }
     }
 }

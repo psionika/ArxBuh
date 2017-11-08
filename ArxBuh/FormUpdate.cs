@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace ArxBuh
 {
-    public partial class Form_Update : Form
+    public partial class FormUpdate : Form
     {
-        public Form_Update()
+        public FormUpdate()
         {
             InitializeComponent();
 

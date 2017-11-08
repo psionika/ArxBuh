@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace ArxBuh
 {
-    public partial class Form_Backup : Form
+    public partial class FormBackup : Form
     {
-        public Form_Backup()
+        public FormBackup()
         {
             InitializeComponent();
 

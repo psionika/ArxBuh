@@ -9,15 +9,15 @@ using System.Windows.Forms;
 
 namespace ArxBuh
 {
-    public partial class Form_AccountList : Form
+    public partial class FormAccountList : Form
     {
-        public Form_AccountList()
+        public FormAccountList()
         {
             InitializeComponent();
 
-            dataSet1 = arxDs.ds;
+            dataSet1 = ArxDs.ds;
 
-            accountsBindingSource.DataSource = arxDs.ds;
+            accountsBindingSource.DataSource = ArxDs.ds;
 
             dataGridView1.DataSource = accountsBindingSource;
 
@@ -26,7 +26,7 @@ namespace ArxBuh
                 dataGridView1.Columns.Add(remainingColumn);
             }
 
-            var view1 = new DataView(arxDs.ds.Tables["Accounts"], "", "",
+            var view1 = new DataView(ArxDs.ds.Tables["Accounts"], "", "",
                     DataViewRowState.CurrentRows);
 
             if (!view1.Cast<DataRowView>()
@@ -37,7 +37,6 @@ namespace ArxBuh
                 newRow["StartSum"] = 0;
                 newRow.EndEdit();
             }
-
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -47,7 +46,7 @@ namespace ArxBuh
 
         private void Form_AccountList_FormClosing(object sender, FormClosingEventArgs e)
         {
-            arxDs.ds = dataSet1;
+            ArxDs.ds = dataSet1;
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)

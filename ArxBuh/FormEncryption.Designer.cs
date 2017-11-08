@@ -1,6 +1,6 @@
 ﻿namespace ArxBuh
 {
-    partial class Form_Encryption
+    partial class FormEncryption
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Encryption));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEncryption));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.btnOK = new System.Windows.Forms.Button();
