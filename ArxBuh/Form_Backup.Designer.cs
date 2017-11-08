@@ -50,7 +50,7 @@
             this.btnOK.Location = new System.Drawing.Point(66, 116);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 0;
+            this.btnOK.TabIndex = 4;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -62,7 +62,7 @@
             this.btnCancel.Location = new System.Drawing.Point(274, 116);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Отмена";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -73,7 +73,7 @@
             this.label1.Location = new System.Drawing.Point(3, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 13);
-            this.label1.TabIndex = 2;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Папка для копий";
             // 
             // label2
@@ -83,7 +83,7 @@
             this.label2.Location = new System.Drawing.Point(3, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(130, 13);
-            this.label2.TabIndex = 3;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Хранить не более копий";
             // 
             // textBox1
@@ -92,7 +92,7 @@
             this.textBox1.Location = new System.Drawing.Point(211, 42);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(201, 20);
-            this.textBox1.TabIndex = 4;
+            this.textBox1.TabIndex = 1;
             this.textBox1.Text = "Backup";
             // 
             // numericUpDown1
@@ -101,7 +101,7 @@
             this.numericUpDown1.Location = new System.Drawing.Point(211, 77);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(202, 20);
-            this.numericUpDown1.TabIndex = 5;
+            this.numericUpDown1.TabIndex = 3;
             this.numericUpDown1.Value = new decimal(new int[] {
             10,
             0,
@@ -132,7 +132,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(454, 151);
-            this.tableLayoutPanel1.TabIndex = 6;
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // checkBox1
             // 
@@ -142,7 +142,7 @@
             this.checkBox1.Location = new System.Drawing.Point(99, 9);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(256, 17);
-            this.checkBox1.TabIndex = 6;
+            this.checkBox1.TabIndex = 0;
             this.checkBox1.Text = "При выходе делать резервное копирование?";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
@@ -153,7 +153,7 @@
             this.btnChangeBackupDirectory.Location = new System.Drawing.Point(419, 41);
             this.btnChangeBackupDirectory.Name = "btnChangeBackupDirectory";
             this.btnChangeBackupDirectory.Size = new System.Drawing.Size(31, 23);
-            this.btnChangeBackupDirectory.TabIndex = 7;
+            this.btnChangeBackupDirectory.TabIndex = 2;
             this.btnChangeBackupDirectory.Text = "...";
             this.btnChangeBackupDirectory.UseVisualStyleBackColor = true;
             this.btnChangeBackupDirectory.Click += new System.EventHandler(this.btnChangeBackupDirectory_Click);

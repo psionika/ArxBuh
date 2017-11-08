@@ -44,7 +44,11 @@ namespace ArxBuh
             }
             set
             {
-                dtPicker.Value = value;
+                if (value <= DateTime.MinValue)
+                {
+                    value = DateTime.MinValue;
+                }
+                else  dtPicker.Value = value;
             }
         }
     }

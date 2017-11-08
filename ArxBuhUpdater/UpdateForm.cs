@@ -55,7 +55,7 @@ namespace ArxBuhUpdater
                 resp.Close();
                 return s;
             }
-            catch (Exception ex)
+            catch
             {
                 return "";
             }

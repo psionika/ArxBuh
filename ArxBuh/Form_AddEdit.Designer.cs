@@ -240,6 +240,7 @@
             this.txbSum.Name = "txbSum";
             this.txbSum.Size = new System.Drawing.Size(173, 20);
             this.txbSum.TabIndex = 0;
+            this.txbSum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbSum_KeyPress);
             // 
             // label1
             // 

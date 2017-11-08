@@ -15,7 +15,7 @@ namespace ArxBuh
         public Form_AddEditTransfer(string title)
         {
             InitializeComponent();
-            Text = $"ArxBuh: {title}";
+            Text = $@"ArxBuh: {title}";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -49,10 +49,9 @@ namespace ArxBuh
             var view2 = new DataView(arxDs.ds.Tables["Accounts"], "", "",
                      DataViewRowState.CurrentRows);
 
-            if (!view1.Cast<DataRowView>()
-                .Any(rv => rv.Row.Field<string>("Account") == "Основной"))
+            if (view1.Cast<DataRowView>().All(rv => rv.Row.Field<string>("Account") != "Основной"))
             {
-                DataRowView newRow = view1.AddNew();
+                var newRow = view1.AddNew();
                 newRow["Account"] = "Основной";
                 newRow["StartSum"] = 0;
                 newRow.EndEdit();
@@ -74,17 +73,7 @@ namespace ArxBuh
 
             fillComboBoxes();
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            using (var accountsList = new Form_AccountList())
-            {
-                accountsList.ShowDialog();
-            }
-
-            fillComboBoxes();
-        }
-
+        
         private void Form_AddEditTransfer_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (DialogResult == DialogResult.OK && ValidateData())
@@ -129,17 +118,11 @@ namespace ArxBuh
 
         bool validate_Sum()
         {
-            try
-            {
-                var i = Convert.ToDouble(parsSum(textBoxSum.Text));
-                errorProvider1.SetError(textBoxSum, "");
-                return true;
-            }
-            catch (Exception ex)
-            {
-                errorProvider1.SetError(textBoxSum, "Неверные данные!");
-                return false;
-            }
+            var result = decimal.TryParse(textBoxSum.Text, out var sum);
+
+            errorProvider1.SetError(textBoxSum, result ? "" : "Неверные данные!");
+
+            return result;
         }
 
         string parsSum(string e)
@@ -156,6 +139,20 @@ namespace ArxBuh
             parsed = parsed.Replace(".", ",");
 
             return parsed;
+        }
+
+        private void textBoxSum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ',') && (e.KeyChar != '-'))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == ','
+                && ((sender as TextBox).Text.IndexOf(',') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

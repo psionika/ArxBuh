@@ -39,6 +39,8 @@ namespace ArxBuh
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -46,8 +48,6 @@ namespace ArxBuh
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
@@ -115,6 +115,12 @@ namespace ArxBuh
             this.labelIn = new System.Windows.Forms.Label();
             this.labelOut = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.checkDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.inOutDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sumDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.budgetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new ArxBuh.DataSet1();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -202,12 +208,8 @@ namespace ArxBuh
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
             this.cashInOutBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.checkDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.inOutDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sumDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.commentDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.автоматическоеЗакрытиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -462,6 +464,7 @@ namespace ArxBuh
             this.tsbImportCSV,
             this.резервноеКопированиеToolStripMenuItem,
             this.шифрованиеToolStripMenuItem,
+            this.автоматическоеЗакрытиеToolStripMenuItem,
             this.автоматическоеОбновлениеToolStripMenuItem,
             this.toolStripMenuItem21,
             this.справкаПоГорячимКлавишамToolStripMenuItem});
@@ -943,6 +946,57 @@ namespace ArxBuh
             this.dataGridView2.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView2_CellMouseClick);
             this.dataGridView2.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellValueChanged);
             this.dataGridView2.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridView2_Paint_1);
+            // 
+            // checkDataGridViewCheckBoxColumn
+            // 
+            this.checkDataGridViewCheckBoxColumn.DataPropertyName = "Check";
+            this.checkDataGridViewCheckBoxColumn.HeaderText = "Выполнено";
+            this.checkDataGridViewCheckBoxColumn.Name = "checkDataGridViewCheckBoxColumn";
+            this.checkDataGridViewCheckBoxColumn.Width = 80;
+            // 
+            // inOutDataGridViewTextBoxColumn1
+            // 
+            this.inOutDataGridViewTextBoxColumn1.DataPropertyName = "InOut";
+            this.inOutDataGridViewTextBoxColumn1.HeaderText = "Доход-Расход";
+            this.inOutDataGridViewTextBoxColumn1.Name = "inOutDataGridViewTextBoxColumn1";
+            this.inOutDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // categoryDataGridViewTextBoxColumn1
+            // 
+            this.categoryDataGridViewTextBoxColumn1.DataPropertyName = "Category";
+            this.categoryDataGridViewTextBoxColumn1.HeaderText = "Категория";
+            this.categoryDataGridViewTextBoxColumn1.Name = "categoryDataGridViewTextBoxColumn1";
+            this.categoryDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dateTimeDataGridViewTextBoxColumn1
+            // 
+            this.dateTimeDataGridViewTextBoxColumn1.DataPropertyName = "DateTime";
+            dataGridViewCellStyle4.Format = "d";
+            dataGridViewCellStyle4.NullValue = null;
+            this.dateTimeDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dateTimeDataGridViewTextBoxColumn1.HeaderText = "Дата";
+            this.dateTimeDataGridViewTextBoxColumn1.Name = "dateTimeDataGridViewTextBoxColumn1";
+            this.dateTimeDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dateTimeDataGridViewTextBoxColumn1.Width = 80;
+            // 
+            // sumDataGridViewTextBoxColumn1
+            // 
+            this.sumDataGridViewTextBoxColumn1.DataPropertyName = "Sum";
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.sumDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle5;
+            this.sumDataGridViewTextBoxColumn1.HeaderText = "Сумма";
+            this.sumDataGridViewTextBoxColumn1.Name = "sumDataGridViewTextBoxColumn1";
+            this.sumDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.sumDataGridViewTextBoxColumn1.Width = 80;
+            // 
+            // commentDataGridViewTextBoxColumn1
+            // 
+            this.commentDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.commentDataGridViewTextBoxColumn1.DataPropertyName = "Comment";
+            this.commentDataGridViewTextBoxColumn1.HeaderText = "Комментарий";
+            this.commentDataGridViewTextBoxColumn1.Name = "commentDataGridViewTextBoxColumn1";
+            this.commentDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // budgetBindingSource
             // 
@@ -1711,56 +1765,17 @@ namespace ArxBuh
             this.cashInOutBindingSource1.DataMember = "CashInOut";
             this.cashInOutBindingSource1.DataSource = this.dataSet1;
             // 
-            // checkDataGridViewCheckBoxColumn
+            // timer1
             // 
-            this.checkDataGridViewCheckBoxColumn.DataPropertyName = "Check";
-            this.checkDataGridViewCheckBoxColumn.HeaderText = "Выполнено";
-            this.checkDataGridViewCheckBoxColumn.Name = "checkDataGridViewCheckBoxColumn";
-            this.checkDataGridViewCheckBoxColumn.Width = 80;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // inOutDataGridViewTextBoxColumn1
+            // автоматическоеЗакрытиеToolStripMenuItem
             // 
-            this.inOutDataGridViewTextBoxColumn1.DataPropertyName = "InOut";
-            this.inOutDataGridViewTextBoxColumn1.HeaderText = "Доход-Расход";
-            this.inOutDataGridViewTextBoxColumn1.Name = "inOutDataGridViewTextBoxColumn1";
-            this.inOutDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // categoryDataGridViewTextBoxColumn1
-            // 
-            this.categoryDataGridViewTextBoxColumn1.DataPropertyName = "Category";
-            this.categoryDataGridViewTextBoxColumn1.HeaderText = "Категория";
-            this.categoryDataGridViewTextBoxColumn1.Name = "categoryDataGridViewTextBoxColumn1";
-            this.categoryDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dateTimeDataGridViewTextBoxColumn1
-            // 
-            this.dateTimeDataGridViewTextBoxColumn1.DataPropertyName = "DateTime";
-            dataGridViewCellStyle4.Format = "d";
-            dataGridViewCellStyle4.NullValue = null;
-            this.dateTimeDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dateTimeDataGridViewTextBoxColumn1.HeaderText = "Дата";
-            this.dateTimeDataGridViewTextBoxColumn1.Name = "dateTimeDataGridViewTextBoxColumn1";
-            this.dateTimeDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dateTimeDataGridViewTextBoxColumn1.Width = 80;
-            // 
-            // sumDataGridViewTextBoxColumn1
-            // 
-            this.sumDataGridViewTextBoxColumn1.DataPropertyName = "Sum";
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.sumDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle5;
-            this.sumDataGridViewTextBoxColumn1.HeaderText = "Сумма";
-            this.sumDataGridViewTextBoxColumn1.Name = "sumDataGridViewTextBoxColumn1";
-            this.sumDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.sumDataGridViewTextBoxColumn1.Width = 80;
-            // 
-            // commentDataGridViewTextBoxColumn1
-            // 
-            this.commentDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.commentDataGridViewTextBoxColumn1.DataPropertyName = "Comment";
-            this.commentDataGridViewTextBoxColumn1.HeaderText = "Комментарий";
-            this.commentDataGridViewTextBoxColumn1.Name = "commentDataGridViewTextBoxColumn1";
-            this.commentDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.автоматическоеЗакрытиеToolStripMenuItem.Name = "автоматическоеЗакрытиеToolStripMenuItem";
+            this.автоматическоеЗакрытиеToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.автоматическоеЗакрытиеToolStripMenuItem.Text = "Автоматическое закрытие";
+            this.автоматическоеЗакрытиеToolStripMenuItem.Click += new System.EventHandler(this.автоматическоеЗакрытиеToolStripMenuItem_Click);
             // 
             // Form_Main
             // 
@@ -1976,6 +1991,8 @@ namespace ArxBuh
         private DataGridViewTextBoxColumn dateTimeDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn sumDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn1;
+        private Timer timer1;
+        private ToolStripMenuItem автоматическоеЗакрытиеToolStripMenuItem;
     }
 }
 

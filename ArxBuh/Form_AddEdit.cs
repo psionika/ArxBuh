@@ -82,17 +82,18 @@ namespace ArxBuh
 
         bool validate_Sum()
         {
-            try
-            {
-                var i = Convert.ToDouble(parsSum(txbSum.Text));
-                errorProvider1.SetError(txbSum, "");
-                return true;
+            bool result = Decimal.TryParse(txbSum.Text, out decimal sum);
+
+            if (result)
+            { 
+                errorProvider1.SetError(txbSum, "");             
             }
-            catch (Exception ex)
+            else
             {
                 errorProvider1.SetError(txbSum, "Неверные данные!");
-                return false;
             }
+
+            return result;
         }
         #endregion
 
@@ -133,6 +134,20 @@ namespace ArxBuh
             parsed = parsed.Replace(".", ",");
 
             return parsed;
+        }
+
+        private void txbSum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ',') && (e.KeyChar != '-'))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == ','
+                && ((sender as TextBox).Text.IndexOf(',') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

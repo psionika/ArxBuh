@@ -12,6 +12,7 @@ using System.Security.Cryptography;
 using System.ComponentModel;
 
 using Microsoft.Reporting.WinForms;
+using System.Runtime.InteropServices;
 
 namespace ArxBuh
 {
@@ -30,8 +31,8 @@ namespace ArxBuh
         void Form1_Load(object sender, EventArgs e)
         {
             ArxBuhSettingAction.ReadXml();
-
-            loadData();
+            timer1.Start();
+            LoadData();
 
             using (var progressColumn = new DataGridViewProgressColumn { Width = 250, Name = "Progress", HeaderText = "Прогресс" })
             {
@@ -70,12 +71,12 @@ namespace ArxBuh
 
         void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            saveData();
+            SaveData();
 
             ArxBuhSettings.EncryptPassword = "";
             ArxBuhSettingAction.WriteXml();
 
-            backup();
+            Backup();
         }
 
         #endregion
@@ -131,7 +132,7 @@ namespace ArxBuh
                     dataSet1 = arxDs.ds;
                 }
 
-                saveData();
+                SaveData();
             }
         }
 
@@ -145,7 +146,7 @@ namespace ArxBuh
         #region Database action
 
         #region SaveLoad
-        void saveData()
+        void SaveData()
         {
             switch (ArxBuhSettings.EncryptEnable)
             {
@@ -158,8 +159,14 @@ namespace ArxBuh
             }
         }
 
-        void loadData()
+        void LoadData()
         {
+            dataGridView1.DataSource = cashInOutBindingSource;
+            dataGridView4.DataSource = goalBindingSource;
+
+            dataGridView1.Sort(dataGridView1.Columns[2], ListSortDirection.Descending);
+            dataGridView2.Sort(dataGridView2.Columns[3], ListSortDirection.Ascending);
+
             if (!File.Exists(datafile)) return;
 
             dataSet1.Clear();
@@ -167,23 +174,14 @@ namespace ArxBuh
             if (!ArxBuhSettings.EncryptEnable)
             {
                 dataSet1.ReadXml(datafile);
-
-                dataGridView1.DataSource = cashInOutBindingSource;
-                dataGridView4.DataSource = goalBindingSource;
             }
             else
             {
                 do
                 {
                     PasswordRequest();
-                } while (LoadCryptDataSet(datafile, ArxBuhSettings.EncryptPassword, dataSet1));
-
-                dataGridView1.DataSource = cashInOutBindingSource;
-                dataGridView4.DataSource = goalBindingSource;
+                } while (LoadCryptDataSet(datafile, ArxBuhSettings.EncryptPassword, dataSet1));               
             }
-
-            dataGridView1.Sort(dataGridView1.Columns[2], ListSortDirection.Descending);
-            dataGridView2.Sort(dataGridView2.Columns[3], ListSortDirection.Ascending);
         }
 
         #endregion
@@ -200,15 +198,15 @@ namespace ArxBuh
             }
         }
 
-        static void PasswordRequest()
+        private static void PasswordRequest()
         {
-            using (var formRP = new Form_RequestPassword())
+            using (var formRp = new Form_RequestPassword())
             {
-                formRP.ShowDialog();
+                formRp.ShowDialog();
             }
         }
 
-        bool LoadCryptDataSet(string file, string key, DataSet ds)
+        private bool LoadCryptDataSet(string file, string key, DataSet ds)
         {
             var crypto = Rijndael.Create();
 
@@ -216,17 +214,17 @@ namespace ArxBuh
             crypto.Key = Encoding.ASCII.GetBytes(key.PadRight(16, 'x'));
             crypto.Padding = PaddingMode.Zeros;
 
-            using (FileStream stream = new FileStream(file, FileMode.Open))
+            using (var stream = new FileStream(file, FileMode.Open))
             {
                 using (
-                    CryptoStream cryptoStream = new CryptoStream(stream, crypto.CreateDecryptor(), CryptoStreamMode.Read)
+                    var cryptoStream = new CryptoStream(stream, crypto.CreateDecryptor(), CryptoStreamMode.Read)
                     )
                 {
                     try
                     {
                         ds.ReadXml(cryptoStream);
                     }
-                    catch (Exception ex)
+                    catch 
                     {
                         MessageBox.Show("Пароль не верен!!!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return true;
@@ -248,10 +246,10 @@ namespace ArxBuh
 
             File.Delete(file);
 
-            using (FileStream stream = new FileStream(file, FileMode.OpenOrCreate))
+            using (var stream = new FileStream(file, FileMode.OpenOrCreate))
             {
                 using (
-                    CryptoStream cryptoStream = new CryptoStream(stream, crypto.CreateEncryptor(),
+                    var cryptoStream = new CryptoStream(stream, crypto.CreateEncryptor(),
                         CryptoStreamMode.Write))
                 {
                     ds.WriteXml(cryptoStream);
@@ -277,7 +275,7 @@ namespace ArxBuh
             }
         }
 
-        static void backup()
+        static void Backup()
         {
             if (!ArxBuhSettings.BackupEnable) return;
 
@@ -522,7 +520,7 @@ namespace ArxBuh
                     dataSet1.Tables["CashInOut"].Rows.Add(Class_element.InOut, Class_element.Category, Class_element.Date,
                         Class_element.Sum, Class_element.Comment);
 
-                    saveData();
+                    SaveData();
 
                     return true;
                 }
@@ -557,7 +555,7 @@ namespace ArxBuh
                     editRow["Comment"] = Class_element.Comment;
                 }
 
-                saveData();
+                SaveData();
             }
         }
 
@@ -573,7 +571,7 @@ namespace ArxBuh
             if (result != DialogResult.Yes) return;
             cashInOutBindingSource.RemoveCurrent();
 
-            saveData();
+            SaveData();
         }
 
         #endregion
@@ -716,7 +714,7 @@ namespace ArxBuh
 
             if (result != DialogResult.Yes) return;
             budgetBindingSource.RemoveCurrent();
-            saveData();
+            SaveData();
         }
 
         void toolStripButton4_Click(object sender, EventArgs e)
@@ -738,7 +736,7 @@ namespace ArxBuh
                         Class_element.Category, Class_element.Date, Class_element.Sum, Class_element.Comment);
                 }
 
-                saveData();
+                SaveData();
             }
         }
 
@@ -776,7 +774,7 @@ namespace ArxBuh
                     customerRow["Comment"] = Class_element.Comment;
                 }
 
-                saveData();
+                SaveData();
             }
         }
         void toolStripButton1_Click(object sender, EventArgs e)
@@ -971,7 +969,7 @@ namespace ArxBuh
         {
             Class_element.BudgetCheck = Convert.ToBoolean(dataGridView2.CurrentRow.Cells[0].Value);
             Class_element.InOut = dataGridView2.CurrentRow.Cells[1].Value.ToString();
-            Class_element.Date = Class_element.Date = DateTime.ParseExact(dataGridView2.CurrentRow.Cells[3].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
+            Class_element.Date = DateTime.ParseExact(dataGridView2.CurrentRow.Cells[3].Value.ToString(), "dd.MM.yyyy H:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"));
             Class_element.Category = dataGridView2.CurrentRow.Cells[2].Value.ToString();
             Class_element.Sum = Convert.ToDouble(dataGridView2.CurrentRow.Cells[4].Value);
             Class_element.Comment = dataGridView2.CurrentRow.Cells[5].Value.ToString();
@@ -1003,7 +1001,7 @@ namespace ArxBuh
                 if (result != DialogResult.Yes) return;
                 customerRow["Check"] = true;
 
-                saveData();
+                SaveData();
             }
         }
         #endregion
@@ -1019,27 +1017,26 @@ namespace ArxBuh
         {
             if (dataGridView4.CurrentRow == null) return;
 
-            var newGoalRow = ((DataRowView)dataGridView4.CurrentRow.DataBoundItem).Row;
+            var editGoalRow = ((DataRowView)dataGridView4.CurrentRow.DataBoundItem).Row;
 
-            var name = newGoalRow["Name"].ToString();
-            var allSum = newGoalRow["AllSum"].ToString();
-            var comment = newGoalRow["Comment"].ToString();
-            var HistoryID = newGoalRow["HistoryID"].ToString();
+            var name = editGoalRow["Name"].ToString();
+            var allSum = editGoalRow["AllSum"].ToString();
+            var comment = editGoalRow["Comment"].ToString();
+            var historyId = editGoalRow["HistoryID"].ToString();
 
-            using (
-            var faeg = new Form_AddEditGoal(name, allSum, comment, HistoryID, dataSet1))
+            using (var faeg = new Form_AddEditGoal(name, allSum, comment, historyId, dataSet1))
             {
                 faeg.ShowDialog();
 
                 if (faeg.DialogResult == DialogResult.OK)
                 {
-                    newGoalRow["name"] = faeg.txb_GoalName.Text;
-                    newGoalRow["AllSum"] = faeg.txb_GoalSum.Text;
-                    newGoalRow["Comment"] = faeg.txb_GoalComment.Text;
-                    newGoalRow["History"] = Goal.History.ToString(CultureInfo.InvariantCulture);
+                    editGoalRow["name"] = faeg.txb_GoalName.Text;
+                    editGoalRow["AllSum"] = faeg.txb_GoalSum.Text;
+                    editGoalRow["Comment"] = faeg.txb_GoalComment.Text;
+                    editGoalRow["History"] = Goal.History.ToString(CultureInfo.InvariantCulture);
                 }
 
-                saveData();
+                SaveData();
             }
         }
 
@@ -1073,21 +1070,23 @@ namespace ArxBuh
 
         void tsb_AddGoal_Click_1(object sender, EventArgs e)
         {
-            using (var faeg = new Form_AddEditGoal("", "", "", "-1", dataSet1))
+            var newGoalRow = dataSet1.Tables["Goal"].NewRow();
+
+            newGoalRow["name"] = "";
+            newGoalRow["AllSum"] = "0";
+            newGoalRow["Comment"] = "";
+
+            dataSet1.Tables["Goal"].Rows.Add(newGoalRow);
+
+            using (var faeg = new Form_AddEditGoal("", "", "", newGoalRow["HistoryID"].ToString(), dataSet1))
             {
-                if (faeg.ShowDialog() == DialogResult.OK)
+                if (faeg.ShowDialog() != DialogResult.OK)
                 {
-                    var newGoalRow = dataSet1.Tables["Goal"].NewRow();
-
-                    newGoalRow["name"] = faeg.txb_GoalName.Text;
-                    newGoalRow["AllSum"] = (faeg.txb_GoalSum.Text == "") ? "0" : faeg.txb_GoalSum.Text;
-                    newGoalRow["Comment"] = faeg.txb_GoalComment.Text;
-
-                    dataSet1.Tables["Goal"].Rows.Add(newGoalRow);
+                    dataSet1.Tables["Goal"].Rows.Remove(newGoalRow);
                 }
-
-                saveData();
             }
+
+            SaveData();
         }
 
         void remove_elementGoal()
@@ -1101,7 +1100,7 @@ namespace ArxBuh
 
             if (result != DialogResult.Yes) return;
             goalBindingSource.RemoveCurrent();
-            saveData();
+            SaveData();
         }
 
         void GoalProgress()
@@ -1111,24 +1110,36 @@ namespace ArxBuh
 
             foreach (DataGridViewRow row in dataGridView4.Rows)
             {
-                if (row.Cells[2].Value.ToString() == ""
-                    || row.Cells[2].Value == null
+                if (row.Cells[2].Value == null
+                    || row.Cells[2].Value.ToString() == ""
                     || Convert.ToDecimal(row.Cells[1].Value) == 0)
                 {
-                    row.Cells[2].Value = 0;                    
+                    row.Cells[2].Value = 0;
                 }
 
-                var x = (int)(Convert.ToDouble(row.Cells[2].Value) / (Convert.ToDouble(row.Cells[1].Value) / 100));
-                var y = (int)(Convert.ToDouble(row.Cells[1].Value) - (Convert.ToDouble(row.Cells[2].Value)));
+                decimal completeProcent = 0;
+                decimal remaining = 0;
 
-                row.Cells[5].Value = x;
-                row.Cells[6].Value = y.ToString("C2");
+                var sum = Convert.ToDecimal(row.Cells[1].Value);
+                var complete = Convert.ToDecimal(row.Cells[2].Value);
+
+                if (sum != 0)
+                {
+                    completeProcent = complete / (sum / 100);
+                }
+                
+                remaining = sum - complete;
+
+                //Требуется Int для корректного отображения progress Column в датагриде
+                row.Cells[5].Value = Convert.ToInt32(completeProcent);
+
+                row.Cells[6].Value = remaining.ToString("C2");
 
                 if ((toolStripButton13.Text == "Показывать выполненные" && (int)(row.Cells[5].Value) < 100) ||
-                     toolStripButton13.Text != "Показывать выполненные" )
+                     toolStripButton13.Text != "Показывать выполненные")
                 {
-                    SumGoal += Convert.ToDecimal(row.Cells[1].Value);
-                    SumGoalRemaining += Convert.ToDecimal(y);
+                    SumGoal += sum;
+                    SumGoalRemaining += Convert.ToDecimal(remaining);
                 }
             }
 
@@ -1142,7 +1153,7 @@ namespace ArxBuh
                 {
                     if ((int)(row.Cells[5].Value) >= 100)
                     {
-                        if(dataGridView4.CurrentCell.RowIndex == row.Index)
+                        if (dataGridView4.CurrentCell.RowIndex == row.Index)
                         {
                             foreach (DataGridViewRow rowV in dataGridView4.Rows)
                             {
@@ -1156,11 +1167,15 @@ namespace ArxBuh
                         }
 
                         row.Visible = false;
-                    }                    
+                    }
                 }
             }
-            string procent = (1 - SumGoalRemaining / SumGoal).ToString("p1");
-            labelResultGoal.Text = string.Format($"Всего целей на {SumGoal.ToString("C2")}, осталось собрать {SumGoalRemaining.ToString("C2")} ({procent} собрано)");
+            if (SumGoal > 0)
+            {
+                string procent = (1 - SumGoalRemaining / SumGoal).ToString("p1");
+                labelResultGoal.Text = string.Format($"Всего целей на {SumGoal.ToString("C2")}, осталось собрать {SumGoalRemaining.ToString("C2")} ({procent} собрано)");
+
+            }
         }
 
         void dataGridView4_Paint(object sender, PaintEventArgs e)
@@ -1329,8 +1344,6 @@ namespace ArxBuh
 
         private void tsbImportCSV_Click(object sender, EventArgs e)
         {
-            var csvFile = "";
-
             using (var saveFileDialog1 = new SaveFileDialog())
             {
                 saveFileDialog1.Title = "CSV - SAVE File";
@@ -1338,27 +1351,26 @@ namespace ArxBuh
                 saveFileDialog1.Filter = "CSV File|*.CSV|" + "All files (*.*)|*.*";
                 saveFileDialog1.FilterIndex = 1;
 
-                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                if (saveFileDialog1.ShowDialog() != DialogResult.OK) return;
+
+                var csvFile = saveFileDialog1.FileName;
+
+                var sb = new StringBuilder();
+
+                var headers = dataGridView1.Columns.Cast<DataGridViewColumn>();
+                sb.AppendLine(string.Join(";", headers.Select(column => "\"" + column.HeaderText + "\"").ToArray()));
+
+                foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
-                    csvFile = saveFileDialog1.FileName;
+                    var cells = row.Cells.Cast<DataGridViewCell>();
+                    sb.AppendLine(string.Join(";", cells.Select(cell => "\"" + cell.Value.ToString().Replace('\r', ' ').Replace('\n', ' ').Replace(';', ',') + "\"").ToArray()));
+                }
 
-                    var sb = new StringBuilder();
+                using (TextWriter tw = new StreamWriter(csvFile, false, Encoding.Default))
+                {
+                    tw.WriteLine(sb);
 
-                    var headers = dataGridView1.Columns.Cast<DataGridViewColumn>();
-                    sb.AppendLine(string.Join(";", headers.Select(column => "\"" + column.HeaderText + "\"").ToArray()));
-
-                    foreach (DataGridViewRow row in dataGridView1.Rows)
-                    {
-                        var cells = row.Cells.Cast<DataGridViewCell>();
-                        sb.AppendLine(string.Join(";", cells.Select(cell => "\"" + cell.Value.ToString().Replace('\r', ' ').Replace('\n', ' ').Replace(';', ',') + "\"").ToArray()));
-                    }
-
-                    using (TextWriter tw = new StreamWriter(csvFile, false, Encoding.Default))
-                    {
-                        tw.WriteLine(sb);
-
-                        tw.Close();
-                    }
+                    tw.Close();
                 }
             }
         }
@@ -1482,7 +1494,7 @@ namespace ArxBuh
                     dataSet1 = arxDs.ds;
                 }
 
-                saveData();
+                SaveData();
             }
         }
 
@@ -1509,7 +1521,7 @@ namespace ArxBuh
                 {
                     dataSet1.Tables["CashInOut"].Rows.Add(Class_element.InOut, Class_element.Category, Class_element.Date,
                         Class_element.Sum, Class_element.Comment);
-                    saveData();
+                    SaveData();
 
                     return true;
                 }
@@ -1550,7 +1562,7 @@ namespace ArxBuh
                     editRow["Comment"] = Class_element.Comment;
                 }
 
-                saveData();
+                SaveData();
             }
         }
 
@@ -1701,7 +1713,7 @@ namespace ArxBuh
                 if (result != DialogResult.Yes) return;
                 cashInOutBindingSource.RemoveCurrent();
 
-                saveData();
+                SaveData();
             }
         }
 
@@ -1713,6 +1725,41 @@ namespace ArxBuh
                                                  || (dataGridView1.CurrentRow.Cells[0].Value.ToString() == "Расход");
             преобразоватьВПереводToolStripMenuItem.Available = convertToTransferButtonVisible;
             toolStripMenuItem6.Available = convertToTransferButtonVisible;
+        }
+
+
+        [DllImport("User32.dll")]
+        private static extern bool GetLastInputInfo(ref LASTINPUTINFO plii);
+
+        internal struct LASTINPUTINFO
+        {
+            public uint cbSize;
+
+            public uint dwTime;
+        }
+
+        public static uint GetIdleTime()
+        {
+            LASTINPUTINFO LastUserAction = new LASTINPUTINFO();
+            LastUserAction.cbSize = (uint)System.Runtime.InteropServices.Marshal.SizeOf(LastUserAction);
+            GetLastInputInfo(ref LastUserAction);
+            return ((uint)Environment.TickCount - LastUserAction.dwTime);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //if (GetIdleTime() > 5000)
+              //  Application.Exit();//For Example
+        }
+
+        private void автоматическоеЗакрытиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var formAutoClose = new Form_AutoCloseApp())
+            {
+                formAutoClose.ShowDialog();
+
+                ArxBuhSettingAction.WriteXml();
+            }
         }
     }
 }

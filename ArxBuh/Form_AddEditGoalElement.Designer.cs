@@ -120,6 +120,7 @@
             this.txb_GoalElementAllSum.Name = "txb_GoalElementAllSum";
             this.txb_GoalElementAllSum.Size = new System.Drawing.Size(169, 20);
             this.txb_GoalElementAllSum.TabIndex = 2;
+            this.txb_GoalElementAllSum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_GoalElementAllSum_KeyPress);
             // 
             // txb_GoalElementComment
             // 

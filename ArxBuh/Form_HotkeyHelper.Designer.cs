@@ -78,7 +78,7 @@
             this.btnOK.Location = new System.Drawing.Point(227, 359);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 0;
+            this.btnOK.TabIndex = 1;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
             // 
@@ -123,7 +123,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(523, 347);
-            this.tableLayoutPanel2.TabIndex = 1;
+            this.tableLayoutPanel2.TabIndex = 0;
             // 
             // label16
             // 
@@ -225,7 +225,7 @@
             this.label2.Location = new System.Drawing.Point(49, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 17);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 18;
             this.label2.Text = "Alt + 2";
             // 
             // label3

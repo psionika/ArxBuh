@@ -92,7 +92,7 @@
             this.panel2.Location = new System.Drawing.Point(126, 34);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(270, 29);
-            this.panel2.TabIndex = 14;
+            this.panel2.TabIndex = 2;
             // 
             // button2
             // 
@@ -102,7 +102,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "...";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBox2
             // 
@@ -120,7 +120,7 @@
             this.btnOk.Location = new System.Drawing.Point(128, 285);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(265, 23);
-            this.btnOk.TabIndex = 12;
+            this.btnOk.TabIndex = 6;
             this.btnOk.Text = "Сохранить";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
@@ -133,7 +133,7 @@
             this.textBoxComment.Name = "textBoxComment";
             this.textBoxComment.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxComment.Size = new System.Drawing.Size(270, 130);
-            this.textBoxComment.TabIndex = 11;
+            this.textBoxComment.TabIndex = 5;
             // 
             // label5
             // 
@@ -142,7 +142,7 @@
             this.label5.Location = new System.Drawing.Point(3, 199);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 13);
-            this.label5.TabIndex = 10;
+            this.label5.TabIndex = 0;
             this.label5.Text = "Комментарий:";
             // 
             // label4
@@ -152,7 +152,7 @@
             this.label4.Location = new System.Drawing.Point(3, 113);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 13);
-            this.label4.TabIndex = 8;
+            this.label4.TabIndex = 0;
             this.label4.Text = "Сумма:";
             // 
             // label3
@@ -162,7 +162,7 @@
             this.label3.Location = new System.Drawing.Point(3, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(36, 13);
-            this.label3.TabIndex = 7;
+            this.label3.TabIndex = 0;
             this.label3.Text = "Дата:";
             // 
             // label1
@@ -172,7 +172,7 @@
             this.label1.Location = new System.Drawing.Point(3, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 13);
-            this.label1.TabIndex = 4;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Со счета:";
             // 
             // label2
@@ -182,7 +182,7 @@
             this.label2.Location = new System.Drawing.Point(3, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 13);
-            this.label2.TabIndex = 5;
+            this.label2.TabIndex = 0;
             this.label2.Text = "На счёт:";
             // 
             // dateTimePicker1
@@ -191,7 +191,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(126, 73);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(173, 20);
-            this.dateTimePicker1.TabIndex = 6;
+            this.dateTimePicker1.TabIndex = 3;
             // 
             // textBoxSum
             // 
@@ -199,8 +199,9 @@
             this.textBoxSum.Location = new System.Drawing.Point(126, 109);
             this.textBoxSum.Name = "textBoxSum";
             this.textBoxSum.Size = new System.Drawing.Size(173, 20);
-            this.textBoxSum.TabIndex = 9;
+            this.textBoxSum.TabIndex = 4;
             this.textBoxSum.Text = "0";
+            this.textBoxSum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSum_KeyPress);
             // 
             // btnCancel
             // 
@@ -209,7 +210,7 @@
             this.btnCancel.Location = new System.Drawing.Point(18, 285);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 23);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Отмена";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -222,7 +223,7 @@
             this.panel1.Location = new System.Drawing.Point(126, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(270, 25);
-            this.panel1.TabIndex = 13;
+            this.panel1.TabIndex = 1;
             // 
             // button1
             // 
@@ -241,7 +242,7 @@
             this.comboBox1.Location = new System.Drawing.Point(2, 3);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(173, 21);
-            this.comboBox1.TabIndex = 0;
+            this.comboBox1.TabIndex = 1;
             // 
             // errorProvider1
             // 

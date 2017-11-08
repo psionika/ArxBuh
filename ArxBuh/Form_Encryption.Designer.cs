@@ -64,7 +64,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(311, 219);
-            this.tableLayoutPanel1.TabIndex = 7;
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // maskedTextBox2
             // 
@@ -73,7 +73,7 @@
             this.maskedTextBox2.Name = "maskedTextBox2";
             this.maskedTextBox2.PasswordChar = '*';
             this.maskedTextBox2.Size = new System.Drawing.Size(142, 20);
-            this.maskedTextBox2.TabIndex = 9;
+            this.maskedTextBox2.TabIndex = 2;
             // 
             // btnOK
             // 
@@ -82,7 +82,7 @@
             this.btnOK.Location = new System.Drawing.Point(40, 111);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 0;
+            this.btnOK.TabIndex = 3;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -94,7 +94,7 @@
             this.label1.Location = new System.Drawing.Point(3, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 13);
-            this.label1.TabIndex = 2;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Пароль";
             // 
             // label2
@@ -104,7 +104,7 @@
             this.label2.Location = new System.Drawing.Point(3, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(133, 13);
-            this.label2.TabIndex = 3;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Введите пароль ещё раз";
             // 
             // btnCancel
@@ -114,7 +114,7 @@
             this.btnCancel.Location = new System.Drawing.Point(195, 111);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Отмена";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -126,7 +126,7 @@
             this.checkBox1.Location = new System.Drawing.Point(78, 9);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(155, 17);
-            this.checkBox1.TabIndex = 6;
+            this.checkBox1.TabIndex = 0;
             this.checkBox1.Text = "Выполнять шифрование?";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
@@ -141,7 +141,7 @@
             this.label3.Location = new System.Drawing.Point(28, 153);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(255, 52);
-            this.label3.TabIndex = 7;
+            this.label3.TabIndex = 0;
             this.label3.Text = "ВНИМАНИЕ!!!\r\nЕсли вы забудете пароль, то не сможете получить\r\nдоступ к своим данн" +
     "ым!";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -153,7 +153,7 @@
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.PasswordChar = '*';
             this.maskedTextBox1.Size = new System.Drawing.Size(142, 20);
-            this.maskedTextBox1.TabIndex = 8;
+            this.maskedTextBox1.TabIndex = 1;
             // 
             // Form_Encryption
             // 

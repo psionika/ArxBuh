@@ -108,7 +108,7 @@
             this.labelLanguage.Name = "labelLanguage";
             this.labelLanguage.Padding = new System.Windows.Forms.Padding(0, 4, 0, 3);
             this.labelLanguage.Size = new System.Drawing.Size(25, 20);
-            this.labelLanguage.TabIndex = 5;
+            this.labelLanguage.TabIndex = 0;
             this.labelLanguage.Text = "RU";
             // 
             // timer1
