@@ -159,14 +159,11 @@ namespace ArxBuh
             }
         }
 
-        void LoadData()
+        private void LoadData()
         {
             dataGridView1.DataSource = cashInOutBindingSource;
             dataGridView4.DataSource = goalBindingSource;
-
-            dataGridView1.Sort(dataGridView1.Columns[2], ListSortDirection.Descending);
-            dataGridView2.Sort(dataGridView2.Columns[3], ListSortDirection.Ascending);
-
+            
             if (!File.Exists(datafile)) return;
 
             dataSet1.Clear();
@@ -182,6 +179,9 @@ namespace ArxBuh
                     PasswordRequest();
                 } while (LoadCryptDataSet(datafile, ArxBuhSettings.EncryptPassword, dataSet1));               
             }
+
+            dataGridView1.Sort(dataGridView1.Columns[2], ListSortDirection.Descending);
+            dataGridView2.Sort(dataGridView2.Columns[3], ListSortDirection.Ascending);
         }
 
         #endregion
@@ -644,10 +644,9 @@ namespace ArxBuh
             sb.Remove(sb.Length - 3, 2);
             sb.Append(")");
 
-            sb.Append(string.Format(CultureInfo.InvariantCulture,
-                " AND DateTime >= #{0:MM/dd/yyyy}# AND DateTime <= #{1:MM/dd/yyyy}# ",
-                DateBeginEnd.DateBegin,
-                DateBeginEnd.DateEnd));
+            sb.Append(string.Format(CultureInfo.InvariantCulture, 
+                                    " AND DateTime >= #{0:MM/dd/yyyy}# AND DateTime <= #{1:MM/dd/yyyy}# ",
+                                    DateBeginEnd.DateBegin, DateBeginEnd.DateEnd));
 
             cashInOutBindingSource.Filter = sb.ToString();
         }
